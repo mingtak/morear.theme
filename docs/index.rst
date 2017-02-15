@@ -1,0 +1,5 @@
+====================
+morear.theme
+====================
+
+User documentation
