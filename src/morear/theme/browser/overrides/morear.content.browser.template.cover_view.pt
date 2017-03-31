@@ -24,9 +24,14 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <!-- content -->
 
 <metal:macro use-macro="context/@@morear_macro/macros/cover_header"/>
+
 cover view override
 
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+<metal:macro use-macro="context/@@morear_macro/macros/music-online"/>
+<metal:macro use-macro="context/@@morear_macro/macros/cover-light-box"/>
+
 </div>
 </div>
 
