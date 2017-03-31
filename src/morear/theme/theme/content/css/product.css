@@ -1,0 +1,236 @@
+#ad-f{
+	position:relative;
+	width:100%;
+	float:left;
+	z-index:1;
+	margin-top:100px;
+}
+#ad-f img{
+	width:100%;
+}
+#tai-product{
+	position:absolute;
+	width:100%;
+	z-index:10;
+	margin-top:98px;
+}
+
+#product-photo{
+	width:48%;
+	float:left;
+	border:1px #999 solid;
+}
+#product-photo img{
+	width:100%;
+}
+#product-list-01{
+	width:48%;
+	float:right;
+	color:#FFF;
+}
+#product-list-01 h3{
+	color:#f4a000;
+	line-height:120%;
+	margin:0 0 20px 0;
+	padding:0;
+}
+#product-list-01 p.btn{
+	margin:20px 0;
+}
+#p-list-02{
+	width:100%;
+	clear:both;
+	float:left;
+	margin-top:30px;
+}
+#p-list-02 img{
+	width:100%;
+}
+#p-list-02 ul{
+	margin:0;
+	padding:0;
+}
+#p-list-02 li{
+	list-style-type:none;
+	display:block;
+	width:22%;
+	float:left;
+	margin:0 2% 0 0;
+	border:1px #999 solid;
+}
+#p-list-03{
+	width:100%;
+	clear:both;
+	float:left;
+	margin-top:30px;
+	color:#FFF;
+}
+#share{
+	width:100%;
+	clear:both;
+	float:right;
+	border-top:2px #f4a000 solid;
+	margin-top:20px;
+}
+#share a {
+	color:#FFF;
+}
+#share a:hover {
+	color:#000;
+}
+#share-s{
+	width: 250px;
+	padding:5px 0;
+	text-align:center;
+	color:#FFF;
+	border-radius:0 0 10px 10px;
+	background:#f4a000;
+	font-size:12px;
+	float:right;
+}
+/*------lightbox-----*/
+section {
+	width:100%;
+	float:left;
+	margin-right:20px;
+}
+.lightbox-target {
+	position:absolute;
+	top:0;
+	left:0;
+	background: rgba(0,0,0,.7);
+	width: 100%;
+	/* 預設透明度為 0，觸發 :target 後，利用動畫效果調整透明度 */
+	opacity: 0;
+	position: fixed;
+	overflow: hidden;
+	transition: 0.5s ease-in-out;
+}
+	/* 當 :target 觸發後，index-target 的透明度為 1 */
+.lightbox-target:target {
+	top: 0;
+	bottom: 0;
+	opacity: 1;
+}
+.lightbox-close {
+	width: 50px;
+	height: 50px;
+	background: #139dd7;
+	color: #fff;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+}
+	/* 利用偽元素做出 \ 以及 / 的線條 */
+.lightbox-close:after {
+	width: 30px;
+	height: 1px;
+	content: "";
+	display: block;
+	background: #fff;
+	position: absolute;
+	top: 23px;
+	left: 10px;
+	transform: rotate(45deg);
+}
+.lightbox-close:before {
+	width: 30px;
+	height: 1px;
+	content: "";
+	display: block;
+	background: #fff;
+	position: absolute;
+	top: 23px;
+	left: 10px;
+	transform: rotate(-45deg);
+}
+.content {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 90%;
+	height: 90%;
+	margin: auto;
+	/* 預設寬高為 0，觸發 :target 後，利用動畫效果展開寬與高 */		
+	max-width: 100%;
+	max-height: 100%;
+}
+#pro-s-pic{
+	width:70%;
+	float:left;
+	margin-left:15%;
+	margin-top:20px;
+	overflow:auto;
+}
+#pro-s-pic img{
+	width:100%;
+}
+#pro-s-pic iframe{
+	width:100%;
+	height:550px;
+}
+
+
+
+
+/*平板-1*/
+@media only screen and (max-width:1100px) {
+#product-photo{
+	width:70%;
+	float:left;
+	margin-left:15%;
+	margin-top:0;
+	margin-bottom:15px;
+	border:1px #999 solid;
+}
+#product-list-01{
+	width:100%;
+	clear:both;
+	float:left;
+	color:#FFF;
+	text-align:center;
+}
+#pro-s-pic iframe{
+	width:100%;
+	height:450px;
+}
+		}
+
+
+
+
+/*平板-3*/
+@media only screen and (max-width:785px) {
+#product-photo{
+	width:90%;
+	float:left;
+	margin-left:5%;
+	margin-top:0;
+	margin-bottom:15px;
+	border:1px #999 solid;
+}
+#pro-s-pic iframe{
+	width:100%;
+	height:400px;
+}
+		}
+
+
+
+
+
+/*平板-4*/
+@media only screen and (max-width:570px) {
+#tai-product{
+	position:absolute;
+	width:100%;
+	z-index:10;
+	margin-top:98px;
+}
+#pro-s-pic iframe{
+	width:100%;
+	height:350px;
+}
+		}

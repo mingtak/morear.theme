@@ -1,0 +1,85 @@
+#noticebox{
+	width:100%;
+	float:left;
+	border:1px #CCCCCC dotted;
+	padding:20px 0;
+	color:#FFF;
+	text-align:center;
+	margin-bottom:30px;
+}
+#noticebox ul{
+	margin:0;
+	padding:0;
+}
+#noticebox li{
+	list-style-type:none;
+	width:100%;
+	float:left;
+	padding:8px 0;
+}
+#map{
+	width:55%;
+	height:450px;
+	float:left;
+}
+#store-info-img{
+	width:21%;
+	float:left;
+	margin-left:1.5%;
+}
+#store-info-img img{
+	width:100%;
+}
+#store-info{
+	width:21%;
+	float:left;
+	color:#FFF;
+	margin-left:1.5%;
+}
+#store-info h4{
+	line-height:150%;
+	margin:0 0 20px 0;
+	padding:0;
+	color:#f4a000;
+	border-bottom:1px #f4a000 solid;
+}
+
+
+
+
+/*平板-3*/
+@media only screen and (max-width:785px) {
+#map{
+	width:80%;
+	height:450px;
+	float:left;
+	margin-left:10%;
+	margin-bottom:20px;
+}
+#store-info-img{
+	width:50%;
+	clear:both;
+	float:left;
+	margin-left:10%;
+}
+#store-info{
+	width:80%;
+	clear:both;
+	float:left;
+	color:#FFF;
+	margin-top:15px;
+	margin-left:10%;
+}
+		}
+
+
+/*平板-4*/
+@media only screen and (max-width:570px) {
+#map{
+	width:80%;
+	height:300px;
+	float:left;
+	margin-left:10%;
+	margin-bottom:20px;
+}
+		}

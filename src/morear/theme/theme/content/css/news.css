@@ -1,0 +1,187 @@
+#n-list {
+	width:100%;
+	clear:both;
+	float:left;
+}
+#n-list ul {
+	margin:0;
+	padding:0;
+}
+#n-list li {
+	list-style-type:none;
+	margin:10px 0;
+	padding:15px 0;
+	border-bottom:1px #999 dotted;
+	float:left;
+	width:100%;
+	line-height:160%;
+}
+#n-list-img{
+	width:20%;
+	float:left;
+}
+#n-list-img img{
+	width:100%;
+}
+#n-list-word{
+	width:78%;
+	float:left;
+	margin-left:2%;
+}
+#n-list-word p.tai {
+	width:100%;
+	clear:both;
+	float:left;
+	color:#f4a000;
+	font-size:20px;
+	line-height:140%;
+	margin:0 0 15px 0;
+}
+#n-list-word p span {
+	width:100%;
+	color:#999;
+	float:left;
+	font-size:14px;
+	margin:0 0 8px 0;
+}
+.n-list-word-c {
+	display:block;
+	padding:0;
+	margin:0;
+	clear:both;
+	float:left;
+	color:#FFF;
+	width:100%;
+	height:90px;
+	overflow:hidden;
+}
+.n-list-word-c a:visited {
+	color:#FFF;
+}
+.n-list-word-c a:link {
+	color:#FFF;
+}
+.n-list-word-c a:hover {
+	color:#f4a000;
+}
+#page{
+	width:100%;
+	clear:both;
+	float:left;
+	margin:30px 0 0 0;
+	color:#FFF;
+}
+
+#n-photo{
+	width:48%;
+	float:left;
+}
+#n-photo img{
+	width:100%;
+	margin-bottom:20px;
+}
+#n-word{
+	width:48%;
+	float:right;
+	color:#FFF;
+}
+#n-word h2{
+	color:#f4a000;
+	line-height:140%;
+	padding:0;
+	margin:0;
+}
+#n-word p.time{
+	color:#999;
+	line-height:140%;
+	padding:0;
+	margin:20px 0;
+}
+#share{
+	clear:both;
+	float:right;
+	width:180px;
+	padding:5px 0;
+	margin-top:30px;
+	text-align:center;
+	color:#FFF;
+	border-radius:10px;
+	background:#f4a000;
+	font-size:12px;
+}
+#share a {
+	color:#FFF;
+}
+#share a:hover {
+	color:#000;
+}
+#pre-next{
+	clear:both;
+	float:left;
+	width:180px;
+	padding:5px 0;
+	margin:10px 0;
+	text-align:center;
+	color:#FFF;
+	font-size:12px;
+}
+
+
+
+/*平板-2*/
+@media only screen and (max-width:970px) {
+#n-list-img{
+	width:30%;
+	float:left;
+}
+#n-list-word{
+	width:68%;
+	float:left;
+	margin-left:2%;
+}
+		}
+
+
+
+/*平板-3*/
+@media only screen and (max-width:785px) {
+#n-list-img{
+	width:40%;
+	float:left;
+}
+#n-list-word{
+	width:58%;
+	float:left;
+	margin-left:2%;
+}
+#n-photo{
+	width:90%;
+	float:left;
+	margin-left:5%;
+}
+#n-word{
+	width:100%;
+	clear:both;
+	float:right;
+	color:#FFF;
+}
+		}
+
+
+
+
+/*平板-4*/
+@media only screen and (max-width:570px) {
+#n-list-img{
+	width:70%;
+	float:left;
+	margin-left:15%;
+	margin-bottom:15px;
+}
+#n-list-word{
+	width:100%;
+	clear:both;
+	float:left;
+	margin-left:0;
+}
+		}

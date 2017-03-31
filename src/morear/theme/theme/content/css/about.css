@@ -1,0 +1,18 @@
+#abut-pic{
+	width:100%;
+	float:left;
+}
+#abut-pic img{
+	width:100%;
+}
+#about-words{
+	width:100%;
+	clear:both;
+	float:left;
+	margin-top:20px;
+	color:#FFF;
+	line-height:140%;
+}
+#about-words h2{
+	color:#f4a000;
+}

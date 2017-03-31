@@ -1,0 +1,113 @@
+#e-photo{
+	width:48%;
+	float:left;
+}
+#e-photo img{
+	width:100%;
+	margin-bottom:20px;
+}
+#e-word{
+	width:48%;
+	float:right;
+	color:#FFF;
+}
+#e-word h2{
+	color:#f4a000;
+	line-height:140%;
+	padding:0;
+	margin:0;
+}
+#e-word p.time{
+	color:#999;
+	line-height:140%;
+	padding:0;
+	margin:20px 0;
+}
+#share{
+	clear:both;
+	float:right;
+	width:180px;
+	padding:5px 0;
+	margin-top:30px;
+	text-align:center;
+	color:#FFF;
+	border-radius:10px;
+	background:#f4a000;
+	font-size:12px;
+}
+#share a {
+	color:#FFF;
+}
+#share a:hover {
+	color:#000;
+}
+#yellowline{
+	width:100%;
+	clear:both;
+	float:left;
+	border-bottom:2px #f4a000 solid;
+	padding-bottom:8px;
+	text-align:center;
+	color:#f4a000;
+	font-size:20px;
+	margin-top:50px;
+}
+#yellowline-3{
+	width:100%;
+	clear:both;
+	float:left;
+	text-align:center;
+}
+#e-list {
+	width:100%;
+	clear:both;
+	float:left;
+}
+#e-list ul {
+	margin:0;
+	padding:0;
+}
+#e-list li {
+	list-style-type:none;
+	padding-top:8px;
+	padding-bottom:8px;
+	padding-left:15px;
+	margin-top:10px;
+	border-bottom:1px #999 dotted;
+	color:#FFF;
+	float:left;
+	width:98%;
+	font-size:20px;
+	background:url(../event/images/icon-001.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	line-height:160%;
+}
+#e-list li span {
+	color:#999;
+	font-size:14px;
+	margin:0 8px;
+}
+#e-list li a {
+	color:#FFF;
+}
+#e-list li a:hover {
+	color:#f4a000;
+}
+
+
+
+/*平板-3*/
+@media only screen and (max-width:785px) {
+#e-photo{
+	width:90%;
+	float:left;
+	margin-left:5%;
+}
+#e-word{
+	width:100%;
+	clear:both;
+	float:right;
+	color:#FFF;
+}
+		}

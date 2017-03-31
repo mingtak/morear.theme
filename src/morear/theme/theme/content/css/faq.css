@@ -1,0 +1,59 @@
+#qa01 {
+	clear:both;
+	float:left;
+	width:100%;
+}
+#qaContent {
+	width:100%;
+	float:left;
+	color:#FFF;
+}
+#qaContent ul {
+	padding:0;
+	margin:0;
+}
+#qaContent ul.accordionPart {
+	width:100%;
+	float:left;
+}
+#qaContent ul.accordionPart li {
+	width:100%;
+	margin:0;
+	list-style:none;
+}
+#qaContent ul.accordionPart li .qa_title {
+	list-style-type:none;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:15px;
+	margin-top:10px;
+	border-bottom:1px #999 dotted;
+	color:#f4a000;
+	float:left;
+	width:95%;
+	font-size:24px;
+	background:url(../faq/images/icon-001.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	line-height:160%;
+}
+#qaContent ul.accordionPart li .qa_title:hover {
+	color:#FFF;
+}
+#qaContent ul.accordionPart li .qa_title_on {
+}
+#qaContent ul.accordionPart li .qa_content {
+	float:left;
+	width:95%;
+	line-height:2em;
+	margin-left:15px;
+}
+
+
+
+/*平板-4*/
+@media only screen and (max-width:570px) {
+#qaContent ul.accordionPart li .qa_title {
+	font-size:18px;
+}
+		}

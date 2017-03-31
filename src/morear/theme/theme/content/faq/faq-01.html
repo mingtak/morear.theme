@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/tmp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>morear 3D列印</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="css-link" -->
+<link href="../css/faq.css" rel="stylesheet" type="text/css" />
+<link href="../css/web.css" rel="stylesheet" type="text/css" />
+<link href="../css/in-menu.css" rel="stylesheet" type="text/css" />
+
+<!--滑出式問與答(Q&A)清單-->
+<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 幫 div.qa_title 加上 hover 及 click 事件
+		// 同時把兄弟元素 div.qa_content 隱藏起來
+		$('#qaContent ul.accordionPart li div.qa_title').hover(function(){
+			$(this).addClass('qa_title_on');
+		}, function(){
+			$(this).removeClass('qa_title_on');
+		}).click(function(){
+			// 當點到標題時，若答案是隱藏時則顯示它，同時隱藏其它已經展開的項目
+			// 反之則隱藏
+			var $qa_content = $(this).next('div.qa_content');
+			if(!$qa_content.is(':visible')){
+				$('#qaContent ul li div.qa_content:visible').slideUp();
+			}
+			$qa_content.slideToggle();
+		}).siblings().addClass('qa_content').hide();
+		// 全部展開
+		$('#qaContent .qa_showall').click(function(){
+			$('#qaContent ul.accordionPart li div.qa_content').slideDown();
+			return false;
+		});
+
+		// 全部隱藏
+		$('#qaContent .qa_hideall').click(function(){
+			$('#qaContent ul.accordionPart li div.qa_content').slideUp();
+			return false;
+		});
+
+		// 關閉
+		$('#qaContent .close_qa').click(function(){
+			$(this).parents('.qa_content').prev().click();
+			return false;
+		});
+	});
+</script>
+
+<!-- InstanceEndEditable -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--控制手機版選單-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../js/mmenu.js"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+</script>
+</head>
+
+<body>
+<div id="all" align="center">
+<div id="in-bg">
+<div id="wrapper">
+<!--phone menu-->
+<div id="m_top_menu" style="margin-top:20px;">手機板選單</div>
+<div id="top_menu">
+<ul class="a02">
+<li><a href="#">繁體中文</a></li>
+<li><a href="#">简体中文</a></li>
+</ul>
+<ul class="a01">
+<li><a href="../location/location-01.html">服務據點</a></li>
+<li><a href="../shoppingcart/cart01.html">購物車</a></li>
+<li>
+<label for="textfield"></label>
+<input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" />
+<a href="../search/search-01.html"><img src="../images/btn-03-s.png" align="center" /></a>
+</li>
+</ul>
+<ul class="a02">
+<li><a href="../3d-fit/fit-01.html">3D FIT科技</a></li>
+<li><a href="../product/product-01a.html">Morear產品</a>
+<ul>
+<li><a href="../product/product-01a.html">音樂耳機</a>
+<ol>
+<li><a href="../product/product-01a.html">經典款</a></li>
+<li><a href="../product/product-01b.html">專業款</a></li>
+<li><a href="../product/product-01c.html">頂級款</a></li>
+</ol>
+</li>
+<li><a href="../product/product-02a.html">聽力保護系列</a>
+<ol>
+<li><a href="../product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="../product/product-02b.html">防噪耳塞</a></li>
+<li><a href="../product/product-02c.html">游泳耳塞</a></li>
+</ol>
+</li>
+<li><a href="../product/product-03a.html">通訊升級系列</a>
+<ol>
+<li><a href="../product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="../product/product-03b.html">訂製藍芽耳塞</a></li>
+</ol>
+</li>
+<li><a href="../product/product-04a.html">配件</a>
+<ol>
+<li><a href="../product/product-04a.html">線材</a></li>
+<li><a href="../product/product-04b.html">包裝</a></li>
+<li><a href="../product/product-04c.html">除溼</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><a href="../buymore/buymore-01.html">購買Morear</a>
+<ul>
+<li><a href="../buymore/buymore-01.html">設計音樂耳機</a></li>
+<li><a href="../buymore/buymore-02.html">設計客製耳塞</a></li>
+</ul>
+</li>
+<li><a href="../service/service-01.html">支援服務</a>
+<ul>
+<li><a href="#">耳型與專業聽力師</a></li>
+<li><a href="../service/service-01.html">產品服務及保固</a></li>
+</ul>
+</li>
+<li><a href="faq-01.html">常見問題</a></li>
+<!--<li><a href="../content/member/member-01.html">會員登入</a></li>-->
+<li><a href="../member/member-b01.html">會員中心</a>
+<ul>
+<li><a href="../member/member-a01.html">交易紀錄</a>
+<ol>
+<li><a href="../member/member-a01.html">訂單查詢</a></li>
+</ol>
+</li>
+<li><a href="../member/member-b01.html">會員資料</a>
+<ol>
+<li><a href="../member/member-b01.html">修改會員資料</a></li>
+<li><a href="../member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="../member/member-b03.html">收貨通訊錄管理</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!--phone menu end-->
+<!-- banner -->
+<div id="in-banner">
+<div id="in-logo"><a href="../../index.html"><img src="../images/logo.gif" /></a></div>
+<!-- right -->
+<div id="menu-in">
+<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a></div>
+<!-- menu -->
+<div id="menu-down">
+<ul>
+<li><a href="../3d-fit/fit-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
+<li><a href="../product/product-01a.html" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</a></li>
+<li><a href="../buymore/buymore-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
+<li><a href="../service/service-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
+<li><a href="faq-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">常見問題</a></li>
+<!--<li><a href="../content/member/member-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')")">會員登入</a></li>-->
+<li><a href="../member/member-b01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','show','hide-top5','','hide','hide-all','','show')">會員中心</a></li>
+</ul>
+</div>
+<!-- hide01 -->
+<div id="hide-top1">
+<div id="hide-01">
+<p class="word-big-white">音樂耳機</p>
+<ul>
+<li><a href="../product/product-01a.html">經典款</a></li>
+<li><a href="../product/product-01b.html">專業款</a></li>
+<li><a href="../product/product-01c.html">頂級款</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">聽力保護系列</p>
+<ul>
+<li><a href="../product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="../product/product-02b.html">防噪耳塞</a></li>
+<li><a href="../product/product-02c.html">游泳耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">通訊升級系列</p>
+<ul>
+<li><a href="../product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="../product/product-03b.html">訂製藍芽耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">配件</p>
+<ul>
+<li><a href="../product/product-04a.html">線材</a></li>
+<li><a href="../product/product-04b.html">包裝</a></li>
+<li><a href="../product/product-04c.html">除溼</a></li>
+</ul>
+</div>
+</div>
+<!-- hide01 end -->
+<!-- hide02 -->
+<div id="hide-top2">
+<div id="hide-01">
+<p class="word-big-white"><a href="../buymore/buymore-01.html">設計音樂耳機</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="../buymore/buymore-02.html">設計客製耳塞</a></p>
+</div>
+</div>
+<!-- hide02 end -->
+<!-- hide03 -->
+<div id="hide-top3">
+<div id="hide-01">
+<p class="word-big-white"><a href="#">耳型與專業聽力師</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="../service/service-01.html">產品服務及保固</a></p>
+</div>
+</div>
+<!-- hide03 end -->
+<!-- hide04 -->
+<div id="hide-top4">
+<div id="hide-01">
+<p class="word-big-white">交易紀錄</p>
+<ul>
+<li><a href="../member/member-a01.html">訂單查詢</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">會員資料</p>
+<ul>
+<li><a href="../member/member-b01.html">修改會員資料</a></li>
+<li><a href="../member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="../member/member-b03.html">收貨通訊錄管理</a></li>
+</ul>
+</div>
+</div>
+<!-- hide04 end -->
+<!-- hide05 -->
+<div id="hide-top5">
+<div id="hide-01">
+請輸入關鍵字
+  <label for="textfield"></label>
+  <input type="text" name="textfield" id="textfield" />
+  <a href="../search/search-01.html"><img src="../images/btn-03-s.png" align="center" /></a></div>
+</div>
+<!-- hide05 end -->
+<!-- menu end -->
+<!-- icon -->
+<div id="top-icon">
+<ul>
+<li><a href="../location/location-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','../images/btn-01b.png',1)" title="服務據點"><img src="../images/btn-01.png" id="Image3" /></a></li>
+<li><a href="../shoppingcart/cart01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','../images/btn-02b.png',1)" title="購物車"><img src="../images/btn-02.png" id="Image4" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','../images/btn-03b.png',1)" title="全文檢索"><img src="../images/btn-03.png" id="Image5" onclick="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','show','hide-all','','show')" /></a></li>
+</ul>
+</div>
+<!-- icon end -->
+</div>
+<!-- right end -->
+</div>
+<!-- banner end -->
+<!-- tai+root -->
+<div id="tai-box">
+<div id="tai">
+<!-- InstanceBeginEditable name="tai" -->
+常見問題
+<!-- InstanceEndEditable -->
+<img src="../images/tai-icon.png" align="center" hspace="8" />
+</div>
+<div id="root"><a href="../../index.html">Home</a> > <!-- InstanceBeginEditable name="root" -->常見問題<!-- InstanceEndEditable --></div>
+</div>
+<!-- tai+root end -->
+<!-- content -->
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<label for="select"></label>
+<select name="select" id="select">
+  <option selected>客製化訂製</option>
+  <option>配送運貨說明</option>
+</select>
+<div id="qaContent">
+  <ul class="accordionPart">
+  <li>
+  <div class="qa_title">客製化流程說明</div>
+  <div class="qa_content">
+  <p>morear 3D列印提供您安全的購物流程，成為會員即可進行訂購。</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>第一次購物：</strong></p>
+  <P>選擇產品→點選【購買morear】進行設計→結帳時請點選右邊【第一次購物】→選擇結帳方式→填寫正確會員資料→完成購物</P>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>非第一次購物：</strong></p>
+  <p>選擇商品→點選【購買morear】進行設計→輸入會員帳號密碼→選擇結帳方式→完成購物</p>
+  <p>&nbsp;</p>
+  <p class="word-gray-2">※提醒您，商品加入購物車但未結帳前，並無保留商品之功能，訂單的成立將以結帳為依據。</p>
+
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">目前提供哪些付款方式？</div>
+  <div class="qa_content">
+  <p>目前客製化服務僅提供除【貨到付款】外之付款方式：</p>
+  <p>1.信用卡付款</p>
+  <p>2.ATM轉帳</p>
+  <p>3.虛擬帳戶金流</p>
+  <p>&nbsp;</p>
+  <p class="word-gray-2">※注意事項：</p>
+  <p class="word-gray-2">1.為保障您的交易安全，我們不會記錄您的信用卡背面末3碼或正面4碼(美國運通卡)，請您放心。</p>
+  <p class="word-gray-2">2.進行信用卡付款時，勾選願意記錄此信用卡資訊，於您完成當次結帳後即可完成快速結帳設定。下次消費結帳時，只需輸入「背面末3碼或正面4碼(美國運通卡)」，即可完成結帳。</p>
+  <p class="word-gray-2">3.信用卡背面末3碼或正面4碼(美國運通卡)輸入錯誤累積3次、信用卡過期或其他原因導致刷卡失敗，系統將會移除此張信用卡</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">是否接收刷卡分期？</div>
+  <div class="qa_content">
+  <p>依照商品價格高低不同，商品結帳頁面會顯示６期的分期期數供您選擇。</p>
+  <p>&nbsp;</p>
+  <span class="word-gray-2">※提醒您，部分優惠商品或限量促銷方案，無提供信用卡分期服務。</span>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">如何查詢目前訂單的處理情況？</div>
+  <div class="qa_content">
+  <p>您可以點擊網站最上方的【登入/註冊】，輸入您的帳號及密碼登入後，即可至會員中心查詢您的訂單狀態。</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">已經繳款了為何訂單還顯示未收款？</div>
+  <div class="qa_content">
+  <p>原因a- 大多數是因為轉帳金額與訂單金額不同，此時轉帳銀行會將款項退回原帳戶，請買家查帳戶即可確認。</p>
+  <p>&nbsp;</p>
+  <p>原因b- 銀行繳費資料傳至系統時，因網路因素造成漏傳或漏接。</p>
+  <p>&nbsp;</p>
+  <p>原因c- 銀行尚未將繳費資料傳至系統。您可於付款完成後1-24小時至網頁上方的【購買明細】的【訂單明細】中查詢所訂購商品的狀況。若已付款成功在訂單狀態會顯示【已付款】。
+    若超過24小時仍未顯示【已付款】，請與morear 3D列印聯絡。</p>
+  <p>&nbsp;</p>
+  <p>客服信箱 me@morear.tw</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">為何訂單顯示未處理？</div>
+  <div class="qa_content">
+  <p>若訂單狀態顯示為「未處理」，這就表示morear 3D列印已收到您的訂單，但尚未處理您的客製訂單，訂單在過期、完成或被取消之前，會一直處於【待處理】狀態。</p>
+  <p>&nbsp;</p>
+  <p>您的訂單將在收到付款後方為正式成立，製作期從收到您的耳型後開始計算。</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">訂單成立後，需要多久時間才會出貨？</div>
+  <div class="qa_content">
+  <p>訂單成立後，請寄出您的耳型，我們在收到您的耳型後約7-10個工作天，即可完成您的客製化產品。</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">訂單成立後，是否可以取消、加訂、修改商品數量和規格？</div>
+  <div class="qa_content">
+  <p>您的客製產品是由您所設計的樣式與規格製作，因此訂單無法取消、變更、退款、換貨。一般情況下，在收到您的訂單付款，並收到您的耳型後立刻開始製作您的客製產品。如果您還沒有寄送耳型給我們，而需要取消訂單，請盡快與我們聯繫，以便停止流程，將部分費用退還。</p>
+  <p>&nbsp;</p>
+  <p>為了確保雙方權益，提醒您若有任何問題，請與morear聯絡。</p>
+  <p>&nbsp;</p>
+  <p>客服信箱 me@morear.tw</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">客製化商品是否可以退貨／換貨？</div>
+  <div class="qa_content">
+  <p>客製化商品一律不接受退貨，若因公司產品製作或錯件瑕疵問題，依據30日適應期保證，morear將在專業判斷下改裝或重製您的產品(以同一訂單規格之產品新品)，恕無退貨退款服務。亦不接受與想像不同、個人美觀判斷…等個人主觀因素原因退貨。</p>
+  <p>&nbsp;</p>
+  <p>確認訂單之前，請詳細確認您所選擇各項訂製選項，會員不得以此為退貨及退款的請求，訂購一經確認，恕不退款。本公司不接受任何取消訂單或退款要求，請客戶謹慎下單。</p>
+  <p>&nbsp;</p>
+  <p class="word-gray-2">※重製單請詳見(連結)??</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">客製產品有七天鑑賞期嗎？</div>
+  <div class="qa_content">
+  <p>經消費者所指定之設計細節，提供個別消費者的商品製作服務，本服務屬於客製商品非屬定型化商品或大量生產所取得之販售型商品，故本服務不適用網路購物七天鑑賞期間之退貨規範。</p>
+  </div>
+  </li>
+  <li>
+  <div class="qa_title">何謂「30日適應期保證」？</div>
+  <div class="qa_content">
+  <p>因訂製產品的製作有許多環節，有時調整局部無法達到完面性的改善，我們將在專業判斷下改裝或重製您的產品。如果您對您的客製產品有疑問，需填寫重製單並於30天內提交，產品享有30日適應期保障。morear 3D列印將負擔改裝或重製，以及從morear 3D列印將訂製產品寄還至指定地點之運送費用；不包含訂製產品寄送至morear 之費用。</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>國際顧客必須在提交退貨單後45天內收到產品。</strong></p>
+  <p class="word-yellow"><strong>30日適應期處理流程：</strong></p>
+  <p>&nbsp;</p>
+  <p>1.商品出貨後30日內（逾期不受理），請至會員中心送出重製單申請，並附上瑕疵照片與相關描述／方便連絡時段。</p>
+  <p>2.確認瑕疵將商品的瑕疵之照片寄至客服信箱。</p>
+  <p>3.客服人員確認為瑕疵後，會聯繫買家進行退換貨處理，請將商品/原包裝/配件備妥。</p>
+  </div>
+  </li>
+  </ul>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+<!-- content end -->
+<!-- back top -->
+<div id="back-top-bar">
+  <a href="javascript:history.back()" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','../images/btn-bank-b.png',1)"><img src="../images/btn-bank.png" id="Image12" hspace="8" /></a>
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','../images/btn-top-b.png',1)"><img src="../images/btn-top.png" width="51" height="20" id="Image13" /></a>
+</div>
+<!-- back top end -->
+</div>
+<!-- hide all -->
+<div id="hide-all"><img src="../images/block.gif" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')" /></div>
+<!-- hide all end -->
+</div>
+<!-- footer -->
+<div id="footer">
+<div id="footer-w">
+<div id="footer-w1">
+<p class="word-big-black">About morear</p>
+<ul>
+<li><a href="../about/about-01.html">品牌故事</a></li>
+<li><a href="../3d-lab/lab-02.html">3D製程</a></li>
+<li><a href="../location/location-01.html">服務據點</a></li>
+<li><a href="../topic/topic-list.html">新聞資訊</a></li>
+<li><a href="#">工作機會</a></li>
+<li><a href="../contact/contact01.html">聯絡我們</a></li>
+</ul>
+</div>
+<div id="footer-w1">
+<p class="word-big-black">more Links</p>
+<ul>
+<li><a href="#">合作夥伴</a></li>
+<li><a href="../member/member-a01.html">訂單查詢</a></li>
+<li><a href="../privacy/privacy-01.html">使用條款</a></li>
+<li><a href="../privacy/privacy-02.html">隱私政策</a></li>
+<li><a href="../sitemap/sitemap-01.html">網站地圖</a></li>
+</ul>
+</div>
+<div id="footer-w2">
+<ul>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','../images/footer-FBicon-b.png',1)"><img src="../images/footer-FBicon.png" id="Image26" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','../images/footer-Lineicon-b.png',1)"><img src="../images/footer-Lineicon.png" id="Image27" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','../images/footer-YouTubeicon-b.png',1)"><img src="../images/footer-YouTubeicon.png" id="Image28" /></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footer-d">© 2017 morear .Co. All Rights Reserved.</div>
+<!-- footer end -->
+</div>
+</body>
+<!-- InstanceEnd --></html>

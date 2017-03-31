@@ -1,0 +1,182 @@
+#buy-list-01{
+	width:48%;
+	float:right;
+	color:#FFF;
+}
+#buy-list-01 table {
+	font-family:Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+#buy-list-01 th {
+	border-bottom:1px #666 dotted;
+	color:#FFF;
+}
+#buy-list-01 td {
+	border-bottom:1px #666 dotted;
+	height:25px;
+}
+#buy-list-01 td img {
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	border:2px #666666 solid;
+	margin:0 4px;
+}
+#buy-list-02{
+	width:48%;
+	float:right;
+	color:#FFF;
+}
+#buy-list-02 table {
+	font-family:Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+#buy-list-02 th {
+	border-bottom:1px #666 dotted;
+	color:#FFF;
+}
+#buy-list-02 td {
+	border-bottom:1px #666 dotted;
+	height:25px;
+}
+#buy-list-02 td img {
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	border:2px #666666 solid;
+	margin:0 4px;
+}
+#buy-photo{
+	width:48%;
+	float:left;
+	margin-top:48px;
+	border:1px #f4a000 solid;
+}
+#buy-photo img{
+	width:100%;
+}
+#buy-s-box{
+	width:48%;
+	float:left;
+	margin-top:155px;
+	color:#FFF;
+}
+#share {
+	position: absolute;
+	width: 250px;
+	padding:5px 0;
+	text-align:center;
+	color:#FFF;
+	border-radius:0 0 10px 10px;
+	background:#f4a000;
+	font-size:12px;
+	z-index: 10;
+}
+#share a {
+	color:#FFF;
+}
+#share a:hover {
+	color:#000;
+}
+#btnbar{
+	width:100%;
+	clear:both;
+	float:left;
+	margin-top:30px;
+	text-align:center;
+}
+
+
+.buy-list-01m{
+	display:none;
+}
+#buy-s-box-m{
+	display:none;
+}
+#buy-s-box-2{
+	width:100%;
+	clear:both;
+	float:left;
+	margin:20px 0;
+	color:#FFF;
+}
+
+
+
+/*平板-1*/
+@media only screen and (max-width:1100px) {
+#buy-list-01{
+	display:none;
+}
+#buy-list-02{
+	width:100%;
+	clear:both;
+	float:left;
+}
+#buy-photo{
+	width:70%;
+	float:left;
+	margin-left:15%;
+	margin-top:0;
+	margin-bottom:15px;
+	border:1px #f4a000 solid;
+}
+#buy-s-box{
+	display:none;
+}
+#buy-s-box-m{
+	display:block;
+	width:100%;
+	clear:both;
+	float:left;
+	margin-top:20px;
+	color:#FFF;
+}
+.buy-list-01m{
+	display:block;
+	width:100%;
+	clear:both;
+	float:left;
+	color:#FFF;
+}
+.buy-list-01m table {
+	font-family:Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+.buy-list-01m th {
+	border-bottom:1px #666 dotted;
+	color:#FFF;
+}
+.buy-list-01m td {
+	border-bottom:1px #666 dotted;
+	height:25px;
+}
+.buy-list-01m td img {
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	border:2px #666666 solid;
+	margin:0 4px;
+}
+		}
+
+
+
+
+/*平板-3*/
+@media only screen and (max-width:785px) {
+#buy-photo{
+	width:90%;
+	float:left;
+	margin-left:5%;
+	margin-top:0;
+	margin-bottom:15px;
+	border:1px #f4a000 solid;
+}
+		}

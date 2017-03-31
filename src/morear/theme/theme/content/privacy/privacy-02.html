@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/tmp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>morear 3D列印</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="css-link" -->
+<link href="../css/privacy.css" rel="stylesheet" type="text/css" />
+<link href="../css/web.css" rel="stylesheet" type="text/css" />
+<link href="../css/in-menu.css" rel="stylesheet" type="text/css" />
+<!-- InstanceEndEditable -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--控制手機版選單-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../js/mmenu.js"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+</script>
+</head>
+
+<body>
+<div id="all" align="center">
+<div id="in-bg">
+<div id="wrapper">
+<!--phone menu-->
+<div id="m_top_menu" style="margin-top:20px;">手機板選單</div>
+<div id="top_menu">
+<ul class="a02">
+<li><a href="#">繁體中文</a></li>
+<li><a href="#">简体中文</a></li>
+</ul>
+<ul class="a01">
+<li><a href="../location/location-01.html">服務據點</a></li>
+<li><a href="../shoppingcart/cart01.html">購物車</a></li>
+<li>
+<label for="textfield"></label>
+<input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" />
+<a href="../search/search-01.html"><img src="../images/btn-03-s.png" align="center" /></a>
+</li>
+</ul>
+<ul class="a02">
+<li><a href="../3d-fit/fit-01.html">3D FIT科技</a></li>
+<li><a href="../product/product-01a.html">Morear產品</a>
+<ul>
+<li><a href="../product/product-01a.html">音樂耳機</a>
+<ol>
+<li><a href="../product/product-01a.html">經典款</a></li>
+<li><a href="../product/product-01b.html">專業款</a></li>
+<li><a href="../product/product-01c.html">頂級款</a></li>
+</ol>
+</li>
+<li><a href="../product/product-02a.html">聽力保護系列</a>
+<ol>
+<li><a href="../product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="../product/product-02b.html">防噪耳塞</a></li>
+<li><a href="../product/product-02c.html">游泳耳塞</a></li>
+</ol>
+</li>
+<li><a href="../product/product-03a.html">通訊升級系列</a>
+<ol>
+<li><a href="../product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="../product/product-03b.html">訂製藍芽耳塞</a></li>
+</ol>
+</li>
+<li><a href="../product/product-04a.html">配件</a>
+<ol>
+<li><a href="../product/product-04a.html">線材</a></li>
+<li><a href="../product/product-04b.html">包裝</a></li>
+<li><a href="../product/product-04c.html">除溼</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><a href="../buymore/buymore-01.html">購買Morear</a>
+<ul>
+<li><a href="../buymore/buymore-01.html">設計音樂耳機</a></li>
+<li><a href="../buymore/buymore-02.html">設計客製耳塞</a></li>
+</ul>
+</li>
+<li><a href="../service/service-01.html">支援服務</a>
+<ul>
+<li><a href="#">耳型與專業聽力師</a></li>
+<li><a href="../service/service-01.html">產品服務及保固</a></li>
+</ul>
+</li>
+<li><a href="../faq/faq-01.html">常見問題</a></li>
+<!--<li><a href="../content/member/member-01.html">會員登入</a></li>-->
+<li><a href="../member/member-b01.html">會員中心</a>
+<ul>
+<li><a href="../member/member-a01.html">交易紀錄</a>
+<ol>
+<li><a href="../member/member-a01.html">訂單查詢</a></li>
+</ol>
+</li>
+<li><a href="../member/member-b01.html">會員資料</a>
+<ol>
+<li><a href="../member/member-b01.html">修改會員資料</a></li>
+<li><a href="../member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="../member/member-b03.html">收貨通訊錄管理</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!--phone menu end-->
+<!-- banner -->
+<div id="in-banner">
+<div id="in-logo"><a href="../../index.html"><img src="../images/logo.gif" /></a></div>
+<!-- right -->
+<div id="menu-in">
+<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a></div>
+<!-- menu -->
+<div id="menu-down">
+<ul>
+<li><a href="../3d-fit/fit-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
+<li><a href="../product/product-01a.html" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</a></li>
+<li><a href="../buymore/buymore-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
+<li><a href="../service/service-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
+<li><a href="../faq/faq-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">常見問題</a></li>
+<!--<li><a href="../content/member/member-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')")">會員登入</a></li>-->
+<li><a href="../member/member-b01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','show','hide-top5','','hide','hide-all','','show')">會員中心</a></li>
+</ul>
+</div>
+<!-- hide01 -->
+<div id="hide-top1">
+<div id="hide-01">
+<p class="word-big-white">音樂耳機</p>
+<ul>
+<li><a href="../product/product-01a.html">經典款</a></li>
+<li><a href="../product/product-01b.html">專業款</a></li>
+<li><a href="../product/product-01c.html">頂級款</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">聽力保護系列</p>
+<ul>
+<li><a href="../product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="../product/product-02b.html">防噪耳塞</a></li>
+<li><a href="../product/product-02c.html">游泳耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">通訊升級系列</p>
+<ul>
+<li><a href="../product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="../product/product-03b.html">訂製藍芽耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">配件</p>
+<ul>
+<li><a href="../product/product-04a.html">線材</a></li>
+<li><a href="../product/product-04b.html">包裝</a></li>
+<li><a href="../product/product-04c.html">除溼</a></li>
+</ul>
+</div>
+</div>
+<!-- hide01 end -->
+<!-- hide02 -->
+<div id="hide-top2">
+<div id="hide-01">
+<p class="word-big-white"><a href="../buymore/buymore-01.html">設計音樂耳機</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="../buymore/buymore-02.html">設計客製耳塞</a></p>
+</div>
+</div>
+<!-- hide02 end -->
+<!-- hide03 -->
+<div id="hide-top3">
+<div id="hide-01">
+<p class="word-big-white"><a href="#">耳型與專業聽力師</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="../service/service-01.html">產品服務及保固</a></p>
+</div>
+</div>
+<!-- hide03 end -->
+<!-- hide04 -->
+<div id="hide-top4">
+<div id="hide-01">
+<p class="word-big-white">交易紀錄</p>
+<ul>
+<li><a href="../member/member-a01.html">訂單查詢</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">會員資料</p>
+<ul>
+<li><a href="../member/member-b01.html">修改會員資料</a></li>
+<li><a href="../member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="../member/member-b03.html">收貨通訊錄管理</a></li>
+</ul>
+</div>
+</div>
+<!-- hide04 end -->
+<!-- hide05 -->
+<div id="hide-top5">
+<div id="hide-01">
+請輸入關鍵字
+  <label for="textfield"></label>
+  <input type="text" name="textfield" id="textfield" />
+  <a href="../search/search-01.html"><img src="../images/btn-03-s.png" align="center" /></a></div>
+</div>
+<!-- hide05 end -->
+<!-- menu end -->
+<!-- icon -->
+<div id="top-icon">
+<ul>
+<li><a href="../location/location-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','../images/btn-01b.png',1)" title="服務據點"><img src="../images/btn-01.png" id="Image3" /></a></li>
+<li><a href="../shoppingcart/cart01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','../images/btn-02b.png',1)" title="購物車"><img src="../images/btn-02.png" id="Image4" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','../images/btn-03b.png',1)" title="全文檢索"><img src="../images/btn-03.png" id="Image5" onclick="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','show','hide-all','','show')" /></a></li>
+</ul>
+</div>
+<!-- icon end -->
+</div>
+<!-- right end -->
+</div>
+<!-- banner end -->
+<!-- tai+root -->
+<div id="tai-box">
+<div id="tai">
+<!-- InstanceBeginEditable name="tai" -->
+隱私政策
+<!-- InstanceEndEditable -->
+<img src="../images/tai-icon.png" align="center" hspace="8" />
+</div>
+<div id="root"><a href="../../index.html">Home</a> > <!-- InstanceBeginEditable name="root" -->隱私政策<!-- InstanceEndEditable --></div>
+</div>
+<!-- tai+root end -->
+<!-- content -->
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="privacy">
+  <h3 style="text-align:center;">隱私權保護政策暨個人資料保護</h3>
+  <p>「morear 3D列印」官網為尊重個人資料之權利保護，謹以下列說明，告知使用者應如何使用或儲存個人資料。請詳閱下列morear 3D列印官網的隱私權保護政策（Privacy Policy），本網站對於個人資料之蒐集、處理及利用，均恪守中華民國「個人資料保護法」及相關規範。協助您瞭解morear 3D列印官網蒐集您個人資料之目的、類別、利用範圍及方式以及您所得行使之權利。</p>
+  <p>&nbsp;</p>
+  <p>morear 3D列印官網網站有權隨時修訂本隱私權保護政策暨個資蒐集告知及相關告知事項，並得於修訂後公布於morear 3D列印官網之適當位置或更新本網頁內容，不另行個別通知。</p>
+  <p>&nbsp;</p>
+  <p>您可以隨時在morear 3D列印官網詳閱修訂後的隱私權保護政策暨個資蒐集告知及相關說明事項。</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>一、個人資料之蒐集目的、方式與適用範圍</strong></p>
+  <ol>
+  <li>morear 3D列印官網蒐集您的個人資料目的在於進行客戶與會員管理服務、商業與技術資訊、網路購物及其他電子商務服務、morear 3D列印官網及商品之行銷、 購買商品之運送及交付、統計調查與分析、資訊與資料庫管理。</li>
+  <li>瀏覽morear 3D列印官網不必輸入您的個人資料。但morear 3D列印官網將依照個別服務性質取得使用者之姓名、地址、住家電話號碼、行動電話號碼、退款轉帳帳戶資訊等金融機構帳戶之號碼與姓名、身分證字號、外籍人士護照號碼、出生年月日、性別、年齡、國籍、使用消費品之種類及服務之細節、個人或家庭之消費模式（包含瀏覽cookie記錄）等。
+  <p>&nbsp;</p>
+  <p>使用者有自由選擇提供個人資料之權利，但若您不提供時，morear 3D列印官網將無法提供相關服務，亦可能無法履行與您間之會員契約權利義務。</p></li>
+  <li>morear 3D列印官網為保護您的隱私及權益，當您使用信用卡方式進行購物結帳時，付款作業系統將直接連結至信用卡收單銀行之網路刷卡介面，morear 3D列印官網不會記錄您在該介面輸入的任何資料，俾利維護您信用卡資料之機密性。</li>
+  <li>morear 3D列印官網為提供給您更快速、方便的退款服務，當您的訂單有退款情況時，morear 3D列印官網會請您提供訂單購買人或收件人的退款帳戶資料：銀行名稱、帳號及戶名。morear 3D列印官網僅將您的退款轉帳帳戶資訊，利用於退款服務。</li>
+  <li>除上述個人資料類別外，為了便利使用者，morear 3D列印官網可能使用cookies技術，進行電子商務網站管理及記錄您於本網站中的活動紀錄，以便於提供更適合使用者個人需要之服務。Cookies是讓網站伺服器(Web Server) 能夠辨識使用者的資料。
+  <p>&nbsp;</p>
+  <p>一般網頁被讀取時，伺服器無法辨識使用者是否曾經來過以及來過的時間次數等資料，於是瀏覽網頁時，伺服器將一段簡短資訊經由瀏覽器寫入使用者硬碟，下次瀏覽器在要求伺服器傳回網頁之前，會將Cookie的資料先傳給伺服器，伺服器可依據Cookie的資料來判斷使用者，有了使用者的造訪資料，網頁伺服器可分析並針對不同讀者之不同喜好，執行不同的動作或傳回特定的資訊。</p>
+  <p>&nbsp;</p>
+  <p>morear 3D列印官網網站會在下列情況下，在您瀏覽器中寫入並讀取Cookies：</p>
+  <p>●為提供更好、更個人化的服務，並方便您參與個人化的互動活動，例如儲存您偏好的特定領域資料，或儲存密碼以方便您至morear 3D列印官網時不必每次再輸入密碼。</p>
+  <p>●為統計瀏覽人數及分析瀏覽模式，以了解網頁瀏覽的情況，做為morear 3D列印官網改善服務的參考。</p>
+  <p>&nbsp;</p>
+  <p>如果您選擇拒絕所有的Cookies，您可能無法使用部份個人化服務，或是參與部份的活動，您可以在瀏覽器中選擇修改對Cookies的接受程度，包括接受所有Cookies、設定Cookies時得到通知、拒絕所有Cookies等。</p></li>
+  <li>此外，morear 3D列印官網會保留使用者在上網瀏覽或查詢時於伺服器自行產生的相關記錄，包括連線的IP位址、使用時間、使用的瀏覽器、瀏覽以及點選的資料和紀錄等。這些資料係供morear 3D列印官網內部作網站流量和網路行為調查的總量分析，以利於提昇morear 3D列印官網的服務品質。morear 3D列印官網網站僅對全體使用者行為總和進行分析，並不會對個別使用者進行分析。</li>
+  <li>與morear 3D列印官網合作連結的網站，可能會蒐集使用者個人資料。這些連結網站應有其個別隱私權保護政策或措施，該規定或措施均不適用於morear 3D列印官網隱私權 保護政策暨個資蒐集告知，morear 3D列印官網不負任何法律責任。
+  <p>&nbsp;</p>
+  <p>使用者可能在morear 3D列印官網中等提供個人資料，此部分因morear 3D列印官網並非蒐集者，故不在morear 3D列印官網隱私權保護政策暨個資蒐集告知適用範圍內，morear 3D列印官網不負任何法律責任。</p></li>
+  <li>使用者傳送至morear 3D列印官網之個人資料以外的任何其他通訊或材料，包括但不限於意見、客戶回應、喜好、建議、支持、請求、問題等內容（以下簡稱「其他訊息」）視為非本條規定個人資料範圍，將以非保密資料和非專有資料處理；而當使用者將其他訊息傳送至morear 3D列印官網並被接收時，即被視為使用者同意且無償將其他訊息授權morear 3D列印官網為調查、統計等使用。</li>
+  </ol>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>二、利用期間、地區、對象及方式</strong></p>
+  <ol>
+  <li>利用期間：morear 3D列印官網於營運期間均可能永久利用該等個人資料，但法令另有規定者，依其規定。</li>
+  <li>地區：您的個人資料將用於morear 3D列印官網及業務合作廠商(包含但不限於供貨商、快遞、物流商及其他履行輔助人或代理人)所在地區與提供服務地區。</li>
+  <li>利用對象及方式：morear 3D列印官網將會以電子、書面、電話、電信、網際網路及其他方式於蒐集之特定目的範圍內處理並利用個人資料。您的個人資料蒐集除使用於morear 3D列印官網之會員管理、客戶管理之檢索查詢等功能外，還會有以下利用方式：
+  <p>(1)物品及紙本發票寄送：於訂購商品或銷退商品之收、送貨，交寄相關物品時，morear 3D列印官網會將您的個人資料交給委託之供應商、物流業者、快遞、宅配、貨運業者等，以利進行配送物品服務。</p>
+  <p>(2)行銷活動：morear 3D列印官網將利用使用者之地址及郵件、電話號碼進行morear 3D列印官網商品或活動宣傳（包括但不限於morear 3D列印官網商業性資料寄送，如電子報、EDM、簡訊）、通知您相關服務之更新及優惠訊息、提供使用者各種電子資訊等與服務有關之行銷資訊或針對報名活動講座、問卷調查、活動、留言版等之意見資訊交換等服務關連事項、聯絡使用者。</p>
+  <p>(3)會員專屬服務：會員專區服務、會員生日禮、折價券活動、購物紀錄、訂單資料、電子發票、退換貨及售後服務等辦理各項會員服務所需。</p>
+  <p>(4)商業及市場的分析:將使用者所瀏覽之內容或廣告，依使用者之性別、年齡、居住地、興趣、嗜好等個人屬性或購買紀錄、網站之瀏覽紀錄等項目，進行使用服務之分析、新服務之開發與既有服務之改善等。</p>
+  <p>(5)網路活動及網路調查：morear 3D列印官網將利用使用者之姓名、身分證字號，作為抽獎活動之依據，並利用使用者之電話、E-MAIL以及住址等資訊，作為通知使用者抽獎結果及分析之用。非經使用者同意，morear 3D列印官網不會將資訊用作其他用途。除依據活動合理之需要公布中獎者名單外，morear 3D列印官網絕不會公布個別使用者之任何資訊。</p>
+  <p>(6)morear 3D列印官網會利用使用者的個人資料於morear 3D列印官網會員活動、會員購買商品服務之統計分析、網路行銷活動、調整或發佈商品資訊。</p>
+  <p>(7)客製化廣告及您看到的網頁內容、滿足您對產品和服務的要求、改進我們的服務、聯絡您、進行研究，以及提供內部及外部客戶不載有個人資料之市場分析或業務報告。</p>
+  <p>(9)其他另經過使用者本人以書面、電子郵件、傳真或網頁點選按鈕同意之特定目的之利用。</p>
+  <p>(10)morear 3D列印官網可能透過臉書(FACEBOOK)或其他社群服務系統，於取得使用者同意後，會將morear 3D列印官網的資訊發布於使用者的社群動態頁面。若使用者不同意該訊息發布，請勿點選同意鍵，或事後自行透過各該社群服務會員機制移除該等資訊或拒絕morear 3D列印官網繼續發布相關訊息。</p></li>
+  </ol>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>三、使用者權利行使</strong></p>
+  <p>謹簡要說明，您依個人資料保護法第3條所得行使之權利，及morear 3D列印官網處理原則如下：</p>
+  <ol>
+  <li>您可以寄發電子郵件至客服信箱或致電客服中心申請停止蒐集、處理、利用或刪除個人資料。但使用者於申請停止蒐集、處理或利用個人資料，或請求刪除個人資料等程序完成後，morear 3D列印官網提供給使用者的服務將暫停或終止，morear 3D列印官網將在法令許可範圍內辦理相關事宜。</li>
+  <li>若您不願意提供各項服務或交易所要求的個人資料予morear 3D列印官網，或不同意morear 3D列印官網依法令規定、本隱私權保護政策暨個資蒐集告知及其相關告知內容為蒐集、處理、利用及國際傳輸相關個人資料，morear 3D列印官網會完全尊重您的決定，但依照該服務之性質或條件，您可能會因此無法使用相關服務、履行權利義務或完成交易(例如：若您拒絕提供生日，將無法享有生日回饋禮)，morear 3D列印官網保留是否同意提供該等相關服務或完成相關交易之權利。</li>
+  </ol>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>四、揭露個人資料</strong></p>
+  <ol>
+  <li>morear 3D列印官網所取得之個人資料會視業務需要提供予委外之協力廠商(包括但不限於供貨商及提供物流、快遞、金流或活動贈品、展示品之廠商及其他履行輔助人或代理人) 於公告之特定目的範圍內予以利用。</li>
+  <li>morear 3D列印官網絕不會任意出售、交換或出租您的個人資料給其他團體或個人，僅供內部進行處理和利用，但有下列情形者，不在此限，而morear 3D列印官網亦毋需事先告知使用者：
+  <p>(1)需要與他人或公司共用您的資料，才能提供您要的產品或服務。</p>
+  <p>(2)基於法律規定或受司法機關與其他主管機關基於法定程序之要求。</p>
+  <p>(3)為維護國家安全、增進公共利益、防止他人權益之重大危害。</p>
+  <p>(4)為免除使用者之生命、身體、自由或財產上之危險，有利於當事人權益。</p>
+  <p>(5)經過使用者本人書面同意或授權允許。</p>
+  <p>(6)基於善意相信揭露為法律需要。</p>
+  <p>(7)為維護和改進網站服務而用於管理。</p></li>
+  <li>為保護使用者隱私，morear 3D列印官網無法為個人查詢其他使用者的帳號資料，若有相關法律問題需查閱他人資料，請務必先向警政單位提出刑事告訴，morear 3D列印官網將全力配合檢警與司法單位因偵辦案件所需而提供所有相關資料，以協助調查及破案。</li>
+  <li>為提供其他服務或優惠權益，morear 3D列印官網需要跟提供該服務或優惠之第三者共用您的個人資料時，我們會在活動時提供充分說明並告知您，您可以自由選擇是否接受這項服務或優惠。</li>
+  </ol>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>五、資料儲存及保管方式</strong></p>
+  <p>您的個人資料均被嚴密地保存在morear 3D列印官網資料庫系統中。同時，任何人必須在morear 3D列印官網訂定之資料授權管理規範下，進行資料之取得與使用。非授權範圍內之人無法通過授權控管系統而取得資料。</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>六、個人資料安全</strong></p>
+  <p>morear 3D列印官網將以合於產業標準之合理技術及程序，維護個人資料之安全。</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>七、自我保護措施</strong></p>
+  <p>請妥善保管您的任何個人資料，不要將任何個人資料，尤其是密碼提供給任何人。在您離開電腦前或結束使用morear 3D列印官網的服務時，請務必記得登出，若您與他人共享電腦或使用公共電腦，請記得關閉瀏覽器視窗，以防止他人讀取您的個人資料或信件。</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>八、智慧財產權的保護</strong></p>
+  <p>morear 3D列印官網上所有內容，包括但不限於著作、圖片、網頁設計，均由本網站或其他權利人依法擁有其智慧財產權，包括但不限於商標權、專利權、著作權、營業秘密與專有技術等。任何人未經同意不得逕自使用、修改、重製、改作、散布、發行、公開發表。如有違反，您應對本網站及其他權利人負損害賠償責任（包括但不限於訴訟費用及律師費用等）。</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p class="word-yellow"><strong>九、隱私權保護政策諮詢</strong></p>
+  <p>morear 3D列印官網必要性修改政策內容時，將公告於本網站，請您注意修改或變更之通知訊息。若您於任何修改或變更後，未表示反對並繼續使用本服務，即視為您已閱讀、瞭解並同意接受該項修改或變更。若您對本隱私權聲明尚有不明嘹之處，歡迎來信至<a href="mailto:me@morear.com.tw">me@morear.com.tw</a>與我們聯繫與指教。</p>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+<!-- content end -->
+<!-- back top -->
+<div id="back-top-bar">
+  <a href="javascript:history.back()" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','../images/btn-bank-b.png',1)"><img src="../images/btn-bank.png" id="Image12" hspace="8" /></a>
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','../images/btn-top-b.png',1)"><img src="../images/btn-top.png" width="51" height="20" id="Image13" /></a>
+</div>
+<!-- back top end -->
+</div>
+<!-- hide all -->
+<div id="hide-all"><img src="../images/block.gif" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')" /></div>
+<!-- hide all end -->
+</div>
+<!-- footer -->
+<div id="footer">
+<div id="footer-w">
+<div id="footer-w1">
+<p class="word-big-black">About morear</p>
+<ul>
+<li><a href="../about/about-01.html">品牌故事</a></li>
+<li><a href="../3d-lab/lab-02.html">3D製程</a></li>
+<li><a href="../location/location-01.html">服務據點</a></li>
+<li><a href="../topic/topic-list.html">新聞資訊</a></li>
+<li><a href="#">工作機會</a></li>
+<li><a href="../contact/contact01.html">聯絡我們</a></li>
+</ul>
+</div>
+<div id="footer-w1">
+<p class="word-big-black">more Links</p>
+<ul>
+<li><a href="#">合作夥伴</a></li>
+<li><a href="../member/member-a01.html">訂單查詢</a></li>
+<li><a href="privacy-01.html">使用條款</a></li>
+<li><a href="privacy-02.html">隱私政策</a></li>
+<li><a href="../sitemap/sitemap-01.html">網站地圖</a></li>
+</ul>
+</div>
+<div id="footer-w2">
+<ul>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','../images/footer-FBicon-b.png',1)"><img src="../images/footer-FBicon.png" id="Image26" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','../images/footer-Lineicon-b.png',1)"><img src="../images/footer-Lineicon.png" id="Image27" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','../images/footer-YouTubeicon-b.png',1)"><img src="../images/footer-YouTubeicon.png" id="Image28" /></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footer-d">© 2017 morear .Co. All Rights Reserved.</div>
+<!-- footer end -->
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,171 @@
+#menu-in{
+	width:770px;
+	float:right;
+	position:absolute;
+	z-index:1;
+	top:20px;
+	right:0;
+}
+#menu-top{
+	width:150px;
+	margin-right:25px;
+	float:right;
+	text-align:right;
+	font-size:12px;
+	color:#f4a000;
+}
+#menu-top a:hover{
+	color:#000;
+}
+#menu-down{
+	width:auto;
+	clear:both;
+	float:right;
+	margin-top:15px;
+	margin-left:10px;
+	padding:10px 10px 10px 10px;
+	border-radius:10px 0 0 10px;
+	border:2px #f4a000 solid;
+	border-right:0;
+}
+#menu-down ul{
+	margin:0;
+	padding:0;
+}
+#menu-down li{
+	list-style-type:none;
+	width:auto;
+	float:left;
+	margin:0 13px 0 13px;
+}
+#menu-down li a{
+	color:#000;
+	font-weight:bolder;
+}
+#menu-down li a:hover{
+	color:#f4a000;
+	text-decoration:none;
+}
+#top-icon{
+	width:auto;
+	float:right;
+	margin-top:15px;	
+}
+#top-icon ul{
+	margin:0;
+	padding:0;
+}
+#top-icon li{
+	list-style-type:none;
+	width:auto;
+	float:left;
+	margin:0 5px 0 5px;
+}
+/*----------------- hide --------------------*/
+#hide-top1{
+	position: absolute;
+	z-index: 100;
+	width: auto;
+	top: 73px;
+	right:0;	
+	background:#333;
+	filter: Alpha(Opacity=90);
+	opacity: 0.90;
+	border-radius: 10px;
+	visibility: hidden;
+}
+#hide-top2{
+	position: absolute;
+	z-index: 100;
+	width: auto;
+	top: 73px;
+	right:0;	
+	background:#333;
+	filter: Alpha(Opacity=90);
+	opacity: 0.90;
+	border-radius: 10px;
+	visibility: hidden;
+}
+#hide-top3{
+	position:absolute;
+	z-index:100;
+	width:auto;
+	top: 73px;
+	right:0;	
+	background:#333;
+	filter: Alpha(Opacity=90);
+	opacity:0.90;
+	border-radius:10px;
+	visibility:hidden;
+}
+#hide-top4{
+	position:absolute;
+	z-index:100;
+	width:auto;
+	top: 73px;
+	right:0;	
+	background:#333;
+	filter: Alpha(Opacity=90);
+	opacity:0.90;
+	border-radius:10px;
+	visibility:hidden;
+}
+#hide-top5{
+	position:absolute;
+	z-index:100;
+	width:auto;
+	top:73px;
+	left:198px;
+	background:#333;
+	filter: Alpha(Opacity=90);
+	opacity:0.90;
+	border-radius:10px;
+	visibility:hidden;
+}
+#hide-all{
+	position:absolute;
+	z-index:100;
+	width:100%;
+	height:200px;
+	top:200px;
+	left:0;
+	visibility:hidden;
+}
+#hide-all img{
+	width:100%;
+	height:200px;
+}
+#hide-01{
+	width:auto;
+	padding:10px 20px 10px 20px;
+	float:left;
+	color:#FFF;
+	text-align:center;
+}
+#hide-01 ul{
+	margin:5px 0 0 0;
+	padding:0;
+}
+#hide-01 li{
+	list-style-type:none;
+	width:100%;
+	clear:both;
+	float:left;
+	margin:5px 0;
+	text-align:center;
+}
+#hide-01 li a{
+	color:#f4a000;
+}
+#hide-01 li a:hover{
+	color:#FFF;
+}
+
+
+
+/*平板-3*/
+@media only screen and (max-width:970px) {
+#menu-in{
+	display:none;
+}
+	}

@@ -1,62 +1,361 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Plone Theme</title>
-    <link rel="shortcut icon" type="image/x-icon"
-          href="barceloneta-favicon.ico" />
-    <link rel="apple-touch-icon"
-          href="barceloneta-apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="barceloneta-apple-touch-icon-144x144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="barceloneta-apple-touch-icon-114x114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="barceloneta-apple-touch-icon-72x72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57"
-          href="barceloneta-apple-touch-icon-57x57-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed"
-          href="barceloneta-apple-touch-icon-precomposed.png" />
-  </head>
-  <body>
-    <section id="portal-toolbar">
-    </section>
-    <div class="outer-wrapper">
-      <header id="content-header" role="banner">
-        <div class="container">
-          <header id="portal-top">
-          </header>
-          <div id="anonymous-actions">
-          </div>
-        </div>
-      </header>
-      <div id="mainnavigation-wrapper">
-        <div id="mainnavigation">
-        </div>
-      </div>
-      <div id="above-content-wrapper">
-          <div id="above-content">
-          </div>
-      </div>
-      <div class="container">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>morear 3D列印</title>
+<link href="content/css/web.css" rel="stylesheet" type="text/css" />
+<link href="content/css/index.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- DELETE ME: -->
-        <h1 class="custom-theme-marker">Custom Plone theme based on Baceloneta</h1>
+<!--控制手機版選單-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="content/js/mmenu.js"></script>
+<!--大圖-->
+<link href="content/css/flexslider.css" rel="stylesheet" type="text/css" />
+<script src="index-js/slider/jquery.min.js"></script>
+<script defer src="index-js/slider/jquery.flexslider.js"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
 
-        <div class="row">
-          <aside id="global_statusmessage"></aside>
-        </div>
-        <main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">
-          <div id="column1-container">
-          </div>
-          <div id="content-container">
-          </div>
-          <div id="column2-container">
-          </div>
-        </main><!--/row-->
-      </div><!--/container-->
-    </div> <!--/outer-wrapper -->
-    <footer id="portal-footer-wrapper" role="contentinfo">
-      <div class="container" id="portal-footer"></div>
-    </footer>
-  </body>
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+</script>
+</head>
+
+<body>
+<div id="all" align="center">
+<div id="wrapper">
+<!-- content -->
+<!--phone menu-->
+<div id="m_top_menu">手機板選單</div>
+<div id="top_menu">
+<ul class="a02">
+<li><a href="#">繁體中文</a></li>
+<li><a href="#">简体中文</a></li>
+</ul>
+<ul class="a01">
+<li><a href="content/location/location-01.html">服務據點</a></li>
+<li><a href="content/shoppingcart/cart01.html">購物車</a></li>
+<li>
+<label for="textfield"></label>
+<input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" />
+<a href="content/search/search-01.html"><img src="images/btn-03-s.png" align="center" /></a>
+</li>
+</ul>
+<ul class="a02">
+<li><a href="content/3d-fit/fit-01.html">3D FIT科技</a></li>
+<li><a href="content/product/product-01a.html">Morear產品</a>
+<ul>
+<li><a href="content/product/product-01a.html">音樂耳機</a>
+<ol>
+<li><a href="content/product/product-01a.html">經典款</a></li>
+<li><a href="content/product/product-01b.html">專業款</a></li>
+<li><a href="content/product/product-01c.html">頂級款</a></li>
+</ol>
+</li>
+<li><a href="content/product/product-02a.html">聽力保護系列</a>
+<ol>
+<li><a href="content/product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="content/product/product-02b.html">防噪耳塞</a></li>
+<li><a href="content/product/product-02c.html">游泳耳塞</a></li>
+</ol>
+</li>
+<li><a href="content/product/product-03a.html">通訊升級系列</a>
+<ol>
+<li><a href="content/product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="content/product/product-03b.html">訂製藍芽耳塞</a></li>
+</ol>
+</li>
+<li><a href="content/product/product-04a.html">配件</a>
+<ol>
+<li><a href="content/product/product-04a.html">線材</a></li>
+<li><a href="content/product/product-04b.html">包裝</a></li>
+<li><a href="content/product/product-04c.html">除溼</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><a href="content/buymore/buymore-01.html">購買Morear</a>
+<ul>
+<li><a href="content/buymore/buymore-01.html">設計音樂耳機</a></li>
+<li><a href="content/buymore/buymore-02.html">設計客製耳塞</a></li>
+</ul>
+</li>
+<li><a href="content/service/service-01.html">支援服務</a>
+<ul>
+<li><a href="#">耳型與專業聽力師</a></li>
+<li><a href="content/service/service-01.html">產品服務及保固</a></li>
+</ul>
+</li>
+<li><a href="content/faq/faq-01.html">常見問題</a></li>
+<!--<li><a href="content/member/member-01.html">會員登入</a></li>-->
+<li><a href="content/member/member-b01.html">會員中心</a>
+<ul>
+<li><a href="content/member/member-a01.html">交易紀錄</a>
+<ol>
+<li><a href="content/member/member-a01.html">訂單查詢</a></li>
+</ol>
+</li>
+<li><a href="content/member/member-b01.html">會員資料</a>
+<ol>
+<li><a href="content/member/member-b01.html">修改會員資料</a></li>
+<li><a href="content/member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="content/member/member-b03.html">收貨通訊錄管理</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!--phone menu end-->
+<!-- top -->
+<div id="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
+<div id="menu-index">
+<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a></div>
+<!-- menu -->
+<div id="menu-down">
+<ul>
+<li><a href="content/3d-fit/fit-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
+<li><a href="content/product/product-01a.html" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</a></li>
+<li><a href="content/buymore/buymore-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
+<li><a href="content/service/service-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
+<li><a href="content/faq/faq-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">常見問題</a></li>
+<!--<li><a href="content/member/member-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">會員登入</a></li>-->
+<li><a href="content/member/member-b01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','show','hide-top5','','hide','hide-all','','show')">會員中心</a></li>
+</ul>
+</div>
+<!-- hide01 -->
+<div id="hide-top1">
+<div id="hide-01">
+<p class="word-big-white">音樂耳機</p>
+<ul>
+<li><a href="content/product/product-01a.html">經典款</a></li>
+<li><a href="content/product/product-01b.html">專業款</a></li>
+<li><a href="content/product/product-01c.html">頂級款</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">聽力保護系列</p>
+<ul>
+<li><a href="content/product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="content/product/product-02b.html">防噪耳塞</a></li>
+<li><a href="content/product/product-02c.html">游泳耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">通訊升級系列</p>
+<ul>
+<li><a href="content/product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="content/product/product-03b.html">訂製藍芽耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">配件</p>
+<ul>
+<li><a href="content/product/product-04a.html">線材</a></li>
+<li><a href="content/product/product-04b.html">包裝</a></li>
+<li><a href="content/product/product-04c.html">除溼</a></li>
+</ul>
+</div>
+</div>
+<!-- hide01 end -->
+<!-- hide02 -->
+<div id="hide-top2">
+<div id="hide-01">
+<p class="word-big-white"><a href="content/buymore/buymore-01.html">設計音樂耳機</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="content/buymore/buymore-02.html">設計客製耳塞</a></p>
+</div>
+</div>
+<!-- hide02 end -->
+<!-- hide03 -->
+<div id="hide-top3">
+<div id="hide-01">
+<p class="word-big-white"><a href="#">耳型與專業聽力師</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="content/service/service-01.html">產品服務及保固</a></p>
+</div>
+</div>
+<!-- hide03 end -->
+<!-- hide04 -->
+<div id="hide-top4">
+<div id="hide-01">
+<p class="word-big-white">交易紀錄</p>
+<ul>
+<li><a href="content/member/member-a01.html">訂單查詢</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">會員資料</p>
+<ul>
+<li><a href="content/member/member-b01.html">修改會員資料</a></li>
+<li><a href="content/member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="content/member/member-b03.html">收貨通訊錄管理</a></li>
+</ul>
+</div>
+</div>
+<!-- hide04 end -->
+<!-- hide05 -->
+<div id="hide-top5">
+<div id="hide-01">
+請輸入關鍵字
+  <label for="textfield"></label>
+  <input type="text" name="textfield" id="textfield" />
+  <a href="content/search/search-01.html"><img src="images/btn-03-s.png" align="center" /></a></div>
+</div>
+<!-- hide05 end -->
+<!-- menu end -->
+<!-- icon -->
+<div id="top-icon">
+<ul>
+<li><a href="content/location/location-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/btn-01b.png',1)" title="服務據點"><img src="images/btn-01.png" id="Image5" /></a></li>
+<li><a href="content/shoppingcart/cart01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/btn-02b.png',1)" title="購物車"><img src="images/btn-02.png" id="Image6" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/btn-03b.png',1)" title="全文檢索"><img src="images/btn-03.png" id="Image7" onclick="MM_showHideLayers('hide-top5','','show')" /></a></li>
+</ul>
+</div>
+<!-- icon end -->
+</div>
+<!-- top end -->
+<!-- Flexslider_box -->
+<div id="flexslider_box" role="main">
+  <div class="flexslider">
+    <ul class="slides">
+      <li><a href="content/event/event01.html"><img src="images/ad01.jpg" /></a></li>
+      <li><a href="content/event/event01.html"><img src="images/ad02.jpg" /></a></li>
+      <li><a href="content/event/event01.html"><img src="images/ad03.jpg" /></a></li>
+    </ul>
+  </div>
+</div>
+<!-- /Flexslider_box end -->
+<!-- news -->
+<div id="index-news">
+<div id="index-news-photo-b"><img src="images/index-news-big.jpg" /></div>
+<div id="index-news-box">
+<div id="tai-index-news"><a href="content/news/news-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/tai-news-b.png',1)"><img src="images/tai-news.png" id="Image9" /></a></div>
+<div id="index-news-photo-s"><img src="images/index-news-s.jpg" /></div>
+<div id="index-news-words">
+<h4>破曉…聽見熟悉的聲音：諾拉瓊絲專訪</h4>
+<p><a href="content/news/news-01.html" class="black-link">「很多時候，事情就這樣子發生，我覺得很神奇，我也很幸運，大家喜歡我唱歌。」諾拉瓊絲帶著平和的語氣說著自己成名的感覺，她描述當年以鋼琴伴唱的風格掀起樂壇的新風潮，她沒料到會有這麼多人喜歡，她接著說：「這應該是所謂的人生中的意外驚...</a></p>
+</div>
+</div>
+</div>
+<!-- news end -->
+<!-- product -->
+<!--<div id="tai-index-pro"><img src="images/tai-pro.png" /></div>-->
+<div id="index-pro">
+<ul>
+<li><a href="content/product/product-01a.html"><img src="images/pro-01.jpg" /></a></li>
+<li><a href="content/product/product-01b.html"><img src="images/pro-02.jpg" /></a></li>
+<li><a href="content/product/product-01c.html"><img src="images/pro-03.jpg" /></a></li>
+<li><a href="content/product/product-02a.html"><img src="images/pro-04.jpg" /></a></li>
+<li><a href="content/product/product-02b.html"><img src="images/pro-05.jpg" /></a></li>
+<li><a href="content/product/product-02c.html"><img src="images/pro-06.jpg" /></a></li>
+</ul>
+</div>
+<!-- product end -->
+<!-- music -->
+<div id="index-music">
+<div id="tai-index-music"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','images/tai-music-b.png',1)"><img src="images/tai-music.png" id="Image18" /></a></div>
+<a name="notice01" id="notice01"></a>
+<div id="index-music-box">
+  <div id="index-music-box01"><img src="images/tai-music-ch.png" /></div>
+<div id="index-music-box02">時代在變，時間總是悄悄地把我們身邊曾以為不可或缺的事物也一併帶走。雖然生活是無法按下暫停的前進，不過文化總在無形中被當時的流行意外保留。華語流行音樂裡，有些歌曲唱著已消失的事物。那些曾經是你我生活中不能缺少的，居然也有這樣的保存方式。</div>
+<!-- item -->
+<div id="index-music-box03">
+<ul>
+<li><section><a href="#notice" class="button" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','images/btn-music01-b.png',1)"><img src="images/btn-music01.png" id="Image20" /></a></section></li>
+<li><a href="content/musicman/musicman-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','images/btn-music02-b.png',1)"><img src="images/btn-music02.png" id="Image21" /></a></li>
+<li><a href="content/recommend/recommend-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','images/btn-music03-b.png',1)"><img src="images/btn-music03.png" id="Image22" /></a></li>
+<li><a href="content/links/links-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','images/btn-music04-b.png',1)"><img src="images/btn-music04.png" id="Image23" /></a></li>
+</ul>
+</div>
+<!-- item end -->
+</div>
+</div>
+<!-- music end -->
+<div id="index-about">
+<p>日前，由 flyingV 群眾募資平台所舉辦的「問一 Shot 之夜」音樂小聚圓滿結束！當天活動邀請到「相知國際」品牌與行銷部行銷總監江季剛、策略與企劃部創意總監沈彥呈、「Packer 派歌」版權經理張書珩、「大港開唱」宣傳公關總召呂岱芸、「激進工作室」負責人陳威仲、自由工作者耿璐及「flyingV」專案經理林乃禎，從自身經驗出發，擔任不同面向的給問關主，用輕鬆的「喝一杯 Shot，答一個問」方式為各獨立音樂人、樂團解答心中盤旋許久的疑問。<a href="content/about/about-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','images/btn-more-b.png',1)"><img src="images/btn-more.png" id="Image24" hspace="15" align="center" /></a></p>
+<div id="index-btn-3d"><a href="content/3d-lab/lab-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','images/btn-3d-b.png',1)"><img src="images/btn-3d.png" id="Image25" /></a></div>
+</div>
+<!-- content end -->
+</div>
+<!-- hide all -->
+<div id="hide-all"><img src="content/images/block.gif" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')" /></div>
+<!-- hide all end -->
+<!-- footer -->
+<div id="footer">
+<div id="footer-w">
+<div id="footer-w1">
+<p class="word-big-black">About morear</p>
+<ul>
+<li><a href="content/about/about-01.html">品牌故事</a></li>
+<li><a href="content/3d-lab/lab-02.html">3D製程</a></li>
+<li><a href="content/location/location-01.html">服務據點</a></li>
+<li><a href="content/topic/topic-list.html">新聞資訊</a></li>
+<li><a href="#">工作機會</a></li>
+<li><a href="content/contact/contact01.html">聯絡我們</a></li>
+</ul>
+</div>
+<div id="footer-w1">
+<p class="word-big-black">more Links</p>
+<ul>
+<li><a href="#">合作夥伴</a></li>
+<li><a href="content/member/member-a01.html">訂單查詢</a></li>
+<li><a href="content/privacy/privacy-01.html">使用條款</a></li>
+<li><a href="content/privacy/privacy-02.html">隱私政策</a></li>
+<li><a href="content/sitemap/sitemap-01.html">網站地圖</a></li>
+</ul>
+</div>
+<div id="footer-w2">
+<ul>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','content/images/footer-FBicon-b.png',1)"><img src="content/images/footer-FBicon.png" id="Image26" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','content/images/footer-Lineicon-b.png',1)"><img src="content/images/footer-Lineicon.png" id="Image27" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','content/images/footer-YouTubeicon-b.png',1)"><img src="content/images/footer-YouTubeicon.png" id="Image28" /></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footer-d">© 2017 morear .Co. All Rights Reserved.</div>
+</div>
+<!-- footer end -->
+<!--music online-->
+<div id="info">
+<div style="width:46px; float:right; margin-top:20px; margin-right:20px;"><img src="images/icon-close.png" onclick="MM_showHideLayers('info','','hide')" /></div>
+<div id="info-box"><img src="images/music-list.jpg" style="width:100%;" /></div>
+</div>
+<!--music online end-->
+<!--light box-->
+<div class="lightbox-target" id="notice">
+<div class="content"><div id="music-online"><img src="images/music-list.jpg" width="100%" /></div></div>
+<a href="#notice01" class="lightbox-close"></a>
+</div>
+<!--light box end-->
+</div>
+</body>
 </html>
