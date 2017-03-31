@@ -207,26 +207,74 @@
 
 <!-- Hide All -->
 <metal:row define-macro="hide-all">
-hideeeee
-</metal>
+    <!-- hide all -->
+    <div id="hide-all">
+        <img src="${prefix}content/images/block.gif" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')" />
+    </div>
+    <!-- hide all end -->
+</metal:row>
 
 
 <!-- Footer -->
 <metal:row define-macro="footer">
-ffff
-</metal>
+    <!-- footer -->
+    <div id="footer">
+        <div id="footer-w">
+            <div id="footer-w1">
+                <p class="word-big-black">About morear</p>
+                <ul>
+                    <li><a href="content/about/about-01.html">品牌故事</a></li>
+                    <li><a href="content/3d-lab/lab-02.html">3D製程</a></li>
+                    <li><a href="content/location/location-01.html">服務據點</a></li>
+                    <li><a href="content/topic/topic-list.html">新聞資訊</a></li>
+                    <li><a href="#">工作機會</a></li>
+                    <li><a href="content/contact/contact01.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div id="footer-w1">
+                <p class="word-big-black">more Links</p>
+                <ul>
+                    <li><a href="#">合作夥伴</a></li>
+                    <li><a href="content/member/member-a01.html">訂單查詢</a></li>
+                    <li><a href="content/privacy/privacy-01.html">使用條款</a></li>
+                    <li><a href="content/privacy/privacy-02.html">隱私政策</a></li>
+                    <li><a href="content/sitemap/sitemap-01.html">網站地圖</a></li>
+                </ul>
+            </div>
+            <div id="footer-w2">
+                <ul>
+                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','${prefix}content/images/footer-FBicon-b.png',1)"><img src="${prefix}content/images/footer-FBicon.png" id="Image26" /></a></li>
+                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','${prefix}content/images/footer-Lineicon-b.png',1)"><img src="${prefix}content/images/footer-Lineicon.png" id="Image27" /></a></li>
+                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','${prefix}content/images/footer-YouTubeicon-b.png',1)"><img src="${prefix}content/images/footer-YouTubeicon.png" id="Image28" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer-d">© 2017 morear .Co. All Rights Reserved.</div>
+<!-- footer end -->
+</metal:row>
 
 
 <!-- Music Online -->
 <metal:row define-macro="music-online">
-eeeeeeee
-</metal>
+<!--music online-->
+<div id="info">
+<div style="width:46px; float:right; margin-top:20px; margin-right:20px;"><img src="${prefix}images/icon-close.png" onclick="MM_showHideLayers('info','','hide')" /></div>
+<div id="info-box"><img src="${prefix}images/music-list.jpg" style="width:100%;" /></div>
+</div>
+<!--music online end-->
+</metal:row>
 
 
-<!-- Cover light box
+<!-- Cover light box -->
 <metal:row define-macro="cover-light-box">
-dddddd
-</metal>
+<!--light box-->
+<div class="lightbox-target" id="notice">
+<div class="content"><div id="music-online"><img src="${prefix}images/music-list.jpg" width="100%" /></div></div>
+<a href="#notice01" class="lightbox-close"></a>
+</div>
+<!--light box end-->
+</metal:row>
 
 
 </body>
