@@ -18,4 +18,14 @@
       directory="static"
       />
 
+
+  <!-- browser view -->
+  <browser:page
+      name="morear_macro"
+      for="*"
+      class=".views.MorearMacro"
+      template="template/morear_macro.pt"
+      layer="morear.theme.interfaces.IMorearThemeLayer"
+      permission="zope2.View"
+  />
 </configure>
