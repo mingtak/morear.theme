@@ -57,5 +57,9 @@
                     data-pat-plone-modal data-pat-tinymce
                     data-portal-url data-pat-pickadate data-base-url" />
 
+  <!-- css for-theme -->
+  <after css:content="link.for-theme" css:theme-children="html head" />
+  <drop css:content="link.for-theme" attributes="class" />
+
 </rules>
 </rules>

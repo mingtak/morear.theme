@@ -26,11 +26,11 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <div id="wrapper">
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+    <metal:macro use-macro="context/@@object_macro/macros/product-detail"/>
 
-    <div id="parent-fieldname-text"
-        tal:condition="context/text"
-        tal:content="structure python:context.text.output_relative_to(view.context)"
-        tal:attributes="class python: toc and 'pat-autotoc' or ''" />
+
+
+
 
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>
