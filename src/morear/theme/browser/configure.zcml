@@ -28,4 +28,23 @@
       layer="morear.theme.interfaces.IMorearThemeLayer"
       permission="zope2.View"
   />
+
+  <browser:page
+      name="brain_macro"
+      for="*"
+      class=".views.BrainMacro"
+      template="template/brain_macro.pt"
+      layer="morear.theme.interfaces.IMorearThemeLayer"
+      permission="zope2.View"
+  />
+
+  <browser:page
+      name="object_macro"
+      for="*"
+      class=".views.ObjectMacro"
+      template="template/object_macro.pt"
+      layer="morear.theme.interfaces.IMorearThemeLayer"
+      permission="zope2.View"
+  />
+
 </configure>

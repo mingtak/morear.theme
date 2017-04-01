@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+  <head>
+      <metal:block fill-slot="top_slot">
+        <tal:insert tal:replace="nothing"
+              tal:define="dummy python:request.set('enable_border', 1);
+                          disable_column_one python:request.set('disable_plone.leftcolumn', 1);
+                          disable_column_two python:request.set('disable_plone.rightcolumn', 1);" />
+      </metal:block>
+  </head>
+<body>
+
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+        <div class="pat-structure"
+tal:condition="False"
+          tal:attributes="data-pat-structure view/options" />
+
+<?python
+from plone import api
+portal = api.portal.get()
+if context == portal:
+    childNodes = []
+    for item in context.getChildNodes():
+        if item.Type() != 'Plone Site':
+            childNodes.append(item)
+else:
+    childNodes = context.getChildNodes()
+
+tabs = [context]
+while True:
+    if tabs[-1] != portal:
+        tabs.append(tabs[-1].getParentNode())
+    else:
+        break
+tabs.reverse()
+?>
+
+<h4 class="path">
+<tal:path repeat="item tabs">
+    <a href="${item/absolute_url}/folder_contents"> ${python:item.title} </a>
+    <span tal:condition="not:repeat/item/end"> > </span>
+</tal:path>
+</h4>
+
+
+<table id="custom-folder-contents">
+    <thead>
+        <tr>
+            <td>標題</td>
+            <td>狀態</td>
+            <td>建立時間</td>
+        </tr>
+    </thead>
+    <tbody tal:define="items python:list(childNodes)[0:100]">
+        <tr tal:repeat="item items">
+            <td style="padding:5px 10px">
+                 [ <tal:type replace="item/Type"/> ]
+                 <tal:switch switch="item/Type">
+                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents">
+                         <tal:title replace="item/title"/>
+                     </a>
+                     <a tal:case="default" href="${item/absolute_url}/edit">
+                         <tal:title replace="item/title"/>
+                     </a>
+                 </tal:switch>
+                 <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
+                 <span class="uid pull-right"
+                       tal:condition="python:api.user.get_permissions().get('Modify portal content')">
+                     UID: <span style="color:blue">${item/UID}</span>
+                 </span>
+            </td>
+            <td style="padding:5px 10px"> <tal:state replace="python:api.content.get_state(item)" on-error="nothing"/> </td>
+            <td style="padding:5px 10px"> ${python:item.created().strftime('%Y/%m/%d %H:%M')}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+    <div class="pat-structure"
+         tal:condition="python:'Manager' in api.user.get_roles()"
+         tal:attributes="data-pat-structure view/options" />
+
+
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

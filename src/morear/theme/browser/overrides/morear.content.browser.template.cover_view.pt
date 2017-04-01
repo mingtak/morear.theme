@@ -16,6 +16,9 @@
 from plone import api
 portal = api.portal.get()
 prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+#所有的content.find，都應該要考慮排序，放回views的時候要考慮這點
+main_slides = api.content.find(context=portal, UID=context.mainSlideUIDs.split(), sort_on='modified', sort_order='reverse')
+moreDesign_items = api.content.find(context=portal, UID=context.moreDesign.split(), sort_on='modified', sort_order='reverse')
 ?>
 
 
@@ -25,7 +28,17 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 <metal:macro use-macro="context/@@morear_macro/macros/cover_header"/>
 
-cover view override
+
+<tal:flex-slider define="items main_slides">
+    <metal:macro use-macro="context/@@morear_macro/macros/flex-slider-box"/>
+</tal:flex-slider>
+<metal:macro use-macro="context/@@morear_macro/macros/cover-news"/>
+
+<tal:cover-product define="items moreDesign_items">
+    <metal:macro use-macro="context/@@morear_macro/macros/cover-product"/>
+</tal:cover-product>
+<metal:macro use-macro="context/@@morear_macro/macros/cover-more-feast-text"/>
+
 
 <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>

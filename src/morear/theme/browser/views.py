@@ -6,3 +6,10 @@ from plone import api
 
 class MorearMacro(BrowserView):
     """  """
+
+class BrainMacro(BrowserView):
+    """  """
+
+class ObjectMacro(BrowserView):
+    """  """
+

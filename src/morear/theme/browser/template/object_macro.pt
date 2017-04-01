@@ -277,6 +277,95 @@
 </metal:row>
 
 
+<!-- Flex slider box, (brain) -->
+<metal:row define-macro="flex-slider-box">
+<!-- Flexslider_box -->
+<div class="flexslider_box" role="main">
+  <div class="flexslider">
+    <ul class="slides">
+      <li tal:repeat="item items">
+          <a href="${item/getURL}">
+              <div style="max-height:670px; overflow:hidden">
+                  <img src="${item/getURL}/@@images/image/large" />
+              </div>
+          </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /Flexslider_box end -->
+</metal:row>
+
+
+<metal:row define-macro="cover-news">
+<!-- news -->
+<div id="index-news">
+<div id="index-news-photo-b"><img src="${context/absolute_url}/@@images/whatsNew_bigImage/large" /></div>
+<div id="index-news-box">
+<div id="tai-index-news"><a href="${context/whatsNew_URI}" onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('Image9','','${prefix}images/tai-news-b.png',1)">
+                            <img src="${prefix}images/tai-news.png" id="Image9" />
+                        </a>
+</div>
+<div id="index-news-photo-s"><img src="${context/absolute_url}/@@images/whatsNew_smallImage/preview" /></div>
+<div id="index-news-words">
+<h4>${context/whatsNew_title}</h4>
+<p><a href="${context/whatsNew_URI}" class="black-link">${context/whatsNew_text}</a></p>
+</div>
+</div>
+</div>
+<!-- news end -->
+</metal:row>
+
+
+<!-- Cover Product (brain) -->
+<metal:row define-macro="cover-product">
+    <!-- product -->
+    <div id="index-pro">
+        <ul>
+            <li tal:repeat="item items">
+                <a href="${item/getURL}" title="${item/Title}">
+                    <div style="max-height:268px; overflow:hidden">
+                        <img src="${item/getURL}/@@images/image/large" alt="${item/Title}"/>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- product end -->
+</metal:row>
+
+
+<metal:row define-macro="cover-more-feast-text">
+<!-- music -->
+<div id="index-music">
+<div id="tai-index-music"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}images/tai-music-b.png',1)"><img src="${prefix}images/tai-music.png" id="Image18" /></a></div>
+<a name="notice01" id="notice01"></a>
+<div id="index-music-box">
+  <div id="index-music-box01"><img src="${prefix}images/tai-music-ch.png" /></div>
+<div id="index-music-box02">${context/moreFeast_text}</div>
+<!-- item -->
+<div id="index-music-box03">
+<ul>
+<li><section><a href="#notice" class="button" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','${prefix}images/btn-music01-b.png',1)"><img src="${prefix}images/btn-music01.png" id="Image20" /></a></section></li>
+<li><a href="content/musicman/musicman-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','${prefix}images/btn-music02-b.png',1)"><img src="${prefix}images/btn-music02.png" id="Image21" /></a></li>
+<li><a href="content/recommend/recommend-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','${prefix}images/btn-music03-b.png',1)"><img src="${prefix}images/btn-music03.png" id="Image22" /></a></li>
+<li><a href="content/links/links-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','${prefix}images/btn-music04-b.png',1)"><img src="${prefix}images/btn-music04.png" id="Image23" /></a></li>
+</ul>
+</div>
+<!-- item end -->
+</div>
+</div>
+<!-- music end -->
+</metal:row>
+
+
+<metal:row define-macro="cover-about">
+<div id="index-about">
+<p>日前，由 flyingV 群眾募資平台所舉辦的「問一 Shot 之夜」音樂小聚圓滿結束！當天活動邀請到「相知國際」品牌與行銷部行銷總監江季剛、策略與企劃部創意總監沈彥呈、「Packer 派歌」版權經理張書珩、「大港開唱」宣傳公關總召呂岱芸、「激進工作室」負責人陳威仲、自由工作者耿璐及「flyingV」專案經理林乃禎，從自身經驗出發，擔任不同面向的給問關主，用輕鬆的「喝一杯 Shot，答一個問」方式為各獨立音樂人、樂團解答心中盤旋許久的疑問。<a href="content/about/about-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','images/btn-more-b.png',1)"><img src="images/btn-more.png" id="Image24" hspace="15" align="center" /></a></p>
+<div id="index-btn-3d"><a href="content/3d-lab/lab-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','images/btn-3d-b.png',1)"><img src="images/btn-3d.png" id="Image25" /></a></div>
+</div>
+</metal:row>
 
 
 </body>

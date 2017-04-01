@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingjing.content">
+<body>
+
+<!-- Flex slider box, (brain) -->
+<metal:row define-macro="flex-slider-box">
+<!-- Flexslider_box -->
+<div class="flexslider_box" role="main">
+  <div class="flexslider">
+    <ul class="slides">
+      <li tal:repeat="item items">
+          <a href="${item/getURL}">
+              <div style="max-height:670px; overflow:hidden">
+                  <img src="${item/getURL}/@@images/image/large" />
+              </div>
+          </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /Flexslider_box end -->
+</metal:row>
+
+
+<!-- Cover Product (brain) -->
+<metal:row define-macro="cover-product">
+    <!-- product -->
+    <div id="index-pro">
+        <ul>
+            <li tal:repeat="item items">
+                <a href="${item/getURL}" title="${item/Title}">
+                    <div style="max-height:268px; overflow:hidden">
+                        <img src="${item/getURL}/@@images/image/large" alt="${item/Title}"/>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- product end -->
+</metal:row>
+
+
+</body>
+</html>
+
+
