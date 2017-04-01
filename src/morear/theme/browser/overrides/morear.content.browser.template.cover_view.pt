@@ -30,15 +30,15 @@ moreDesign_items = api.content.find(context=portal, UID=context.moreDesign.split
 
 
 <tal:flex-slider define="items main_slides">
-    <metal:macro use-macro="context/@@morear_macro/macros/flex-slider-box"/>
+    <metal:macro use-macro="context/@@brain_macro/macros/flex-slider-box"/>
 </tal:flex-slider>
-<metal:macro use-macro="context/@@morear_macro/macros/cover-news"/>
+<metal:macro use-macro="context/@@object_macro/macros/cover-news"/>
 
 <tal:cover-product define="items moreDesign_items">
-    <metal:macro use-macro="context/@@morear_macro/macros/cover-product"/>
+    <metal:macro use-macro="context/@@brain_macro/macros/cover-product"/>
 </tal:cover-product>
-<metal:macro use-macro="context/@@morear_macro/macros/cover-more-feast-text"/>
-
+<metal:macro use-macro="context/@@object_macro/macros/cover-more-feast-text"/>
+<metal:macro use-macro="context/@@object_macro/macros/cover-about"/>
 
 <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>

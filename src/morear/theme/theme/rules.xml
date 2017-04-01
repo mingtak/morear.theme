@@ -12,7 +12,8 @@
 <!-- Only theme front end pages -->
 <rules css:if-content="body.frontend#visual-portal-wrapper">
 
-  <theme href="index.html" />
+  <theme href="index.html" css:if-content="body.template-cover_view" />
+  <theme href="inner.html" css:if-not-content="body.template-cover_view" />
   <notheme css:if-not-content="#visual-portal-wrapper" />
 
   <rules css:if-content="#portal-top">
