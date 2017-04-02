@@ -130,7 +130,7 @@
     <!-- Content header -->
     <drop css:theme="#portal-top" />
     <drop css:theme="#portal-footer-wrapper" />
-
+    <drop css:content=".for-theme" />
   </rules>
 
 </rules>

@@ -32,6 +32,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
         tal:content="structure python:context.text.output_relative_to(view.context)"
         tal:attributes="class python: toc and 'pat-autotoc' or ''" />
 
+    <metal:macro use-macro="context/@@object_macro/macros/document-detail"/>
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>
 
