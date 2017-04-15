@@ -173,10 +173,6 @@ a:hover {
 #top_menu { display:none; }
 /*----------------- in --------------------*/
 #in-banner{
-	width:100%;
-	float:left;
-}
-#in-banner-01{
 	position:absolute;
 	z-index:50;
 	width:100%;
@@ -190,9 +186,10 @@ a:hover {
 	width:100%;
 }
 #tai-box{
+	position:absolute;
 	width:100%;
-	float:left;
-	margin-top:5px;
+	z-index:10;
+	margin-top:98px;
 }
 #tai{
 	width:auto;
@@ -233,7 +230,7 @@ a:hover {
 	width:80%;
 	clear:both;
 	float:left;
-	margin:50px 10%;
+	margin:200px 10% 50px 10%;
 }
 #content table {
 	font-family:Arial, Helvetica, sans-serif;
@@ -253,7 +250,7 @@ a:hover {
 	width:80%;
 	clear:both;
 	float:left;
-	margin:50px 10%;
+	margin:100px 10%;
 	z-index:50;
 }
 #content-01 table {
@@ -486,7 +483,7 @@ a:hover {
 	width:90%;
 	clear:both;
 	float:left;
-	margin:50px 5%;
+	margin:200px 5% 50px 5%;
 }
 #content-01{
 	position:relative;
@@ -508,9 +505,10 @@ a:hover {
 	margin:15px 0 0 15px;
 }
 #tai-box{
+	position:absolute;
 	width:100%;
-	float:left;
-	margin-top:18px;
+	z-index:10;
+	margin-top:98px;
 }
 #tai{
 	width:50%;
