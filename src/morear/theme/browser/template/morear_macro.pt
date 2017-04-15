@@ -289,7 +289,7 @@
 </div>
 <!--phone menu end-->
 <!-- banner -->
-<div id="in-banner-01">
+<div id="in-banner">
 <div id="in-logo"><a href="../../index.html"><img src="${prefix}content/images/logo.gif" /></a></div>
 <!-- right -->
 <div id="menu-in">
@@ -408,7 +408,7 @@
 <-- 標題標籤 -->
 <metal:row define-macro="title-tag">
      <!-- tai+root -->
-     <div id="tai-product">
+     <div id="tai-box">
       <div id="tai">
        <!-- InstanceBeginEditable name="tai" -->
        ${context/title}
