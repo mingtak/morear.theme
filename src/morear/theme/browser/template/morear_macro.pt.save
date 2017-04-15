@@ -1,0 +1,300 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingjing.content">
+<body>
+
+
+<!-- Cover Header -->
+<metal:row define-macro="cover_header">
+<!--phone menu-->
+<div id="m_top_menu">手機板選單</div>
+<div id="top_menu">
+<ul class="a02">
+<li><a href="#">繁體中文</a></li>
+<li><a href="#">简体中文</a></li>
+</ul>
+<ul class="a01">
+<li><a href="content/location/location-01.html">服務據點</a></li>
+<li><a href="content/shoppingcart/cart01.html">購物車</a></li>
+<li>
+<label for="textfield"></label>
+<input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" />
+<a href="content/search/search-01.html"><img src="${prefix}images/btn-03-s.png" align="center" /></a>
+</li>
+</ul>
+<ul class="a02">
+<li><a href="content/3d-fit/fit-01.html">3D FIT科技</a></li>
+<li><a href="content/product/product-01a.html">Morear產品</a>
+<ul>
+<li><a href="content/product/product-01a.html">音樂耳機</a>
+<ol>
+<li><a href="content/product/product-01a.html">經典款</a></li>
+<li><a href="content/product/product-01b.html">專業款</a></li>
+<li><a href="content/product/product-01c.html">頂級款</a></li>
+</ol>
+</li>
+<li><a href="content/product/product-02a.html">聽力保護系列</a>
+<ol>
+<li><a href="content/product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="content/product/product-02b.html">防噪耳塞</a></li>
+<li><a href="content/product/product-02c.html">游泳耳塞</a></li>
+</ol>
+</li>
+<li><a href="content/product/product-03a.html">通訊升級系列</a>
+<ol>
+<li><a href="content/product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="content/product/product-03b.html">訂製藍芽耳塞</a></li>
+</ol>
+</li>
+<li><a href="content/product/product-04a.html">配件</a>
+<ol>
+<li><a href="content/product/product-04a.html">線材</a></li>
+<li><a href="content/product/product-04b.html">包裝</a></li>
+<li><a href="content/product/product-04c.html">除溼</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><a href="content/buymore/buymore-01.html">購買Morear</a>
+<ul>
+<li><a href="content/buymore/buymore-01.html">設計音樂耳機</a></li>
+<li><a href="content/buymore/buymore-02.html">設計客製耳塞</a></li>
+</ul>
+</li>
+<li><a href="content/service/service-01.html">支援服務</a>
+<ul>
+<li><a href="#">耳型與專業聽力師</a></li>
+<li><a href="content/service/service-01.html">產品服務及保固</a></li>
+</ul>
+</li>
+<li><a href="content/faq/faq-01.html">常見問題</a></li>
+<!--<li><a href="content/member/member-01.html">會員登入</a></li>-->
+<li><a href="content/member/member-b01.html">會員中心</a>
+<ul>
+<li><a href="content/member/member-a01.html">交易紀錄</a>
+<ol>
+<li><a href="content/member/member-a01.html">訂單查詢</a></li>
+</ol>
+</li>
+<li><a href="content/member/member-b01.html">會員資料</a>
+<ol>
+<li><a href="content/member/member-b01.html">修改會員資料</a></li>
+<li><a href="content/member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="content/member/member-b03.html">收貨通訊錄管理</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!--phone menu end-->
+<!-- top -->
+<div id="logo"><a href="index.html"><img src="${prefix}images/logo.png" /></a></div>
+<div id="menu-index">
+<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a></div>
+<!-- menu -->
+<div id="menu-down">
+<ul>
+<li><a href="content/3d-fit/fit-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
+<li><a href="content/product/product-01a.html" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</a></li>
+<li><a href="content/buymore/buymore-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
+<li><a href="content/service/service-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
+<li><a href="content/faq/faq-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">常見問題</a></li>
+<!--<li><a href="content/member/member-01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">會員登入</a></li>-->
+<li><a href="content/member/member-b01.html" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','show','hide-top5','','hide','hide-all','','show')">會員中心</a></li>
+</ul>
+</div>
+<!-- hide01 -->
+<div id="hide-top1">
+<div id="hide-01">
+<p class="word-big-white">音樂耳機</p>
+<ul>
+<li><a href="content/product/product-01a.html">經典款</a></li>
+<li><a href="content/product/product-01b.html">專業款</a></li>
+<li><a href="content/product/product-01c.html">頂級款</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">聽力保護系列</p>
+<ul>
+<li><a href="content/product/product-02a.html">舒眠耳塞</a></li>
+<li><a href="content/product/product-02b.html">防噪耳塞</a></li>
+<li><a href="content/product/product-02c.html">游泳耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">通訊升級系列</p>
+<ul>
+<li><a href="content/product/product-03a.html">訂製音樂耳塞</a></li>
+<li><a href="content/product/product-03b.html">訂製藍芽耳塞</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">配件</p>
+<ul>
+<li><a href="content/product/product-04a.html">線材</a></li>
+<li><a href="content/product/product-04b.html">包裝</a></li>
+<li><a href="content/product/product-04c.html">除溼</a></li>
+</ul>
+</div>
+</div>
+<!-- hide01 end -->
+<!-- hide02 -->
+<div id="hide-top2">
+<div id="hide-01">
+<p class="word-big-white"><a href="content/buymore/buymore-01.html">設計音樂耳機</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="content/buymore/buymore-02.html">設計客製耳塞</a></p>
+</div>
+</div>
+<!-- hide02 end -->
+<!-- hide03 -->
+<div id="hide-top3">
+<div id="hide-01">
+<p class="word-big-white"><a href="#">耳型與專業聽力師</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="content/service/service-01.html">產品服務及保固</a></p>
+</div>
+</div>
+<!-- hide03 end -->
+<!-- hide04 -->
+<div id="hide-top4">
+<div id="hide-01">
+<p class="word-big-white">交易紀錄</p>
+<ul>
+<li><a href="content/member/member-a01.html">訂單查詢</a></li>
+</ul>
+</div>
+<div id="hide-01">
+<p class="word-big-white">會員資料</p>
+<ul>
+<li><a href="content/member/member-b01.html">修改會員資料</a></li>
+<li><a href="content/member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="content/member/member-b03.html">收貨通訊錄管理</a></li>
+</ul>
+</div>
+</div>
+<!-- hide04 end -->
+<!-- hide05 -->
+<div id="hide-top5">
+<div id="hide-01">
+請輸入關鍵字
+  <label for="textfield"></label>
+  <input type="text" name="textfield" id="textfield" />
+  <a href="content/search/search-01.html"><img src="${prefix}images/btn-03-s.png" align="center" /></a></div>
+</div>
+<!-- hide05 end -->
+<!-- menu end -->
+<!-- icon -->
+<div id="top-icon">
+<ul>
+<li><a href="content/location/location-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}images/btn-01b.png',1)" title="服務據點"><img src="${prefix}images/btn-01.png" id="Image5" /></a></li>
+<li><a href="content/shoppingcart/cart01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','${prefix}images/btn-02b.png',1)" title="購物車"><img src="${prefix}images/btn-02.png" id="Image6" /></a></li>
+<li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','${prefix}images/btn-03b.png',1)" title="全文檢索"><img src="${prefix}images/btn-03.png" id="Image7" onclick="MM_showHideLayers('hide-top5','','show')" /></a></li>
+</ul>
+</div>
+<!-- icon end -->
+</div>
+<!-- top end -->
+</metal:row>
+
+
+<metal:row define-macro="inner_header">
+
+</metal:row>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Hide All -->
+<metal:row define-macro="hide-all">
+    <!-- hide all -->
+    <div id="hide-all">
+        <img src="${prefix}content/images/block.gif" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')" />
+    </div>
+    <!-- hide all end -->
+</metal:row>
+
+
+<!-- Footer -->
+<metal:row define-macro="footer">
+    <!-- footer -->
+    <div id="footer">
+        <div id="footer-w">
+            <div id="footer-w1">
+                <p class="word-big-black">About morear</p>
+                <ul>
+                    <li><a href="content/about/about-01.html">品牌故事</a></li>
+                    <li><a href="content/3d-lab/lab-02.html">3D製程</a></li>
+                    <li><a href="content/location/location-01.html">服務據點</a></li>
+                    <li><a href="content/topic/topic-list.html">新聞資訊</a></li>
+                    <li><a href="#">工作機會</a></li>
+                    <li><a href="content/contact/contact01.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div id="footer-w1">
+                <p class="word-big-black">more Links</p>
+                <ul>
+                    <li><a href="#">合作夥伴</a></li>
+                    <li><a href="content/member/member-a01.html">訂單查詢</a></li>
+                    <li><a href="content/privacy/privacy-01.html">使用條款</a></li>
+                    <li><a href="content/privacy/privacy-02.html">隱私政策</a></li>
+                    <li><a href="content/sitemap/sitemap-01.html">網站地圖</a></li>
+                </ul>
+            </div>
+            <div id="footer-w2">
+                <ul>
+                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','${prefix}content/images/footer-FBicon-b.png',1)"><img src="${prefix}content/images/footer-FBicon.png" id="Image26" /></a></li>
+                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','${prefix}content/images/footer-Lineicon-b.png',1)"><img src="${prefix}content/images/footer-Lineicon.png" id="Image27" /></a></li>
+                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','${prefix}content/images/footer-YouTubeicon-b.png',1)"><img src="${prefix}content/images/footer-YouTubeicon.png" id="Image28" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer-d">© 2017 morear .Co. All Rights Reserved.</div>
+<!-- footer end -->
+</metal:row>
+
+
+<!-- Music Online -->
+<metal:row define-macro="music-online">
+<!--music online-->
+<div id="info">
+<div style="width:46px; float:right; margin-top:20px; margin-right:20px;"><img src="${prefix}images/icon-close.png" onclick="MM_showHideLayers('info','','hide')" /></div>
+<div id="info-box"><img src="${prefix}images/music-list.jpg" style="width:100%;" /></div>
+</div>
+<!--music online end-->
+</metal:row>
+
+
+<!-- Cover light box -->
+<metal:row define-macro="cover-light-box">
+<!--light box-->
+<div class="lightbox-target" id="notice">
+<div class="content"><div id="music-online"><img src="${prefix}images/music-list.jpg" width="100%" /></div></div>
+<a href="#notice01" class="lightbox-close"></a>
+</div>
+<!--light box end-->
+</metal:row>
+
+
+
+
+</body>
+</html>
+
+

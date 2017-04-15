@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+?>
+
+  <div align="center" id="all">
+   <div id="in-bg">
+    <div id="wrapper">
+      <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+      <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+     <!-- content -->
+     <div id="content">
+      <!-- InstanceBeginEditable name="content" -->
+      <div id="n-photo">
+       <img tal:condition="context/bigImage_1" src="${context/absolute_url}/@@images/bigImage_1/large"/>
+       <img tal:condition="context/bigImage_2" src="${context/absolute_url}/@@images/bigImage_2/large"/>
+      </div>
+      <div id="n-word">
+       <h2>${context/title}</h2>
+       <p class="time">
+        ${python:context.created().strftime('%Y-%m%d')}
+       </p>
+
+  <div id="parent-fieldname-text"
+      tal:condition="context/text"
+      tal:content="structure python:context.text.output_relative_to(view.context)"
+      tal:attributes="class python: toc and 'pat-autotoc' or ''" />
+
+       <div id="share">
+        <a href="#">
+         Facebook分享
+        </a>
+        ｜
+        <a href="#">
+         Line分享
+        </a>
+
+       </div>
+      </div>
+      <!-- InstanceEndEditable -->
+     </div>
+     <!-- content end -->
+
+     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+    </div>
+    <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+   </div>
+  </div>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
