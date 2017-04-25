@@ -86,9 +86,11 @@
         <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
       </xsl:variable>
       <div class="{$central}">
-        <p class="pull-right visible-xs">
+<br/><br/><br/>
+<!--        <p class="pull-right visible-xs">
           <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
         </p>
+-->
         <div class="row">
           <div class="col-xs-12 col-sm-12">
              <xsl:apply-templates css:select="#content" />
@@ -131,6 +133,21 @@
     <drop css:theme="#portal-top" />
     <drop css:theme="#portal-footer-wrapper" />
     <drop css:content=".for-theme" />
+
+    <!-- edit toolbar -->
+    <drop css:content="#contentview-folderContents" if="$is_admin = 'False'"/>
+    <drop css:content="#contentview-edit" if="$is_admin = 'False'" />
+    <drop css:content="#contentview-view" if="$is_admin = 'False'" />
+    <drop css:content="#plone-contentmenu-workflow" if="$is_admin = 'False'" />
+    <drop css:content="#plone-contentmenu-actions" if="$is_admin = 'False'" />
+    <drop css:content="#plone-contentmenu-display" if="$is_admin = 'False'" />
+    <drop css:content="#contentview-history" if="$is_admin = 'False'" />
+    <drop css:content="#contentview-local_roles" if="$is_admin = 'False'" />
+    <drop css:content="#personaltools-preferences" if="$is_admin = 'False'" />
+    <drop css:content="#plone-contentmenu-factories" css:if-content="body.portaltype-plone-site" />
+
+    <!-- drop other elements -->
+    <drop css:content="#portal-breadcrumbs" />
   </rules>
 
 </rules>

@@ -72,16 +72,15 @@ tabs.reverse()
                      </a>
                  </tal:switch>
                  <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
-                 <span class="uid pull-right workflow"
-                       tal:condition="python:item.Type() in ['Page', 'page with Image', 'News Item']">
-                     狀態: <a v-on:click="trans" href="javascript:void(0)"
-                              id="trans-${item/UID}"
-                              class="${python:api.content.get_state(obj=item)}">
-                               ${python:api.content.get_state(obj=item)}
-                           </a>
-                 </span>
             </td>
-            <td style="padding:5px 10px"> <tal:state replace="python:api.content.get_state(item)" on-error="nothing"/> </td>
+            <td style="padding:5px 10px">
+                <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
+                   v-on:click="trans" href="javascript:void(0)"
+                   id="trans-${item/UID}"
+                   class="${python:api.content.get_state(obj=item)}">
+                   ${python:api.content.get_state(obj=item)}
+                </a>
+            </td>
             <td style="padding:5px 10px"> ${python:item.created().strftime('%Y/%m/%d %H:%M')}</td>
         </tr>
     </tbody>
@@ -104,7 +103,7 @@ var vm = new Vue({
   el: '#custom-folder-contents',
 
   data: {
-    test: 'qqq',
+    test: 'hello world',
   },
 
   methods: {

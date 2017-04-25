@@ -475,6 +475,7 @@ while True:
 
 <?python
 from plone import api
+is_anonymous = api.user.is_anonymous()
 current = api.user.get_current()
 ?>
 
@@ -500,7 +501,7 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/coming-soon">使用條款</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">隱私政策</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">網站地圖</a></li>
-<li tal:condition="python:api.user.has_permission('Modify portal content', user=current, obj=context)">
+<li tal:condition="python:not is_anonymous and api.user.has_permission('Modify portal content', user=current, obj=context)">
     <a style="color:blue;" href="${portal/absolute_url}/folder_contents">後台管理</a>
 </li>
                 </ul>
