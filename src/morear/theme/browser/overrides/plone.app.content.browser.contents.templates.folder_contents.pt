@@ -60,7 +60,8 @@ tabs.reverse()
         </tr>
     </thead>
     <tbody tal:define="items python:list(childNodes)[0:100]">
-        <tr tal:repeat="item items">
+        <tal:tr tal:repeat="item items">
+          <tr tal:condition="python:item.Type() not in ['Image', 'File']">
             <td style="padding:5px 10px">
                  [ <tal:type replace="item/Type"/> ]
                  <tal:switch switch="item/Type">
@@ -72,7 +73,10 @@ tabs.reverse()
                          (編輯)
                      </a>
                  </tal:switch>
-                 <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
+                 <tal:view switch="item/Type">
+                     <a tal:case="string:Faq" class="viewpage" href="${portal/absolute_url}/faq?view=true" target="_blank">(閱覽)</a>
+                     <a tal:case="default" class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
+                 </tal:view>
             </td>
             <td style="padding:5px 10px">
                 <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
@@ -83,7 +87,8 @@ tabs.reverse()
                 </a>
             </td>
             <td style="padding:5px 10px"> ${python:item.created().strftime('%Y/%m/%d %H:%M')}</td>
-        </tr>
+          </tr>
+        </tal:tr>
     </tbody>
 </table>
 
