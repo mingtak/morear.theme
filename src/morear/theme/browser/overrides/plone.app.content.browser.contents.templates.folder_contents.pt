@@ -64,11 +64,12 @@ tabs.reverse()
             <td style="padding:5px 10px">
                  [ <tal:type replace="item/Type"/> ]
                  <tal:switch switch="item/Type">
-                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents">
-                         <tal:title replace="item/title"/>
+                     <span style="margin-left:10px">${item/title}</span>
+                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents" style="margin:0 20px;">
+                         (進入目錄)
                      </a>
-                     <a tal:case="default" href="${item/absolute_url}/edit">
-                         <tal:title replace="item/title"/>
+                     <a tal:case="default" href="${item/absolute_url}/edit" style="margin:0 20px;">
+                         (編輯)
                      </a>
                  </tal:switch>
                  <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
