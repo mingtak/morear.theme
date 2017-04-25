@@ -7,6 +7,134 @@
     i18n:domain="mingjing.content">
 <body>
 
+
+
+<metal:row define-macro="docwithbigimage-detail">
+     <!-- content -->
+     <div id="content-01">
+      <!-- InstanceBeginEditable name="content" -->
+      <!-- top -->
+      <div id="product-photo" tal:condition="context/mainImage">
+       <img tal:attributes="src string:${context/absolute_url}/@@images/mainImage/large"/>
+      </div>
+      <div id="product-list-01" tal:condition="context/aboveText">
+          <div tal:replace="structure context/aboveText/raw" />
+      <!-- down -->
+      </div>
+      <a id="notice01" name="notice01">
+      </a>
+      <div id="p-list-02">
+       <ul>
+        <li tal:condition="context/image_1">
+         <section>
+          <a class="button" href="#image_1">
+           <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/preview"/>
+          </a>
+         </section>
+        </li>
+        <li tal:condition="context/image_2">
+         <section>
+          <a class="button" href="#image_2">
+           <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/preview"/>
+          </a>
+         </section>
+        </li>
+        <li tal:condition="context/image_3">
+         <section>
+          <a class="button" href="#image_3">
+           <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/preview"/>
+          </a>
+         </section>
+        </li>
+        <li tal:condition="context/youtube">
+<?python
+ytURL = context.youtube
+if ytURL:
+    ytId = ytURL.split('?v=')[-1].split('/')[0]
+    ytImg = 'https://img.youtube.com/vi/%s/0.jpg' % ytId
+?>
+         <section>
+          <a class="button" href="#youtube_video">
+           <img tal:attributes="src ytImg"/>
+          </a>
+         </section>
+        </li>
+       </ul>
+      </div>
+      <!--light box-->
+      <div class="lightbox-target" id="image_1" tal:condition="context/image_1">
+       <div class="content">
+        <div id="pro-s-pic">
+         <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/bigImage"/>
+        </div>
+       </div>
+       <a class="lightbox-close" href="#notice01">
+       </a>
+      </div>
+      <div class="lightbox-target" id="image_2" tal:condition="context/image_2">
+       <div class="content">
+        <div id="pro-s-pic">
+         <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/bigImage"/>
+        </div>
+       </div>
+       <a class="lightbox-close" href="#notice01">
+       </a>
+      </div>
+      <div class="lightbox-target" id="image_3" tal:condition="context/image_3">
+       <div class="content">
+        <div id="pro-s-pic">
+         <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/bigImage"/>
+        </div>
+       </div>
+       <a class="lightbox-close" href="#notice01">
+       </a>
+      </div>
+      <div class="lightbox-target" id="youtube_video" tal:condition="context/youtube">
+       <div class="content">
+        <div id="pro-s-pic">
+            <iframe width="853" height="480"
+                    tal:attributes="src string:https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen></iframe>
+        </div>
+       </div>
+       <a class="lightbox-close" href="#notice01">
+       </a>
+      </div>
+      <!--light box end-->
+      <div id="p-list-03" tal:condition="context/belowText">
+          <div tal:replace="structure context/belowText/raw" />
+      </div>
+      <!-- down end -->
+      <!-- InstanceEndEditable -->
+     </div>
+     <!-- content end -->
+</metal:row>
+
+
+
+<!-- Cover Product (for cover) -->
+<metal:row define-macro="cover-product">
+    <!-- product -->
+    <div id="index-pro">
+        <ul>
+<tal:li tal:repeat="item python:[('moreDesignImage_1', 'moreDesignUrl_1'),
+                                  ('moreDesignImage_2', 'moreDesignUrl_2'),
+                                  ('moreDesignImage_3', 'moreDesignUrl_3'),
+                                  ('moreDesignImage_4', 'moreDesignUrl_4'),
+                                  ('moreDesignImage_5', 'moreDesignUrl_5'),
+                                  ('moreDesignImage_6', 'moreDesignUrl_6'),]">
+            <li tal:condition="python:getattr(context, item[0], None)">
+                <a href="${python:getattr(context, item[1], 'javascript:void(0)')}">
+                    <div style="max-height:268px; overflow:hidden">
+                        <img src="${context/absolute_url}/@@images/${python:item[0]}/large"/>
+                    </div>
+                </a>
+            </li>
+</tal:li>
+        </ul>
+    </div>
+    <!-- product end -->
+</metal:row>
+
 <!-- Flex slider box, (for cover) -->
 <metal:row define-macro="flex-slider-box">
 <!-- Flexslider_box -->
@@ -14,10 +142,10 @@
   <div class="flexslider">
     <ul class="slides">
       <tal:li tal:repeat="slide python:[('mainSlide_1', 'mainUrl_1'), ('mainSlide_2', 'mainUrl_2'), ('mainSlide_3', 'mainUrl_3')]">
-        <li tal:condition="python:getattr(context, slide[0], None)"
-          <a href="${python:slide[1]}">
+        <li tal:condition="python:getattr(context, slide[0], None)">
+          <a href="${python:getattr(context, slide[1], 'javascript:void(0)')}">
               <div style="max-height:670px; overflow:hidden">
-                  <img src="${context/absolute_url}/@@images/${python:slide[0]}/large" />
+                  <img src="${context/absolute_url}/@@images/${python:slide[0]}/bigImage" />
               </div>
           </a>
       </tal:li>
@@ -61,9 +189,9 @@
 <div id="index-music-box03">
 <ul>
 <li><section><a href="#notice" class="button" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','${prefix}images/btn-music01-b.png',1)"><img src="${prefix}images/btn-music01.png" id="Image20" /></a></section></li>
-<li><a href="content/musicman/musicman-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','${prefix}images/btn-music02-b.png',1)"><img src="${prefix}images/btn-music02.png" id="Image21" /></a></li>
-<li><a href="content/recommend/recommend-list.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','${prefix}images/btn-music03-b.png',1)"><img src="${prefix}images/btn-music03.png" id="Image22" /></a></li>
-<li><a href="content/links/links-01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','${prefix}images/btn-music04-b.png',1)"><img src="${prefix}images/btn-music04.png" id="Image23" /></a></li>
+<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','${prefix}images/btn-music02-b.png',1)"><img src="${prefix}images/btn-music02.png" id="Image21" /></a></li>
+<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','${prefix}images/btn-music03-b.png',1)"><img src="${prefix}images/btn-music03.png" id="Image22" /></a></li>
+<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','${prefix}images/btn-music04-b.png',1)"><img src="${prefix}images/btn-music04.png" id="Image23" /></a></li>
 </ul>
 </div>
 <!-- item end -->

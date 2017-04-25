@@ -2,6 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:v-on="https://vuejs.org"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
@@ -71,9 +72,13 @@ tabs.reverse()
                      </a>
                  </tal:switch>
                  <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
-                 <span class="uid pull-right"
-                       tal:condition="python:api.user.get_permissions().get('Modify portal content')">
-                     UID: <span style="color:blue">${item/UID}</span>
+                 <span class="uid pull-right workflow"
+                       tal:condition="python:item.Type() in ['Page', 'page with Image', 'News Item']">
+                     狀態: <a v-on:click="trans" href="javascript:void(0)"
+                              id="trans-${item/UID}"
+                              class="${python:api.content.get_state(obj=item)}">
+                               ${python:api.content.get_state(obj=item)}
+                           </a>
                  </span>
             </td>
             <td style="padding:5px 10px"> <tal:state replace="python:api.content.get_state(item)" on-error="nothing"/> </td>
@@ -87,6 +92,34 @@ tabs.reverse()
     <div class="pat-structure"
          tal:condition="python:'Manager' in api.user.get_roles()"
          tal:attributes="data-pat-structure view/options" />
+
+
+<style>
+a.published { color:blue }
+a.private { color:red }
+</style>
+
+<script>
+var vm = new Vue({
+  el: '#custom-folder-contents',
+
+  data: {
+    test: 'qqq',
+  },
+
+  methods: {
+    trans: function (el) {
+        uid = el.target.id.split('-')[1];
+        url = "${portal/absolute_url}/@@trans_state?uid=" + uid;
+        $.get(url, function(result){
+            location.reload();
+        });
+    },
+  },
+
+});
+
+</script>
 
 
     </metal:content-core>

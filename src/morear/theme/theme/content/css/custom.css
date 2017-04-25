@@ -1,2 +1,13 @@
 #parent-fieldname-text { color:#fff; display:initial; margin:100px 10% }
 #about-words { color:#fff }
+
+.template-login_form, .template-login_failed, .template-logged_out, .template-login_success {
+    text-align:center; padding-top:100px; background-color:initial; font-size:18px
+}
+.template-login_form div.field, .template-login_failed div.field { margin: 20px ;}
+.template-login_failed li { list-style-type:none }
+
+.template-login_form a:hover,
+.template-login_failed a:hover,
+.template-logged_out a:hover,
+.template-login_success a:hover {color:#555;}

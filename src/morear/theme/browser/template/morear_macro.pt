@@ -95,7 +95,9 @@
 <!-- top -->
 <div id="logo"><a href="${portal/absolute_url}"><img src="${prefix}images/logo.png" /></a></div>
 <div id="menu-index">
-<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a></div>
+<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a>
+
+</div>
 <!-- menu -->
 <div id="menu-down">
 <ul>
@@ -470,28 +472,37 @@ while True:
 
 <!-- Footer -->
 <metal:row define-macro="footer">
+
+<?python
+from plone import api
+current = api.user.get_current()
+?>
+
     <!-- footer -->
     <div id="footer">
         <div id="footer-w">
             <div id="footer-w1">
                 <p class="word-big-black">About morear</p>
                 <ul>
-                    <li><a href="content/about/about-01.html">品牌故事</a></li>
-                    <li><a href="content/3d-lab/lab-02.html">3D製程</a></li>
-                    <li><a href="content/location/location-01.html">服務據點</a></li>
-                    <li><a href="content/topic/topic-list.html">新聞資訊</a></li>
-                    <li><a href="#">工作機會</a></li>
-                    <li><a href="content/contact/contact01.html">聯絡我們</a></li>
+                    <li><a href="${portal/absolute_url}/about">品牌故事</a></li>
+                    <li><a href="${portal/absolute_url}/3d-lab">3D製程</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">服務據點</a></li>
+                    <li><a href="${portal/absolute_url}/news">新聞資訊</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">工作機會</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">聯絡我們</a></li>
                 </ul>
             </div>
             <div id="footer-w1">
                 <p class="word-big-black">more Links</p>
                 <ul>
-                    <li><a href="#">合作夥伴</a></li>
-                    <li><a href="content/member/member-a01.html">訂單查詢</a></li>
-                    <li><a href="content/privacy/privacy-01.html">使用條款</a></li>
-                    <li><a href="content/privacy/privacy-02.html">隱私政策</a></li>
-                    <li><a href="content/sitemap/sitemap-01.html">網站地圖</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">合作夥伴</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">訂單查詢</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">使用條款</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">隱私政策</a></li>
+                    <li><a href="${portal/absolute_url}/coming-soon">網站地圖</a></li>
+<li tal:condition="python:api.user.has_permission('Modify portal content', user=current, obj=context)">
+    <a style="color:blue;" href="${portal/absolute_url}/folder_contents">後台管理</a>
+</li>
                 </ul>
             </div>
             <div id="footer-w2">

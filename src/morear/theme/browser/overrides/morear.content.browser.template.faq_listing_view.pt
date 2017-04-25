@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+items = context.listFolderContents(contentFilter={"Type" : "Faq"})
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<metal:macro use-macro="context/@@object_macro/macros/big-image"/>
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<!-- <label for="select"></label>
+<select name="select" id="select">
+  <option selected="">客製化訂製</option>
+  <option>配送運貨說明</option>
+</select> -->
+<div id="qaContent">
+  <ul class="accordionPart">
+
+  <li tal:repeat="item items">
+    <div class="qa_title">${item/Title}</div>
+    <div class="qa_content" style="display: none;" tal:content="structure item/text/raw"> content </div>
+  </li>
+
+
+  </ul>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+
+
+</div>
+</div>
+
+
+
+<!--滑出式問與答(Q&A)清單-->
+
+<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 幫 div.qa_title 加上 hover 及 click 事件
+		// 同時把兄弟元素 div.qa_content 隱藏起來
+		$('#qaContent ul.accordionPart li div.qa_title').hover(function(){
+			$(this).addClass('qa_title_on');
+		}, function(){
+			$(this).removeClass('qa_title_on');
+		}).click(function(){
+			// 當點到標題時，若答案是隱藏時則顯示它，同時隱藏其它已經展開的項目
+			// 反之則隱藏
+			var $qa_content = $(this).next('div.qa_content');
+			if(!$qa_content.is(':visible')){
+				$('#qaContent ul li div.qa_content:visible').slideUp();
+			}
+			$qa_content.slideToggle();
+		}).siblings().addClass('qa_content').hide();
+		// 全部展開
+		$('#qaContent .qa_showall').click(function(){
+			$('#qaContent ul.accordionPart li div.qa_content').slideDown();
+			return false;
+		});
+
+		// 全部隱藏
+		$('#qaContent .qa_hideall').click(function(){
+			$('#qaContent ul.accordionPart li div.qa_content').slideUp();
+			return false;
+		});
+
+		// 關閉
+		$('#qaContent .close_qa').click(function(){
+			$(this).parents('.qa_content').prev().click();
+			return false;
+		});
+	});
+</script>
+
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>
