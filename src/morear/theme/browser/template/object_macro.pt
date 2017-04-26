@@ -141,13 +141,23 @@ if ytURL:
 <div class="flexslider_box" role="main">
   <div class="flexslider">
     <ul class="slides">
-      <tal:li tal:repeat="slide python:[('mainSlide_1', 'mainUrl_1'), ('mainSlide_2', 'mainUrl_2'), ('mainSlide_3', 'mainUrl_3')]">
-        <li tal:condition="python:getattr(context, slide[0], None)">
+      <tal:li tal:repeat="slide python:[('mainSlide_1', 'mainUrl_1'),
+                                        ('mainSlide_2', 'mainUrl_2'),
+                                        ('mainSlide_3', 'mainUrl_3'),
+                                        ('mainSlide_4', 'mainUrl_4'),
+                                        ('mainSlide_5', 'mainUrl_5'),
+                                        ('mainSlide_6', 'mainUrl_6'),
+                                        ('mainSlide_7', 'mainUrl_7'),
+                                        ('mainSlide_8', 'mainUrl_8'),
+                                        ('mainSlide_9', 'mainUrl_9'),
+                                        ('mainSlide_10', 'mainUrl_10'),]">
+        <li tal:condition="python:bool(getattr(context, slide[0], False))">
           <a href="${python:getattr(context, slide[1], 'javascript:void(0)')}">
               <div style="max-height:670px; overflow:hidden">
                   <img src="${context/absolute_url}/@@images/${python:slide[0]}/bigImage" />
               </div>
           </a>
+        </li>
       </tal:li>
     </ul>
   </div>

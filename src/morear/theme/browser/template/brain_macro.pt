@@ -10,6 +10,7 @@
 <!-- Flex slider box, (brain) -->
 <metal:row define-macro="flex-slider-box">
 <!-- Flexslider_box -->
+<!-- 有用到縮圖，先廢棄不用
 <div class="flexslider_box" role="main">
   <div class="flexslider">
     <ul class="slides">
@@ -23,6 +24,7 @@
     </ul>
   </div>
 </div>
+-->
 <!-- /Flexslider_box end -->
 </metal:row>
 
@@ -30,6 +32,7 @@
 <!-- Cover Product (brain) -->
 <metal:row define-macro="cover-product">
     <!-- product -->
+<!-- 有用到縮圖，先廢棄不用
     <div id="index-pro">
         <ul>
             <li tal:repeat="item items">
@@ -41,6 +44,7 @@
             </li>
         </ul>
     </div>
+-->
     <!-- product end -->
 </metal:row>
 

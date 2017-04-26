@@ -33,7 +33,7 @@ s = int(request.form.get('s', 0))
     <ul>
      <li tal:repeat="item python:items[s:s+10]">
       <div id="n-list-img">
-       <img src="${item/getURL}/@@images/image/preview"/>
+       <img src="${item/getURL}/@@images/image/preview" tal:condition="python:getattr(item.getObject(), 'image', None)"/>
       </div>
       <div id="n-list-word">
        <p>
