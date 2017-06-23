@@ -32,25 +32,22 @@ items = context.listFolderContents(contentFilter={"Type" : "Faq"})
 
 <div id="content">
 <!-- InstanceBeginEditable name="content" -->
-<!-- <label for="select"></label>
-<select name="select" id="select">
-  <option selected="">客製化訂製</option>
-  <option>配送運貨說明</option>
-</select> -->
+<label for="select"></label>
+<select name="select" id="faq_select">
+  <option value="all" selected="">全部</option>
+  <option value="Customize">客製化訂製</option>
+  <option value="Shipping">配送運貨說明</option>
+</select>
 <div id="qaContent">
   <ul class="accordionPart">
-
-  <li tal:repeat="item items">
-    <div class="qa_title">${item/Title}</div>
-    <div class="qa_content" style="display: none;" tal:content="structure item/text/raw"> content </div>
-  </li>
-
-
+      <li tal:repeat="item items" class="${item/category}">
+          <div class="qa_title">${item/Title}</div>
+          <div class="qa_content" style="display: none;" tal:content="structure item/text/raw"> content </div>
+      </li>
   </ul>
 </div>
 <!-- InstanceEndEditable -->
 </div>
-
 
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>
@@ -105,6 +102,22 @@ items = context.listFolderContents(contentFilter={"Type" : "Faq"})
 			return false;
 		});
 	});
+</script>
+
+<script> //分類選單
+$( "#faq_select" ).change(function() {
+  val = $("#faq_select").val();
+  if(val == 'Customize'){
+      $(".Customize").show('slow');
+      $(".Shipping").hide('slow');
+  }else if(val == 'Shipping'){
+      $(".Customize").hide('slow');
+      $(".Shipping").show('slow');
+  }else if(val == 'all'){
+      $(".Customize").show('slow');
+      $(".Shipping").show('slow');
+  };
+});
 </script>
 
 

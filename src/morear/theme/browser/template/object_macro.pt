@@ -27,21 +27,21 @@
        <ul>
         <li tal:condition="context/image_1">
          <section>
-          <a class="button" href="#image_1">
+          <a class="button group1" href="${context/absolute_url}/@@images/image_1/large.png">
            <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/preview"/>
           </a>
          </section>
         </li>
         <li tal:condition="context/image_2">
          <section>
-          <a class="button" href="#image_2">
+          <a class="button group1" href="${context/absolute_url}/@@images/image_2/large.png">
            <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/preview"/>
           </a>
          </section>
         </li>
         <li tal:condition="context/image_3">
          <section>
-          <a class="button" href="#image_3">
+          <a class="button group1" href="${context/absolute_url}/@@images/image_3/large.png">
            <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/preview"/>
           </a>
          </section>
@@ -54,52 +54,14 @@ if ytURL:
     ytImg = 'https://img.youtube.com/vi/%s/0.jpg' % ytId
 ?>
          <section>
-          <a class="button" href="#youtube_video">
+          <a class="button youtube" tal:attributes="href string:https://www.youtube.com/embed/${ytId}">
            <img tal:attributes="src ytImg"/>
           </a>
          </section>
         </li>
        </ul>
       </div>
-      <!--light box-->
-      <div class="lightbox-target" id="image_1" tal:condition="context/image_1">
-       <div class="content">
-        <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/bigImage"/>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <div class="lightbox-target" id="image_2" tal:condition="context/image_2">
-       <div class="content">
-        <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/bigImage"/>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <div class="lightbox-target" id="image_3" tal:condition="context/image_3">
-       <div class="content">
-        <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/bigImage"/>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <div class="lightbox-target" id="youtube_video" tal:condition="context/youtube">
-       <div class="content">
-        <div id="pro-s-pic">
-            <iframe width="853" height="480"
-                    tal:attributes="src string:https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen></iframe>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <!--light box end-->
+
       <div id="p-list-03" tal:condition="context/belowText">
           <div tal:replace="structure context/belowText/raw" />
       </div>
@@ -385,21 +347,21 @@ if ytURL:
        <ul>
         <li tal:condition="context/image_1">
          <section>
-          <a class="button" href="#image_1">
+          <a class="button group1" href="${context/absolute_url}/@@images/image_1/large.png">
            <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/preview"/>
           </a>
          </section>
         </li>
         <li tal:condition="context/image_2">
          <section>
-          <a class="button" href="#image_2">
+          <a class="button group1" href="${context/absolute_url}/@@images/image_2/large.png">
            <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/preview"/>
           </a>
          </section>
         </li>
         <li tal:condition="context/image_3">
          <section>
-          <a class="button" href="#image_3">
+          <a class="button group1" href="${context/absolute_url}/@@images/image_3/large.png">
            <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/preview"/>
           </a>
          </section>
@@ -412,52 +374,13 @@ if ytURL:
     ytImg = 'https://img.youtube.com/vi/%s/0.jpg' % ytId
 ?>
          <section>
-          <a class="button" href="#youtube_video">
+          <a class="youtube" tal:attributes="href string:https://www.youtube.com/embed/${ytId}" >
            <img tal:attributes="src ytImg"/>
           </a>
          </section>
         </li>
        </ul>
       </div>
-      <!--light box-->
-      <div class="lightbox-target" id="image_1" tal:condition="context/image_1">
-       <div class="content">
-        <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/bigImage"/>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <div class="lightbox-target" id="image_2" tal:condition="context/image_2">
-       <div class="content">
-        <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/bigImage"/>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <div class="lightbox-target" id="image_3" tal:condition="context/image_3">
-       <div class="content">
-        <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/bigImage"/>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <div class="lightbox-target" id="youtube_video" tal:condition="context/youtube">
-       <div class="content">
-        <div id="pro-s-pic">
-            <iframe width="853" height="480"
-                    tal:attributes="src string:https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen></iframe>
-        </div>
-       </div>
-       <a class="lightbox-close" href="#notice01">
-       </a>
-      </div>
-      <!--light box end-->
 
       <div id="p-list-03">
           <div tal:replace="structure context/belowText/raw"  tal:condition="context/belowText"/>
