@@ -14,7 +14,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link class="for-theme" href="${prefix}content/css/web.css" rel="stylesheet" type="text/css" />
 <link class="for-theme" href="${prefix}content/css/in-menu.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="False"
+<link tal:condition="python:'LocationView' in str(view.view)"
       class="for-theme" href="${prefix}content/css/location.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="False"

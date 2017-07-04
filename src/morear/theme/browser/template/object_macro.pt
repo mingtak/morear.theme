@@ -175,7 +175,7 @@ if ytURL:
 
 <metal:row define-macro="cover-about">
 <div id="index-about">
-<p>日前，由 flyingV 群眾募資平台所舉辦的「問一 Shot 之夜」音樂小聚圓滿結束！當天活動邀請到「相知國際」品牌與行銷部行銷總監江季剛、策略與企劃部創意總監沈彥呈、「Packer 派歌」版權經理張書珩、「大港開唱」宣傳公關總召呂岱芸、「激進工作室」負責人陳威仲、自由工作者耿璐及「flyingV」專案經理林乃禎，從自身經驗出發，擔任不同面向的給問關主，用輕鬆的「喝一杯 Shot，答一個問」方式為各獨立音樂人、樂團解答心中盤旋許久的疑問。
+<p>${context/aboutMorear}
     <a href="${portal/absolute_url}/about" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','${prefix}images/btn-more-b.png',1)">
         <img src="${prefix}images/btn-more.png" id="Image24" hspace="15" align="center" />
     </a>
