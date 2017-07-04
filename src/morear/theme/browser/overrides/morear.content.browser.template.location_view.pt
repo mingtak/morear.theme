@@ -26,7 +26,6 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
 
-
   <div id="content">
     <div id="noticebox">
         <ul>
@@ -37,26 +36,23 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
             </li>
             <li>
                 請輸入關鍵字：<input name="textfield2" type="text" id="textfield2">
-                <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/btn-go-b.png',1)"><img src="http://www.core-marketing.com.tw/morear-demo/content/location/images/btn-go.png" id="Image14" align="center" hspace="15"></a>
+                <a href="#" onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image14','','${prefix}content/location/images/btn-go-b.png',1)">
+                    <img src="${prefix}/content/location/images/btn-go.png" id="Image14" align="center" hspace="15">
+                </a>
             </li>
         </ul>
     </div>
   </div>
-    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
-
-
-
+  <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 
 </div>
 
 
-
-
 <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
-
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
-
-
+</div>
+</div>
 
 
 
