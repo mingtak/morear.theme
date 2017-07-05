@@ -14,7 +14,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link class="for-theme" href="${prefix}content/css/web.css" rel="stylesheet" type="text/css" />
 <link class="for-theme" href="${prefix}content/css/in-menu.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="python:'LocationView' in str(view.view)"
+<link tal:condition="python:'Location' in str(view.view)"
       class="for-theme" href="${prefix}content/css/location.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="False"
@@ -51,7 +51,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link tal:condition="False"
       class="for-theme" href="${prefix}content/css/member.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="False"
+<link tal:condition="python:'SearchResultView' in str(view.view)"
       class="for-theme" href="${prefix}content/css/search.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="python:'FaqListingView' in str(view.view)"

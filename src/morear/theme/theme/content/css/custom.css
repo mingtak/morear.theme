@@ -11,3 +11,22 @@
 .template-login_failed a:hover,
 .template-logged_out a:hover,
 .template-login_success a:hover {color:#555;}
+
+.location-list .item {width:45%; padding: 10px; float:left}
+.location-list hr {width:94%; border: 1px dashed #888}
+.location-list .item .image { float:left; margin:0 20px; max-width:35%; overflow:hidden }
+.location-list .item .detail { color:#ddd; width:55%; max-width:100%; overflow:hidden}
+.location-list .item .detail h4 {
+    line-height: 150%;
+    margin: 0 0 20px 0;
+    padding: 0;
+    color: #f4a000;
+    border-bottom: 1px #f4a000 solid;
+}
+
+@media screen and (max-width: 885px) {
+    .location-list .item {width:100%; margin:20px 0; padding: 10px; float:initial}
+    .location-list hr {width:94%; border: 1px dashed #888; display:none}
+    .location-list .item .image { float:left; margin:0 20px; max-width:35%; overflow:hidden }
+    .location-list .item .detail { color:#ddd; width:55%; max-width:100%; overflow:hidden}
+}

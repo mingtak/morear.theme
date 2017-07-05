@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-bind="http://www.vuejs.org/vuejs"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+
+<?python
+from plone import api
+from math import ceil
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+items = view.brain
+s = int(request.form.get('s', 0))
+?>
+
+  <div align="center" id="all">
+   <div id="in-bg">
+    <div id="wrapper">
+      <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+      <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+     <!-- content -->
+
+  <div id="content">
+   <!-- InstanceBeginEditable name="content" -->
+   <div id="search">
+    <ul>
+     <li tal:repeat="item python:items[s:s+10]">
+       <h4><a href="${item/getURL}">${item/Title}</a></h4>
+       <p><a href="${item/getURL}">${item/getURL}</a></p>
+       <p><a href="${item/getURL}">${item/Description}</a></p>
+     </li>
+    </ul>
+   </div>
+
+
+
+   <div id="page">
+    <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">
+     <tbody>
+      <tr>
+       <td align="center" width="50">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}">
+         第1頁
+        </a>
+       </td>
+       <td align="center" width="15">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:0 if s<10 else s-10}">
+         ＜
+        </a>
+       </td>
+       <td align="center" width="80">
+        ${python:'%s / %s' % (s+1, s+10)}
+       </td>
+       <td align="center" width="15">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:s+10}">
+         ＞
+        </a>
+       </td>
+       <td align="center" width="50">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:len(items)-10}">
+         最末頁
+        </a>
+       </td>
+       <td>
+        <label for="select">
+        </label>
+        <select id="select" name="select">
+         <option value="-1">
+          請選擇
+         </option>
+         <option tal:repeat="page python:range(int(ceil(len(items)/10.0)))" value=${python:page}>
+          第 ${python:page+1} 頁
+         </option>
+        </select>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <!-- InstanceEndEditable -->
+  </div>
+
+     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+    </div>
+    <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+   </div>
+  </div>
+
+<script>
+var vm = new Vue({
+  el: '#content',
+
+  data: {
+    pages: -1,
+  },
+/*
+  methods: {
+    test: function () {
+      alert('hello vue!!');
+    }
+  },
+*/
+});
+
+
+//jQuery
+$( document ).ready(function() {
+
+    $( "select" ).change(function() {
+        vm.pages=Number($("select option:selected").attr('value'));
+        if(vm.pages >= 0){
+            window.location = "${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=" + vm.pages*10;
+        };
+    })
+
+
+});
+
+</script>
+
+
+
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

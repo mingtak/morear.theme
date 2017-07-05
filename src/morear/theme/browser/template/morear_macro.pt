@@ -18,12 +18,14 @@
 <li><a href="#">简体中文</a></li>
 </ul>
 <ul class="a01">
-<li><a href="content/location/location-01.html">服務據點</a></li>
+<li><a href="${portal/absolute_url}/location">服務據點</a></li>
 <li><a href="content/shoppingcart/cart01.html">購物車</a></li>
 <li>
 <label for="textfield"></label>
-<input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" />
-<a href="content/search/search-01.html"><img src="${prefix}images/btn-03-s.png" align="center" /></a>
+<div id="search-box-for-vue2">
+    <input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" v-model="keyword"/>
+    <a href="javascript:void(0)" class="to-search-page2"><img src="${prefix}images/btn-03-s.png" align="center" /></a>
+</div>
 </li>
 </ul>
 <ul class="a02">
@@ -144,24 +146,67 @@
 <!-- hide05 -->
 <div id="hide-top5">
 <div id="hide-01">
-請輸入關鍵字
+<div id="search-box-for-vue">
+  請輸入關鍵字
   <label for="textfield"></label>
-  <input type="text" name="textfield" id="textfield" />
-  <a href="content/search/search-01.html"><img src="${prefix}images/btn-03-s.png" align="center" /></a></div>
+  <input type="text" name="textfield" id="textfield" v-model="keyword"/>
+  <a href="javascript:void(0)" class="to-search-page">
+      <img src="${prefix}images/btn-03-s.png" align="center" />
+  </a>
+</div>
+</div>
 </div>
 <!-- hide05 end -->
 <!-- menu end -->
 <!-- icon -->
 <div id="top-icon">
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}images/btn-01b.png',1)" title="服務據點"><img src="${prefix}images/btn-01.png" id="Image5" /></a></li>
+<li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}images/btn-01b.png',1)" title="服務據點"><img src="${prefix}images/btn-01.png" id="Image5" /></a></li>
 <li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','${prefix}images/btn-02b.png',1)" title="購物車"><img src="${prefix}images/btn-02.png" id="Image6" /></a></li>
-<li><a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','${prefix}images/btn-03b.png',1)" title="全文檢索"><img src="${prefix}images/btn-03.png" id="Image7" onclick="MM_showHideLayers('hide-top5','','show')" /></a></li>
+<li>
+    <a href="javascript:void(0)" onmouseout="MM_swapImgRestore()"
+       onmouseover="MM_swapImage('Image7','','${prefix}images/btn-03b.png',1)" title="全文檢索">
+       <img src="${prefix}images/btn-03.png" id="Image7" onclick="MM_showHideLayers('hide-top5','','show')" />
+    </a>
+</li>
 </ul>
 </div>
 <!-- icon end -->
 </div>
 <!-- top end -->
+
+<script>
+var search_vm = new Vue({
+  el: '#search-box-for-vue',
+  data: {
+    message: 'Hello Vue!',
+    keyword: ''
+  }
+})
+
+var search_vm2 = new Vue({
+  el: '#search-box-for-vue2',
+  data: {
+    message: 'Hello Vue!',
+    keyword: '關鍵字搜尋' 
+  }
+})
+
+$( ".to-search-page" ).click(function() {
+    document.location.href="${portal/absolute_url}/search_result/@@search_result_view?keyword=" + search_vm.keyword;
+})
+
+$( ".to-search-page2" ).click(function() {
+    document.location.href="${portal/absolute_url}/search_result/@@search_result_view?keyword=" + search_vm2.keyword;
+})
+
+</script>
+
+
+
+
+
+
 </metal:row>
 
 
@@ -174,12 +219,14 @@
 <li><a href="#">简体中文</a></li>
 </ul>
 <ul class="a01">
-<li><a href="${portal/absolute_url}/coming-soon">服務據點</a></li>
+<li><a href="${portal/absolute_url}/location">服務據點</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">購物車</a></li>
 <li>
 <label for="textfield"></label>
-<input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" />
-<a href="../search/search-01.html"><img src="${prefix}content/images/btn-03-s.png" align="center" /></a>
+<div id="search-box-for-vue2">
+    <input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" v-model="keyword"/>
+    <a href="javascript:void(0)" class="to-search-page2"><img src="${prefix}content/images/btn-03-s.png" align="center" /></a>
+</div>
 </li>
 </ul>
 <ul class="a02">
@@ -300,17 +347,22 @@
 <!-- hide05 -->
 <div id="hide-top5">
 <div id="hide-01">
+<div id="search-box-for-vue">
 請輸入關鍵字
   <label for="textfield"></label>
-  <input type="text" name="textfield" id="textfield" />
-  <a href="../search/search-01.html"><img src="${prefix}content/images/btn-03-s.png" align="center" /></a></div>
+  <input type="text" name="textfield" id="textfield" v-model="keyword"/>
+  <a href="javascript:void(0)" class="to-search-page">
+      <img src="${prefix}content/images/btn-03-s.png" align="center" />
+  </a>
+</div>
+</div>
 </div>
 <!-- hide05 end -->
 <!-- menu end -->
 <!-- icon -->
 <div id="top-icon">
 <ul>
-<li><a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','${prefix}content/images/btn-01b.png',1)" title="服務據點"><img src="${prefix}content/images/btn-01.png" id="Image3" /></a></li>
+<li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','${prefix}content/images/btn-01b.png',1)" title="服務據點"><img src="${prefix}content/images/btn-01.png" id="Image3" /></a></li>
 <li><a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','${prefix}content/images/btn-02b.png',1)" title="購物車"><img src="${prefix}content/images/btn-02.png" id="Image4" /></a></li>
 <li><a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}content/images/btn-03b.png',1)" title="全文檢索"><img src="${prefix}content/images/btn-03.png" id="Image5" onclick="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','show','hide-all','','show')" /></a></li>
 </ul>
@@ -320,6 +372,36 @@
 <!-- right end -->
 </div>
 <!-- banner end -->
+
+<script>
+var search_vm = new Vue({
+  el: '#search-box-for-vue',
+  data: {
+    message: 'Hello Vue!',
+    keyword: ''
+  }
+})
+
+var search_vm2 = new Vue({
+  el: '#search-box-for-vue2',
+  data: {
+    message: 'Hello Vue!',
+    keyword: '關鍵字搜尋'
+  }
+})
+
+$( ".to-search-page" ).click(function() {
+    document.location.href="${portal/absolute_url}/search_result/@@search_result_view?keyword=" + search_vm.keyword;
+})
+
+$( ".to-search-page2" ).click(function() {
+    document.location.href="${portal/absolute_url}/search_result/@@search_result_view?keyword=" + search_vm2.keyword;
+})
+
+</script>
+
+
+
 </metal:row>
 
 
@@ -403,7 +485,7 @@ current = api.user.get_current()
                 <ul>
                     <li><a href="${portal/absolute_url}/about">品牌故事</a></li>
                     <li><a href="${portal/absolute_url}/3d-lab">3D製程</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">服務據點</a></li>
+                    <li><a href="${portal/absolute_url}/location">服務據點</a></li>
                     <li><a href="${portal/absolute_url}/news">新聞資訊</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">工作機會</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">聯絡我們</a></li>
@@ -461,6 +543,70 @@ current = api.user.get_current()
 <!--light box end-->
 </metal:row>
 
+
+
+<metal:row define-macro="location-search-box">
+    <div id="noticebox">
+      <form action="${portal/absolute_url}/location">
+        <ul>
+            <li>
+              據點搜尋：
+                  <select name="city" id="select3" v-model="selected_city">
+                      <option>--請選擇縣市--</option>
+                      <option tal:repeat="item view/getCitys">${item}</option>
+                  </select>
+                  <select name="dist" id="select">
+                      <option v-for="item in selected_dist">{{item}}</option>
+                  </select>
+                  <select name="weekend" id="select2">
+                      <option>平日營業門市</option>
+                      <option>假日營業門市</option>
+                  </select>
+            </li>
+            <li>
+                請輸入關鍵字：<input name="keyword" type="text" id="textfield2">
+<input type="submit" name="submit" value="查詢">
+<!--                <a href="#" onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image14','','${prefix}content/location/images/btn-go-b.png',1)">
+                    <img src="${prefix}/content/location/images/btn-go.png" id="Image14" align="center" hspace="15">
+                </a>
+-->
+            </li>
+        </ul>
+      </form>
+    </div>
+
+<script>
+var location_vm = new Vue({
+  el: '#noticebox',
+  data: {
+    message: 'Hello Vue!',
+    selected_city: '--請選擇縣市--',
+    selected_dist: ['--請選擇區域--']
+  }
+})
+
+$( "#select3" ).change(function() {
+    function getDist(handleData) {
+        $.ajax({
+            url: '${portal/absolute_url}/@@get_dists?city=' + location_vm.selected_city,
+            success:function(data) {
+                handleData(data);
+            }
+        });
+    }
+
+    getDist(function(output){
+        result = output.replace(/u'(?=[^:]+')/g, "'").replace(/'/g, '"')
+        location_vm.selected_dist = JSON.parse(result);
+    });
+})
+
+</script>
+
+
+
+</metal:row>
 
 
 

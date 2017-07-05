@@ -26,30 +26,34 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
 
-
-
-
   <div id="content">
-
     <metal:macro use-macro="context/@@morear_macro/macros/location-search-box"/>
 
+<!-- Location listing -->
+<div tal:define="brain view/brain" class="location-list">
+  <tal:item repeat="item brain">
 
+    <div class="item">
+        <div class="image">
+            <a href="${item/getURL}">
+                <img src="${item/getURL}/@@images/image/mini">
+            </a>
+        </div>
+        <div class="detail" tal:define="obj python:item.getObject()">
+            <h4><a href="${item/getURL}">門市：${item/Title}</a></h4>
+            <p>營業時間：${obj/serviceTime}</p>
+            <p>聯絡電話：${obj/phone}</p>
+            <p>地址：${obj/address}</p>
+            <p>假日營業：${python:'是' if obj.weekendService == True else '否'}</p>
+        </div>    
+    </div>
+    <p tal:condition="repeat/item/odd"><hr tal:condition="not:repeat/item/end"></p>
 
-<!-- info -->
-<div id="map" tal:content="structure context/mapCode" style="max-width:560px; overflow:hidden"></div>
-<div id="store-info-img"><img src="${context/absolute_url}/@@images/image/preview" /></div>
-<div id="store-info">
-  <h4>${context/title}</h4>
-  <p><span class="word-yellow">營業時間：</span>${context/serviceTime}</p>
-  <p><span class="word-yellow">聯絡電話：</span>${context/phone}</p>
-  <p><span class="word-yellow">地址：</span>${context/address}</p>
-  <p style="margin-top:15px;">
-      <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/location/images/btn-add-b.png',1)">
-          <img src="${prefix}content/location/images/btn-add.png" id="Image16" />
-      </a>
-  </p>
+  </tal:item>
 </div>
-<!-- info end -->
+
+
+<!-- Location listing end -->
 
 
 
