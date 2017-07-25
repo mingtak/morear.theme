@@ -411,7 +411,10 @@ $( ".to-search-page2" ).click(function() {
      <div id="tai-box">
       <div id="tai">
        <!-- InstanceBeginEditable name="tai" -->
-       ${context/title}
+          <tal:title switch="python:context.Type()">
+              <span tal:case="string:Folder" tal:replace="context/title" />
+              <span tal:case="default" tal:replace="python:context.getParentNode().title" />
+          </tal:title>
        <!-- InstanceEndEditable -->
        <img align="center" hspace="8" src="${prefix}content/images/tai-icon.png"/>
       </div>
