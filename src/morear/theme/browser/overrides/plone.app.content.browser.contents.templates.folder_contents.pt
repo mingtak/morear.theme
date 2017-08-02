@@ -50,12 +50,13 @@ tabs.reverse()
 </tal:path>
 </h4>
 
-
-<table id="custom-folder-contents">
+<table id="custom-folder-contents" talcondition="python:api.user.get_current().id != 'admin'">
     <thead>
         <tr>
             <td>標題</td>
+            <td>權重</td>
             <td>狀態</td>
+            <td>刪除</td>
             <td>建立時間</td>
         </tr>
     </thead>
@@ -65,25 +66,43 @@ tabs.reverse()
             <td style="padding:5px 10px">
                  [ <tal:type replace="item/Type"/> ]
                  <tal:switch switch="item/Type">
-                     <span style="margin-left:10px">${item/title}</span>
-                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents" style="margin:0 20px;">
+                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents" style="margin:0 10px;">
                          (進入目錄)
                      </a>
-                     <a tal:case="default" href="${item/absolute_url}/edit" style="margin:0 20px;">
+                     <a tal:case="default" href="${item/absolute_url}/edit" style="margin:0 5px;">
                          (編輯)
                      </a>
                  </tal:switch>
-                 <tal:view switch="item/Type">
-                     <a tal:case="string:Faq" class="viewpage" href="${portal/absolute_url}/faq?view=true" target="_blank">(閱覽)</a>
-                     <a tal:case="default" class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
-                 </tal:view>
+                 <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
+
+                 <span style="margin-left:10px">${item/title}</span>
+
+
             </td>
+            <td>
+                 <span class="featured"
+                       tal:condition="python:hasattr(item, 'featured') and api.user.get_permissions().get('Review portal content')">
+                     權重: <input value="${item/headWeight}"
+                                  type="number" class="headweight" name="headweight"
+                                  id="h-${item/UID}" style="width:50%">
+                 </span>
+
+            </td>
+
             <td style="padding:5px 10px">
                 <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
                    v-on:click="trans" href="javascript:void(0)"
                    id="trans-${item/UID}"
                    class="${python:api.content.get_state(obj=item)}">
                    ${python:api.content.get_state(obj=item)}
+                </a>
+            </td>
+            <td style="padding:5px 10px">
+                <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
+                   v-on:click="delObj" href="javascript:void(0)"
+                   id="delete-${item/UID}"
+                   class="${python:api.content.get_state(obj=item)}">
+                   刪除
                 </a>
             </td>
             <td style="padding:5px 10px"> ${python:item.created().strftime('%Y/%m/%d %H:%M')}</td>
@@ -120,11 +139,48 @@ var vm = new Vue({
             location.reload();
         });
     },
+    delObj: function (el) {
+        uid = el.target.id.split('-')[1];
+        url = "${portal/absolute_url}/@@delete_obj?uid=" + uid;
+        if(confirm('按下確認後刪除')){
+            $.get(url, function(result){
+                location.reload();
+            });
+        }else{
+//            alert("你按下取消");
+        }
+    },
   },
-
 });
 
 </script>
+
+<script>
+$(".headweight").change(function(obj){
+  uid = obj.target.id;
+  uid = uid.split('h-')[1];
+  value = obj.target.value;
+
+  $.ajax({
+    type: "POST",
+    url: '${portal/absolute_url}/@@set_featured',
+    data: {'uid':uid, 'headWeight':value},
+//    success: alert('已完成設定'),
+  });
+
+});
+</script>
+
+
+<style type="text/css">
+#custom-folder-contents { margin: 50px 0}
+#custom-folder-contents td { border: solid 1px; padding: 8px}
+.featured { color:red }
+.featured .headweight { color:#555; }
+.featured .featured-checkbox { margin-right:20px }
+.path { margin-top:50px}
+.viewpage { margin: 0 10px}
+</style>
 
 
     </metal:content-core>
@@ -132,3 +188,4 @@ var vm = new Vue({
 
 </body>
 </html>
+
