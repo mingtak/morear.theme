@@ -398,6 +398,167 @@ if ytURL:
 </metal:row>
 
 
+<metal:row define-macro="product-headphone-option">
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<!-- left -->
+<div id="buy-photo">
+<img src="${context/absolute_url}/@@images/bgImage/large">
+<div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
+</div>
+<!-- left end -->
+<!-- right -->
+<div id="buy-list-01">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="90" style="border-bottom:0">&nbsp;</td>
+    <td style="border-bottom:0">&nbsp;</td>
+    <td width="60" align="center" class="word-gray-2" style="border-bottom:0">價 格</td>
+  </tr>
+  <tr>
+    <td>產　　品：</td>
+    <td>
+        <select name="select3" id="product-uid" name="product-uid" style="width:100%;">
+            <option tal:repeat="item view/headphoneList"
+                    tal:attributes="value item/UID;
+                                    selected python:True if item.UID == context.UID() else False">${item/Title}</option>
+        </select>
+    </td>
+    <td align="center" class="word-gray-2">$${context/basePrice}</td>
+  </tr>
+  <tr>
+    <td>單　　體：</td>
+    <td> ${python:'一單體' if context.driver == 'One Driver' else '二單體'}
+    </td>
+    <td align="center" class="word-gray-2"></td>
+  </tr>
+  <tr>
+    <td>耳機線長度：</td>
+    <td><select name="lineLength" id="lineLength" style="width:100%;">
+      <option tal:repeat="item context/lineLength"
+              tal:attributes="value item/to_object/UID;
+                              selected repeat/item/start">${item/to_object/showName}</option>
+    </select></td>
+    <td align="center" class="word-gray-2">$${python:context.lineLength[0].to_object.price}</td>
+  </tr>
+  <tr>
+    <td>耳機線顏色：</td>
+    <td>
+    <img src="images/color-black.jpg" title="黑色">
+    <img src="images/color-silver.jpg" title="銀色">
+    </td>
+    <td align="center" class="word-gray-2">$100</td>
+  </tr>
+  <tr>
+    <td>3D列印耳殼：</td>
+    <td>
+    <img src="images/color-black.jpg" title="黑色">
+    <img src="images/color-nocolor.jpg" title="透明">
+    </td>
+    <td align="center" class="word-gray-2">$100</td>
+  </tr>
+  <tr>
+    <td rowspan="2">面板顏色：</td>
+    <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span><br>
+        <img tal:repeat="item context/surfaceColorR"
+             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
+                             title item/to_object/showName;
+                             calss python:'selected' if repeat['item'].start else None">
+    </td>
+    <td rowspan="2" align="center" class="word-gray-2">
+        $${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price}
+    </td>
+  </tr>
+  <tr>
+    <td style="border-bottom:0;"><span class="word-gray-2">左邊：</span><br>
+        <img tal:repeat="item context/surfaceColorL"
+             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
+                             title item/to_object/showName;
+                             calss python:'selected' if repeat['item'].start else None">
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2">雷　　雕：</td>
+    <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
+      <label for="textfield2"></label>
+      <input name="textfield2" type="text" id="textfield2" value="輸入字數限xx以內" style="width:85%;">
+    </td>
+    <td align="center" class="word-gray-2" style="border-bottom:0;">$100</td>
+  </tr>
+  <tr>
+    <td><span class="word-gray-2">左邊：</span>
+      <span style="border-bottom:0;">
+      <input name="textfield3" type="text" id="textfield3" value="輸入字數限xx以內" style="width:85%;">
+    </span></td>
+    <td align="center" class="word-gray-2">$100</td>
+  </tr>
+  <tr>
+    <td>Logo：</td>
+    <td><select name="select4" id="select4" style="width:100%;">
+      <option>morear</option>
+    </select></td>
+    <td align="center" class="word-gray-2">$300</td>
+  </tr>
+  <tr>
+    <td>Logo顏色：</td>
+    <td>
+    <img src="images/color-golden.jpg" title="金色">
+    <img src="images/color-silver.jpg" title="銀色">
+    </td>
+    <td align="center" class="word-gray-2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td rowspan="2">客製圖案：</td>
+    <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
+      <label for="textfield2"></label>
+      <input name="textfield2" type="text" id="textfield2">
+      <input type="submit" name="button" id="button" value="瀏覽">    
+    </td>
+    <td align="center" class="word-gray-2" style="border-bottom:0;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="word-gray-2">左邊：</span>
+      <label for="textfield2"></label>
+      <input name="textfield2" type="text" id="textfield2">
+      <input type="submit" name="button" id="button" value="瀏覽">
+      <br>
+      <span class="word-s-yellow">只接受jpg及png檔案，提醒您製作天數將會延後3-4週</span></td>
+    <td align="center" class="word-gray-2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>氣密箱姓名：<br>
+      （外盒）</td>
+    <td><span style="border-bottom:0;">
+      <input name="textfield4" type="text" id="textfield4" style="width:100%;">
+    </span></td>
+    <td align="center" class="word-gray-2">&nbsp;</td>
+  </tr>
+</tbody></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td align="right" class="word-yellow" style="border-bottom:0">總計：  <strong>$1,800</strong></td>
+  </tr>
+</tbody></table>
+</div>
+<!-- right end -->
+
+<!-- box -->
+<div id="buy-s-box">
+特殊需求：<br>
+<label for="textarea"></label>
+  <textarea name="textarea" id="textarea" rows="10" style="width:100%">如無特殊需求可不填寫</textarea>
+</div>
+<!-- box end -->
+<div id="btnbar">
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','images/btn01b.png',1)"><img src="images/btn01.png" id="Image31" hspace="15"></a>
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','images/btn02b.png',1)"><img src="images/btn02.png" id="Image32" hspace="15"></a>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+</metal:row>
+
+
+
 </body>
 </html>
 

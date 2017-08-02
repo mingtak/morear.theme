@@ -110,8 +110,10 @@
 /*平板-1*/
 @media only screen and (max-width:1100px) {
 #buy-list-01{
-	display:none;
+        width:100%;
 }
+
+
 #buy-list-02{
 	width:100%;
 	clear:both;
@@ -126,7 +128,8 @@
 	border:1px #f4a000 solid;
 }
 #buy-s-box{
-	display:none;
+/*	display:none; */
+        margin-top:10px;
 }
 #buy-s-box-m{
 	display:block;

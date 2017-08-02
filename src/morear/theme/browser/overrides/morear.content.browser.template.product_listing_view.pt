@@ -41,20 +41,21 @@ s = int(request.form.get('s', 0))
     </div>
     <div class="pp-price">
         $：1987
-        <a href="/coming-soon"
+        <a href="javascript:void(0)"
            onmouseout="MM_swapImgRestore()"
            onmouseover="MM_swapImage('Image22','','${portal/absolute_url}/++theme++moreartheme/images/btn-02b.png',1)">
             <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-02.png" class="Image22">
        </a>
-       <a href="/coming-soon"
+       <a href="${item/getURL}"
           onmouseout="MM_swapImgRestore()"
           onmouseover="MM_swapImage('Image23','','${portal/absolute_url}/++theme++moreartheme/images/btn-03b.png',1)">
            <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-03.png" class="Image23">
        </a>
     </div>
     <div class="pp-words">
-        <p>• 以真空管意象為設計主軸，傳達追求純粹音質的理念。</p>
-        <p>• 穿透式鋁合金支架在結構剛性與視覺輕量之間達到絕佳的美感平衡。</p>
+        <ul tal:define="desc python:item.description.split('\n')" tal:on-error="nothing">
+            <li tal:repeat="item python:desc[0:2]">${item}</li>
+        </ul>
     </div>
 </div>
 

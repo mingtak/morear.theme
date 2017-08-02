@@ -30,3 +30,10 @@
     .location-list .item .image { float:left; margin:0 20px; max-width:35%; overflow:hidden }
     .location-list .item .detail { color:#ddd; width:55%; max-width:100%; overflow:hidden}
 }
+
+.template-document_view #content #about-words { max-width: 100%; }
+.template-document_view #content #about-words img { width: 100%; }
+
+.template-product_listing_view #content .pp-words ul {margin:0; padding:0; }
+.template-product_listing_view #content .pp-words ul li { list-style-type:none; line-height: 20px}
+.template-product_listing_view #content .pp-words ul li:before { content: "•"; margin-right:5px}
