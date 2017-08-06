@@ -403,9 +403,16 @@ if ytURL:
 <!-- InstanceBeginEditable name="content" -->
 <!-- left -->
 <div id="buy-photo">
-<img src="${context/absolute_url}/@@images/bgImage/large">
-<div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
+
+    <div id="buy-photo-left">
+        <img src="${context/absolute_url}/@@images/bgImage_left/large">
+        <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
+    </div>
+    <div id="buy-photo-right">
+        <img src="${context/absolute_url}/@@images/bgImage_right/large">
+    </div>
 </div>
+
 <!-- left end -->
 <!-- right -->
 <div id="buy-list-01">
