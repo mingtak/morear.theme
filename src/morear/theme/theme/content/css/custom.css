@@ -37,3 +37,5 @@
 .template-product_listing_view #content .pp-words ul {margin:0; padding:0; }
 .template-product_listing_view #content .pp-words ul li { list-style-type:none; line-height: 20px}
 .template-product_listing_view #content .pp-words ul li:before { content: "•"; margin-right:5px}
+
+#buy-list-01 td img.selected { border:#0000FF 3px solid; }

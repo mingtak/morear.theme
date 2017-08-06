@@ -2,6 +2,7 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
     lang="en"
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="plone">
@@ -26,7 +27,6 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
 
-
     <metal:macro use-macro="context/@@object_macro/macros/product-headphone-option"/>
 
 
@@ -41,6 +41,23 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 
 <script>
+var vm = new Vue({
+  el: '#content',
+  data: {
+    message: 'Hello Vue!',
+
+    basePrice: ${context/basePrice},
+    linePrice: ${python:context.lineLength[0].to_object.price}
+  }
+});
+
+
+
+$('#lineLength').change(function() {
+    vm.linePrice = Number($(this).find(":selected").data('price'))
+});
+
+
 </script>
 
 </div>

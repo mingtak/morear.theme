@@ -2,6 +2,7 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
     lang="en"
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="mingjing.content">
@@ -441,47 +442,64 @@ if ytURL:
   </tr>
   <tr>
     <td>耳機線長度：</td>
-    <td><select name="lineLength" id="lineLength" style="width:100%;">
-      <option tal:repeat="item context/lineLength"
-              tal:attributes="value item/to_object/UID;
-                              selected repeat/item/start">${item/to_object/showName}</option>
-    </select></td>
-    <td align="center" class="word-gray-2">$${python:context.lineLength[0].to_object.price}</td>
+    <td>
+        <select name="lineLength" id="lineLength" style="width:100%;">
+            <option tal:repeat="item context/lineLength"
+                    tal:attributes="value item/to_object/UID;
+                                    data-price item/to_object/price;
+                                    selected repeat/item/start">${item/to_object/showName}
+            </option>
+        </select>
+    </td>
+    <td align="center" class="word-gray-2">${string:${{linePrice}}}</td>
+
   </tr>
   <tr>
     <td>耳機線顏色：</td>
     <td>
-    <img src="images/color-black.jpg" title="黑色">
-    <img src="images/color-silver.jpg" title="銀色">
+        <img tal:repeat="item context/lineColor"
+             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
+                             title item/to_object/showName;
+                             class python:'selected' if repeat['item'].start else None">
     </td>
-    <td align="center" class="word-gray-2">$100</td>
+
+    <td align="center" class="word-gray-2">
+        $${python:context.lineColor[0].to_object.price}
+    </td>
   </tr>
+
   <tr>
     <td>3D列印耳殼：</td>
     <td>
-    <img src="images/color-black.jpg" title="黑色">
-    <img src="images/color-nocolor.jpg" title="透明">
+        <img tal:repeat="item context/shell3D"
+             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
+                             title item/to_object/showName;
+                             class python:'selected' if repeat['item'].start else None">
     </td>
-    <td align="center" class="word-gray-2">$100</td>
+
+    <td align="center" class="word-gray-2">    
+        $${python:context.shell3D[0].to_object.price}
+    </td>
   </tr>
+
   <tr>
     <td rowspan="2">面板顏色：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span><br>
         <img tal:repeat="item context/surfaceColorR"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
-                             calss python:'selected' if repeat['item'].start else None">
+                             class python:'selected' if repeat['item'].start else None">
     </td>
     <td rowspan="2" align="center" class="word-gray-2">
         $${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price}
     </td>
   </tr>
   <tr>
-    <td style="border-bottom:0;"><span class="word-gray-2">左邊：</span><br>
+    <td><span class="word-gray-2">左邊：</span><br>
         <img tal:repeat="item context/surfaceColorL"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
-                             calss python:'selected' if repeat['item'].start else None">
+                             class python:'selected' if repeat['item'].start else None">
     </td>
   </tr>
   <tr>
@@ -509,11 +527,17 @@ if ytURL:
   <tr>
     <td>Logo顏色：</td>
     <td>
-    <img src="images/color-golden.jpg" title="金色">
-    <img src="images/color-silver.jpg" title="銀色">
+        <img tal:repeat="item context/logoColor"
+             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
+                             title item/to_object/showName;
+                             class python:'selected' if repeat['item'].start else None">
     </td>
-    <td align="center" class="word-gray-2">&nbsp;</td>
+
+    <td align="center" class="word-gray-2">
+        $${python:context.logoColor[0].to_object.price}
+    </td>
   </tr>
+
   <tr>
     <td rowspan="2">客製圖案：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
