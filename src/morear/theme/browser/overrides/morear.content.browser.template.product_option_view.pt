@@ -3,6 +3,8 @@
     xmlns:metal="http://xml.zope.org/namespaces/metal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
     lang="en"
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="plone">
@@ -47,15 +49,84 @@ var vm = new Vue({
     message: 'Hello Vue!',
 
     basePrice: ${context/basePrice},
-    linePrice: ${python:context.lineLength[0].to_object.price}
+    linePrice: ${python:context.lineLength[0].to_object.price},
+    lineColorPrice: ${python:context.lineColor[0].to_object.price},
+    shell3DPrice: ${python:context.shell3D[0].to_object.price},
+    logoPrice: 300,
+    logoColorPrice: ${python:context.logoColor[0].to_object.price},
+    surfacePrice: ${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price},
+    laserTextR: '',
+    laserTextL: '',
+    laserPriceR: 0,
+    laserPriceL: 0,
+    extSer: '',
+    outBoxText: '',
   }
 });
 
+// 改變產品
+$('#product-uid').change(function() {
+    window.location.replace($(this).find(":selected").data('url'))
+});
 
+// 改變logo顏色
+$('#logo-color img').click(function() {
+    clickItem($(this));
+    vm.logoColorPrice = Number($(this).data('price'));
+});
 
+// 輸入雷雕文字
+$('#laser-text-r').change(function() {
+    textR = $(this).val();
+    if(textR){
+        vm.laserPriceR = 100;
+    }else{
+        vm.laserPriceR = 0;
+    }
+});
+$('#laser-text-l').change(function() {
+    textL = $(this).val();
+    if(textL){
+        vm.laserPriceL = 100;
+    }else{
+        vm.laserPriceL = 0;
+    }
+});
+
+// 改變耳機線長度
 $('#lineLength').change(function() {
     vm.linePrice = Number($(this).find(":selected").data('price'))
 });
+
+// 改變耳機線顏色
+$('#line-color img').click(function() {
+    clickItem($(this));
+    vm.lineColorPrice = Number($(this).data('price'));
+});
+
+// 改變3D列印耳殼
+$('#shell-3d img').click(function() {
+    clickItem($(this));
+    vm.shell3DPrice = Number($(this).data('price'));
+});
+
+// 改變面板顏色
+$('tr.surfaceColor td img').click(function() {
+    clickItem($(this));
+    vm.surfacePrice = 0;
+    $('tr.surfaceColor td img.selected').each(function(){
+        vm.surfacePrice += Number($(this).data('price'));  // Or this.innerHTML, this.innerText
+    });
+    
+    // vm.surfacePrice = Number($(this).data('price') + );
+});
+
+
+// 選色
+function clickItem(item) {
+    $(item).attr('class', 'selected');
+    $(item).siblings().removeAttr('class');
+}
 
 
 </script>
