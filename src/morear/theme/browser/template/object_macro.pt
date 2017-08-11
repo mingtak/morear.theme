@@ -411,8 +411,10 @@ if ytURL:
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
         <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
     </div>
-    <div id="buy-photo-right">
+    <div id="buy-photo-right"
+         style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_right/large">
+        <img id="previewimgR" src="#" alt="客製圖案" draggable="true" style="display:none"/>
     </div>
 </div>
 
@@ -556,16 +558,14 @@ if ytURL:
     <td rowspan="2">客製圖案：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
       <label for="textfield2"></label>
-      <input name="textfield2" type="text" id="textfield2">
-      <input type="submit" name="button" id="button" value="瀏覽">    
+      <input name="cusImgR" type="file" id="cusImgR">
     </td>
     <td align="center" class="word-gray-2" style="border-bottom:0;">&nbsp;</td>
   </tr>
   <tr>
     <td><span class="word-gray-2">左邊：</span>
       <label for="textfield2"></label>
-      <input name="textfield2" type="text" id="textfield2">
-      <input type="submit" name="button" id="button" value="瀏覽">
+      <input name="cusImgL" type="file" id="cusImgL">
       <br>
       <span class="word-s-yellow">只接受jpg及png檔案，提醒您製作天數將會延後3-4週</span></td>
     <td align="center" class="word-gray-2">&nbsp;</td>

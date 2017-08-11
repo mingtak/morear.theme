@@ -121,13 +121,39 @@ $('tr.surfaceColor td img').click(function() {
     // vm.surfacePrice = Number($(this).data('price') + );
 });
 
-
 // 選色
 function clickItem(item) {
     $(item).attr('class', 'selected');
     $(item).siblings().removeAttr('class');
 }
 
+// 上傳檔案
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#previewimgR').attr({
+                src: e.target.result,
+                style: 'display: initial;\
+                        width: initial;\
+                        height: initial;\
+                        position: absolute;\
+                        top: 0;\
+                        left:0;\
+                        transform:rotate(3deg);\
+                        '
+            });
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#cusImgR").change(function(){
+    readURL(this);
+});
 
 </script>
 

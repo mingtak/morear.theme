@@ -89,3 +89,4 @@ else:
 <meta content="${context/description}" name="twitter:description" />
 <meta content="${context/absolute_url}" name="twitter:url" />
 <meta content="${python:'%s/@@images/%s/preview' % (context.absolute_url(), imageString)}" name="twitter:image" tal:condition="imageString"/>
+
