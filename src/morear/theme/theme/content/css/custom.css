@@ -39,3 +39,6 @@
 .template-product_listing_view #content .pp-words ul li:before { content: "•"; margin-right:5px}
 
 #buy-list-01 td img.selected { border:#0000FF 3px solid; }
+
+/* 配合插入拉bar修改，做完再調到適當大小 */
+#buy-s-box { margin-top:50px }

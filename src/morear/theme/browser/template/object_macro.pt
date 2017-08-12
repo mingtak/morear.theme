@@ -416,7 +416,9 @@ if ytURL:
         <img src="${context/absolute_url}/@@images/bgImage_right/large">
         <img id="previewimgR" src="#" alt="客製圖案" draggable="true" style="display:none"/>
     </div>
+
 </div>
+
 
 <!-- left end -->
 <!-- right -->
@@ -555,6 +557,7 @@ if ytURL:
   </tr>
 
   <tr>
+<input type="hidden" class="slider-input" value="23" />
     <td rowspan="2">客製圖案：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
       <label for="textfield2"></label>
@@ -593,6 +596,26 @@ if ytURL:
 
 <!-- box -->
 <div id="buy-s-box">
+
+    <div id="optionBar" style="position: relative">
+
+<!-- Custom image option bar begin-->
+
+<input id="option-up-down" value="0" type="hidden"/>
+
+
+
+
+<!-- Custom image option bar end -->
+
+
+
+
+    </div>
+
+
+
+
 特殊需求：<br>
 <label for="textarea"></label>
   <textarea name="textarea" id="ext-ser" rows="10" style="width:100%" placeholder="如無特殊需求可不填寫" v-model:value="extSer"></textarea>
