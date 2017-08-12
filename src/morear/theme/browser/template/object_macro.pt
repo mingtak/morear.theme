@@ -600,9 +600,37 @@ if ytURL:
     <div id="optionBar" style="position: relative">
 
 <!-- Custom image option bar begin-->
+<div class="option-right-side">
+    <div class="option-row">
+        <span>上下: </span><input id="right-option-up-down" class="option-bar" value="0" type="hidden"/>
+    </div>
+    <div class="option-row">
+        <span>左右: </span><input id="right-option-left-right" class="option-bar" value="0" type="hidden"/>
+    </div>
+    <div class="option-row">
+        <span>縮放: </span><input id="right-option-zoom" class="option-bar" value="0" type="hidden"/>
+    </div>
+    <div class="option-row">
+        <span>旋轉: </span><input id="right-option-rotate" class="option-bar" value="0" type="hidden"/>
+    </div>
 
-<input id="option-up-down" value="0" type="hidden"/>
+</div>
 
+<div class="option-left-side">
+    <div class="option-row">
+        <span>上下: </span><input id="left-option-up-down" class="option-bar" value="0" type="hidden"/>
+    </div>
+    <div class="option-row">
+        <span>左右: </span><input id="left-option-left-right" class="option-bar" value="0" type="hidden"/>
+    </div>
+    <div class="option-row">
+        <span>縮放: </span><input id="left-option-zoom" class="option-bar" value="0" type="hidden"/>
+    </div>
+    <div class="option-row">
+        <span>旋轉: </span><input id="left-option-rotate" class="option-bar" value="0" type="hidden"/>
+    </div>
+
+</div>
 
 
 

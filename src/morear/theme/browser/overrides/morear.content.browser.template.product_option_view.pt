@@ -132,39 +132,35 @@ function readURL(input) {
 
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
-            $('#previewimgR').attr({
-                src: e.target.result,
-                style: 'display: initial;\
-                        width: initial;\
-                        height: initial;\
-                        position: absolute;\
-                        top: 0;\
-                        left:0;\
-                        transform:rotate(3deg);\
-                        '
+            $('#previewimgR').attr('src', e.target.result).css({
+                'display':'initial',
+                'width': 'initial',
+                'height': 'initial',
+                'position': 'absolute',
+                'top': '0',
+                'left': '0',
+                'transform': 'rotate(3deg)'
             });
         }
-
         reader.readAsDataURL(input.files[0]);
     }
 }
-
 $("#cusImgR").change(function(){
     readURL(this);
 });
 
 // Option bar(jRange)
 $( document ).ready(function() {
-    $('#option-up-down').jRange({
-        from: 0,
-        to: 100,
+    $('.option-bar').jRange({
+        from: -50,
+        to: 50,
         step: 1,
-        scale: [0,25,50,75,100],
+        showScale: false,
+//        scale: [0,25,50,75,100],
         format: '%s',
         width: 150,
-        showLabels: true,
+        showLabels: false,
         isRange : false
     });
 

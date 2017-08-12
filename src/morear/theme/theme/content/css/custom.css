@@ -42,3 +42,8 @@
 
 /* 配合插入拉bar修改，做完再調到適當大小 */
 #buy-s-box { margin-top:50px }
+#optionBar { padding-bottom: 150px}
+.option-right-side { width: 42%; float:right;}
+.option-left-side {width: 42%; float:left;}
+#optionBar .slider-container {float:right;}
+.option-row { margin:10px 0}
