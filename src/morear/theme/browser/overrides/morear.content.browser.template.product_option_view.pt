@@ -74,6 +74,18 @@ var vm = new Vue({
   }
 });
 
+// 下載客製化圖片
+$('#download-custom-image').click(function() {
+    html2canvas($('#buy-photo'), {
+        onrendered: function(canvas) {
+            theCanvas = canvas;
+            canvas.toBlob(function(blob) {
+                saveAs(blob, "output.png"); 
+            });
+        }
+    });
+});
+
 // 改變產品
 $('#product-uid').change(function() {
     window.location.replace($(this).find(":selected").data('url'))
@@ -83,6 +95,13 @@ $('#product-uid').change(function() {
 $('#logo-color img').click(function() {
     clickItem($(this));
     vm.logoColorPrice = Number($(this).data('price'));
+
+    $(".logo-color-image").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '20%',
+                'left': '0%',
+    });
 });
 
 // 輸入雷雕文字
@@ -112,12 +131,24 @@ $('#lineLength').change(function() {
 $('#line-color img').click(function() {
     clickItem($(this));
     vm.lineColorPrice = Number($(this).data('price'));
+    $(".lineColorImage").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
 });
 
 // 改變3D列印耳殼
 $('#shell-3d img').click(function() {
     clickItem($(this));
     vm.shell3DPrice = Number($(this).data('price'));
+    $(".shell-3d-image").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '40%',
+                'left': '0%',
+    });
 });
 
 // 改變面板顏色
@@ -127,8 +158,14 @@ $('tr.surfaceColor td img').click(function() {
     $('tr.surfaceColor td img.selected').each(function(){
         vm.surfacePrice += Number($(this).data('price'));  // Or this.innerHTML, this.innerText
     });
-    
-    // vm.surfacePrice = Number($(this).data('price') + );
+
+    side = $(this).data('side');
+    $("." + side).attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '30%',
+                'left': '0%',
+    });
 });
 
 // 選色
@@ -200,6 +237,29 @@ $(".option-bar").change(function(){
         });
     }
 });
+
+// Reload Page
+$("#reload-page").click(
+    function(){
+        window.location.replace("${context/absolute_url}/@@product_option_view")
+    }
+)
+
+// Add to cart
+$("#add-to-cart").click(
+    function(){
+        $.post(
+            url="${portal/absolute_url}/@@cus_prod_to_cart",
+            data=vm.$data,
+        )
+          .done(function(data){
+              alert( "已加入購物車" );
+          })
+          .fail(function() {
+              alert( "加入購物車失敗，請稍候再試，或請聯絡系統管理員" );
+          });
+    }
+)
 
 </script>
 

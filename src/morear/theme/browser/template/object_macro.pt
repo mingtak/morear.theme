@@ -409,13 +409,21 @@ if ytURL:
 
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
-        <img id="previewimgL" src="#" alt="客製圖案" draggable="true" style="display:none"/>
+        <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
+        <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
+        <img class="surface-color-image-l" src="#" alt="圖層:面板顏色 左" style="display:none"/>
+        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none"/>
     </div>
 
     <div id="buy-photo-right"
          style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_right/large">
-        <img id="previewimgR" src="#" alt="客製圖案" draggable="true" style="display:none"/>
+        <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
+        <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
+        <img class="surface-color-image-r" src="#" alt="圖層:面板顏色 右" style="display:none"/>
+        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
     </div>
 </div>
 <!--        <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
@@ -469,6 +477,7 @@ if ytURL:
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
                              data-price item/to_object/price;
+                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              class python:'selected' if repeat['item'].start else None">
     </td>
 
@@ -484,6 +493,7 @@ if ytURL:
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
                              data-price item/to_object/price;
+                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              class python:'selected' if repeat['item'].start else None">
     </td>
 
@@ -499,6 +509,8 @@ if ytURL:
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
                              data-price item/to_object/price;
+                             data-side string:surface-color-image-r;
+                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              class python:'selected' if repeat['item'].start else None">
     </td>
     <td rowspan="2" align="center" class="word-gray-2">
@@ -511,6 +523,8 @@ if ytURL:
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
                              data-price item/to_object/price;
+                             data-side string:surface-color-image-l;
+                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              class python:'selected' if repeat['item'].start else None">
     </td>
   </tr>
@@ -548,7 +562,9 @@ if ytURL:
         <img tal:repeat="item context/logoColor"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
+                             data-title item/to_object/title;
                              data-price item/to_object/price;
+                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              class python:'selected' if repeat['item'].start else None">
     </td>
 
@@ -585,6 +601,7 @@ if ytURL:
 </tbody></table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
+<!--    <td class="word-yellow" style="border-bottom:0"><a id="download-custom-image" href="javascript:void(0)">儲存客製化參數</a></td> -->
     <td align="right" class="word-yellow" style="border-bottom:0">總計：
         <strong>
             ${string:${{basePrice + linePrice + lineColorPrice + shell3DPrice + logoPrice + logoColorPrice + surfacePrice + laserPriceR + laserPriceL}}}
@@ -651,8 +668,8 @@ if ytURL:
 </div>
 <!-- box end -->
 <div id="btnbar">
-  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','images/btn01b.png',1)"><img src="images/btn01.png" id="Image31" hspace="15"></a>
-  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','images/btn02b.png',1)"><img src="images/btn02.png" id="Image32" hspace="15"></a>
+  <a id="reload-page" href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','${prefix}content/buymore/images/btn01b.png',1)"><img src="${prefix}content/buymore/images/btn01.png" id="Image31" hspace="15"></a>
+  <a id="add-to-cart" href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','${prefix}content/buymore/images/btn02b.png',1)"><img src="${prefix}content/buymore/images/btn02.png" id="Image32" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->
 </div>
