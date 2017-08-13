@@ -47,3 +47,4 @@
 .option-left-side {width: 42%; float:left;}
 #optionBar .slider-container {float:right;}
 .option-row { margin:10px 0}
+.option-right-side, .option-left-side { display: none }

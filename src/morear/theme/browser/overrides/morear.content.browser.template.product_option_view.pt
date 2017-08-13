@@ -61,6 +61,16 @@ var vm = new Vue({
     laserPriceL: 0,
     extSer: '',
     outBoxText: '',
+
+    // 客製化圖片參數
+    upDownR: 50,
+    upDownL: 50,
+    leftRightR: 0,
+    leftRightL: 0,
+    zoomR: 100,
+    zoomL: 100,
+    rotateR: 0,
+    rotateL: 0
   }
 });
 
@@ -128,36 +138,39 @@ function clickItem(item) {
 }
 
 // 上傳檔案
-function readURL(input) {
-
+function readURL(input, imgPosition) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $('#previewimgR').attr('src', e.target.result).css({
+            $(imgPosition).attr('src', e.target.result).css({
                 'display':'initial',
-                'width': 'initial',
+                'width': '100%',
                 'height': 'initial',
                 'position': 'absolute',
-                'top': '0',
-                'left': '0',
-                'transform': 'rotate(3deg)'
+                'top': '50%',
+                'left': '0%',
+                'transform': 'rotate(0deg)'
             });
         }
         reader.readAsDataURL(input.files[0]);
     }
 }
 $("#cusImgR").change(function(){
-    readURL(this);
+    readURL(this, '#previewimgR');
+    $('.option-right-side').fadeIn(1000);
+});
+$("#cusImgL").change(function(){
+    readURL(this, '#previewimgL');
+    $('.option-left-side').fadeIn(1000);
 });
 
 // Option bar(jRange)
 $( document ).ready(function() {
     $('.option-bar').jRange({
-        from: -50,
-        to: 50,
+        from: 0,
+        to: 100,
         step: 1,
         showScale: false,
-//        scale: [0,25,50,75,100],
         format: '%s',
         width: 150,
         showLabels: false,
@@ -165,6 +178,27 @@ $( document ).ready(function() {
     });
 
     $('.slider-container').css({'display':'inherit'})
+});
+
+// Option-bar value changed event
+$(".option-bar").change(function(){
+    elId = $(this).attr('id');
+    vm.$data[elId] = $(this).attr('value');
+    if( elId.endsWith('R') ){
+        $( '#previewimgR' ).css({
+            'top': vm.upDownR + '%',
+            'left': vm.leftRightR + '%',
+            'transform': 'rotate(' + vm.rotateR*3.6 + 'deg)',
+            'width': vm.zoomR + '%'
+        });
+    } else{
+        $( '#previewimgL' ).css({
+            'top': vm.upDownL + '%',
+            'left': vm.leftRightL + '%',
+            'transform': 'rotate(' + vm.rotateL*3.6 + 'deg)',
+            'width': vm.zoomL + '%'
+        });
+    }
 });
 
 </script>

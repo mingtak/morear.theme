@@ -407,18 +407,19 @@ if ytURL:
 <!-- left -->
 <div id="buy-photo">
 
-    <div id="buy-photo-left">
+    <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
-        <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
+        <img id="previewimgL" src="#" alt="客製圖案" draggable="true" style="display:none"/>
     </div>
+
     <div id="buy-photo-right"
          style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_right/large">
         <img id="previewimgR" src="#" alt="客製圖案" draggable="true" style="display:none"/>
     </div>
-
 </div>
-
+<!--        <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
+-->
 
 <!-- left end -->
 <!-- right -->
@@ -602,32 +603,32 @@ if ytURL:
 <!-- Custom image option bar begin-->
 <div class="option-right-side">
     <div class="option-row">
-        <span>上下: </span><input id="right-option-up-down" class="option-bar" value="0" type="hidden"/>
+        <span>上下: </span><input id="upDownR" class="option-bar" type="hidden" v-bind:value="upDownR"/>
     </div>
     <div class="option-row">
-        <span>左右: </span><input id="right-option-left-right" class="option-bar" value="0" type="hidden"/>
+        <span>左右: </span><input id="leftRightR" class="option-bar" type="hidden" v-bind:value="leftRightR"/>
     </div>
     <div class="option-row">
-        <span>縮放: </span><input id="right-option-zoom" class="option-bar" value="0" type="hidden"/>
+        <span>縮放: </span><input id="zoomR" class="option-bar" type="hidden" v-bind:value="zoomR"/>
     </div>
     <div class="option-row">
-        <span>旋轉: </span><input id="right-option-rotate" class="option-bar" value="0" type="hidden"/>
+        <span>旋轉: </span><input id="rotateR" class="option-bar" type="hidden" v-bind:value="rotateR"/>
     </div>
 
 </div>
 
 <div class="option-left-side">
     <div class="option-row">
-        <span>上下: </span><input id="left-option-up-down" class="option-bar" value="0" type="hidden"/>
+        <span>上下: </span><input id="upDownL" class="option-bar" type="hidden" v-bind:value="upDownL"/>
     </div>
     <div class="option-row">
-        <span>左右: </span><input id="left-option-left-right" class="option-bar" value="0" type="hidden"/>
+        <span>左右: </span><input id="leftRightL" class="option-bar" type="hidden" v-bind:value="leftRightL"/>
     </div>
     <div class="option-row">
-        <span>縮放: </span><input id="left-option-zoom" class="option-bar" value="0" type="hidden"/>
+        <span>縮放: </span><input id="zoomL" class="option-bar" type="hidden" v-bind:value="zoomL"/>
     </div>
     <div class="option-row">
-        <span>旋轉: </span><input id="left-option-rotate" class="option-bar" value="0" type="hidden"/>
+        <span>旋轉: </span><input id="rotateL" class="option-bar" type="hidden" v-bind:value="rotateL"/>
     </div>
 
 </div>
