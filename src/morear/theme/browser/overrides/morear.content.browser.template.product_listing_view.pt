@@ -40,8 +40,8 @@ s = int(request.form.get('s', 0))
         <a href="${item/getURL}">${item/Title}<br>${item/Description}</a>
     </div>
     <div class="pp-price">
-        $：1987
-        <a href="javascript:void(0)"
+        $：${item/basePrice}起
+       <a href="${item/getURL}/@@product_option_view"
            onmouseout="MM_swapImgRestore()"
            onmouseover="MM_swapImage('Image22','','${portal/absolute_url}/++theme++moreartheme/images/btn-02b.png',1)">
             <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-02.png" class="Image22">

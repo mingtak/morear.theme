@@ -489,7 +489,7 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/about">品牌故事</a></li>
                     <li><a href="${portal/absolute_url}/3d-lab">3D製程</a></li>
                     <li><a href="${portal/absolute_url}/location">服務據點</a></li>
-                    <li><a href="${portal/absolute_url}/news">新聞資訊</a></li>
+                    <li><a href="${portal/absolute_url}/news">最新消息</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">工作機會</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">聯絡我們</a></li>
                 </ul>

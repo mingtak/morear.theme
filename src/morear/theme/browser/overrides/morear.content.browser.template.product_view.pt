@@ -26,11 +26,8 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <div id="wrapper">
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
     <metal:macro use-macro="context/@@object_macro/macros/product-detail"/>
-
-
-
-
 
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>

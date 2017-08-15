@@ -48,12 +48,19 @@ var vm = new Vue({
   data: {
     message: 'Hello Vue!',
 
+    productName: '${context/UID}',
     basePrice: ${context/basePrice},
+    lineLength: '${python:context.lineLength[0].to_object.UID()}',
     linePrice: ${python:context.lineLength[0].to_object.price},
+    lineColor: '${python:context.lineColor[0].to_object.UID()}',
     lineColorPrice: ${python:context.lineColor[0].to_object.price},
+    shell3D: '${python:context.shell3D[0].to_object.UID()}',
     shell3DPrice: ${python:context.shell3D[0].to_object.price},
     logoPrice: 300,
+    logoColor: '${python:context.logoColor[0].to_object.UID()}',
     logoColorPrice: ${python:context.logoColor[0].to_object.price},
+    surfaceR: '${python:context.surfaceColorR[0].to_object.UID()}',
+    surfaceL: '${python:context.surfaceColorL[0].to_object.UID()}',
     surfacePrice: ${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price},
     laserTextR: '',
     laserTextL: '',
@@ -63,6 +70,8 @@ var vm = new Vue({
     outBoxText: '',
 
     // 客製化圖片參數
+    cusImgL: '',
+    cusImgR: '',
     upDownR: 50,
     upDownL: 50,
     leftRightR: 0,
@@ -95,7 +104,7 @@ $('#product-uid').change(function() {
 $('#logo-color img').click(function() {
     clickItem($(this));
     vm.logoColorPrice = Number($(this).data('price'));
-
+    vm.logoColor = $(this).data("image-uid");
     $(".logo-color-image").attr('src', $(this).data('image-url')).css({
                 'display':'initial',
                 'position': 'absolute',
@@ -124,13 +133,15 @@ $('#laser-text-l').change(function() {
 
 // 改變耳機線長度
 $('#lineLength').change(function() {
-    vm.linePrice = Number($(this).find(":selected").data('price'))
+    vm.linePrice = Number($(this).find(":selected").data('price'));
+    vm.lineLength = $(this).find(":selected").val();
 });
 
 // 改變耳機線顏色
 $('#line-color img').click(function() {
     clickItem($(this));
     vm.lineColorPrice = Number($(this).data('price'));
+    vm.lineColor = $(this).data("image-uid");
     $(".lineColorImage").attr('src', $(this).data('image-url')).css({
                 'display':'initial',
                 'position': 'absolute',
@@ -143,6 +154,7 @@ $('#line-color img').click(function() {
 $('#shell-3d img').click(function() {
     clickItem($(this));
     vm.shell3DPrice = Number($(this).data('price'));
+    vm.shell3D = $(this).data("image-uid");
     $(".shell-3d-image").attr('src', $(this).data('image-url')).css({
                 'display':'initial',
                 'position': 'absolute',
@@ -160,6 +172,12 @@ $('tr.surfaceColor td img').click(function() {
     });
 
     side = $(this).data('side');
+    if(side == 'surface-color-image-l'){
+        vm.surfaceL = $(this).data("image-uid");
+    }else{
+        vm.surfaceR = $(this).data("image-uid");
+    };
+
     $("." + side).attr('src', $(this).data('image-url')).css({
                 'display':'initial',
                 'position': 'absolute',
@@ -179,7 +197,8 @@ function readURL(input, imgPosition) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $(imgPosition).attr('src', e.target.result).css({
+            base64Code = e.target.result;
+            $(imgPosition).attr('src', base64Code).css({
                 'display':'initial',
                 'width': '100%',
                 'height': 'initial',
@@ -188,6 +207,11 @@ function readURL(input, imgPosition) {
                 'left': '0%',
                 'transform': 'rotate(0deg)'
             });
+            if(imgPosition == '#previewimgL'){
+                vm.cusImgL = base64Code;
+            }else{
+                vm.cusImgR = base64Code;
+            };
         }
         reader.readAsDataURL(input.files[0]);
     }
@@ -195,10 +219,12 @@ function readURL(input, imgPosition) {
 $("#cusImgR").change(function(){
     readURL(this, '#previewimgR');
     $('.option-right-side').fadeIn(1000);
+//alert(vm.cusImgR);
 });
 $("#cusImgL").change(function(){
     readURL(this, '#previewimgL');
     $('.option-left-side').fadeIn(1000);
+//alert(vm.cusImgL);
 });
 
 // Option bar(jRange)
