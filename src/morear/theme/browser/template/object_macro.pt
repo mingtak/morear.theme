@@ -663,9 +663,6 @@ if ytURL:
 
     </div>
 
-
-
-
 特殊需求：<br>
 <label for="textarea"></label>
   <textarea name="textarea" id="ext-ser" rows="10" style="width:100%" placeholder="如無特殊需求可不填寫" v-model:value="extSer"></textarea>
@@ -679,6 +676,121 @@ if ytURL:
 </div>
 </metal:row>
 
+
+<metal:row define-macro="product-earplugs-option">
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<!-- left -->
+<div id="buy-photo">
+<div id="buy-photo-left"><img src="images/pic01-4.jpg"><div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div></div>
+<div id="buy-photo-right"><img src="images/pic01-5.jpg"></div>
+</div>
+<!-- left end -->
+<!-- right -->
+<div id="buy-list-02">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="60" style="border-bottom:0">&nbsp;</td>
+    <td style="border-bottom:0">&nbsp;</td>
+    <td width="60" align="center" class="word-gray-2" style="border-bottom:0">價 格</td>
+  </tr>
+  <tr>
+    <td>產　品：</td>
+    <td><select name="select3" id="select3" style="width:100%;">
+      <option>舒眠耳塞</option>
+    </select></td>
+    <td align="center" class="word-gray-2">$200</td>
+  </tr>
+  <tr>
+    <td>材　質：</td>
+    <td><select name="select" id="select" style="width:100%;">
+      <option>壓克力</option>
+    </select></td>
+    <td align="center" class="word-gray-2">$400</td>
+  </tr>
+  <tr>
+    <td>型　號：</td>
+    <td><input type="checkbox" name="checkbox" id="checkbox">
+      <label for="checkbox"></label>
+      ER-9　
+      <input type="checkbox" name="checkbox2" id="checkbox2">
+      <label for="checkbox2"></label>
+ER-15　
+<input type="checkbox" name="checkbox3" id="checkbox3">
+<label for="checkbox3"></label>
+ER-25</td>
+    <td align="center" class="word-gray-2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td rowspan="2">顏　色：</td>
+    <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span><br>
+        <img src="images/color-nocolor.jpg" title="透明">
+        <img src="images/color-black.jpg" title="黑色">
+        <img src="images/color-white.jpg" title="白色">
+        <img src="images/color-red.jpg" title="紅色">
+        <img src="images/color-orange.jpg" title="澄色">
+        <img src="images/color-yellow.jpg" title="黃色">
+        <img src="images/color-green.jpg" title="綠色">
+        <img src="images/color-blue.jpg" title="藍色">
+        <img src="images/color-purple.jpg" title="紫色">
+    </td>
+    <td align="center" class="word-gray-2" style="border-bottom:0;">$300</td>
+  </tr>
+  <tr>
+    <td><span class="word-gray-2">左邊：</span><br>
+        <img src="images/color-nocolor.jpg" title="透明">
+        <img src="images/color-black.jpg" title="黑色">
+        <img src="images/color-white.jpg" title="白色">
+        <img src="images/color-red.jpg" title="紅色">
+        <img src="images/color-orange.jpg" title="澄色">
+        <img src="images/color-yellow.jpg" title="黃色">
+        <img src="images/color-green.jpg" title="綠色">
+        <img src="images/color-blue.jpg" title="藍色">
+        <img src="images/color-purple.jpg" title="紫色">
+    </td>
+    <td align="center" class="word-gray-2"><span class="word-gray-2" style="border-bottom:0;">$300</span></td>
+  </tr>
+  <tr>
+    <td rowspan="2">雷　雕：</td>
+    <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
+      <label for="textfield2"></label>
+      <input name="textfield2" type="text" id="textfield2" value="輸入字數限xx以內" style="width:85%;">
+      </td>
+    <td align="center" class="word-gray-2" style="border-bottom:0;">$100</td>
+  </tr>
+  <tr>
+    <td><span class="word-gray-2">左邊：</span>
+      <span style="border-bottom:0;">
+      <input name="textfield3" type="text" id="textfield3" value="輸入字數限xx以內" style="width:85%;">
+    </span></td>
+    <td align="center" class="word-gray-2">$100</td>
+  </tr>
+  <tr>
+    <td>數　量：</td>
+    <td><select name="select4" id="select4" style="width:100%;">
+      <option>1</option>
+    </select></td>
+    <td align="center" class="word-gray-2">&nbsp;</td>
+  </tr>
+</tbody></table>
+<div id="buy-s-box-2">
+特殊需求：<br>
+<label for="textarea"></label>
+  <textarea name="textarea" id="textarea" rows="10" style="width:100%">如無特殊需求可不填寫</textarea>
+</div>
+<div style="text-align:right; color:#f4a000;">總計：  <strong>$1,200</strong></div>
+</div>
+<!-- right end -->
+<!-- box -->
+
+<!-- box end -->
+<div id="btnbar">
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','images/btn01b.png',1)"><img src="images/btn01.png" id="Image31" hspace="15"></a>
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','images/btn02b.png',1)"><img src="images/btn02.png" id="Image32" hspace="15"></a>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+</metal:row>
 
 
 </body>

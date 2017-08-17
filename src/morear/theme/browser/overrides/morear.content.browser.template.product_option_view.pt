@@ -29,7 +29,10 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
 
-    <metal:macro use-macro="context/@@object_macro/macros/product-headphone-option"/>
+    <tal:headphone switch="context/pType">
+        <metal:macro tal:case="string:headphone" use-macro="context/@@object_macro/macros/product-headphone-option"/>
+        <metal:macro tal:case="string:earplugs" use-macro="context/@@object_macro/macros/product-earplugs-option"/>
+    </tal:headphone>
 
 
 
@@ -42,7 +45,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
 
 
-<script>
+<script tal:condition="python:context.pType == 'headphone'">
 var vm = new Vue({
   el: '#content',
   data: {
