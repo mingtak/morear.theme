@@ -33,7 +33,9 @@ s = int(request.form.get('s', 0))
     <ul>
      <li tal:repeat="item python:items[s:s+10]">
       <div id="n-list-img">
-       <img src="${item/getURL}/@@images/image/preview" tal:condition="python:getattr(item.getObject(), 'image', None)"/>
+       <a href="${item/getURL}">
+         <img src="${item/getURL}/@@images/image/preview" tal:condition="python:getattr(item.getObject(), 'image', None)"/>
+       </a>
       </div>
       <div id="n-list-word">
        <p>
@@ -41,10 +43,12 @@ s = int(request.form.get('s', 0))
         </span>
        </p>
        <p class="tai">
-        ${item/Title}
+         <a href="${item/getURL}">
+            ${item/Title}
+         </a>
        </p>
        <div class="n-list-word-c">
-        <a href="news-01.html">
+        <a href="${item/getURL}">
          ${item/Description}
         </a>
        </div>
@@ -52,8 +56,6 @@ s = int(request.form.get('s', 0))
      </li>
     </ul>
    </div>
-
-
 
    <div id="page">
     <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">

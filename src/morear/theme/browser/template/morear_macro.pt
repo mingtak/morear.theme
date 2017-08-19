@@ -40,8 +40,24 @@
 </li>
 <li><a href="javascript:void(0)">購買Morear</a>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">設計音樂耳機</a></li>
-<li><a href="${portal/absolute_url}/coming-soon">設計客製耳塞</a></li>
+<?python
+from plone import api
+portal = api.portal.get()
+first_headphone = api.content.find(context=portal, Type='Product', pType='headphone')
+first_earplugs = api.content.find(context=portal, Type='Product', pType='earplugs')
+?>
+<li>
+    <tal:buy switch="python:bool(first_headphone)">
+        <a tal:case="True" href="${python:first_headphone[0].getURL()}/@@product_option_view">設計音樂耳機</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計音樂耳機</a>
+    </tal:buy>
+</li>
+<li>
+    <tal:buy switch="python:bool(first_earplugs)">
+        <a tal:case="True" href="${python:first_earplugs[0].getURL()}/@@product_option_view">設計客製耳塞</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計客製耳塞</a>
+    </tal:buy>
+</li>
 </ul>
 </li>
 <li><a href="javascript:void(0)">支援服務</a>
@@ -108,10 +124,20 @@
 <!-- hide02 -->
 <div id="hide-top2">
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">設計音樂耳機</a></p>
+<p class="word-big-white">
+    <tal:buy switch="python:bool(first_headphone)">
+        <a tal:case="True" href="${python:first_headphone[0].getURL()}/@@product_option_view">設計音樂耳機</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計音樂耳機</a>
+    </tal:buy>
+</p>
 </div>
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">設計客製耳塞</a></p>
+<p class="word-big-white">
+    <tal:buy switch="python:bool(first_earplugs)">
+        <a tal:case="True" href="${python:first_earplugs[0].getURL()}/@@product_option_view">設計客製耳塞</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計客製耳塞</a>
+    </tal:buy>
+</p>
 </div>
 </div>
 <!-- hide02 end -->
@@ -240,9 +266,25 @@ $( ".to-search-page2" ).click(function() {
 </ul>
 </li>
 <li><a href="javascript:void(0)">購買Morear</a>
+<?python
+from plone import api
+portal = api.portal.get()
+first_headphone = api.content.find(context=portal, Type='Product', pType='headphone')
+first_earplugs = api.content.find(context=portal, Type='Product', pType='earplugs')
+?>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">設計音樂耳機</a></li>
-<li><a href="${portal/absolute_url}/coming-soon">設計客製耳塞</a></li>
+<li>
+    <tal:buy switch="python:bool(first_headphone)">
+        <a tal:case="True" href="${python:first_headphone[0].getURL()}/@@product_option_view">設計音樂耳機</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計音樂耳機</a>
+    </tal:buy>
+</li>
+<li>
+    <tal:buy switch="python:bool(first_earplugs)">
+        <a tal:case="True" href="${python:first_earplugs[0].getURL()}/@@product_option_view">設計客製耳塞</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計客製耳塞</a>
+    </tal:buy>
+</li>
 </ul>
 </li>
 <li><a href="javascript:void(0)">支援服務</a>
@@ -309,10 +351,20 @@ $( ".to-search-page2" ).click(function() {
 <!-- hide02 -->
 <div id="hide-top2">
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">設計音樂耳機</a></p>
+<p class="word-big-white">
+    <tal:buy switch="python:bool(first_headphone)">
+        <a tal:case="True" href="${python:first_headphone[0].getURL()}/@@product_option_view">設計音樂耳機</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計音樂耳機</a>
+    </tal:buy>
+</p>
 </div>
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">設計客製耳塞</a></p>
+<p class="word-big-white">
+    <tal:buy switch="python:bool(first_earplugs)">
+        <a tal:case="True" href="${python:first_earplugs[0].getURL()}/@@product_option_view">設計客製耳塞</a>
+        <a tal:case="False" href="${portal/absolute_url}/coming-soon">設計客製耳塞</a>
+    </tal:buy>
+</p>
 </div>
 </div>
 <!-- hide02 end -->

@@ -44,6 +44,38 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
 
+<script tal:condition="python:context.pType == 'earplugs'">
+var vm = new Vue({
+  el: '#content',
+  data: {
+    message: 'Hello Vue!',
+
+    productName: '${context/UID}',
+    basePrice: ${context/basePrice},
+    laserTextR: '',
+    laserTextL: '',
+    laserPriceR: 0,
+    laserPriceL: 0,
+    extSer: '',
+    outBoxText: '',
+    earplugsAmount: 1,
+
+    // 客製化圖片參數
+    cusImgL: '',
+    cusImgR: '',
+    upDownR: 50,
+    upDownL: 50,
+    leftRightR: 0,
+    leftRightL: 0,
+    zoomR: 100,
+    zoomL: 100,
+    rotateR: 0,
+    rotateL: 0
+  }
+});
+
+</script>
+
 
 <script tal:condition="python:context.pType == 'headphone'">
 var vm = new Vue({
@@ -82,7 +114,13 @@ var vm = new Vue({
     zoomR: 100,
     zoomL: 100,
     rotateR: 0,
-    rotateL: 0
+    rotateL: 0,
+    totalSum: 0
+  },
+  methods: {
+    total: function () {
+        vm.totalSum = vm.basePrice + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoPrice + vm.logoColorPrice + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL;
+    }
   }
 });
 
@@ -114,6 +152,7 @@ $('#logo-color img').click(function() {
                 'top': '20%',
                 'left': '0%',
     });
+    vm.total();
 });
 
 // 輸入雷雕文字
@@ -124,6 +163,7 @@ $('#laser-text-r').change(function() {
     }else{
         vm.laserPriceR = 0;
     }
+    vm.total();
 });
 $('#laser-text-l').change(function() {
     textL = $(this).val();
@@ -132,12 +172,14 @@ $('#laser-text-l').change(function() {
     }else{
         vm.laserPriceL = 0;
     }
+    vm.total();
 });
 
 // 改變耳機線長度
 $('#lineLength').change(function() {
     vm.linePrice = Number($(this).find(":selected").data('price'));
     vm.lineLength = $(this).find(":selected").val();
+    vm.total();
 });
 
 // 改變耳機線顏色
@@ -151,6 +193,7 @@ $('#line-color img').click(function() {
                 'top': '50%',
                 'left': '0%',
     });
+    vm.total();
 });
 
 // 改變3D列印耳殼
@@ -164,6 +207,7 @@ $('#shell-3d img').click(function() {
                 'top': '40%',
                 'left': '0%',
     });
+    vm.total();
 });
 
 // 改變面板顏色
@@ -187,6 +231,7 @@ $('tr.surfaceColor td img').click(function() {
                 'top': '30%',
                 'left': '0%',
     });
+    vm.total();
 });
 
 // 選色
@@ -289,6 +334,11 @@ $("#add-to-cart").click(
           });
     }
 )
+
+//計算總價
+$( document ).ready(function() {
+    vm.total();
+});
 
 </script>
 
