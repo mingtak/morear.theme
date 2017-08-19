@@ -319,8 +319,14 @@ if ytURL:
       </div>
       <div id="product-list-01" tal:condition="context/aboveText">
           <div tal:replace="structure context/aboveText/raw" />
-          <p class="btn">
-              <a href="${context/absolute_url}/@@product_option_view" onmouseout="MM_swapImgRestore()"
+          <p class="btn" tal:switch="context/pType">
+              <a tal:case="string:normal"
+                 href="javascript:void(0)" onmouseout="MM_swapImgRestore()"
+                 onmouseover="MM_swapImage('Image17','','${prefix}content/product/images/btn-01b.png',1)">
+                  <img src="${prefix}content/product/images/btn-01.png" id="Image17" />
+              </a>
+              <a tal:case="default"
+                 href="${context/absolute_url}/@@product_option_view" onmouseout="MM_swapImgRestore()"
                  onmouseover="MM_swapImage('Image17','','${prefix}content/product/images/btn-01b.png',1)">
                   <img src="${prefix}content/product/images/btn-01.png" id="Image17" />
               </a>
@@ -386,8 +392,14 @@ if ytURL:
 
       <div id="p-list-03">
           <div tal:replace="structure context/belowText/raw"  tal:condition="context/belowText"/>
-          <p class="btn">
-              <a href="${context/absolute_url}/@@product_option_view" onmouseout="MM_swapImgRestore()"
+          <p class="btn" tal:switch="context/pType">
+              <a tal:case="string:normal"
+                 href="javascript:void(0)" onmouseout="MM_swapImgRestore()"
+                 onmouseover="MM_swapImage('Image17','','${prefix}content/product/images/btn-01b.png',1)">
+                  <img src="${prefix}content/product/images/btn-01.png" id="Image17" />
+              </a>
+              <a tal:case="default"
+                 href="${context/absolute_url}/@@product_option_view" onmouseout="MM_swapImgRestore()"
                  onmouseover="MM_swapImage('Image17','','${prefix}content/product/images/btn-01b.png',1)">
                   <img src="${prefix}content/product/images/btn-01.png" id="Image17" />
               </a>
