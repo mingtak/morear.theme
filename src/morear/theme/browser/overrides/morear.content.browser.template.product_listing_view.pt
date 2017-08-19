@@ -40,17 +40,28 @@ s = int(request.form.get('s', 0))
         <a href="${item/getURL}">${item/Title}<br>${item/Description}</a>
     </div>
     <div class="pp-price">
-        $：${item/basePrice}起
-       <a href="${item/getURL}/@@product_option_view"
-           onmouseout="MM_swapImgRestore()"
-           onmouseover="MM_swapImage('Image22','','${portal/absolute_url}/++theme++moreartheme/images/btn-02b.png',1)">
-            <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-02.png" class="Image22">
-       </a>
+        $：${item/basePrice}<tal:up condition="python:item.pType in ['headphone', 'earplugs']">起</tal:up>
+       <tal:cart switch="python:item.pType in ['headphone', 'earplugs']">
+           <a tal:case="True"
+              href="${item/getURL}/@@product_option_view"
+              onmouseout="MM_swapImgRestore()"
+              onmouseover="MM_swapImage('Image22','','${portal/absolute_url}/++theme++moreartheme/images/btn-02b.png',1)">
+                <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-02.png" class="Image22">
+           </a>
+           <a tal:case="default"
+              href="${item/getURL}"
+              onmouseout="MM_swapImgRestore()"
+              onmouseover="MM_swapImage('Image22','','${portal/absolute_url}/++theme++moreartheme/images/btn-02b.png',1)">
+                <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-02.png" class="Image22">
+           </a>
+       </tal:cart>
+
        <a href="${item/getURL}"
           onmouseout="MM_swapImgRestore()"
           onmouseover="MM_swapImage('Image23','','${portal/absolute_url}/++theme++moreartheme/images/btn-03b.png',1)">
            <img src="${portal/absolute_url}/++theme++moreartheme/images/btn-03.png" class="Image23">
        </a>
+
     </div>
     <div class="pp-words">
         <ul tal:define="desc python:item.description.split('\n')" tal:on-error="nothing">
