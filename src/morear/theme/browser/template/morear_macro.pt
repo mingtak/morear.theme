@@ -8,6 +8,36 @@
 <body>
 
 
+<!-- Cart Script -->
+<metal:row define-macro="cart_script">
+<script>
+
+// Add to cart
+$(document).ready(function(){
+    $( ".add-to-cart" ).click(function() {
+        uid = $(this).data('uid');
+        pType = $(this).data('ptype');
+        $.post(
+            url="${portal/absolute_url}/@@update_cart",
+            data={
+                uid: uid,
+                pType: pType,
+                action: 'add'
+            },
+        )
+          .done(function(data){
+              alert( data );
+          })
+          .fail(function() {
+              alert( "加入購物車失敗，請稍候再試，或請聯絡系統管理員" );
+          });
+    });
+});
+</script>
+</metal:row>
+
+
+
 <!-- Cover Header -->
 <metal:row define-macro="cover_header">
 <!--phone menu-->

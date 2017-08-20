@@ -322,9 +322,12 @@ $("#reload-page").click(
 // Add to cart
 $("#add-to-cart").click(
     function(){
+        postData = vm.$data;
+        postData['action'] = 'add';
+        postData['pType'] = '${context/pType}';
         $.post(
-            url="${portal/absolute_url}/@@cus_prod_to_cart",
-            data=vm.$data,
+            url="${portal/absolute_url}/@@update_cart",
+            data=postData
         )
           .done(function(data){
               alert( "已加入購物車" );

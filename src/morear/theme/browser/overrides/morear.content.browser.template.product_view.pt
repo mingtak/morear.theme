@@ -37,6 +37,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
 
+<metal:macro use-macro="context/@@morear_macro/macros/cart_script"/>
 
 
 <script>
