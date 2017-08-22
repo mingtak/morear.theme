@@ -330,7 +330,7 @@ $("#add-to-cart").click(
             data=postData
         )
           .done(function(data){
-              alert( "已加入購物車" );
+              alert( data );
           })
           .fail(function() {
               alert( "加入購物車失敗，請稍候再試，或請聯絡系統管理員" );
