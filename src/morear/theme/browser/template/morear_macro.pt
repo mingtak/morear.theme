@@ -44,8 +44,8 @@ $(document).ready(function(){
 <div id="m_top_menu">手機板選單</div>
 <div id="top_menu">
 <ul class="a02">
-<li><a href="#">繁體中文</a></li>
-<li><a href="#">简体中文</a></li>
+<li><a href="javascript:void(0)" class="tongwen2t">繁體中文</a></li>
+<li><a href="javascript:void(0)" class="tongwen2s">简体中文</a></li>
 </ul>
 <ul class="a01">
 <li><a href="${portal/absolute_url}/location">服務據點</a></li>
@@ -122,7 +122,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- top -->
 <div id="logo"><a href="${portal/absolute_url}"><img src="${prefix}images/logo.png" /></a></div>
 <div id="menu-index">
-<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a>
+<div id="menu-top"><a href="javascript:void(0)" class="tongwen2t">繁體中文</a> ｜ <a href="javascript:void(0)" class="tongwen2s">简体中文</a>
 
 </div>
 <!-- menu -->
@@ -275,8 +275,8 @@ $( ".to-search-page2" ).click(function() {
 <div id="m_top_menu" style="margin-top:20px;">手機板選單</div>
 <div id="top_menu">
 <ul class="a02">
-<li><a href="#">繁體中文</a></li>
-<li><a href="#">简体中文</a></li>
+<li><a href="javascript:void(0)" class="tongwen2t">繁體中文</a></li>
+<li><a href="javascript:void(0)" class="tongwen2s">简体中文</a></li>
 </ul>
 <ul class="a01">
 <li><a href="${portal/absolute_url}/location">服務據點</a></li>
@@ -354,7 +354,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="in-logo"><a href="${portal/absolute_url}"><img src="${prefix}content/images/logo.gif" /></a></div>
 <!-- right -->
 <div id="menu-in">
-<div id="menu-top"><a href="#">繁體中文</a> ｜ <a href="#">简体中文</a></div>
+<div id="menu-top"><a href="javascript:void(0)" class="tongwen2t">繁體中文</a> ｜ <a href="javascript:void(0)" class="tongwen2s">简体中文</a></div>
 <!-- menu -->
 <div id="menu-down">
 <ul>
@@ -605,6 +605,61 @@ current = api.user.get_current()
     </div>
     <div id="footer-d">© 2017 morear .Co. All Rights Reserved.</div>
 <!-- footer end -->
+
+<!-- 繁簡轉換 -->
+<script type="text/javascript" src="/++plone++morear.theme/tongwen.js"></script>
+<script>
+$(document).ready(function(){
+  $(function() {
+      var lang = getCookie('lang');
+      if(lang == 'cn'){
+          TongWen.trans2Simp(document);
+      }else{
+          TongWen.trans2Trad(document);
+      }
+  });
+
+  $(".tongwen2t").click(function(){
+//      var lang = getCookie('lang');
+      setCookie('lang', 'tw');
+      TongWen.trans2Trad(document);
+  });
+
+  $(".tongwen2s").click(function(){
+//      var lang = getCookie('lang');
+      setCookie('lang', 'cn');
+      TongWen.trans2Simp(document);
+  });
+
+  function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "tw";
+  }
+});
+</script>
+
+
+
+
+
+
 </metal:row>
 
 
