@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="member-list-01">
+<form action="${portal/absolute_url}/@@member_login" method="post">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="80">會員帳號：</th>
+    <td><input name="member_id" type="text" id="member_id" style="width:100%;" placeholder="請輸入您的會員帳號"></td>
+  </tr>
+  <tr>
+    <th>會員密碼：</th>
+    <td><input type="password" name="member_pwd" id="member_pwd" style="width:100%;"></td>
+  </tr>
+  <tr>
+    <th valign="top" style="border-bottom:2px #f4a000 solid; padding-bottom:40px;">驗證碼：</th>
+
+    <td style="border-bottom:2px #f4a000 solid; padding-bottom:40px;">
+<div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"></div>
+<input type="submit" name="submit" id="submit" value="登入">
+    </td>
+
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border-bottom:0;">
+    <a href="member-b01.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','${prefix}content/member/images/btn-01-b.png',1)"><img src="${prefix}content/member/images/btn-01.png" id="Image15" hspace="15"></a>
+    <a href="member-02.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/member/images/btn-02-b.png',1)"><img src="${prefix}content/member/images/btn-02.png" id="Image16" hspace="15"></a>
+    <a href="member-03.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','${prefix}content/member/images/btn-09.png',1)"><img src="${prefix}content/member/images/btn-09-b.png" id="Image20" hspace="15"></a></td>
+    </tr>
+</tbody></table>
+</form>
+
+
+</div>
+<div id="member-list-02">
+您也可以用現有帳號快速登入：
+<ul>
+<li><a href="${portal/absolute_url}/@@facebookLogin" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/member/images/btn-03-b.png',1)"><img src="${prefix}content/member/images/btn-03.png" id="Image17"></a></li>
+<li><a href="${portal/absolute_url}/@@googleLogin" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/member/images/btn-04-b.png',1)"><img src="${prefix}content/member/images/btn-04.png" id="Image18"></a></li>
+</ul>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+
+</div>
+</div>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

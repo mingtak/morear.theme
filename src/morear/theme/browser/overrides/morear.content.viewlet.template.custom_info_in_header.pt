@@ -45,10 +45,10 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link tal:condition="False"
       class="for-theme" href="${prefix}content/css/shoppingcart.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="python:'ProductOptionView' in str(view.view) "
+<link tal:condition="python:'ProductOptionView' in str(view.view)"
       class="for-theme" href="${prefix}content/css/buymore.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="False"
+<link tal:condition="python:'MemberLoginMenu' in str(view.view)"
       class="for-theme" href="${prefix}content/css/member.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="python:'SearchResultView' in str(view.view)"
