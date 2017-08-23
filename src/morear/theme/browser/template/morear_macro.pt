@@ -93,8 +93,8 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </li>
 <li><a href="javascript:void(0)">支援服務</a>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">耳型與專業聽力師</a></li>
-<li><a href="${portal/absolute_url}/coming-soon">產品服務及保固</a></li>
+<li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
+<li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
 </ul>
 </li>
 <li><a href="${portal/absolute_url}/faq">常見問題</a></li>
@@ -175,10 +175,10 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide03 -->
 <div id="hide-top3">
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">耳型與專業聽力師</a></p>
+<p class="word-big-white"><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></p>
 </div>
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">產品服務及保固</a></p>
+<p class="word-big-white"><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></p>
 </div>
 </div>
 <!-- hide03 end -->
@@ -323,8 +323,8 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </li>
 <li><a href="javascript:void(0)">支援服務</a>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">耳型與專業聽力師</a></li>
-<li><a href="${portal/absolute_url}/coming-soon">產品服務及保固</a></li>
+<li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
+<li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
 </ul>
 </li>
 <li><a href="">常見問題</a></li>
@@ -405,10 +405,10 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide03 -->
 <div id="hide-top3">
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">耳型與專業聽力師</a></p>
+<p class="word-big-white"><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></p>
 </div>
 <div id="hide-01">
-<p class="word-big-white"><a href="${portal/absolute_url}/coming-soon">產品服務及保固</a></p>
+<p class="word-big-white"><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></p>
 </div>
 </div>
 <!-- hide03 end -->

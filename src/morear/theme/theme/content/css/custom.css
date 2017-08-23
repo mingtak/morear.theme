@@ -48,3 +48,10 @@
 #optionBar .slider-container {float:right;}
 .option-row { margin:10px 0}
 .option-right-side, .option-left-side { display: none }
+
+
+/* template-default_error_message */
+body.template-default_error_message {
+    background-color: initial;
+    padding: 100px;
+}
