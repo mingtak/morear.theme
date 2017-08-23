@@ -28,6 +28,20 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
       <div id="n-photo">
        <img tal:condition="context/bigImage_1" src="${context/absolute_url}/@@images/bigImage_1/large"/>
        <img tal:condition="context/bigImage_2" src="${context/absolute_url}/@@images/bigImage_2/large"/>
+
+<div id="mm-info" tal:condition="context/mmTitle">
+<div id="mm-info-img"><img src="${context/absolute_url}/@@images/mmImage/mini"></div>
+<div id="mm-info-word">
+<p class="tai">${context/mmTitle}</p>
+<p>${context/mmInfo}</p>
+</div>
+<audio controls="controls" style="width:100%; margin-top:15px;">
+  <source src="${context/absolute_url}/@@download/mmAudio/${context/mmAudio/filename}" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div>
+
+
       </div>
       <div id="n-word">
        <h2>${context/title}</h2>

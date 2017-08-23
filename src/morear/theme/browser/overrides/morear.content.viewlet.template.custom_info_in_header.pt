@@ -36,7 +36,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link tal:condition="False"
       class="for-theme" href="${prefix}content/css/event.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="False"
+<link tal:condition="python:'MusicmanListingView' in str(view.view)"
       class="for-theme" href="${prefix}content/css/musicman.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="python:'newsitem.pt' in str(view.view) or 'listing.pt' in str(view.view)"

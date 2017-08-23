@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+brain = api.content.find(context=context, Type='Link', sort_on='created', sort_order='reverse')
+?>
+
+  <div align="center" id="all">
+   <div id="in-bg">
+    <div id="wrapper">
+      <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+      <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+     <!-- content -->
+     <div id="content">
+      <!-- InstanceBeginEditable name="content" -->
+
+<div class="mm-list" tal:repeat="item brain">
+    <div class="mm-list-img"><img src="${item/getURL}/@@images/image/mini"></div>
+    <div class="mm-list-word">
+        <p class="tai">${item/Title}</p>
+        <div class="mm-list-word-c"><a href="${python:item.getObject().remoteUrl}" target="_blank">${item/Description}</a></div>
+    </div>
+</div>
+
+
+
+      <div id="page">
+       <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">
+        <tbody>
+         <tr>
+          <td align="center" width="50">
+           <a href="#">
+            第1頁
+           </a>
+          </td>
+          <td align="center" width="15">
+           <a href="#">
+            ＜
+           </a>
+          </td>
+          <td align="center" width="80">
+           1 / 20
+          </td>
+          <td align="center" width="15">
+           <a href="#">
+            ＞
+           </a>
+          </td>
+          <td align="center" width="50">
+           <a href="#">
+            最末頁
+           </a>
+          </td>
+          <td>
+           <label for="select">
+           </label>
+           <select id="select" name="select">
+            <option>
+             請選擇
+            </option>
+            <option>
+             1
+            </option>
+            <option>
+             2
+            </option>
+            <option>
+             3
+            </option>
+           </select>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <!-- InstanceEndEditable -->
+     </div>
+     <!-- content end -->
+
+
+
+
+
+
+
+
+
+      <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+    </div>
+    <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+   </div>
+  </div>
+
+
+
+
+
+
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

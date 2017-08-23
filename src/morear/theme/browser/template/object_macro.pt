@@ -164,9 +164,9 @@ if ytURL:
 <div id="index-music-box03">
 <ul>
 <li><section><a href="#notice" class="button" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','${prefix}images/btn-music01-b.png',1)"><img src="${prefix}images/btn-music01.png" id="Image20" /></a></section></li>
-<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','${prefix}images/btn-music02-b.png',1)"><img src="${prefix}images/btn-music02.png" id="Image21" /></a></li>
-<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','${prefix}images/btn-music03-b.png',1)"><img src="${prefix}images/btn-music03.png" id="Image22" /></a></li>
-<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','${prefix}images/btn-music04-b.png',1)"><img src="${prefix}images/btn-music04.png" id="Image23" /></a></li>
+<li><a href="${portal/absolute_url}/musicman" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','${prefix}images/btn-music02-b.png',1)"><img src="${prefix}images/btn-music02.png" id="Image21" /></a></li>
+<li><a href="${portal/absolute_url}/recommend" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','${prefix}images/btn-music03-b.png',1)"><img src="${prefix}images/btn-music03.png" id="Image22" /></a></li>
+<li><a href="${portal/absolute_url}/links" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','${prefix}images/btn-music04-b.png',1)"><img src="${prefix}images/btn-music04.png" id="Image23" /></a></li>
 </ul>
 </div>
 <!-- item end -->
