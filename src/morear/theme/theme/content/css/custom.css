@@ -161,3 +161,8 @@ body.template-default_error_message {
 .mm-list-word-c a:hover {
 	color:#f4a000;
 }
+
+/* Shopping Cart */
+#cart-list-01 {
+    width: 100%;
+}
