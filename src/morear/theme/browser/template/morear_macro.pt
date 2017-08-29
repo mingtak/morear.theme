@@ -49,7 +49,7 @@ $(document).ready(function(){
 </ul>
 <ul class="a01">
 <li><a href="${portal/absolute_url}/location">服務據點</a></li>
-<li><a href="content/shoppingcart/cart01.html">購物車</a></li>
+<li><a href="${portal/absolute_url}/@@shopping_cart">購物車</a></li>
 <li>
 <label for="textfield"></label>
 <div id="search-box-for-vue2">
@@ -221,7 +221,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="top-icon">
 <ul>
 <li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}images/btn-01b.png',1)" title="服務據點"><img src="${prefix}images/btn-01.png" id="Image5" /></a></li>
-<li><a href="${portal/absolute_url}/coming-soon" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','${prefix}images/btn-02b.png',1)" title="購物車"><img src="${prefix}images/btn-02.png" id="Image6" /></a></li>
+<li><a href="${portal/absolute_url}/@@shopping_cart" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','${prefix}images/btn-02b.png',1)" title="購物車"><img src="${prefix}images/btn-02.png" id="Image6" /></a></li>
 <li>
     <a href="javascript:void(0)" onmouseout="MM_swapImgRestore()"
        onmouseover="MM_swapImage('Image7','','${prefix}images/btn-03b.png',1)" title="全文檢索">
@@ -279,7 +279,7 @@ $( ".to-search-page2" ).click(function() {
 </ul>
 <ul class="a01">
 <li><a href="${portal/absolute_url}/location">服務據點</a></li>
-<li><a href="${portal/absolute_url}/coming-soon">購物車</a></li>
+<li><a href="${portal/absolute_url}/@@shopping_cart">購物車</a></li>
 <li>
 <label for="textfield"></label>
 <div id="search-box-for-vue2">
@@ -449,7 +449,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="top-icon">
 <ul>
 <li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','${prefix}content/images/btn-01b.png',1)" title="服務據點"><img src="${prefix}content/images/btn-01.png" id="Image3" /></a></li>
-<li><a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','${prefix}content/images/btn-02b.png',1)" title="購物車"><img src="${prefix}content/images/btn-02.png" id="Image4" /></a></li>
+<li><a href="${portal/absolute_url}/@@shopping_cart" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','${prefix}content/images/btn-02b.png',1)" title="購物車"><img src="${prefix}content/images/btn-02.png" id="Image4" /></a></li>
 <li><a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}content/images/btn-03b.png',1)" title="全文檢索"><img src="${prefix}content/images/btn-03.png" id="Image5" onclick="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','show','hide-all','','show')" /></a></li>
 </ul>
 </div>
