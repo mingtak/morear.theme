@@ -1,0 +1,172 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+import json
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+d_quote = '"'
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="step"><img src="${prefix}content/shoppingcart/images/step-02.png"></div>
+<div id="noticebox">
+<p>溫馨提醒：</p>
+<ol>
+<li><strong><span class="word-yellow">您選購的商品屬於客製化商品，根據消費者保護法，不適用7日猶豫期的規範。</span></strong> 同時，當訂單成立，並完成付款程序後，恕接受不退費、取消或退換貨等要求。若同意製作，請先確認勾選<span class="word-yellow">委託製作契約</span>後，繼續完成付款步驟。</li>
+<li>本公司秉持服務至上的理念經營本服務。如發生品質錯誤，如：商品收到時已壞損、與訂購之商品不同等情況，本公司將在專業判斷下改裝或重製您的產品。產品享有30日適應期保障。若超過30日適應期保障，將酌收保修費用。</li>
+<li>本服務製作所需時間約為7~10個工作天（不含運送時間，國外客戶將依個別訂單判定，不再此限）。當您完成委託製作訂單並支付費用後，您可於摩耳3D列印網站(www.morear.com.tw)上輸入您的會員資料或訂單編號查詢您的訂單狀態。</li>
+<li>Morear 3D列印保留最終接單權利。</li>
+</ol>
+</div>
+
+<div id="w-box">
+<h3 style="text-align:center; color:#f4a000;">morear 3D列印委託製作契約條款</h3>
+<p>morear 3D列印（以下簡稱本公司）依據本服務條款提供透過3D掃描、3D列印技術，製作客製化耳模或客製化音樂耳機（以下簡稱本服務）。當您使用本服務時，即表示您已閱讀、瞭解並同意接受委託製作契約之所有內容。本公司有權於任何時間修改或變更委託製作契約之內容，建議您每次使用本服務前，詳細閱讀委託製作契約。如您不同意委託製作契約的內容，或者您所在的國家或地區的法律排除委託製作契約內容之全部或任一條款時，您應立即停止使用本服務。</p>
+<p>&nbsp;</p>
+<p>若您為未滿二十歲，除應符合上述規定外，並應於您的家長（或監護人）閱讀、瞭解並同意本服務條款之所有內容及其後修改變更後，方得使用或繼續使用本服務。當您使用或繼續使用本服務時，即視為您的家長（或監護人）已閱讀、瞭解並同意接受本服務條款之所有內容及其後修改變更。</p>
+<ul>
+<li>委託製作契約的成立與取消
+<ol>
+<li>使用者必須自行確認製作內容正確無誤，任何原始資料提供之錯誤、誤用（包括但不限於製作資料的不足），均不在瑕疵擔保範圍內。</li>
+<li>使用者必須確認客製商品的收件地址正確無誤，如地址填載錯誤而致退回，另行寄送之費用由使用者自行負擔。</li>
+<li>使用者必須確認發票抬頭與收件地址正確無誤，如地址填載錯誤而致退回，另行寄送之費用由使用者自行負擔。</li>
+<li>使用者必須依據指示之付款方式及金額完成該筆委託製作訂單費用的支付。</li>
+<li>使用者透過本公司提供之購物平台／紙本訂單，並完成購物車所內含之完整購買流程完成訂購程序，本契約方得以成立。使用者在完成委託製作資料的傳輸前，均可隨時終止委託。本商品為客製化產品，一旦經您確認付款後，恕接受不退費、取消或退換貨等要求。</li>
+<li>morear 3D列印保留最終接單權利。</li>
+</ol>
+</li>
+<li>委託製作契約之取消
+<p>委託製作契約一經成立，即無法中途取消或變更製作內容。使用者在完成委託製作契約前，均可隨時終止。</p>
+</li>
+<li>產品內容
+<p>客製耳模／音樂耳機設計皆由客戶自行選擇，本公司依照訂單內容原樣進行製作。</p>
+</li>
+<li>服務滿意保證
+<p>本公司秉持服務至上的理念經營本服務。如發生品質錯誤，如：商品收到時已壞損、與訂購之商品不同等情況，本公司將在專業判斷下改裝或重製您的產品。如果使用者對客製產品有疑問，需填寫退貨單（RMA）並於30天內提交，產品享有30日適應期保障。本公司將負擔改裝或重製，以及從morear 3D 列印將訂製產品寄還至指定地點之運送費用；不包含訂製產品寄送至morear 3D 列印之費用。</p>
+<p>&nbsp;</p>
+<p>國際顧客必須在提交退貨單後45天內收到產品。</p>
+</li>
+<li>製作期、交件與運送
+<p>本公司盡全力於收到您的訂單資訊、檔案及款項後10個工作天製作完成並寄送至您指定的地點。</p>
+<p>&nbsp;</p>
+<p>唯運送時間不在本契約的限制內。如因天災、戰爭或其他不可抗力之因素導致製作、交件與運送發生延遲，本公司無須負擔任何責任。</p>
+</li>
+<li>換貨政策
+<p>請您於收到產品的七日內，以數位相機拍下瑕疵發生的情形，至morear 3D 列印網站發送到本公司的品管信箱中， 並且請您將瑕疵品連同完整包裝與發票寄還給我們。本公司會針對商品進行瑕疵或損壞鑑定，確認無誤後，立即為您免費重新製作一份同樣規格與內容之客製商品。除上述瑕疵擔保範圍內本公司同意對客制產品品質進行保證外，本公司不負其他保證責任。</p>
+</li>
+<li>瑕疵擔保及有限保證
+<p>每件產品均屬個人客製化訂製，係非大量生產之商品，故本服務不提供網路購物七天鑑賞期之服務。消費者經由自行編排、確認完稿、已閱讀服務條款，並下單付款後始同意完成購買流程，不可任意取消訂單，如有本公司認為不適當，或使本公司蒙受損害，本公司可視情況拒絕繼續交易，取消訂單所產生之相關費用（如手續費等）使用者須自行負擔。</p>
+<p>&nbsp;</p>
+<p>本服務製作所需時間約為七~十個工作天（不含運送時間），當您完成委託製作訂單並支付費用後，您可於morear 3D列印網站上輸入您的<span class="word-yellow">會員資料</span>或<span class="word-yellow">訂單編號</span>查詢您的訂單狀態。</p>
+</li>
+<li>保修服務
+<p>由於濫用或誤用、潮濕泡水、耳垢、過大的音量、震動或任何非morear 3D列印客製產品的不當使用之行為所造成之損害，將於本公司的專業人員判斷下改裝或重製產品。若<span class="word-yellow">超過30日適應期保障，將酌收保修費用</span>。</p>
+<p>&nbsp;</p>
+<p>以下狀況不屬於本公司保修範圍：</p>
+<ol>
+<li>由任何未經授權的第三方公司或個人進行維修所造成的損壞。</li>
+<li>未經morear 3D列印書面許可，產品已變更或修改。</li>
+<li>正常磨損或對該產品的任何部分進行修改。</li>
+<li>線材從出貨日期起享有為期30天的保固期。</li>
+</ol>
+</li>
+<li>檔案內容之限制
+<p>製作當中所有使用之素材（包括影像、文字），皆不可侵害他人之著作權、肖像權、隱私權以及其他一切屬於專有的權利。同時也無違反社會善良風俗或與中華民國法律抵觸之內容或與您所在地區、國家法律之規定有所抵觸的內容，務必請您詳細確認過後再進行製作。如有第三人主張其權利並進行訴訟時，您應無條件負擔一切責任。本公司亦將對因此所造成的損失對您進行追訴與請求賠償。</p>
+</li>
+<li>個人資料保護
+<p>除依法院之命令配合檢調之查察，本公司將不會對他人洩漏任何關於您的個人資料。尊重並依據本網站「隱私權保護聲明」保護您的隱私（請參閱「隱私權保護政策暨個人資料保護」條款）。</p>
+</li>
+<li>準據法與管轄法院
+<p>本委託製作契約未盡事宜，以及本契約有關的爭議，均應依照中華民國法律為準據法，如因本契約書涉訟，以台灣台北地方法院為第一審管轄法院。</p>
+<p>&nbsp;</p>
+<p>如有任何疑問，請與我們連絡<a href="mailto:service@morear.com.tw">service@morear.com.tw</a></p>
+</li>
+</ul>
+</div>
+
+<div class="word-yellow" style="margin:10px 0; float:left; width:100%;">
+  <input type="checkbox" name="checkbox" id="checkbox_confirm">
+  <label for="checkbox"></label>
+  我已閱讀並同意以上條款</div>
+<div id="endbtn-bar">
+<!--  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/shoppingcart/images/btn-03b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-03.png" id="Image16" hspace="15"></a> -->
+
+  <a href="${portal/absolute_url}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/shoppingcart/images/btn-01b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-01.png" id="Image18" hspace="15"></a>
+  <a id="next-step" href="${portal/absolute_url}/shopping/@@shopping_cart_step2_payment" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)">
+      <img style="display:none" src="${prefix}content/shoppingcart/images/btn-04.png" hspace="15">
+  </a>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+<!-- #content end -->
+
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+</div>
+</div>
+
+
+
+<script>
+if(${python:'true' if view.is_anonymous else 'false'}){
+    var r = confirm("繼續購物步驟前，請先登入或註冊會員.\n請按 '確定' 登入或註冊, 按 '取消' 回上一頁");
+    if (r == true) {
+        window.location = '${portal/absolute_url}/@@member_login_menu';
+    } else {
+        window.history.back()
+    }
+};
+
+$('#checkbox_confirm').change(function(){
+    if($(this).prop("checked")){
+        $('#next-step img').show('slow')
+    }else{
+        $('#next-step img').hide('slow')
+    }
+});
+</script>
+
+
+
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

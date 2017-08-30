@@ -78,8 +78,8 @@ u'7dd3fd825dc34169a5ca5bea66a1eb26': {u'price': 600, u'total': 600, u'qty': 1}}
 <div style="text-align:right; color:#f4a000; font-size:16px; font-weight:bolder; margin-top:15px;">總計：$${view/totalPrice}</div>
 </div>
 <div id="endbtn-bar">
-  <a href="../../index.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/shoppingcart/images/btn-01b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-01.png" id="Image18" hspace="15"></a>
-  <a href="cart02-check.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','${prefix}content/shoppingcart/images/btn-02b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-02.png" id="Image19" hspace="15"></a>
+  <a href="${portal/absolute_url}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/shoppingcart/images/btn-01b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-01.png" id="Image18" hspace="15"></a>
+  <a href="${portal/absolute_url}/shopping/@@shopping_cart_step2" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','${prefix}content/shoppingcart/images/btn-02b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-02.png" id="Image19" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->
 </div>
@@ -126,7 +126,7 @@ $('.update-qty').change(function(){
         }
     }  
 
-    $.cookie('cart', JSON.stringify(cartJson))
+    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2 })
     location.reload();
 });
 
@@ -149,7 +149,7 @@ $('.delete-item').click(function(){
         }
     }
 
-    $.cookie('cart', JSON.stringify(cartJson))
+    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2 })
     location.reload();
 
 

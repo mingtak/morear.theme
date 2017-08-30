@@ -1,0 +1,296 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+import json
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+d_quote = '"'
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="step"><img src="${prefix}content/shoppingcart/images/step-02.png"></div>
+<!-- list -->
+<div id="cart-list-02">
+<ul>
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">配送方式：</th>
+    <td><p>
+      <input type="checkbox" name="checkbox2" id="checkbox2">
+      <label for="checkbox2"></label>
+      門市取貨
+      <label for="select"></label>
+      <select name="select" id="select">
+        <option>選擇門市</option>
+      </select>
+    </p>
+      <p>
+        <input type="checkbox" name="checkbox4" id="checkbox4">
+        宅配到府</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td class="word-yellow">
+        TEL : 02-2771-6376　　ADD : 台北市大安區忠孝東路四段147巷1號4樓
+    </td>
+  </tr>
+</tbody></table>
+</li>
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">取貨時間：</th>
+    <td><p>
+      <input type="checkbox" name="checkbox2" id="checkbox2">
+      <label for="checkbox2"></label>
+      早上09:00-12:00　
+        <input type="checkbox" name="checkbox4" id="checkbox4">
+        下午12:00-17:00</p></td>
+  </tr>
+</tbody></table>
+</li>
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">付款方式：</th>
+    <td><p>
+      <input name="checkbox2" type="checkbox" id="checkbox2" checked="checked">
+      信用卡線上刷卡<span class="word-gray-2">（可接受VISA、Master、JCB、聯合信用卡）</span></p>
+      <p>
+        <input name="checkbox3" type="checkbox" id="checkbox3">
+        ATM轉帳</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>信用卡卡號
+      <select name="select3" id="select3">
+        <option>VISA</option>
+      </select>
+      <span class="word-gray-2">（限台灣核發之信用卡）</span>
+</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>卡號
+      <input name="textfield2" type="text" id="textfield2" size="4" maxlength="4">
+      -
+  <input name="textfield3" type="text" id="textfield3" size="4" maxlength="4">
+      -
+  <input name="textfield4" type="text" id="textfield4" size="4" maxlength="4">
+      -
+  <input name="textfield5" type="text" id="textfield5" size="4" maxlength="4"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>有效期限
+      <select name="select4" id="select4">
+        <option>12</option>
+      </select>
+月
+<select name="select5" id="select5">
+  <option>2017</option>
+</select>
+年 </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>卡片背面後3碼
+      <input name="textfield6" type="text" id="textfield6" size="3" maxlength="3"></td>
+  </tr>
+</tbody></table>
+</li>
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">訂購人：</th>
+    <td width="60">姓　名</td>
+    <td><input type="text" name="textfield7" id="textfield7" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>E-mail</td>
+    <td><input type="text" name="textfield8" id="textfield8" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>聯絡電話</td>
+    <td><input type="text" name="textfield9" id="textfield9" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>地　址</td>
+    <td><select name="select6" id="select6">
+      <option>請選擇郵遞區號</option>
+    </select>
+      <select name="select7" id="select7">
+        <option>縣市</option>
+      </select>
+      <select name="select8" id="select8">
+        <option>區域</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><input type="text" name="textfield10" id="textfield10" style="width:100%"></td>
+  </tr>
+</tbody></table>
+</li>
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">收件人：</th>
+    <td colspan="2"><label for="textfield7">
+      <input name="checkbox5" type="checkbox" id="checkbox5">
+      同訂購人資料　
+      <input name="checkbox6" type="checkbox" id="checkbox6">
+      加入常用通訊錄</label></td>
+    </tr>
+  <tr>
+    <th width="70" valign="top">&nbsp;</th>
+    <td width="60">姓　名</td>
+    <td><input type="text" name="textfield11" id="textfield11" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>E-mail      </td>
+    <td><input type="text" name="textfield8" id="textfield8" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>聯絡電話</td>
+    <td><input type="text" name="textfield9" id="textfield9" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>地　址</td>
+    <td><select name="select6" id="select6">
+      <option>請選擇郵遞區號</option>
+    </select>
+      <select name="select7" id="select7">
+        <option>縣市</option>
+      </select>
+      <select name="select8" id="select8">
+        <option>區域</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><input type="text" name="textfield10" id="textfield10" style="width:100%"></td>
+  </tr>
+</tbody></table>
+</li>
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">發票資訊：</th>
+    <td colspan="2"><label for="textfield7">
+      <input name="checkbox5" type="checkbox" id="checkbox5">
+      三聯式發票　
+      <input name="checkbox6" type="checkbox" id="checkbox6">
+      二聯式電子發票</label></td>
+    </tr>
+  <tr>
+    <th width="70" valign="top">&nbsp;</th>
+    <td width="60">發票統編</td>
+    <td><input type="text" name="textfield11" id="textfield11" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>發票抬頭</td>
+    <td><input type="text" name="textfield8" id="textfield8" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>寄送地址</td>
+    <td><input name="checkbox7" type="checkbox" id="checkbox7">
+同訂購人</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><select name="select6" id="select6">
+      <option>請選擇郵遞區號</option>
+    </select>
+      <select name="select7" id="select7">
+        <option>縣市</option>
+      </select>
+      <select name="select8" id="select8">
+        <option>區域</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><input type="text" name="textfield10" id="textfield10" style="width:100%"></td>
+  </tr>
+</tbody></table>
+</li>
+</ul>
+</div>
+<!-- list end -->
+<div id="endbtn-bar">
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/shoppingcart/images/btn-03b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-03.png" id="Image16" hspace="15"></a>
+  <a href="cart03.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-04.png" id="Image17" hspace="15"></a>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+
+<!-- #content end -->
+
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+</div>
+</div>
+
+
+
+<script>
+if(${python:'true' if view.is_anonymous else 'false'}){
+    var r = confirm("繼續購物步驟前，請先登入或註冊會員.\n請按 '確定' 登入或註冊, 按 '取消' 回上一頁");
+    if (r == true) {
+        window.location = '${portal/absolute_url}/@@member_login_menu';
+    } else {
+        window.history.back()
+    }
+};
+</script>
+
+
+
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
