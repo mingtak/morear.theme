@@ -62,10 +62,33 @@ $(document).ready(function(){
 <li><a href="${portal/absolute_url}/3d-fit">3D FIT科技</a></li>
 <li><a href="javascript:void(0)">Morear產品</a>
 <ul>
-<li><a href="${portal/absolute_url}/products/music">音樂耳機</a></li>
-<li><a href="${portal/absolute_url}/products/protect">聽力保護系列</a></li>
-<li><a href="${portal/absolute_url}/products/comm">通訊升級系列</a></li>
-<li><a href="${portal/absolute_url}/products/acce">配件</a></li>
+<li><a href="javascript:void(0)">音樂耳機</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/music/products-1">經典款</a></li>
+<li><a href="${portal/absolute_url}/products/music/products-2">專業款</a></li>
+<li><a href="${portal/absolute_url}/products/music/products-3">頂級款</a></li>
+</ol>
+</li>
+<li><a href="javascript:void(0)">聽力保護系列</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/protect/earplugs1">舒眠耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs2">防噪耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
+</ol>
+</li>
+<li><a href="javascript:void(0)">通訊升級系列</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+</ol>
+</li>
+<li><a href="javascript:void(0)">配件</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/acce/other1">線材</a></li>
+<li><a href="${portal/absolute_url}/products/acce/other2">包裝</a></li>
+<li><a href="${portal/absolute_url}/products/acce/other3">除溼</a></li>
+</ol>
+</li>
 </ul>
 </li>
 <li><a href="javascript:void(0)">購買Morear</a>
@@ -139,16 +162,35 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide01 -->
 <div id="hide-top1">
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/music">音樂耳機</a></p>
+    <p class="word-big-white">音樂耳機</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/music/products-1">經典款</a></li>
+        <li><a href="${portal/absolute_url}/products/music/products-2">專業款</a></li>
+        <li><a href="${portal/absolute_url}/products/music/products-3">頂級款</a></li>
+    </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/protect">聽力保護系列</a></p>
+    <p class="word-big-white">聽力保護系列</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/protect/earplugs1">舒眠耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/protect/earplugs2">防噪耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
+    </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/comm">通訊升級系列</a></p>
+    <p class="word-big-white">通訊升級系列</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+    </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/acce">配件</a></p>
+    <p class="word-big-white">配件</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/acce/other1">線材</a></li>
+        <li><a href="${portal/absolute_url}/products/acce/other2">包裝</a></li>
+        <li><a href="${portal/absolute_url}/products/acce/other3">除溼</a></li>
+    </ul>
 </div>
 </div>
 <!-- hide01 end -->
@@ -292,10 +334,33 @@ $( ".to-search-page2" ).click(function() {
 <li><a href="${portal/absolute_url}/3d-fit">3D FIT科技</a></li>
 <li><a href="javascript:void(0)">Morear產品</a>
 <ul>
-<li><a href="${portal/absolute_url}/products/music">音樂耳機</a></li>
-<li><a href="${portal/absolute_url}/products/protect">聽力保護系列</a></li>
-<li><a href="${portal/absolute_url}/products/comm">通訊升級系列</a></li>
-<li><a href="${portal/absolute_url}/products/acce">配件</a></li>
+<li><a href="javascript:void(0)">音樂耳機</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/music/products-1">經典款</a></li>
+<li><a href="${portal/absolute_url}/products/music/products-2">專業款</a></li>
+<li><a href="${portal/absolute_url}/products/music/products-3">頂級款</a></li>
+</ol>
+</li>
+<li><a href="javascript:void(0)">聽力保護系列</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/protect/earplugs1">舒眠耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs2">防噪耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
+</ol>
+</li>
+<li><a href="javascript:void(0)">通訊升級系列</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+</ol>
+</li>
+<li><a href="javascript:void(0)">配件</a>
+<ol>
+<li><a href="${portal/absolute_url}/products/acce/other1">線材</a></li>
+<li><a href="${portal/absolute_url}/products/acce/other2">包裝</a></li>
+<li><a href="${portal/absolute_url}/products/acce/other3">除溼</a></li>
+</ol>
+</li>
 </ul>
 </li>
 <li><a href="javascript:void(0)">購買Morear</a>
@@ -369,16 +434,35 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide01 -->
 <div id="hide-top1">
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/music">音樂耳機</a></p>
+    <p class="word-big-white">音樂耳機</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/music/products-1">經典款</a></li>
+        <li><a href="${portal/absolute_url}/products/music/products-2">專業款</a></li>
+        <li><a href="${portal/absolute_url}/products/music/products-3">頂級款</a></li>
+    </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/protect">聽力保護系列</a></p>
+    <p class="word-big-white">聽力保護系列</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/protect/earplugs1">舒眠耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/protect/earplugs2">防噪耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
+    </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/comm">通訊升級系列</a></p>
+    <p class="word-big-white">通訊升級系列</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+    </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="${portal/absolute_url}/products/acce">配件</a></p>
+    <p class="word-big-white">配件</p>
+    <ul>
+        <li><a href="${portal/absolute_url}/products/acce/other1">線材</a></li>
+        <li><a href="${portal/absolute_url}/products/acce/other2">包裝</a></li>
+        <li><a href="${portal/absolute_url}/products/acce/other3">除溼</a></li>
+    </ul>
 </div>
 </div>
 <!-- hide01 end -->
