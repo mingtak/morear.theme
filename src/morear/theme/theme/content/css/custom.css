@@ -166,3 +166,11 @@ body.template-default_error_message {
 #cart-list-01 {
     width: 100%;
 }
+
+/* Registry Form */
+#registry-form input {
+    color: #FFF;
+    background-color: #333;
+    border: 1px #666666 solid;
+    padding: 5px;
+}

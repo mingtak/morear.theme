@@ -34,15 +34,15 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <div id="content">
 <!-- InstanceBeginEditable name="content" -->
 
-<form action="#" method="post">
+<form action="${portal/absolute_url}/members/@@member_registry" method="post" id="registry-form">
 
 <div id="member-list-04" style="margin-top:0;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <th width="80" valign="top">帳　　號：</th>
-    <td><input name="userid" type="text" id="textfield2" style="width:100%;" placeholder="請輸入您要註冊的帳號" required>
+    <td><input name="userid" type="text" id="registried-id" style="width:100%;" placeholder="請輸入您要註冊的帳號" required>
       <br>
-      <a href="#" class="gray-link">檢查該帳號是否可用</a></td>
+      <p id="id-exist" style="display:none">檢查該帳號是否可用</p></td>
   </tr>
   <tr>
     <th>姓　　名：</th>
@@ -62,7 +62,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <th valign="top">確認密碼：</th>
     <td><input name="confirmPwd" type="password" id="confirmPwd" style="width:100%;" required>
     <br>
-    <span id="confirm-pwd-correct" style="color:#fff; display:none">密碼正確</span>
+    <span id="confirm-pwd-correct" style="color:#fff; display:none">密碼確認正確</span>
     <span id="confirm-pwd-wrong" style="color:red; display:none">二次輸入不一致，請重新輸入</span>
   </tr>
   <tr>
@@ -104,21 +104,94 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 </form>
 
-
-
 <!-- InstanceEndEditable -->
 </div>
+<!-- #content End -->
 
 
 
 
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>
-
-
 <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
-
 <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+<script>
+function checkVal( str ){
+    var regStr = /^[a-zA-Z]+$/;
+    var regExp = /^[\d|a-zA-Z]+$/;
+
+    return [regStr.test(str[0]), regExp.test(str)]
+};
+
+function comfirmPwd( str1, str2 ){
+    if(str1 == str2){
+        return true
+    }else{
+        return false
+    }
+};
+
+function checkPwdLen( str ){
+    if(str.length >= 6){
+        return true
+    }else{
+        return false
+    }
+};
+
+$('#password').change(function(){
+    if(! checkPwdLen($(this).val())){
+        alert('密碼長度不足，請輸入至少6位英數字')
+    }
+});
+
+$('#confirmPwd').change(function(){
+    if( comfirmPwd( $('#password').val(), $(this).val() ) ){
+        $('#confirm-pwd-correct').show('slow')
+        $('#confirm-pwd-wrong').hide('slow')
+    }else{
+        $('#confirm-pwd-correct').hide('slow')
+        $('#confirm-pwd-wrong').show('slow')
+        $('#password').val('')
+        $('#confirmPwd').val('')
+    }
+});
+
+$('#registried-id').change(function(){
+    regId = $(this).val();
+    if(regId.length < 5){
+        alert('帳號長度需至少5個英文/數字');
+        return
+    };
+
+    confirmId = checkVal( $(this).val() );
+    if( ! confirmId[0] ){
+        alert('帳號第一個字元必需為英文字母');
+        return
+    }else if( ! confirmId[1] ){
+        alert('帳號必需由英文/數字組成');
+        return
+    }
+
+    jQuery.post(
+        url='${portal/absolute_url}/@@member_exist',
+        data={ u:regId }
+    ).done(function(data){
+        if(data == 'true'){
+            $('#id-exist').text('這個帳號已存在, 請重新選過.').css('color', '#f00').show('slow')
+        } else{
+            $('#id-exist').text('這個Id可用').css('color', '#fff').show('slow')
+        }
+    }).fail(function(){
+        alert('檢測失敗，請稍候再試一次.');
+    });
+});
+</script>
+
+
+
+
 
 
 </div>
