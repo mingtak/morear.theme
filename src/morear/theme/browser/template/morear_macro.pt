@@ -131,7 +131,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </li>
 <li><a href="${portal/absolute_url}/coming-soon">會員資料</a>
 <ol>
-<li><a href="${portal/absolute_url}/coming-soon">修改會員資料</a></li>
+<li><a href="${portal/absolute_url}/members/@@member_update">修改會員資料</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">密碼查詢/修改</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">收貨通訊錄管理</a></li>
 </ol>
@@ -237,7 +237,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="hide-01">
 <p class="word-big-white">會員資料</p>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">修改會員資料</a></li>
+<li><a href="${portal/absolute_url}/members/@@member_update">修改會員資料</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">密碼查詢/修改</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">收貨通訊錄管理</a></li>
 </ul>
@@ -403,7 +403,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </li>
 <li><a href="javascript:void(0)">會員資料</a>
 <ol>
-<li><a href="${portal/absolute_url}/coming-soon">修改會員資料</a></li>
+<li><a href="${portal/absolute_url}/members/@@member_update">修改會員資料</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">密碼查詢/修改</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">收貨通訊錄管理</a></li>
 </ol>
@@ -507,7 +507,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="hide-01">
 <p class="word-big-white">會員資料</p>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">修改會員資料</a></li>
+<li><a href="${portal/absolute_url}/members/@@member_update">修改會員資料</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">密碼查詢/修改</a></li>
 <li><a href="${portal/absolute_url}/coming-soon">收貨通訊錄管理</a></li>
 </ul>

@@ -61,5 +61,8 @@
   <after css:content="link.for-theme" css:theme-children="html head" />
   <drop css:content="link.for-theme" attributes="class" />
 
+  <!-- site trace code -->
+  <before css:content="#site-trace-code" css:theme-children="body" />
+
 </rules>
 </rules>

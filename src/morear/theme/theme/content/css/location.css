@@ -19,22 +19,23 @@
 }
 #map{
 	width:55%;
-	height:450px;
+	height:480px;
 	float:left;
 }
 #store-info-img{
-	width:21%;
+	width:42%;
 	float:left;
-	margin-left:1.5%;
+	margin-left:2%;
 }
 #store-info-img img{
 	width:100%;
 }
 #store-info{
-	width:21%;
+	width:42%;
 	float:left;
 	color:#FFF;
-	margin-left:1.5%;
+	margin-left:2%;
+	margin-top:20px;
 }
 #store-info h4{
 	line-height:150%;
@@ -57,7 +58,7 @@
 	margin-bottom:20px;
 }
 #store-info-img{
-	width:50%;
+	width:80%;
 	clear:both;
 	float:left;
 	margin-left:10%;
