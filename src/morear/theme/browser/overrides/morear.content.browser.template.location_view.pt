@@ -44,13 +44,29 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
   <p><span class="word-yellow">聯絡電話：</span>${context/phone}</p>
   <p><span class="word-yellow">地址：</span>${context/address}</p>
   <p style="margin-top:15px;">
-      <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/location/images/btn-add-b.png',1)">
+      <a href="javascript:void(0)" id="add-commonStore" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/location/images/btn-add-b.png',1)">
           <img src="${prefix}content/location/images/btn-add.png" id="Image16" />
       </a>
   </p>
 </div>
 <!-- info end -->
 
+<script>
+$('#add-commonStore').click(function(){
+//    alert('${context/UID}')
+
+    jQuery.post(
+        url='${portal/absolute_url}/@@add_common_store',
+        data={ storeUID:'${context/UID}' }
+    ).done(function(data){
+        alert('已加入常用門市.')
+    }).fail(function(){
+        alert('資料傳送失敗，可能是網路連線問題，請稍候再試一次.');
+    });
+
+
+});
+</script>
 
 
 
