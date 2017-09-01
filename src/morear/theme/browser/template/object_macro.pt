@@ -191,7 +191,7 @@ if ytURL:
     </a>
 </p>
 <div id="index-btn-3d">
-    <a href="${portal/absolute_url}/3d-lab" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','${prefix}images/btn-3d-b.png',1)">
+    <a href="${portal/absolute_url}/about" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','${prefix}images/btn-3d-b.png',1)">
         <img src="${prefix}images/btn-3d.png" id="Image25" />
     </a>
 </div>
