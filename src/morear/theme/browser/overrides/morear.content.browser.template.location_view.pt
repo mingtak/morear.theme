@@ -44,8 +44,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
   <p><span class="word-yellow">聯絡電話：</span>${context/phone}</p>
   <p><span class="word-yellow">地址：</span>${context/address}</p>
 <tal:note condition="context/note">
-  <p><span class="word-yellow">備註：</span></p>
-<div tal:content="structure python:context.note.replace('\n', '<br>')"></div>
+    <br><div tal:content="structure python:context.note.replace('\n', '<br>')"></div>
 </tal:note>
 
 
