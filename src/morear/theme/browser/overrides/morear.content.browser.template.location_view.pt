@@ -37,12 +37,18 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 <!-- info -->
 <div id="map" tal:content="structure context/mapCode" style="max-width:560px; overflow:hidden"></div>
-<div id="store-info-img"><img src="${context/absolute_url}/@@images/image/preview" /></div>
+<div id="store-info-img"><img src="${context/absolute_url}/@@images/image" style="width:400px" /></div>
 <div id="store-info">
   <h4>${context/title}</h4>
   <p><span class="word-yellow">營業時間：</span>${context/serviceTime}</p>
   <p><span class="word-yellow">聯絡電話：</span>${context/phone}</p>
   <p><span class="word-yellow">地址：</span>${context/address}</p>
+<tal:note condition="context/note">
+  <p><span class="word-yellow">備註：</span></p>
+<div tal:content="structure python:context.note.replace('\n', '<br>')"></div>
+</tal:note>
+
+
   <p style="margin-top:15px;">
       <a href="javascript:void(0)" id="add-commonStore" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/location/images/btn-add-b.png',1)">
           <img src="${prefix}content/location/images/btn-add.png" id="Image16" />

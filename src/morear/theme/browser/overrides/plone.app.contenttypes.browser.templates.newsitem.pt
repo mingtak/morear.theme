@@ -28,6 +28,9 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
       <div id="n-photo">
        <img tal:condition="context/bigImage_1" src="${context/absolute_url}/@@images/bigImage_1/large"/>
        <img tal:condition="context/bigImage_2" src="${context/absolute_url}/@@images/bigImage_2/large"/>
+       <img tal:condition="context/bigImage_3" src="${context/absolute_url}/@@images/bigImage_3/large"/>
+       <img tal:condition="context/bigImage_4" src="${context/absolute_url}/@@images/bigImage_4/large"/>
+       <img tal:condition="context/bigImage_5" src="${context/absolute_url}/@@images/bigImage_5/large"/>
 
 <div id="mm-info" tal:condition="context/mmTitle">
 <div id="mm-info-img"><img src="${context/absolute_url}/@@images/mmImage/mini"></div>
@@ -46,7 +49,7 @@ Your browser does not support the audio element.
       <div id="n-word">
        <h2>${context/title}</h2>
        <p class="time">
-        ${python:context.created().strftime('%Y-%m%d')}
+        ${python:context.created().strftime('%Y-%m-%d')}
        </p>
 
   <div id="parent-fieldname-text"

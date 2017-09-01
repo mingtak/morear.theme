@@ -31,6 +31,7 @@ d_quote = '"'
     <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
 
+<form action="#" method="post">
 <div id="content">
 <!-- InstanceBeginEditable name="content" -->
 <div id="step"><img src="${prefix}content/shoppingcart/images/step-02.png"></div>
@@ -41,87 +42,39 @@ d_quote = '"'
   <tbody><tr>
     <th width="70" valign="top">配送方式：</th>
     <td><p>
-      <input type="checkbox" name="checkbox2" id="checkbox2">
+      <input type="checkbox" name="on-store" id="on-store" class="shipping-method">
       <label for="checkbox2"></label>
       門市取貨
       <label for="select"></label>
-      <select name="select" id="select">
-        <option>選擇門市</option>
+      <select name="selected-store" id="selected-store" style="display:none">
+        <tal:store repeat="item view/brain">
+            <option value="${item/UID}">${item/Title}</option>
+        </tal:store>
       </select>
     </p>
       <p>
-        <input type="checkbox" name="checkbox4" id="checkbox4">
+        <input type="checkbox" name="on-door" id="on-door" class="shipping-method">
         宅配到府</p></td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td class="word-yellow">
-        TEL : 02-2771-6376　　ADD : 台北市大安區忠孝東路四段147巷1號4樓
+</tbody></table>
+</li>
+
+<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="70" valign="top">取貨時間：</th>
+    <td>
+        <p>
+            <input type="checkbox" name="morning" id="morning">
+            <label for="checkbox2"></label>
+            早上09:00-12:00
+            <input type="checkbox" name="afternoon" id="afternoon">
+            下午12:00-17:00
+        </p>
     </td>
   </tr>
 </tbody></table>
 </li>
-<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-    <th width="70" valign="top">取貨時間：</th>
-    <td><p>
-      <input type="checkbox" name="checkbox2" id="checkbox2">
-      <label for="checkbox2"></label>
-      早上09:00-12:00　
-        <input type="checkbox" name="checkbox4" id="checkbox4">
-        下午12:00-17:00</p></td>
-  </tr>
-</tbody></table>
-</li>
-<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-    <th width="70" valign="top">付款方式：</th>
-    <td><p>
-      <input name="checkbox2" type="checkbox" id="checkbox2" checked="checked">
-      信用卡線上刷卡<span class="word-gray-2">（可接受VISA、Master、JCB、聯合信用卡）</span></p>
-      <p>
-        <input name="checkbox3" type="checkbox" id="checkbox3">
-        ATM轉帳</p></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>信用卡卡號
-      <select name="select3" id="select3">
-        <option>VISA</option>
-      </select>
-      <span class="word-gray-2">（限台灣核發之信用卡）</span>
-</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>卡號
-      <input name="textfield2" type="text" id="textfield2" size="4" maxlength="4">
-      -
-  <input name="textfield3" type="text" id="textfield3" size="4" maxlength="4">
-      -
-  <input name="textfield4" type="text" id="textfield4" size="4" maxlength="4">
-      -
-  <input name="textfield5" type="text" id="textfield5" size="4" maxlength="4"></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>有效期限
-      <select name="select4" id="select4">
-        <option>12</option>
-      </select>
-月
-<select name="select5" id="select5">
-  <option>2017</option>
-</select>
-年 </td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>卡片背面後3碼
-      <input name="textfield6" type="text" id="textfield6" size="3" maxlength="3"></td>
-  </tr>
-</tbody></table>
-</li>
+
 <li><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <th width="70" valign="top">訂購人：</th>
@@ -158,7 +111,7 @@ d_quote = '"'
   </tr>
 </tbody></table>
 </li>
-<li><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<li id="receiver-info" style="display:none"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <th width="70" valign="top">收件人：</th>
     <td colspan="2"><label for="textfield7">
@@ -251,11 +204,13 @@ d_quote = '"'
 </div>
 <!-- list end -->
 <div id="endbtn-bar">
-  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/shoppingcart/images/btn-03b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-03.png" id="Image16" hspace="15"></a>
-  <a href="cart03.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-04.png" id="Image17" hspace="15"></a>
+  <a href="${portal/absolute_url}/shopping/@@shopping_cart_step2_payment" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/shoppingcart/images/btn-03b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-03.png" id="Image16" hspace="15"></a>
+  <a href="${portal/absolute_url}/@@checkout" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-04.png" id="Image17" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->
+
 </div>
+</form>
 
 
 
@@ -274,14 +229,25 @@ d_quote = '"'
 
 
 <script>
-if(${python:'true' if view.is_anonymous else 'false'}){
-    var r = confirm("繼續購物步驟前，請先登入或註冊會員.\n請按 '確定' 登入或註冊, 按 '取消' 回上一頁");
-    if (r == true) {
-        window.location = '${portal/absolute_url}/@@member_login_menu';
-    } else {
-        window.history.back()
+$('#on-store').change(function(){
+    if( $("#on-store").prop("checked") ){
+        $("#selected-store").fadeIn('slow')
+        $('#receiver-info').fadeOut('slow')
+        $("#on-door").attr('checked', false)
+    }else{
+        $("#selected-store").fadeOut('slow')
     }
-};
+});
+$('#on-door').change(function(){
+    if( $("#on-door").prop("checked") ){
+        $('#receiver-info').fadeIn('slow')
+        $("#selected-store").fadeOut('slow')
+        $("#on-store").attr('checked', false)
+    }else{
+        $('#receiver-info').fadeOut('slow')
+    }
+})
+
 </script>
 
 

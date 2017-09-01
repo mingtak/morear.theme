@@ -36,7 +36,7 @@ brain = api.content.find(context=portal, Type='News Item', sort_on='created', so
          </div>
          <div id="n-list-word">
           <p>
-           <span>${python:item.created.strftime('%Y-%m%d')}</span>
+           <span>${python:item.created.strftime('%Y-%m-%d')}</span>
           </p>
           <p class="tai">${item/Title}</p>
           <div class="n-list-word-c">

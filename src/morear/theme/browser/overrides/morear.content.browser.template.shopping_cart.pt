@@ -126,7 +126,7 @@ $('.update-qty').change(function(){
         }
     }  
 
-    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2 })
+    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
     location.reload();
 });
 
@@ -149,7 +149,7 @@ $('.delete-item').click(function(){
         }
     }
 
-    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2 })
+    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
     location.reload();
 
 
