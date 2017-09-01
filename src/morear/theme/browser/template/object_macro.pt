@@ -57,6 +57,13 @@ if ytURL:
     ytImg = 'https://img.youtube.com/vi/%s/0.jpg' % ytId
 ?>
          <section>
+
+          <div id="vedio-play">
+              <a class="youtube" tal:attributes="href string:https://www.youtube.com/embed/${ytId}">
+                  <img src="${prefix}content/images/vedio-play.png">
+              </a>
+          </div>
+
           <a class="button youtube" tal:attributes="href string:https://www.youtube.com/embed/${ytId}">
            <img tal:attributes="src ytImg"/>
           </a>
@@ -383,9 +390,7 @@ if ytURL:
     ytImg = 'https://img.youtube.com/vi/%s/0.jpg' % ytId
 ?>
          <section>
-<!--
-<div id="vedio-play"><a class="group1 cboxElement" href="https://www.youtube.com/embed/siQJhIp-UTU"><img src="../images/vedio-play.png"></a></div>
--->
+
           <div id="vedio-play">
               <a class="youtube" tal:attributes="href string:https://www.youtube.com/embed/${ytId}">
                   <img src="${prefix}content/images/vedio-play.png">
