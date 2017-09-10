@@ -138,9 +138,15 @@ citys=[
     <td colspan="2">
       <label for="textfield7">
 <!-- TODO-->
-          <select name="receiver-city" id="receiver-city" style="margin-right:20px">
+          <select name="receive-select" id="receive-select" style="margin-right:20px">
               <option value="none">由常用通訊錄選擇收件人</option>
-              <option tal:repeat="item citys" value="${item}">${item}</option>
+              <option tal:repeat="item view/receiveList"
+                      value="${python:item[0]}"
+                      data-name="${python:item[1]}"
+                      data-city="${python:item[2]}"
+                      data-addr="${python:item[3]}"
+                      data-phone="${python:item[4]}"
+                      data-email="${python:item[5]}">${python:item[1]}</option>
           </select>
 
           <input name="receiver-same-buyer" type="checkbox" id="receiver-same-buyer">
@@ -249,6 +255,20 @@ citys=[
 
 
 <script>
+$('#receive-select').change(function(){
+    name = $('#receive-select option:selected').data('name')
+    city = $('#receive-select option:selected').data('city')
+    addr = $('#receive-select option:selected').data('addr')
+    phone = $('#receive-select option:selected').data('phone')
+    email = $('#receive-select option:selected').data('email')
+
+    $('#receiver-name').val(name)
+    $('#receiver-email').val(email)
+    $('#receiver-phone').val(phone)
+    $('#receiver-city').val(city)
+    $('#receiver-addr').val(addr)
+})
+
 $('#receiver-same-buyer').on('click', function(){
     if($(this).is(':checked')){
         $('#receiver-name').val($('#buyer-name').val())
