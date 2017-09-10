@@ -64,7 +64,7 @@ citys=[
 <div class="list1-content qa_content" style="display: none;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-    <th width="50" align="center" bgcolor="#333333">編號</th>
+<!--    <th width="50" align="center" bgcolor="#333333">編號</th> -->
     <th align="center" bgcolor="#333333">門市名稱</th>
     <th align="center" bgcolor="#333333">地址</th>
     <th align="center" bgcolor="#333333">電話</th>
@@ -72,7 +72,7 @@ citys=[
       <label for="checkbox"></label></th>
   </tr>
   <tr tal:repeat="item view/storeBrain">
-    <td align="center">${repeat/item/number}</td>
+<!--    <td align="center">${repeat/item/number}</td> -->
     <td align="center">${item/Title}</td>
     <td align="center">${python:item.getObject().address}</td>
     <td align="center">${python:item.getObject().phone}</td>
@@ -80,7 +80,8 @@ citys=[
   </tr>
 </tbody></table>
 <div id="addbtn-bar">
-<a href="${portal/absolute_url}/location" onmouseover="MM_swapImage('Image17','','${prefix}content/member/images/btn-10-b.png',1)" onmouseout="MM_swapImgRestore()"><img src="${prefix}content/member/images/btn-10.png" id="Image17" align="center" hspace="15"></a><span class="word-yellow">您可以設定5個常用門市資訊</span>
+<a href="${portal/absolute_url}/location" onmouseover="MM_swapImage('Image17','','${prefix}content/member/images/btn-10-b.png',1)" onmouseout="MM_swapImgRestore()"><img src="${prefix}content/member/images/btn-10.png" id="Image17" align="center" hspace="15"></a>
+<!-- <span class="word-yellow">您可以設定5個常用門市資訊</span> -->
 </div>
 </div>
 </li>
@@ -90,26 +91,30 @@ citys=[
 <div class="list2-content qa_content" style="display: none;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-    <th width="50" align="center" bgcolor="#333333">編號</th>
+<!--    <th width="50" align="center" bgcolor="#333333">編號</th> -->
     <th align="center" bgcolor="#333333">收件人</th>
     <th align="center" bgcolor="#333333">地址</th>
     <th align="center" bgcolor="#333333">電話</th>
-    <th align="center" bgcolor="#333333">編輯</th>
+    <th align="center" bgcolor="#333333">確認</th>
     <th align="center" bgcolor="#333333">刪除</th>
   </tr>
-  <tr class="receive-item" style="display:none">
-  </tr>
+  <tr class="receive-item" style="display:none"></tr>
 
   <tr class="receive-item" tal:repeat="item view/receiveList">
-    <td align="center">${repeat/item/number}</td>
+<!--    <td align="center">${repeat/item/number}</td> -->
     <td align="center">${python:item[0]}</td>
     <td align="center">${python:'%s %s' % (item[1], item[2])}</td>
     <td align="center">${python:item[3]}</td>
     <td align="center"></td>
-    <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true"></i></td>
+    <td align="center">
+        <i class="fa fa-trash delete-receive" aria-hidden="true"
+           data-name="${python:item[0]}"
+           data-city="${python:item[1]}"
+           data-addr="${python:item[2]}"
+           data-phone="${python:item[3]}"></i>
+    </td>
   </tr>
   <tr>
-    <td align="center"></td>
     <td align="center"><input type="text" name="receive-name" id="receive-name"></td>
     <td align="center">
       <select name="receive-city" id="receive-city" class="selector">
@@ -122,9 +127,6 @@ citys=[
     <td align="center"></td>
   </tr>
 </tbody></table>
-<div id="addbtn-bar2">
-<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/member/images/btn-11-b.png',1)"><img src="${prefix}content/member/images/btn-11.png" id="Image18" align="center" hspace="15"></a><span class="word-yellow">您可以設定10個常用收件地址資訊</span>
-</div>
 </div>
 </li>
 </ul>
@@ -220,15 +222,14 @@ $('.add-receive').on('click', function(){
             phone: phone
         },
     ).done(function(){
-        ccc='<tr class="receive-item">\
-                 <td align="center">' + ($('.receive-item').length) + '</td>\
+        appendHTML='<tr class="receive-item">\
                  <td align="center">' + name + '</td>\
                  <td align="center">' + city + addr + '</td>\
                  <td align="center">' + phone + '</td>\
                  <td align="center"></td>\
                  <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true"></i></td>\
              </tr>'
-        $(ccc).insertAfter($('.receive-item').last()).show('slow')
+        $(appendHTML).insertAfter($('.receive-item').last()).show('slow')
 
         name = $('#receive-name').val('')
         city = $('#receive-city').val('')
@@ -239,9 +240,36 @@ $('.add-receive').on('click', function(){
 
     })
 
+});
 
+
+$('.delete-receive').on('click', function(){
+    pObj = $(this).parents('tr');
+    name = $(this).data('name')
+    city = $(this).data('city')
+    addr = $(this).data('addr')
+    phone = $(this).data('phone')
+
+    jQuery.post(
+        url='${portal/absolute_url}/@@del_receive',
+        data={
+            name: name,
+            city: city,
+            addr: addr,
+            phone: phone
+        },
+    ).done(function(){
+        pObj.hide('slow')
+//        alert('已刪')
+        
+    }).fail(function(){
+        alert('失敗');
+
+    })
 
 });
+
+
 
 $('.delete-item').click(function(){
     uid = $(this).data('uid');
