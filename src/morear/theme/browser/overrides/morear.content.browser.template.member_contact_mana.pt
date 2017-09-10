@@ -91,27 +91,28 @@ citys=[
 <div class="list2-content qa_content" style="display: none;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-<!--    <th width="50" align="center" bgcolor="#333333">編號</th> -->
     <th align="center" bgcolor="#333333">收件人</th>
     <th align="center" bgcolor="#333333">地址</th>
     <th align="center" bgcolor="#333333">電話</th>
+    <th align="center" bgcolor="#333333">Email</th>
     <th align="center" bgcolor="#333333">確認</th>
     <th align="center" bgcolor="#333333">刪除</th>
   </tr>
   <tr class="receive-item" style="display:none"></tr>
 
   <tr class="receive-item" tal:repeat="item view/receiveList">
-<!--    <td align="center">${repeat/item/number}</td> -->
     <td align="center">${python:item[0]}</td>
     <td align="center">${python:'%s %s' % (item[1], item[2])}</td>
     <td align="center">${python:item[3]}</td>
+    <td align="center">${python:item[4]}</td>
     <td align="center"></td>
     <td align="center">
         <i class="fa fa-trash delete-receive" aria-hidden="true"
            data-name="${python:item[0]}"
            data-city="${python:item[1]}"
            data-addr="${python:item[2]}"
-           data-phone="${python:item[3]}"></i>
+           data-phone="${python:item[3]}"
+           data-email="${python:item[4]}"></i>
     </td>
   </tr>
   <tr>
@@ -123,6 +124,7 @@ citys=[
       <input type="text" name="receive-addr" id="receive-addr">
     </td>
     <td align="center"><input type="text" name="receive-phone" id="receive-phone"></td>
+    <td align="center"><input type="email" name="receive-email" id="receive-email"></td>
     <td align="center"><i class="fa fa-check-square-o add-receive" aria-hidden="true"></i></td>
     <td align="center"></td>
   </tr>
@@ -132,44 +134,6 @@ citys=[
 </ul>
 </div>
 <!-- addnew -->
-
-<!--
-<div id="member-list-04" style="margin-top:0;">
-<h3>新增／編輯收件人資訊</h3>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <th width="90">聯絡人姓名：</th>
-    <td><input name="textfield6" type="text" id="textfield6" style="width:100%;" /></td>
-  </tr>
-  <tr>
-    <th>聯絡人電話：</th>
-    <td><input name="textfield3" type="text" id="textfield3" style="width:100%;" /></td>
-  </tr>
-  <tr>
-    <th valign="top" style="border-bottom:0;">聯絡人地址：</th>
-    <td style="border-bottom:0;">
-      <p>
-        <select name="select" id="select">
-          <option>選擇縣市</option>
-        </select>
-        
-        <select name="select2" id="select2">
-          <option>選擇區域</option>
-        </select>
-        　郵遞區號：
-        <input name="textfield4" type="text" id="textfield4" size="5" maxlength="5" />
-      </p>
-      <p>
-        <input name="textfield5" type="text" id="textfield5" style="width:100%; margin-top:10px;" />
-      </p>
-    </td>
-  </tr>
-</table>
-</div>
-<div id="endbtn-bar">
-<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','${prefix}content/member/images/btn-07-b.png',1)"><img src="${prefix}content/member/images/btn-07.png" id="Image14" /></a>
-</div>
--->
 
 <!-- addnew end -->
 <!-- InstanceEndEditable -->
@@ -207,9 +171,10 @@ $('.add-receive').on('click', function(){
     city = $('#receive-city').val()
     addr = $('#receive-addr').val()
     phone = $('#receive-phone').val()
+    email = $('#receive-email').val()
 
-    if(! (Boolean(name) && Boolean(addr) && Boolean(phone))){
-        alert('請完整輸入收件人姓名/地址/電話');
+    if(! (Boolean(name) && Boolean(addr) && Boolean(phone) && Boolean(email))){
+        alert('請完整輸入收件人姓名/地址/電話/Email');
         return;
     };
 
@@ -219,13 +184,15 @@ $('.add-receive').on('click', function(){
             name: name,
             city: city,
             addr: addr,
-            phone: phone
+            phone: phone,
+            email: email
         },
     ).done(function(){
         appendHTML='<tr class="receive-item">\
                  <td align="center">' + name + '</td>\
                  <td align="center">' + city + addr + '</td>\
                  <td align="center">' + phone + '</td>\
+                 <td align="center">' + email + '</td>\
                  <td align="center"></td>\
                  <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true"></i></td>\
              </tr>'
@@ -235,11 +202,10 @@ $('.add-receive').on('click', function(){
         city = $('#receive-city').val('')
         addr = $('#receive-addr').val('')
         phone = $('#receive-phone').val('')
+        email = $('#receive-email').val('')
     }).fail(function(){
-        alert('失敗');
-
+        alert('伺服器連線失敗，請稍候再試');
     })
-
 });
 
 
@@ -249,6 +215,7 @@ $('.delete-receive').on('click', function(){
     city = $(this).data('city')
     addr = $(this).data('addr')
     phone = $(this).data('phone')
+    email = $(this).data('email')
 
     jQuery.post(
         url='${portal/absolute_url}/@@del_receive',
@@ -256,20 +223,16 @@ $('.delete-receive').on('click', function(){
             name: name,
             city: city,
             addr: addr,
-            phone: phone
+            phone: phone,
+            email: email,
         },
     ).done(function(){
         pObj.hide('slow')
-//        alert('已刪')
-        
     }).fail(function(){
-        alert('失敗');
-
+        alert('伺服器連線失敗，請稍候再試');
     })
 
 });
-
-
 
 $('.delete-item').click(function(){
     uid = $(this).data('uid');
