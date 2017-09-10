@@ -1,0 +1,268 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+citys=[
+    "台北市",
+    "新北市",
+    "基隆市",
+    "桃園市",
+    "新竹市",
+    "新竹縣",
+    "苗栗縣",
+    "台中市",
+    "彰化縣",
+    "南投縣",
+    "雲林縣",
+    "嘉義市",
+    "嘉義縣",
+    "台南市",
+    "高雄市",
+    "屏東縣",
+    "澎湖縣",
+    "宜蘭縣",
+    "花蓮縣",
+    "台東縣",
+    "金門縣",
+    "連江縣",
+]
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+<!-- id='content' start -->
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="qaContent">
+<ul class="accordionPart">
+<li>
+<div class="list1-title qa_title"><span>常用門市設定</span></div>
+<div class="list1-content qa_content" style="display: none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="50" align="center" bgcolor="#333333">編號</th>
+    <th align="center" bgcolor="#333333">門市名稱</th>
+    <th align="center" bgcolor="#333333">地址</th>
+    <th align="center" bgcolor="#333333">電話</th>
+    <th align="center" bgcolor="#333333">刪除
+      <label for="checkbox"></label></th>
+  </tr>
+  <tr tal:repeat="item view/storeBrain">
+    <td align="center">${repeat/item/number}</td>
+    <td align="center">${item/Title}</td>
+    <td align="center">${python:item.getObject().address}</td>
+    <td align="center">${python:item.getObject().phone}</td>
+    <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true" data-uid="${item/UID}"></i></td>
+  </tr>
+</tbody></table>
+<div id="addbtn-bar">
+<a href="${portal/absolute_url}/location" onmouseover="MM_swapImage('Image17','','${prefix}content/member/images/btn-10-b.png',1)" onmouseout="MM_swapImgRestore()"><img src="${prefix}content/member/images/btn-10.png" id="Image17" align="center" hspace="15"></a><span class="word-yellow">您可以設定5個常用門市資訊</span>
+</div>
+</div>
+</li>
+<li>
+
+<div class="list2-title qa_title qa_title_on"><span>國內(外)收件地址設定</span></div>
+<div class="list2-content qa_content" style="display: none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="50" align="center" bgcolor="#333333">編號</th>
+    <th align="center" bgcolor="#333333">收件人</th>
+    <th align="center" bgcolor="#333333">地址</th>
+    <th align="center" bgcolor="#333333">電話</th>
+    <th align="center" bgcolor="#333333">編輯</th>
+    <th align="center" bgcolor="#333333">刪除</th>
+  </tr>
+  <tr class="receive-item" style="display:none">
+  </tr>
+
+  <tr class="receive-item" tal:repeat="item view/receiveList">
+    <td align="center">${repeat/item/number}</td>
+    <td align="center">${python:item[0]}</td>
+    <td align="center">${python:'%s %s' % (item[1], item[2])}</td>
+    <td align="center">${python:item[3]}</td>
+    <td align="center"></td>
+    <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true"></i></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="center"><input type="text" name="receive-name" id="receive-name"></td>
+    <td align="center">
+      <select name="receive-city" id="receive-city" class="selector">
+        <option tal:repeat="item citys" value="${item}">${item}</option>
+      </select>
+      <input type="text" name="receive-addr" id="receive-addr">
+    </td>
+    <td align="center"><input type="text" name="receive-phone" id="receive-phone"></td>
+    <td align="center"><i class="fa fa-check-square-o add-receive" aria-hidden="true"></i></td>
+    <td align="center"></td>
+  </tr>
+</tbody></table>
+<div id="addbtn-bar2">
+<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/member/images/btn-11-b.png',1)"><img src="${prefix}content/member/images/btn-11.png" id="Image18" align="center" hspace="15"></a><span class="word-yellow">您可以設定10個常用收件地址資訊</span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<!-- addnew -->
+
+<!--
+<div id="member-list-04" style="margin-top:0;">
+<h3>新增／編輯收件人資訊</h3>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="90">聯絡人姓名：</th>
+    <td><input name="textfield6" type="text" id="textfield6" style="width:100%;" /></td>
+  </tr>
+  <tr>
+    <th>聯絡人電話：</th>
+    <td><input name="textfield3" type="text" id="textfield3" style="width:100%;" /></td>
+  </tr>
+  <tr>
+    <th valign="top" style="border-bottom:0;">聯絡人地址：</th>
+    <td style="border-bottom:0;">
+      <p>
+        <select name="select" id="select">
+          <option>選擇縣市</option>
+        </select>
+        
+        <select name="select2" id="select2">
+          <option>選擇區域</option>
+        </select>
+        　郵遞區號：
+        <input name="textfield4" type="text" id="textfield4" size="5" maxlength="5" />
+      </p>
+      <p>
+        <input name="textfield5" type="text" id="textfield5" style="width:100%; margin-top:10px;" />
+      </p>
+    </td>
+  </tr>
+</table>
+</div>
+<div id="endbtn-bar">
+<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','${prefix}content/member/images/btn-07-b.png',1)"><img src="${prefix}content/member/images/btn-07.png" id="Image14" /></a>
+</div>
+-->
+
+<!-- addnew end -->
+<!-- InstanceEndEditable -->
+</div>
+<!-- id='content' end -->
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.list1-title').click(function(){
+        $('.list2-content').slideUp('slow');
+        $('.list1-content').slideToggle('slow');
+    });
+    $('.list2-title').click(function(){
+        $('.list1-content').slideUp('slow');
+        $('.list2-content').slideToggle('slow');
+    });
+
+}); 
+
+$('.add-receive').on('click', function(){
+    name = $('#receive-name').val()
+    city = $('#receive-city').val()
+    addr = $('#receive-addr').val()
+    phone = $('#receive-phone').val()
+
+    if(! (Boolean(name) && Boolean(addr) && Boolean(phone))){
+        alert('請完整輸入收件人姓名/地址/電話');
+        return;
+    };
+
+    jQuery.post(
+        url='${portal/absolute_url}/@@add_receive',
+        data={
+            name: name,
+            city: city,
+            addr: addr,
+            phone: phone
+        },
+    ).done(function(){
+        ccc='<tr class="receive-item">\
+                 <td align="center">' + ($('.receive-item').length) + '</td>\
+                 <td align="center">' + name + '</td>\
+                 <td align="center">' + city + addr + '</td>\
+                 <td align="center">' + phone + '</td>\
+                 <td align="center"></td>\
+                 <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true"></i></td>\
+             </tr>'
+        $(ccc).insertAfter($('.receive-item').last()).show('slow')
+
+        name = $('#receive-name').val('')
+        city = $('#receive-city').val('')
+        addr = $('#receive-addr').val('')
+        phone = $('#receive-phone').val('')
+    }).fail(function(){
+        alert('失敗');
+
+    })
+
+
+
+});
+
+$('.delete-item').click(function(){
+    uid = $(this).data('uid');
+    pObj = $(this).parents('tr');
+    jQuery.post(
+        url='${portal/absolute_url}/@@del_common_store',
+        data={uid: uid},
+    ).done(function(){
+        pObj.hide('slow')
+    }).fail(function(){
+        alert('失敗');
+    })
+
+});
+
+</script>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

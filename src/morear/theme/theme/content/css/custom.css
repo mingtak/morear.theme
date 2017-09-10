@@ -181,3 +181,14 @@ body.template-default_error_message {
     border: 1px #666666 solid;
     padding: 5px;
 }
+
+.template-shopping_cart_step2_payment input,
+.template-shopping_cart_step2_payment select,
+.template-member_contact_mana input,
+.template-member_contact_mana select
+{
+    color: #FFF;
+    background-color: #333;
+    border: 1px #666666 solid;
+    padding: 5px;
+}

@@ -18,6 +18,8 @@
 from plone import api
 portal = api.portal.get()
 prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+request = portal.REQUEST
+loginResult = request.form.get('r', None)
 ?>
 
 
@@ -87,6 +89,16 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 </div>
 </div>
+
+
+<script tal:condition="loginResult">
+    $(document).ready(function(){
+        if('${loginResult}' == 'f'){
+            alert('登入失敗，請檢查帳號密碼')
+        }
+    });
+</script>
+
 
 </metal:content-core>
 </metal:content-core>
