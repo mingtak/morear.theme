@@ -612,9 +612,13 @@ while True:
                <a tal:case="True" href="${item/absolute_url}">Home</a>
                <a tal:condition="python:item.Type() == 'Folder'" tal:case="default" href="${item/absolute_url}">${item/title}</a>
            </tal:a>
-           <span tal:condition="python:not repeat['item'].end and item.Type() != 'Folder'">&gt;</span>
+           <span class="arrower" tal:condition="python:not repeat['item'].end and item.Type() in ['Plone Site', 'Folder']">&gt;</span>
        </tal:path>
       </div>
+
+<script>
+$(".arrower").last().css('display', 'none')
+</script>
 
      </div>
      <!-- tai+root end -->

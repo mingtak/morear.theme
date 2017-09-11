@@ -168,14 +168,14 @@ body.template-default_error_message {
 }
 
 /* Registry Form */
-#registry-form input {
+#registry-form input, #registry-form select {
     color: #FFF;
     background-color: #333;
     border: 1px #666666 solid;
     padding: 5px;
 }
 
-.user-update-form #content input {
+.user-update-form #content input, .user-update-form #content select {
     color: #FFF;
     background-color: #333;
     border: 1px #666666 solid;

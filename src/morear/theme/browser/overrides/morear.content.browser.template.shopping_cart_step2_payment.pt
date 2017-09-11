@@ -105,30 +105,31 @@ citys=[
   <tbody><tr>
     <th width="70" valign="top">訂購人：</th>
     <td width="60">姓　名</td>
-    <td><input type="text" name="buyer-name" id="buyer-name" style="width:100%"></td>
+    <td><input type="text" name="buyer-name" id="buyer-name" style="width:100%" value="${python:view.user_info[0]}"></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>E-mail</td>
-    <td><input type="text" name="buyer-email" id="buyer-email" style="width:100%"></td>
+    <td><input type="text" name="buyer-email" id="buyer-email" style="width:100%" value="${python:view.user.getProperty('email')}"></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>聯絡電話</td>
-    <td><input type="text" name="buyer-phone" id="buyer-phone" style="width:100%"></td>
+    <td><input type="text" name="buyer-phone" id="buyer-phone" style="width:100%" value="${python:view.user_info[1]}"></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>地　址</td>
     <td>
       <select name="buyer-city" id="buyer-city" class="selector">
-        <option tal:repeat="item citys" value="${item}">${item}</option>
+        <option tal:repeat="item citys" value="${item}"
+                tal:attributes="selected python:item.decode('utf-8') == view.user_info[2]">${item}</option>
       </select>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td><input type="text" name="buyer-addr" id="buyer-addr" style="width:100%"></td>
+    <td><input type="text" name="buyer-addr" id="buyer-addr" style="width:100%" value="${python:view.user_info[3]}"></td>
   </tr>
 </tbody></table>
 </li>
@@ -328,7 +329,6 @@ $('#invoice-same-buyer').on('click', function(){
     }
 });
 
-
 $('#on-store').change(function(){
     if( $("#on-store").prop("checked") ){
         $("#selected-store").fadeIn('slow')
@@ -347,6 +347,39 @@ $('#on-door').change(function(){
         $('#receiver-info').fadeOut('slow')
     }
 })
+
+// 收貨時間 單選
+$('#allday').change(function(){
+    if( $(this).prop("checked") ){
+        $("#morning").attr('checked', false)
+        $("#afternoon").attr('checked', false)
+    }
+})
+$('#morning').change(function(){
+    if( $(this).prop("checked") ){
+        $("#allday").attr('checked', false)
+        $("#afternoon").attr('checked', false)
+    }
+})
+$('#afternoon').change(function(){
+    if( $(this).prop("checked") ){
+        $("#morning").attr('checked', false)
+        $("#allday").attr('checked', false)
+    }
+})
+
+// 發票 單選
+$('#invoice-3-list').change(function(){
+    if( $(this).prop("checked") ){
+        $("#invoice-2-list").attr('checked', false)
+    }
+})
+$('#invoice-2-list').change(function(){
+    if( $(this).prop("checked") ){
+        $("#invoice-3-list").attr('checked', false)
+    }
+})
+
 
 </script>
 
