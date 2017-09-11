@@ -231,7 +231,7 @@ citys=[
 <!-- list end -->
 <div id="endbtn-bar">
   <a href="${portal/absolute_url}/shopping/@@shopping_cart_step2_payment" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/shoppingcart/images/btn-03b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-03.png" id="Image16" hspace="15"></a>
-  <a href="${portal/absolute_url}/@@checkout" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-04.png" id="Image17" hspace="15"></a>
+  <a id="to-checkout" href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-04.png" id="Image17" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->
 
@@ -255,6 +255,41 @@ citys=[
 
 
 <script>
+$('#to-checkout').click(function(){
+    data = {
+        on_store : $('#on-store').is(':checked'),
+        on_door : $('#on-door').is(':checked'),
+        selected_store : $('#selected-store option:selected').val(),
+        morning : $('#morning').is(':checked'),
+        afternoon : $('#afternoon').is(':checked'),
+        allday : $('#allday').is(':checked'),
+        buyerName : $('#buyer-name').val(),
+        buyerEmail : $('#buyer-email').val(),
+        buyerPhone : $('#buyer-phone').val(),
+        buyerCity : $('#buyer-city').val(),
+        buyerAddr : $('#buyer-addr').val(),
+        receiverName : $('#receiver-name').val(),
+        receiverEmail : $('#receiver-email').val(),
+        receiverPhone : $('#receiver-phone').val(),
+        receiverCity : $('#receiver-city').val(),
+        receiverAddr : $('#receiver-addr').val(),
+        invoice3List : $('#invoice-3-list').is(':checked'),
+        invoice2List : $('#invoice-2-list').is(':checked'),
+        invoiceNo : $('#invoice-number').val(),
+        invoiceTitle : $('#invoice-title').val(),
+        invoiceCity : $('#invoice-city').val(),
+        invoiceAddr : $('#invoice-addr').val()
+    }
+
+    $.redirect('${portal/absolute_url}/@@checkout', data)
+
+
+
+//alert(data['allday'])
+//${portal/absolute_url}/@@checkout
+})
+
+
 $('#receive-select').change(function(){
     name = $('#receive-select option:selected').data('name')
     city = $('#receive-select option:selected').data('city')
