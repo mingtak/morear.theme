@@ -12,10 +12,13 @@
 .template-logged_out a:hover,
 .template-login_success a:hover {color:#555;}
 
-.location-list .item {width:45%; padding: 10px; float:left}
+.location-list .item {width:48%; padding: 10px; float:left}
 .location-list hr {width:94%; border: 1px dashed #888}
-.location-list .item .image { float:left; margin:0 20px; max-width:35%; overflow:hidden }
-.location-list .item .detail { color:#ddd; width:55%; max-width:100%; overflow:hidden}
+.location-list .item .image { float:left; margin:0 20px; overflow:hidden; width:35%; }
+
+.location-list .item .image img { width:100%; } 
+
+.location-list .item .detail { float:left; color:#ddd; width:55%; max-width:100%; overflow:hidden}
 .location-list .item .detail h4 {
     line-height: 150%;
     margin: 0 0 20px 0;
@@ -24,11 +27,15 @@
     border-bottom: 1px #f4a000 solid;
 }
 
-@media screen and (max-width: 885px) {
-    .location-list .item {width:100%; margin:20px 0; padding: 10px; float:initial}
-    .location-list hr {width:94%; border: 1px dashed #888; display:none}
-    .location-list .item .image { float:left; margin:0 20px; max-width:35%; overflow:hidden }
-    .location-list .item .detail { color:#ddd; width:55%; max-width:100%; overflow:hidden}
+@media only screen and (max-width:1250px) {
+.location-list .item {width:45%; padding: 10px; float:left}
+.location-list .item .image { float:left; margin:10px 20px; overflow:hidden; width:90%; }
+.location-list .item .image img { width:100%; }
+.location-list .item .detail { clear:both; float:left; color:#ddd; width:90%; max-width:100%; overflow:hidden; margin:10px 20px;}
+}
+
+@media screen and (max-width:570px) {
+.location-list .item {width:90%; padding: 10px; float:left}
 }
 
 .template-document_view #content #about-words { max-width: 100%; }
