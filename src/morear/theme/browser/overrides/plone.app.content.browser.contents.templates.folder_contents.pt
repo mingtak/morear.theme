@@ -62,7 +62,7 @@ tabs.reverse()
     </thead>
     <tbody tal:define="items python:list(childNodes)[0:100]">
         <tal:tr tal:repeat="item items">
-          <tr tal:condition="python:item.Type() not in ['Image', 'File']">
+          <tr tal:condition="python:item.Type() not in ['Image', 'File'] or context.id == 'download'">
             <td style="padding:5px 10px">
                  [ <tal:type replace="item/Type"/> ]
                  <tal:switch switch="item/Type">

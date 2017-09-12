@@ -118,6 +118,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <ul>
 <li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
 <li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
+<li><a href="${portal/absolute_url}/download">檔案下載</a></li>
 </ul>
 </li>
 <li><a href="${portal/absolute_url}/faq">常見問題</a></li>
@@ -223,6 +224,10 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="hide-01">
 <p class="word-big-white"><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></p>
 </div>
+<div id="hide-01">
+<p class="word-big-white"><a href="${portal/absolute_url}/download">檔案下載</a></p>
+</div>
+
 </div>
 <!-- hide03 end -->
 <!-- hide04 -->
@@ -392,6 +397,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <ul>
 <li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
 <li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
+<li><a href="${portal/absolute_url}/download">檔案下載</a></li>
 </ul>
 </li>
 <li><a href="">常見問題</a></li>
@@ -496,6 +502,9 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </div>
 <div id="hide-01">
 <p class="word-big-white"><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></p>
+</div>
+<div id="hide-01">
+<p class="word-big-white"><a href="${portal/absolute_url}/download">檔案下載</a></p>
 </div>
 </div>
 <!-- hide03 end -->
@@ -617,7 +626,9 @@ while True:
       </div>
 
 <script>
-$(".arrower").last().css('display', 'none')
+if($(".arrower").last().next('a').length == 0){
+    $(".arrower").last().css('display', 'none')
+}
 </script>
 
      </div>
@@ -801,7 +812,7 @@ $(document).ready(function(){
             </li>
             <li>
                 請輸入關鍵字：<input name="keyword" type="text" id="textfield2">
-<input type="submit" name="submit" value="查詢">
+<input type="submit" name="submit" value="查詢" style="margin-top:10px">
 <!--                <a href="#" onmouseout="MM_swapImgRestore()"
                    onmouseover="MM_swapImage('Image14','','${prefix}content/location/images/btn-go-b.png',1)">
                     <img src="${prefix}/content/location/images/btn-go.png" id="Image14" align="center" hspace="15">

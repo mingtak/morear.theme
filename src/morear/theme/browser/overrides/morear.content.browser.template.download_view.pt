@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+import json
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+d_quote = '"'
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<label for="select"></label>
+
+<select name="categories" id="select" class="categories">
+  <option value="all">全部顯示</option>
+  <option tal:repeat="item view/categories" value="${item}">${item}</option>
+</select>
+
+<script>
+    $('.categories').change(function(){
+        val = $('.categories option:selected').val()
+        if(val == 'all'){
+            $('.file-list li').slideDown('slow')
+        }else{
+            $('.file-list li:not(.' + val + ')').slideUp('slow')
+            $('.file-list li.' + val).slideDown('slow')
+        }
+    })
+</script>
+
+<div id="download-list">
+<ul class="file-list">
+<li tal:repeat="item view/items" class="${python:' '.join(item.subject)}">
+    <a href="${item/absolute_url}" target="_blank">${item/Title} ／
+        <span tal:replace="python:item.file.filename.split('.')[-1]" tal:on-error="nothing"> 檔
+    </a>
+</li>
+</ul>
+</div>
+<div id="page">
+  <table width="300" border="0" align="right" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+      <td width="50" align="center"><a href="#">第1頁</a></td>
+      <td width="15" align="center"><a href="#">＜</a></td>
+      <td width="80" align="center">1 / 20</td>
+      <td width="15" align="center"><a href="#">＞</a></td>
+      <td width="50" align="center"><a href="#">最末頁</a></td>
+      <td><label for="select"></label>
+        <select name="select" id="select">
+          <option>請選擇</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select></td>
+    </tr>
+  </tbody></table>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

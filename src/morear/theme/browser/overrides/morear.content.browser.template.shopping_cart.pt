@@ -131,6 +131,10 @@ $('.update-qty').change(function(){
 });
 
 $('.delete-item').click(function(){
+
+
+  var r=confirm("您正要刪除一個項目！")
+  if (r==true){
     cartJsonString = $.cookie("cart")
     cartJson = jQuery.parseJSON( cartJsonString )
 
@@ -151,7 +155,7 @@ $('.delete-item').click(function(){
 
     $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
     location.reload();
-
+  }
 
 });
 
