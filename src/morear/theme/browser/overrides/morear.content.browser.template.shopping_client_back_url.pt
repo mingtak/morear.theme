@@ -37,7 +37,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
   <p>感謝您的訂購，我們會儘速處裡您的訂單！</p>
   <p>系統已將訂購明細寄送至您的電子信箱並發送簡訊通知您</p>
   <p class="word-yellow">訂單編號：${view/orderId}</p>
-  <p>欲知目前處理進度，可至會員中心<a href="${portal/absolute_url}/members/@@member_update" class="whiteline-link">訂單查詢</a>查看</p>
+  <p>欲知目前處理進度，可至會員中心<a href="${portal/absolute_url}/members/@@member_order_list" class="whiteline-link">訂單查詢</a>查看</p>
 </div>
 
 <div id="endbtn-bar">

@@ -127,7 +127,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <ul>
 <li><a href="${portal/absolute_url}/coming-soon">交易紀錄</a>
 <ol>
-<li><a href="${portal/absolute_url}/coming-soon">訂單查詢</a></li>
+<li><a href="${portal/absolute_url}/@@member_order_list">訂單查詢</a></li>
 </ol>
 </li>
 <li><a href="${portal/absolute_url}/coming-soon">會員資料</a>
@@ -236,7 +236,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="hide-01">
 <p class="word-big-white">交易紀錄</p>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">訂單查詢</a></li>
+<li><a href="${portal/absolute_url}/@@member_order_list">訂單查詢</a></li>
 </ul>
 </div>
 
@@ -406,7 +406,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <ul>
 <li><a href="javascript:void(0)">交易紀錄</a>
 <ol>
-<li><a href="${portal/absolute_url}/coming-soon">訂單查詢</a></li>
+<li><a href="${portal/absolute_url}/@@member_order_list">訂單查詢</a></li>
 </ol>
 </li>
 <li><a href="javascript:void(0)">會員資料</a>
@@ -513,7 +513,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="hide-01">
 <p class="word-big-white">交易紀錄</p>
 <ul>
-<li><a href="${portal/absolute_url}/coming-soon">訂單查詢</a></li>
+<li><a href="${portal/absolute_url}/@@member_order_list">訂單查詢</a></li>
 </ul>
 </div>
 <div id="hide-01">
@@ -687,7 +687,7 @@ current = api.user.get_current()
                 <p class="word-big-black">more Links</p>
                 <ul>
                     <li><a href="${portal/absolute_url}/coming-soon">合作夥伴</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">訂單查詢</a></li>
+                    <li><a href="${portal/absolute_url}/@@member_order_list">訂單查詢</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">使用條款</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">隱私政策</a></li>
                     <li><a href="${portal/absolute_url}/coming-soon">網站地圖</a></li>

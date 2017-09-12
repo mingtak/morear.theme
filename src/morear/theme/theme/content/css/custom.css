@@ -40,6 +40,19 @@
 
 #buy-list-01 td img.selected { border:#0000FF 3px solid; }
 
+
+@media only screen and (max-width:1100px) {
+    #buy-list-01{
+        display: initial;
+        float: initial;
+    }
+    #buy-s-box {
+        display: initial;
+        float:initial;
+    }
+}
+
+
 /* 配合插入拉bar修改，做完再調到適當大小 */
 #buy-s-box { margin-top:50px }
 #optionBar { padding-bottom: 150px}

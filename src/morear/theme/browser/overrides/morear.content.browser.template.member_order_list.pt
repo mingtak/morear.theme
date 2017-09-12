@@ -30,7 +30,61 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
 
 
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="noticebox" style="text-align:center; padding-top:30px; padding-bottom:30px;">
+訂單查詢：
+  <label for="select"></label>
+<!--  <select name="select" id="select">
+    <option>訂單編號</option>
+  </select>
+-->  　
+  <label for="textfield5"></label>
+  <input name="textfield5" type="text" id="textfield5" class="orderquery" placeholder="請輸入訂單編號">
+  <input name="reSet" type="reset" id="resetbottom" value="顯示全部">
+<!--  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','images/btn-06-b.png',1)"><img src="images/btn-06.png" id="Image20" align="center" hspace="15"></a></div> -->
+<script>
+$('#resetbottom').click(function(){
+     $('.order-list').show('slow')
+})
 
+$('.orderquery').change(function(){
+     orderNo = $(this).val()
+     if(!orderNo){
+         $('.order-list').show('slow')
+         return
+     }
+     $('.order-list').hide('slow')
+     $('#' + orderNo).show('slow')
+})
+</script>
+
+<div id="member-list-03">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th align="center">項次</th>
+    <th align="center">建立日期</th>
+    <th align="center">訂單編號</th>
+    <th align="center">品項</th>
+    <th align="center">總價</th>
+    <th align="center">訂單狀態</th>
+    <td>&nbsp;</td>
+  </tr>
+  <tr tal:repeat="order view/orders" id="${order}" class="order-list">
+    <tal:key define="key python:order">
+        <td align="center" bgcolor="#2E2E2E">${repeat/order/number}</td>
+        <td align="center" bgcolor="#2E2E2E">${python:view.items[key][0]['date'].strftime('%Y/%m/%d')}</td>
+        <td align="center" bgcolor="#2E2E2E">${key}</td>
+        <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['itemNames'][:-1]}</td> 
+        <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['total']}</td>
+        <td align="center" bgcolor="#2E2E2E">待付款</td>
+        <td align="center" bgcolor="#2E2E2E"><a href="#" class="whiteline-link">聯絡客服</a></td>
+    </tal:key>
+  </tr>
+</tbody></table>
+</div>
+<!-- InstanceEndEditable -->
+</div>
 <!-- #content End -->
 
 
