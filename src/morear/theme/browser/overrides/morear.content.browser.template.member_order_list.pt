@@ -93,17 +93,11 @@ $('.orderquery').change(function(){
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>
 <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
-<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
-
-<script>
-</script>
-
-
-
-
 
 
 </div>
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
 </div>
 
 </metal:content-core>

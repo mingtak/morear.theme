@@ -16,6 +16,8 @@ from plone import api
 portal = api.portal.get()
 prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 brain = api.content.find(context=context, Type='Link', sort_on='created', sort_order='reverse')
+s = int(request.form.get('s', 0))
+items = brain
 ?>
 
   <div align="center" id="all">
@@ -29,7 +31,7 @@ brain = api.content.find(context=context, Type='Link', sort_on='created', sort_o
      <div id="content">
       <!-- InstanceBeginEditable name="content" -->
 
-<div class="mm-list" tal:repeat="item brain">
+<div class="mm-list" tal:repeat="item python:list(items)[s:s+10]">
     <div class="mm-list-img"><img src="${item/getURL}/@@images/image/mini"></div>
     <div class="mm-list-word">
         <p class="tai">${item/Title}</p>
@@ -38,56 +40,16 @@ brain = api.content.find(context=context, Type='Link', sort_on='created', sort_o
 </div>
 
 
+<!-- 分頁 begin -->
+    <metal:macro use-macro="context/@@morear_macro/macros/page-list"/>
+<!-- 分頁 end -->
 
-      <div id="page" class="page">
-       <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">
-        <tbody>
-         <tr>
-          <td align="center" width="50">
-           <a href="#">
-            第1頁
-           </a>
-          </td>
-          <td align="center" width="15">
-           <a href="#">
-            ＜
-           </a>
-          </td>
-          <td align="center" width="80">
-           1 / 20
-          </td>
-          <td align="center" width="15">
-           <a href="#">
-            ＞
-           </a>
-          </td>
-          <td align="center" width="50">
-           <a href="#">
-            最末頁
-           </a>
-          </td>
-          <td>
-           <label for="select">
-           </label>
-           <select id="select" name="select">
-            <option>
-             請選擇
-            </option>
-            <option>
-             1
-            </option>
-            <option>
-             2
-            </option>
-            <option>
-             3
-            </option>
-           </select>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
+
+
+
+
+
+
       <!-- InstanceEndEditable -->
      </div>
      <!-- content end -->

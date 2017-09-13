@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div class="map-item"><a href="${portal/absolute_url}/location">1.服務據點</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/@@shopping_cart">2.購物車</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/3d-fit">3.3D FIT科技</a></div>
+<div class="map-item">
+<a href="javascript:void(0)">4.Morear產品</a>
+<ul>
+<li>
+<a href="${portal/absolute_url}/products/music">音樂耳機</a>
+<!--<ol>
+<li><a href="${portal/absolute_url}/products/music/products-1">經典款</a></li>
+<li><a href="${portal/absolute_url}/products/music/products-2">專業款</a></li>
+<li><a href="${portal/absolute_url}/products/music/products-3">頂級款</a></li>
+</ol>-->
+</li>
+<li>
+<a href="${portal/absolute_url}/products/protect/">聽力保護系列</a>
+<!--<ol>
+<li><a href="${portal/absolute_url}/products/protect/earplugs1">舒眠耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs2">防噪耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
+</ol>-->
+</li>
+<li>
+<a href="${portal/absolute_url}/products/comm">通訊升級系列</a>
+<!--<ol>
+<li><a href="${portal/absolute_url}">訂製音樂耳塞</a></li>
+<li><a href="${portal/absolute_url}">訂製藍芽耳塞</a></li>
+</ol>-->
+</li>
+<li>
+<a href="${portal/absolute_url}/products/acce">配件</a>
+<!--<ol>
+<li><a href="${portal/absolute_url}">線材</a></li>
+<li><a href="${portal/absolute_url}">包裝</a></li>
+<li><a href="${portal/absolute_url}">除溼</a></li>
+</ol>-->
+</li>
+</ul>
+</div>
+<div class="map-item">
+<a href="${portal/absolute_url}">5.購買Morear</a>
+<ul>
+<li><a href="${portal/absolute_url}/products/music/products-2/music-2/@@product_option_view">設計音樂耳機</a></li>
+<li><a href="${portal/absolute_url}/products/protect/earplugs1/protect-1/@@product_option_view">設計客製耳塞</a></li>
+</ul>
+</div>
+<div class="map-item">
+<a href="${portal/absolute_url}">6.支援服務</a>
+<ul>
+<li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
+<li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
+</ul>
+</div>
+<div class="map-item"><a href="${portal/absolute_url}/faq">7.常見問題</a></div>
+<div class="map-item">
+<a href="javascript:void(0)">8.會員中心</a>
+<ul>
+<li>
+<a href="${portal/absolute_url}/members/@@member_order_list">交易紀錄</a>
+<!--<ol>
+<li><a href="${portal/absolute_url}">訂單查詢</a></li>
+</ol>-->
+</li>
+<li>
+<a href="${portal/absolute_url}/members/@@member_update">會員資料</a>
+<!--<ol>
+<li><a href="../member/member-b01.html">修改會員資料</a></li>
+<li><a href="../member/member-b02.html">密碼查詢/修改</a></li>
+<li><a href="../member/member-b03.html">收貨通訊錄管理</a></li>
+</ol>-->
+</li>
+</ul>
+</div>
+<div class="map-item"><a href="javascript:void(0)">9.最新活動</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/news">10.最新消息</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/about">11.3D Lab介紹</a></div>
+<div class="map-item">
+<a href="javascript:void(0)">12.音樂饗宴</a>
+<ul>
+<li><a href="${portal/absolute_url}/#notice" onclick="MM_showHideLayers('info','','show')">線上音樂聽</a></li>
+<li><a href="${portal/absolute_url}/musicman">音樂達人</a></li>
+<li><a href="${portal/absolute_url}/recommend">店長推薦</a></li>
+<li><a href="${portal/absolute_url}/links">友站連結</a></li>
+</ul>
+</div>
+<div class="map-item"><a href="${portal/absolute_url}/about">13.品牌故事</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/about">14.3D製程</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/news">15.新聞資訊</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/article/coworker">16.工作機會</a></div>
+<div class="map-item"><a href="javascript:void(0)">17.合作夥伴</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/article/terms_of_use">18.使用條款</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/article/privacy">19.隱私政策</a></div>
+<div class="map-item"><a href="mailto:service.morear.com.tw">20.聯絡我們</a></div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

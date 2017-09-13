@@ -679,18 +679,18 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/about">3D製程</a></li>
                     <li><a href="${portal/absolute_url}/location">服務據點</a></li>
                     <li><a href="${portal/absolute_url}/news">最新消息</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">工作機會</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">聯絡我們</a></li>
+                    <li><a href="${portal/absolute_url}/article/coworker">工作機會</a></li>
+                    <li><a href="mailto:service@morear.com.tw">聯絡我們</a></li>
                 </ul>
             </div>
             <div id="footer-w1">
                 <p class="word-big-black">more Links</p>
                 <ul>
-                    <li><a href="${portal/absolute_url}/coming-soon">合作夥伴</a></li>
+                    <li><a href="#">合作夥伴</a></li>
                     <li><a href="${portal/absolute_url}/members/@@member_order_list">訂單查詢</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">使用條款</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">隱私政策</a></li>
-                    <li><a href="${portal/absolute_url}/coming-soon">網站地圖</a></li>
+                    <li><a href="${portal/absolute_url}/article/terms_of_use">使用條款</a></li>
+                    <li><a href="${portal/absolute_url}/article/privacy">隱私政策</a></li>
+                    <li><a href="${portal/absolute_url}/@@site_map">網站地圖</a></li>
 <li tal:condition="python:not is_anonymous and api.user.has_permission('Modify portal content', user=current, obj=context)">
     <a style="color:blue;" href="${portal/absolute_url}/folder_contents">後台管理</a>
 </li>
@@ -698,9 +698,9 @@ current = api.user.get_current()
             </div>
             <div id="footer-w2">
                 <ul>
-                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','${prefix}content/images/footer-FBicon-b.png',1)"><img src="${prefix}content/images/footer-FBicon.png" id="Image26" /></a></li>
-                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','${prefix}content/images/footer-Lineicon-b.png',1)"><img src="${prefix}content/images/footer-Lineicon.png" id="Image27" /></a></li>
-                    <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','${prefix}content/images/footer-YouTubeicon-b.png',1)"><img src="${prefix}content/images/footer-YouTubeicon.png" id="Image28" /></a></li>
+                    <li><a href="https://www.facebook.com/morear3D/" target="_blank" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','${prefix}content/images/footer-FBicon-b.png',1)"><img src="${prefix}content/images/footer-FBicon.png" id="Image26" /></a></li>
+                    <li><a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','${prefix}content/images/footer-Lineicon-b.png',1)"><img src="${prefix}content/images/footer-Lineicon.png" id="Image27" /></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCpa7dkibDCcdy2EoIyNsOCg" target="_blank" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','${prefix}content/images/footer-YouTubeicon-b.png',1)"><img src="${prefix}content/images/footer-YouTubeicon.png" id="Image28" /></a></li>
                 </ul>
             </div>
         </div>
