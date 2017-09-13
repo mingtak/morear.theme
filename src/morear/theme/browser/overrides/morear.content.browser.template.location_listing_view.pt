@@ -36,7 +36,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <div class="item">
         <div class="image">
             <a href="${item/getURL}">
-                <img src="${item/getURL}/@@images/image" style="width:200px">
+                <img src="${item/getURL}/@@images/image">
             </a>
         </div>
         <div class="detail" tal:define="obj python:item.getObject()">
