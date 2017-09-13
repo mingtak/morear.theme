@@ -20,6 +20,8 @@ import json
 portal = api.portal.get()
 prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 d_quote = '"'
+s = int(request.form.get('s', 0))
+items = view.items
 ?>
 
 
@@ -43,6 +45,7 @@ d_quote = '"'
 </select>
 
 <script>
+$(document).ready(function(){
     $('.categories').change(function(){
         val = $('.categories option:selected').val()
         if(val == 'all'){
@@ -52,17 +55,24 @@ d_quote = '"'
             $('.file-list li.' + val).slideDown('slow')
         }
     })
+})
 </script>
 
 <div id="download-list">
 <ul class="file-list">
-<li tal:repeat="item view/items" class="${python:' '.join(item.subject)}">
+<li tal:repeat="item python:list(items)[s:s+10]" class="${python:' '.join(item.subject)}">
     <a href="${item/absolute_url}" target="_blank">${item/Title} ／
         <span tal:replace="python:item.file.filename.split('.')[-1]" tal:on-error="nothing"> 檔
     </a>
 </li>
 </ul>
 </div>
+
+<!-- 分頁 begin -->
+    <metal:macro use-macro="context/@@morear_macro/macros/page-list"/>
+<!-- 分頁 end -->
+
+<!--
 <div id="page">
   <table width="300" border="0" align="right" cellpadding="0" cellspacing="0">
     <tbody><tr>
@@ -81,6 +91,8 @@ d_quote = '"'
     </tr>
   </tbody></table>
 </div>
+-->
+
 <!-- InstanceEndEditable -->
 </div>
 
