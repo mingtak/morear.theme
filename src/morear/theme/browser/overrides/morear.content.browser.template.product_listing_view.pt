@@ -73,50 +73,11 @@ s = int(request.form.get('s', 0))
 
 
 
+<!-- 分頁 begin -->
+    <metal:macro use-macro="context/@@morear_macro/macros/page-list"/>
+<!-- 分頁 end -->
 
-   <div id="page">
-    <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">
-     <tbody>
-      <tr>
-       <td align="center" width="50">
-        <a href="${context/absolute_url}">
-         第1頁
-        </a>
-       </td>
-       <td align="center" width="15">
-        <a href="${context/absolute_url}?s=${python:0 if s<10 else s-10}">
-         ＜
-        </a>
-       </td>
-       <td align="center" width="80">
-        ${python:'%s / %s' % (s+1, s+10)}
-       </td>
-       <td align="center" width="15">
-        <a href="${context/absolute_url}?s=${python:s+10}">
-         ＞
-        </a>
-       </td>
-       <td align="center" width="50">
-        <a href="${context/absolute_url}?s=${python:len(items)-10}">
-         最末頁
-        </a>
-       </td>
-       <td>
-        <label for="select">
-        </label>
-        <select id="select" name="select">
-         <option value="-1">
-          請選擇
-         </option>
-         <option tal:repeat="page python:range(int(ceil(len(items)/10.0)))" value=${python:page}>
-          第 ${python:page+1} 頁
-         </option>
-        </select>
-       </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
+
    <!-- InstanceEndEditable -->
   </div>
 

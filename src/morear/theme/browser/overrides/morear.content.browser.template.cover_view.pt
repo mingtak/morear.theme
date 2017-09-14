@@ -46,6 +46,14 @@ moreDesign_items = api.content.find(context=portal, UID=context.moreDesign.split
 <metal:macro use-macro="context/@@morear_macro/macros/music-online"/>
 <metal:macro use-macro="context/@@morear_macro/macros/cover-light-box"/>
 
+<script>
+$(document).ready(function(){
+    var para= document.location.search;
+    if(para.startsWith('?auth')){
+        alert('您已經登入。Morear歡迎您')
+    }
+})
+</script>
 
 </div>
 

@@ -267,6 +267,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide05 end -->
 <!-- menu end -->
 <!-- icon -->
+<div id="shop-num" class="shop-items">( 99 )</div>
 <div id="top-icon">
 <ul>
 <li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}images/btn-01b.png',1)" title="服務據點"><img src="${prefix}images/btn-01.png" id="Image5" /></a></li>
@@ -543,6 +544,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide05 end -->
 <!-- menu end -->
 <!-- icon -->
+<div id="shop-num-2" class="shop-items">( 99 )</div>
 <div id="top-icon">
 <ul>
 <li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','${prefix}content/images/btn-01b.png',1)" title="服務據點"><img src="${prefix}content/images/btn-01.png" id="Image3" /></a></li>
@@ -680,7 +682,7 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/location">服務據點</a></li>
                     <li><a href="${portal/absolute_url}/news">最新消息</a></li>
                     <li><a href="${portal/absolute_url}/article/coworker">工作機會</a></li>
-                    <li><a href="mailto:service@morear.com.tw">聯絡我們</a></li>
+                    <li><a href="mailto:me@morear.tw">聯絡我們</a></li>
                 </ul>
             </div>
             <div id="footer-w1">
