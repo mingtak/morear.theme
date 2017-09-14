@@ -26,11 +26,11 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
      <div id="content">
       <!-- InstanceBeginEditable name="content" -->
       <div id="n-photo">
-       <img tal:condition="context/bigImage_1" src="${context/absolute_url}/@@images/bigImage_1/large"/>
-       <img tal:condition="context/bigImage_2" src="${context/absolute_url}/@@images/bigImage_2/large"/>
-       <img tal:condition="context/bigImage_3" src="${context/absolute_url}/@@images/bigImage_3/large"/>
-       <img tal:condition="context/bigImage_4" src="${context/absolute_url}/@@images/bigImage_4/large"/>
-       <img tal:condition="context/bigImage_5" src="${context/absolute_url}/@@images/bigImage_5/large"/>
+       <img tal:condition="context/bigImage_1" src="${context/absolute_url}/@@images/bigImage_1"/>
+       <img tal:condition="context/bigImage_2" src="${context/absolute_url}/@@images/bigImage_2"/>
+       <img tal:condition="context/bigImage_3" src="${context/absolute_url}/@@images/bigImage_3"/>
+       <img tal:condition="context/bigImage_4" src="${context/absolute_url}/@@images/bigImage_4"/>
+       <img tal:condition="context/bigImage_5" src="${context/absolute_url}/@@images/bigImage_5"/>
 
 <div id="mm-info" tal:condition="context/mmTitle">
 <div id="mm-info-img"><img src="${context/absolute_url}/@@images/mmImage/mini"></div>

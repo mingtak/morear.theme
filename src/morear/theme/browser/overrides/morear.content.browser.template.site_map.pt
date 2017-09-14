@@ -57,7 +57,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <a href="${portal/absolute_url}/products/comm">通訊升級系列</a>
 <!--<ol>
 <li><a href="${portal/absolute_url}">訂製音樂耳塞</a></li>
-<li><a href="${portal/absolute_url}">訂製藍芽耳塞</a></li>
+<li><a href="${portal/absolute_url}">訂製藍牙耳塞</a></li>
 </ol>-->
 </li>
 <li>

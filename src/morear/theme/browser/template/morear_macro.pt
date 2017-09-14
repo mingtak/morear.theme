@@ -76,10 +76,10 @@ $(document).ready(function(){
 <li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
 </ol>
 </li>
-<li><a href="javascript:void(0)">通訊升級系列</a>
+<li><a href="${portal/absolute_url}/products/comm">通訊升級系列</a>
 <ol>
 <li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
-<li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍牙耳塞</a></li>
 </ol>
 </li>
 <li><a href="${portal/absolute_url}/products/acce">配件</a>
@@ -180,10 +180,10 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
     </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="javascript:void(0)">通訊升級系列</a></p>
+    <p class="word-big-white"><a href="${portal/absolute_url}/products/comm">通訊升級系列</a></p>
     <ul>
         <li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
-        <li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍牙耳塞</a></li>
     </ul>
 </div>
 <div id="hide-01">
@@ -355,10 +355,10 @@ $( ".to-search-page2" ).click(function() {
 <li><a href="${portal/absolute_url}/products/protect/earplugs3">游泳耳塞</a></li>
 </ol>
 </li>
-<li><a href="javascript:void(0)">通訊升級系列</a>
+<li><a href="${portal/absolute_url}/products/comm">通訊升級系列</a>
 <ol>
 <li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
-<li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+<li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍牙耳塞</a></li>
 </ol>
 </li>
 <li><a href="${portal/absolute_url}/products/acce">配件</a>
@@ -459,10 +459,10 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
     </ul>
 </div>
 <div id="hide-01">
-    <p class="word-big-white"><a href="javascript:void(0)">通訊升級系列</a></p>
+    <p class="word-big-white"><a href="${portal/absolute_url}/products/comm">通訊升級系列</a></p>
     <ul>
         <li><a href="${portal/absolute_url}/products/comm/custom1">訂製音樂耳塞</a></li>
-        <li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍芽耳塞</a></li>
+        <li><a href="${portal/absolute_url}/products/comm/custom2">訂製藍牙耳塞</a></li>
     </ul>
 </div>
 <div id="hide-01">
@@ -874,7 +874,7 @@ from math import ceil
         </a>
        </td>
        <td align="center" width="80">
-        ${python:'%s / %s' % (s+1, s+10)}
+        ${python:'%s / %s' % ((s/10)+1, (len(items)/10)+1)}
        </td>
        <td align="center" width="15">
         <a href="${context/absolute_url}?s=${python:s+10}">

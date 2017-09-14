@@ -32,7 +32,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 <div id="content">
 <!-- InstanceBeginEditable name="content" -->
-<div id="noticebox" style="text-align:center; padding-top:30px; padding-bottom:30px;">
+<div id="noticebox" style="text-align:center; padding-top:30px; padding-bottom:30px; margin-bottom: 20px">
 訂單查詢：
   <label for="select"></label>
 <!--  <select name="select" id="select">
@@ -78,7 +78,7 @@ $('.orderquery').change(function(){
         <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['itemNames'][:-1]}</td> 
         <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['total']}</td>
         <td align="center" bgcolor="#2E2E2E">待付款</td>
-        <td align="center" bgcolor="#2E2E2E"><a href="#" class="whiteline-link">聯絡客服</a></td>
+        <td align="center" bgcolor="#2E2E2E"><a href="mailto:me@morear.tw" class="whiteline-link">聯絡客服</a></td>
     </tal:key>
   </tr>
 </tbody></table>
@@ -90,8 +90,8 @@ $('.orderquery').change(function(){
 
 
 
-    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 </div>
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
 <metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
 
 

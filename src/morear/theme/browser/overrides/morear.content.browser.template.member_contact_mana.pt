@@ -80,7 +80,7 @@ citys=[
   </tr>
 </tbody></table>
 <div id="addbtn-bar">
-<a href="${portal/absolute_url}/location" onmouseover="MM_swapImage('Image17','','${prefix}content/member/images/btn-10-b.png',1)" onmouseout="MM_swapImgRestore()"><img src="${prefix}content/member/images/btn-10.png" id="Image17" align="center" hspace="15"></a>
+<a href="${portal/absolute_url}/location" target="_blank" onmouseover="MM_swapImage('Image17','','${prefix}content/member/images/btn-10-b.png',1)" onmouseout="MM_swapImgRestore()"><img src="${prefix}content/member/images/btn-10.png" id="Image17" align="center" hspace="15"></a>
 <!-- <span class="word-yellow">您可以設定5個常用門市資訊</span> -->
 </div>
 </div>
@@ -210,6 +210,9 @@ $('.add-receive').on('click', function(){
 
 
 $('.delete-receive').on('click', function(){
+
+  var r=confirm("您正要刪除一個項目！")
+  if (r==true){
     pObj = $(this).parents('tr');
     name = $(this).data('name')
     city = $(this).data('city')
@@ -232,9 +235,12 @@ $('.delete-receive').on('click', function(){
         alert('伺服器連線失敗，請稍候再試');
     })
 
+  }
 });
 
 $('.delete-item').click(function(){
+  var r=confirm("您正要刪除一個項目！")
+  if (r==true){
     uid = $(this).data('uid');
     pObj = $(this).parents('tr');
     jQuery.post(
@@ -245,7 +251,7 @@ $('.delete-item').click(function(){
     }).fail(function(){
         alert('失敗');
     })
-
+  }
 });
 
 </script>

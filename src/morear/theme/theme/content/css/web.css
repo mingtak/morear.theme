@@ -533,7 +533,44 @@ a:hover {
 	color:#666;
 }
 
+/*0913*/
+#shop-num{
+	position:absolute;
+	width:80px;
+	top:10px;
+	right:695px;
+	text-align:center;
+	font-size:14px;
+	color:#000;
+	z-index:10;
+}
+#shop-num-2{
+	position:absolute;
+	width:80px;
+	top:10px;
+	right:615px;
+	text-align:center;
+	font-size:14px;
+	color:#000;
+	z-index:10;
+}
 
+
+#share-01 {
+        width:100%;
+        float:left;
+        padding:8px 0;
+        text-align:center;
+        color:#FFF;
+        background:#f4a000;
+        font-size:12px;
+}
+#share-01 a {
+	color:#FFF;
+}
+#share-01 a:hover {
+	color:#000;
+}
 
 
 /*平板-1*/
@@ -558,7 +595,6 @@ a:hover {
 	margin:0 auto;
 }
 		}
-
 
 
 /*平板-3*/

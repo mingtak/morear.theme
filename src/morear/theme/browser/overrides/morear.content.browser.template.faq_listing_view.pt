@@ -35,12 +35,11 @@ items = context.listFolderContents(contentFilter={"Type" : "Faq"})
 <label for="select"></label>
 <select name="select" id="faq_select">
   <option value="all" selected="">全部</option>
-  <option value="Customize">客製化訂製</option>
-  <option value="Shipping">配送運貨說明</option>
+  <option tal:repeat="item view/categories" value="${item}">${item}</option>"
 </select>
 <div id="qaContent">
   <ul class="accordionPart">
-      <li tal:repeat="item items" class="${item/category}">
+      <li tal:repeat="item items" class="${python:' '.join(item.subject)}">
           <div class="qa_title">${item/Title}</div>
           <div class="qa_content" style="display: none;" tal:content="structure item/text/raw"> content </div>
       </li>
@@ -66,7 +65,7 @@ items = context.listFolderContents(contentFilter={"Type" : "Faq"})
 
 <!--滑出式問與答(Q&A)清單-->
 
-<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-latest.min.js"></script> -->
 <script type="text/javascript">
 	$(function(){
 		// 幫 div.qa_title 加上 hover 及 click 事件
@@ -106,17 +105,14 @@ items = context.listFolderContents(contentFilter={"Type" : "Faq"})
 
 <script> //分類選單
 $( "#faq_select" ).change(function() {
-  val = $("#faq_select").val();
-  if(val == 'Customize'){
-      $(".Customize").show('slow');
-      $(".Shipping").hide('slow');
-  }else if(val == 'Shipping'){
-      $(".Customize").hide('slow');
-      $(".Shipping").show('slow');
-  }else if(val == 'all'){
-      $(".Customize").show('slow');
-      $(".Shipping").show('slow');
-  };
+  val = $('#faq_select option:selected').val()
+
+  if(val == 'all'){
+      $(".accordionPart li").show('slow')
+  }else{
+      $(".accordionPart li:not(." + val + ")").hide('slow')
+      $(".accordionPart li." + val).show('slow')
+  }
 });
 </script>
 

@@ -141,7 +141,7 @@ if ytURL:
 <metal:row define-macro="cover-news">
 <!-- news -->
 <div id="index-news">
-<div id="index-news-photo-b"><img src="${context/absolute_url}/@@images/whatsNew_bigImage/large" /></div>
+<div id="index-news-photo-b"><img src="${context/absolute_url}/@@images/whatsNew_bigImage" /></div>
 <div id="index-news-box">
 <div id="tai-index-news"><a href="${context/whatsNew_URI}" onmouseout="MM_swapImgRestore()"
                             onmouseover="MM_swapImage('Image9','','${prefix}images/tai-news-b.png',1)">
@@ -454,10 +454,10 @@ if ytURL:
         <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
         <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
     </div>
+<div id="share-01">
+  <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
+  <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
 </div>
-<!--        <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
--->
-
 <!-- left end -->
 <!-- right -->
 <div id="buy-list-01">
