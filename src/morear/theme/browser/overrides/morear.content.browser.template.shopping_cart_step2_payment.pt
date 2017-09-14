@@ -231,7 +231,6 @@ citys=[
 </div>
 <!-- list end -->
 <div id="endbtn-bar">
-  <a href="${portal/absolute_url}/shopping/@@shopping_cart_step2_payment" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/shoppingcart/images/btn-03b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-03.png" id="Image16" hspace="15"></a>
   <a id="to-checkout" href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','${prefix}content/shoppingcart/images/btn-04b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-04.png" id="Image17" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->

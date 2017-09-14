@@ -692,7 +692,7 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/members/@@member_order_list">訂單查詢</a></li>
                     <li><a href="${portal/absolute_url}/article/terms_of_use">使用條款</a></li>
                     <li><a href="${portal/absolute_url}/article/privacy">隱私政策</a></li>
-                    <li><a href="${portal/absolute_url}/@@site_map">網站地圖</a></li>
+                    <li><a href="${portal/absolute_url}/site_map/@@site_map">網站地圖</a></li>
 <li tal:condition="python:not is_anonymous and api.user.has_permission('Modify portal content', user=current, obj=context)">
     <a style="color:blue;" href="${portal/absolute_url}/folder_contents">後台管理</a>
 </li>
