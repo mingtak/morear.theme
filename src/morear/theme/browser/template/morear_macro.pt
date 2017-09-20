@@ -62,7 +62,7 @@ $(document).ready(function(){
 <li>
 <label for="textfield"></label>
 <div id="search-box-for-vue2">
-    <input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" v-model="keyword"/>
+    <input type="text" name="textfield" id="textfield" placeholder="關鍵字搜尋" style="width:130px;" v-model="keyword"/>
     <a href="javascript:void(0)" class="to-search-page2"><img src="${prefix}images/btn-03-s.png" align="center" /></a>
 </div>
 </li>
@@ -306,7 +306,7 @@ var search_vm2 = new Vue({
   el: '#search-box-for-vue2',
   data: {
     message: 'Hello Vue!',
-    keyword: '關鍵字搜尋' 
+    keyword: '' 
   }
 })
 
@@ -342,7 +342,7 @@ $( ".to-search-page2" ).click(function() {
 <li>
 <label for="textfield"></label>
 <div id="search-box-for-vue2">
-    <input type="text" name="textfield" id="textfield" value="關鍵字搜尋" style="width:130px;" v-model="keyword"/>
+    <input type="text" name="textfield" id="textfield" placeholder="關鍵字搜尋" style="width:130px;" v-model="keyword"/>
     <a href="javascript:void(0)" class="to-search-page2"><img src="${prefix}content/images/btn-03-s.png" align="center" /></a>
 </div>
 </li>
@@ -580,7 +580,7 @@ var search_vm2 = new Vue({
   el: '#search-box-for-vue2',
   data: {
     message: 'Hello Vue!',
-    keyword: '關鍵字搜尋'
+    keyword: ''
   }
 })
 
@@ -690,7 +690,7 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/about">3D製程</a></li>
                     <li><a href="${portal/absolute_url}/location">服務據點</a></li>
                     <li><a href="${portal/absolute_url}/news">最新消息</a></li>
-                    <li><a href="${portal/absolute_url}/article/coworker">工作機會</a></li>
+                    <li><a href="https://goo.gl/7ba1jF" target="_blank">工作機會</a></li>
                     <li><a href="mailto:me@morear.tw">聯絡我們</a></li>
                 </ul>
             </div>

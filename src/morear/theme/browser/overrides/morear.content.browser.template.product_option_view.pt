@@ -337,7 +337,7 @@ $(".option-bar").change(function(){
 <script>
 // 下載客製化圖片(通用)
 $('#download-custom-image').click(function() {
-    html2canvas($('#buy-photo'), {
+    html2canvas($('#product-full-image'), {
         onrendered: function(canvas) {
             theCanvas = canvas;
             canvas.toBlob(function(blob) {
