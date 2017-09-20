@@ -37,7 +37,7 @@ d_quote = '"'
 <div id="step"><img src="${prefix}content/shoppingcart/images/step-01.png"></div>
 <div id="cart-list-01">
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0"
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="cart-contents"
        tal:define="catalog python:context.portal_catalog">
   <tbody><tr>
     <th align="center">項次</th>
@@ -79,7 +79,7 @@ u'7dd3fd825dc34169a5ca5bea66a1eb26': {u'price': 600, u'total': 600, u'qty': 1}}
 </div>
 <div id="endbtn-bar">
   <a href="${portal/absolute_url}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/shoppingcart/images/btn-01b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-01.png" id="Image18" hspace="15"></a>
-  <a href="${portal/absolute_url}/shopping/@@shopping_cart_step2" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','${prefix}content/shoppingcart/images/btn-02b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-02.png" id="Image19" hspace="15"></a>
+  <a id="confirm-billing" href="${portal/absolute_url}/shopping/@@shopping_cart_step2" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','${prefix}content/shoppingcart/images/btn-02b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-02.png" id="Image19" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->
 </div>
@@ -158,6 +158,14 @@ $('.delete-item').click(function(){
   }
 
 });
+
+// 購物車 empty
+$(document).ready(function(){
+    if(! $('table.cart-contents tr.item').length){
+        alert('目前購物車是空的, 您將轉往首頁')
+        window.location = '${portal/absolute_url}'
+    }
+})
 
 </script>
 

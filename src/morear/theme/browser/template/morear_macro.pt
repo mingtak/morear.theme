@@ -27,6 +27,15 @@ $(document).ready(function(){
         )
           .done(function(data){
               alert( data );
+
+              // add, item
+              cartJsonString = $.cookie("cart")
+              cartJson = jQuery.parseJSON( cartJsonString )
+              itemCount = cartJson.length
+              if(itemCount){
+                  $('.shop-items').text('( ' + itemCount + ' )')
+                  $('.shop-items').show()
+              }
           })
           .fail(function() {
               alert( "加入購物車失敗，請稍候再試，或請聯絡系統管理員" );
@@ -757,11 +766,25 @@ $(document).ready(function(){
       return "tw";
   }
 });
+
+// 購物車數量
+$(document).ready(function(){
+    cartJsonString = $.cookie("cart")
+    if( cartJsonString ){
+        cartJson = jQuery.parseJSON( cartJsonString )
+        itemCount = cartJson.length
+    }else{
+        cartJson = jQuery.parseJSON( '"[]"' )
+        itemCount = 0
+    }
+//    itemCount = cartJson.length
+    if(itemCount){
+        $('.shop-items').text('( ' + itemCount + ' )')
+        $('.shop-items').show()
+    }
+})
+
 </script>
-
-
-
-
 
 
 </metal:row>

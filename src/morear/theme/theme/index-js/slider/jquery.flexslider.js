@@ -1,6 +1,7 @@
 $(function(){
-      SyntaxHighlighter.all();
+//          SyntaxHighlighter.all();
     });
+
     $(window).load(function(){
       $('.flexslider').flexslider({
         animation: "slide",

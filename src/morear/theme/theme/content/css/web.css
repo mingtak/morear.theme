@@ -543,6 +543,7 @@ a:hover {
 	font-size:14px;
 	color:#000;
 	z-index:10;
+        display:none;
 }
 #shop-num-2{
 	position:absolute;
@@ -553,6 +554,7 @@ a:hover {
 	font-size:14px;
 	color:#000;
 	z-index:10;
+        display:none;
 }
 
 

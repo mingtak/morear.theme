@@ -435,7 +435,6 @@ if ytURL:
 <!-- InstanceBeginEditable name="content" -->
 <!-- left -->
 <div id="buy-photo">
-
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
@@ -456,7 +455,8 @@ if ytURL:
     </div>
 <div id="share-01">
   <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
-  <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ <a href="#">儲存圖檔</a></div>
+  <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
+  <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a></div>
 </div>
 <!-- left end -->
 <!-- right -->
@@ -713,14 +713,22 @@ if ytURL:
 
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/ep_bgImage_left/large">
-        <img class="ep_colorL" src="#" alt="圖層:耳塞顏色 左" style="display:none"/>
+        <img class="ep_colorLImage" src="#" alt="圖層:耳塞顏色 左" style="display:none"/>
     </div>
 
     <div id="buy-photo-right"
          style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/ep_bgImage_right/large">
-        <img class="ep_colorR" src="#" alt="圖層:耳塞顏色 右" style="display:none"/>
+        <img class="ep_colorRImage" src="#" alt="圖層:耳塞顏色 右" style="display:none"/>
     </div>
+
+<div id="share-01">
+  <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
+  <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
+  <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
+</div>
+
+
 <!--    <div id="share"><a href="#">Facebook分享</a> ｜ <a href="#">Line分享</a> ｜ <a href="#">儲存圖檔</a>
 -->
 </div>
@@ -751,30 +759,31 @@ if ytURL:
   <tr>
     <td>材　質：</td>
     <td>
-        <select name="lineLength" id="lineLength" style="width:100%;">
+        <select name="ep_material" id="ep_material" style="width:100%;">
             <option tal:repeat="item context/ep_material"
                     tal:attributes="value item/to_object/UID;
                                     data-price item/to_object/price;
                                     selected repeat/item/start">${item/to_object/showName}
             </option>
         </select>
-    <td align="center" class="word-gray-2">price</td>
+    <td align="center" class="word-gray-2">${string:${{ep_materialPrice}}}</td>
   </tr>
 
   <tr>
     <td>型　號：</td>
     <td>
-        <select name="lineLength" id="lineLength" style="width:100%;">
+        <select name="ep_typeNo" id="ep_typeNo" style="width:100%;">
             <option tal:repeat="item context/ep_typeNo"
                     tal:attributes="value item/to_object/UID;
+                                    data-price item/to_object/price;
                                     selected repeat/item/start">${item/to_object/showName}
             </option>
         </select>
     </td>
-    <td align="center" class="word-gray-2">&nbsp;</td>
+    <td align="center" class="word-gray-2">${string:${{ep_typeNoPrice}}}</td>
   </tr>
 
-  <tr class="earplugsColor">
+  <tr class="ep_colorR">
     <td rowspan="2">顏　色：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span><br>
         <img tal:repeat="item context/ep_colorR"
@@ -787,11 +796,11 @@ if ytURL:
                              class python:'selected' if repeat['item'].start else None">
     </td>
     <td align="center" class="word-gray-2" style="border-bottom:0;">
-price
+${string:${{ep_colorRPrice}}}
     </td>
   </tr>
 
-  <tr class="earplugsColor">
+  <tr class="ep_colorL">
     <td><span class="word-gray-2">左邊：</span><br>
         <img tal:repeat="item context/ep_colorL"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
@@ -803,7 +812,7 @@ price
                              class python:'selected' if repeat['item'].start else None">
     </td>
     <td align="center" class="word-gray-2">
-        <span class="word-gray-2" style="border-bottom:0;">price</span>
+        <span class="word-gray-2" style="border-bottom:0;">${string:${{ep_colorLPrice}}}</span>
     </td>
   </tr>
 
@@ -814,7 +823,7 @@ price
       <input name="textfield2" type="text" id="laser-text-r" placeholder="輸入字數限xx以內" style="width:85%;" v-model:value="laserTextR">
     </td>
     <td align="center" class="word-gray-2" style="border-bottom:0;">
-price
+        ${string:${{laserPriceR}}}
     </td>
   </tr>
   <tr>
@@ -826,10 +835,10 @@ price
         ${string:${{laserPriceL}}}
     </td>
   </tr>
-  <tr>
+<!--   <tr>
     <td>數　量：</td>
     <td>
-        <select name="select4" id="earplugs-amount" style="width:100%;" v-model:value="earplugsAmount">
+        <select name="earplugs-amount" id="earplugs-amount" style="width:100%;" v-model:value="earplugsAmount">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -839,6 +848,7 @@ price
     </td>
     <td align="center" class="word-gray-2">&nbsp;</td>
   </tr>
+-->
 </tbody></table>
 <div id="buy-s-box-2">
 特殊需求：<br>
@@ -847,8 +857,8 @@ price
 </div>
 
     <div style="text-align:right; color:#f4a000;">總計：
-        <strong>待定公式
-            ${string:${{basePrice + basePrice}}}
+        <strong>
+            ${string:${{totalSum}}}
         </strong>
     </div>
 
@@ -858,8 +868,8 @@ price
 
 <!-- box end -->
 <div id="btnbar">
-  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','images/btn01b.png',1)"><img src="images/btn01.png" id="Image31" hspace="15"></a>
-  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','images/btn02b.png',1)"><img src="images/btn02.png" id="Image32" hspace="15"></a>
+  <a id="reload-page" ref="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','${prefix}content/buymore/images/btn01b.png',1)"><img src="${prefix}content/buymore/images/btn01.png" id="Image31" hspace="15"></a>
+  <a id="add-to-cart" href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','${prefix}content/buymore/images/btn02b.png',1)"><img src="${prefix}content/buymore/images/btn02.png" id="Image32" hspace="15"></a>
 </div>
 <!-- InstanceEndEditable -->
 </div>
