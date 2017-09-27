@@ -40,26 +40,11 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
   </select>
 -->  　
   <label for="textfield5"></label>
-  <input name="textfield5" type="text" id="textfield5" class="orderquery" placeholder="請輸入訂單編號">
-  <input name="reSet" type="reset" id="resetbottom" value="顯示全部">
+  <input name="textfield5" type="text" id="orderquery" class="orderquery" placeholder="請輸入訂單編號" oninput="showcol()">
 <!--  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','images/btn-06-b.png',1)"><img src="images/btn-06.png" id="Image20" align="center" hspace="15"></a></div> -->
-<script>
-$('#resetbottom').click(function(){
-     $('.order-list').show('slow')
-})
-
-$('.orderquery').change(function(){
-     orderNo = $(this).val()
-     if(!orderNo){
-         $('.order-list').show('slow')
-         return
-     }
-     $('.order-list').hide('slow')
-     $('#' + orderNo).show('slow')
-})
-</script>
 
 <div id="member-list-03">
+  <input name="reSet" type="reset" id="resetbottom" value="顯示全部" style="float:left">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <th align="center">項次</th>
@@ -87,6 +72,24 @@ $('.orderquery').change(function(){
 </div>
 <!-- #content End -->
 
+<script>
+$('#resetbottom').click(function(){
+     $('#orderquery').val('')
+     $('.order-list').show('slow')
+})
+
+function showcol(){
+// $('.orderquery').change(function(){
+     orderNo = $('#orderquery').val()
+     if(!orderNo){
+         $('.order-list').show('slow')
+         return
+     }
+     $('.order-list').hide('slow')
+     $('#' + orderNo).show('slow')
+// })
+}
+</script>
 
 
 

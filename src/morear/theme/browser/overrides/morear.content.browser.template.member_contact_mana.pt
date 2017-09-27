@@ -73,7 +73,7 @@ citys=[
   </tr>
   <tr tal:repeat="item view/storeBrain">
 <!--    <td align="center">${repeat/item/number}</td> -->
-    <td align="center">${item/Title}</td>
+    <td align="center"><a href="${item/getURL}">${item/Title}</a></td>
     <td align="center">${python:item.getObject().address}</td>
     <td align="center">${python:item.getObject().phone}</td>
     <td align="center"><i class="fa fa-trash delete-item" aria-hidden="true" data-uid="${item/UID}"></i></td>

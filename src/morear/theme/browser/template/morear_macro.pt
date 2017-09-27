@@ -33,7 +33,7 @@ $(document).ready(function(){
               cartJson = jQuery.parseJSON( cartJsonString )
               itemCount = cartJson.length
               if(itemCount){
-                  $('.shop-items').text('( ' + itemCount + ' )')
+                  $('.shop-items').text(itemCount)
                   $('.shop-items').show()
               }
           })
@@ -276,7 +276,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide05 end -->
 <!-- menu end -->
 <!-- icon -->
-<div id="shop-num" class="shop-items">( 99 )</div>
+<div id="shop-num" class="shop-items" style="display:none">99</div>
 <div id="top-icon">
 <ul>
 <li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','${prefix}images/btn-01b.png',1)" title="服務據點"><img src="${prefix}images/btn-01.png" id="Image5" /></a></li>
@@ -553,7 +553,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <!-- hide05 end -->
 <!-- menu end -->
 <!-- icon -->
-<div id="shop-num-2" class="shop-items">( 99 )</div>
+<div id="shop-num-2" class="shop-items" style="display:none">99</div>
 <div id="top-icon">
 <ul>
 <li><a href="${portal/absolute_url}/location" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','${prefix}content/images/btn-01b.png',1)" title="服務據點"><img src="${prefix}content/images/btn-01.png" id="Image3" /></a></li>
@@ -779,7 +779,7 @@ $(document).ready(function(){
     }
 //    itemCount = cartJson.length
     if(itemCount){
-        $('.shop-items').text('( ' + itemCount + ' )')
+        $('.shop-items').text(itemCount)
         $('.shop-items').show()
     }
 })
@@ -822,9 +822,9 @@ $(document).ready(function(){
       <form action="${portal/absolute_url}/location">
         <ul>
             <li>
-              據點搜尋：
+              據點：
                   <select name="city" id="select3" v-model="selected_city">
-                      <option>--請選擇縣市--</option>
+                      <option>請選擇縣市</option>
                       <option tal:repeat="item view/getCitys">${item}</option>
                   </select>
                   <select name="dist" id="select">
@@ -853,8 +853,8 @@ var location_vm = new Vue({
   el: '#noticebox',
   data: {
     message: 'Hello Vue!',
-    selected_city: '--請選擇縣市--',
-    selected_dist: ['--請選擇區域--']
+    selected_city: '請選擇縣市',
+    selected_dist: ['請選擇區域']
   }
 })
 

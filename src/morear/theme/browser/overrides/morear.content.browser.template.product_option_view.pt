@@ -404,7 +404,7 @@ $("#add-to-cart").click(
               cartJson = jQuery.parseJSON( cartJsonString )
               itemCount = cartJson.length
               if(itemCount){
-                  $('.shop-items').text('( ' + itemCount + ' )')
+                  $('.shop-items').text(itemCount)
                   $('.shop-items').show()
               }
           })

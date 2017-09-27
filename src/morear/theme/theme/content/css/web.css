@@ -40,169 +40,20 @@ a:hover {
 	text-decoration:none;
 }
 
-#select {
+#select,#select2,#select3,#select4,#select5,#select6,#select7,#select8 {
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
 }
-#select2 {
+
+#textfield,#textfield2,#textfield3,#textfield4,#textfield5,#textfield6,#textfield7,#textfield8,#textfield9,#textfield10,#textfield11,#textfield12{
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
 }
-#select3 {
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#select4 {
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#select5 {
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#select6 {
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#select7 {
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#select8 {
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield2{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield3{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield4{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield5{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield6{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield7{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield8{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield9{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield10{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield11{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textfield12{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea2{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea3{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea4{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea5{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea6{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea7{
-	color:#FFF;
-	background-color:#333;
-	border:1px #666666 solid;
-	padding:5px;
-}
-#textarea8{
+#textarea,#textarea2,#textarea3,#textarea4,#textarea5,#textarea6,#textarea7,#textarea8{
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;
@@ -533,17 +384,17 @@ a:hover {
 	color:#666;
 }
 
-/*0913*/
+/*
+0913
 #shop-num{
 	position:absolute;
 	width:80px;
 	top:10px;
-	right:613px;
+	right:695px;
 	text-align:center;
 	font-size:14px;
 	color:#000;
 	z-index:10;
-        display:none;
 }
 #shop-num-2{
 	position:absolute;
@@ -554,9 +405,57 @@ a:hover {
 	font-size:14px;
 	color:#000;
 	z-index:10;
-        display:none;
+}
+*/
+/*0922*/
+#shop-num{
+	position:absolute;
+	background:#F00;
+	border-radius:30px;
+	padding:2px 5px;
+	top:10px;
+	right:642px;
+	text-align:center;
+	font-size:14px;
+	color:#FFF;
+	z-index:10;
+}
+#shop-num-2{
+	position:absolute;
+	background:#F00;
+	border-radius:30px;
+	padding:2px 5px;
+	top:10px;
+	right:645px;
+	text-align:center;
+	font-size:14px;
+	color:#FFF;
+	z-index:10;
 }
 
+/*0922*/
+
+#member_id,#member_pwd,#laser-text-r,#laser-text-l,#out-box-text{
+	color:#FFF;
+	background-color:#333;
+	border:1px #666666 solid;
+	padding:5px;
+}
+
+#product-uid,#lineLength,#ep_material,#ep_typeNo {
+	color:#FFF;
+	background-color:#333;
+	border:1px #666666 solid;
+	padding:5px;
+}
+#ext-ser{
+	color:#FFF;
+	background-color:#333;
+	border:1px #666666 solid;
+	padding:5px;
+}
+
+/*0922 end*/
 
 #share-01 {
         width:100%;
@@ -744,6 +643,7 @@ a:hover {
 #root{
 	display:none;
 }
+/*
 #footer-w2{
 	width:21%;
 	float:right;
@@ -754,6 +654,18 @@ a:hover {
 	width:28%;
 	float:left;
 	margin:0 1.5% 0 1.5%;
+}
+*/
+#footer-w2{
+	width:25%;
+	float:right;
+	margin:20px 2% 2% 0;
+}
+#footer-w2 li{
+	list-style-type:none;
+	width:28%;
+	float:left;
+	margin:0 2.5% 0 2.5%;
 }
 #footer-w2 li img{
 	width:100%;

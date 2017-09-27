@@ -76,7 +76,7 @@
 #buy-s-box{
 	width:48%;
 	float:left;
-	margin-top:155px;
+	margin-top:0;
 	color:#FFF;
 }
 #share {
@@ -124,8 +124,16 @@
 
 /*平板-1*/
 @media only screen and (max-width:1100px) {
+/*
 #buy-list-01{
 	display:none;
+}
+*/
+#buy-list-01{
+	width:100%;
+	clear:both;
+	float:left;
+	color:#FFF;	
 }
 #buy-list-02{
 	width:100%;
@@ -140,8 +148,17 @@
 	margin-bottom:15px;
 	border:1px #f4a000 solid;
 }
+/*
 #buy-s-box{
 	display:none;
+}
+*/
+#buy-s-box{
+	width:100%;
+	clear:both;
+	float:left;
+	margin-top:30px;
+	color:#FFF;
 }
 #buy-s-box-m{
 	display:block;
