@@ -431,6 +431,9 @@ if ytURL:
 
 
 <metal:row define-macro="product-headphone-option">
+<?python
+from plone import api
+?>
 <div id="content">
 <!-- InstanceBeginEditable name="content" -->
 <!-- left -->
@@ -467,23 +470,25 @@ if ytURL:
 <!-- left end -->
 <!-- right -->
 <div id="buy-list-01">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+       tal:define="templateName python:template.filename.split('.')[-2]">
   <tbody><tr>
     <td width="90" style="border-bottom:0">&nbsp;</td>
     <td style="border-bottom:0">&nbsp;</td>
-    <td width="60" align="center" class="word-gray-2" style="border-bottom:0">價 格</td>
+    <td width="60" align="center" class="word-gray-2" style="border-bottom:0"><tal:price condition="python:templateName.startswith('product')">價 格</tal:price></td>
   </tr>
   <tr>
     <td>產　　品：</td>
-    <td>
-        <select name="select3" id="product-uid" name="product-uid" style="width:100%;">
+    <td tal:switch="python:templateName">
+        <select name="select3" id="product-uid" name="product-uid" style="width:100%;" tal:case="string:product_option_view">
             <option tal:repeat="item view/headphoneList"
                     tal:attributes="value item/UID;
                                     data-url string:${item/getURL}/@@product_option_view;
                                     selected python:True if item.UID == context.UID() else False">${item/Title}</option>
         </select>
+        <span tal:case="string:re_show_option_view" tal:replace="python:context.title" />
     </td>
-    <td align="center" class="word-gray-2">$${context/basePrice}</td>
+    <td align="center" class="word-gray-2"><tal:price condition="python:templateName.startswith('product')">$${context/basePrice}</tal:price></td>
   </tr>
   <tr>
     <td>單　　體：</td>
@@ -493,17 +498,20 @@ if ytURL:
   </tr>
   <tr>
     <td>耳機線長度：</td>
-    <td>
-        <select name="lineLength" id="lineLength" style="width:100%;">
+    <td tal:switch="python:template.filename.split('.')[-2]">
+        <select name="lineLength" id="lineLength" style="width:100%;" tal:case="string:product_option_view">
             <option tal:repeat="item context/lineLength"
                     tal:attributes="value item/to_object/UID;
                                     data-price item/to_object/price;
                                     selected repeat/item/start">${item/to_object/showName}
             </option>
         </select>
+        <tal:case case="string:re_show_option_view">
+            <p tal:define="lineLength python:api.content.find(UID=view.parameter['lineLength'])[0]"
+               tal:replace="python:lineLength.getObject().showName"></p>
+        </tal:case>
     </td>
     <td align="center" class="word-gray-2">${string:${{linePrice}}}</td>
-
   </tr>
   <tr>
     <td>耳機線顏色：</td>

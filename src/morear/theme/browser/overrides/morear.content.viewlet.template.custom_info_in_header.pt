@@ -45,7 +45,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link tal:condition="python:'Shopping_' in str(view.view)"
       class="for-theme" href="${prefix}content/css/shoppingcart.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="python:'ProductOptionView' in str(view.view)"
+<link tal:condition="python:'ProductOptionView' in str(view.view) or 'ReShowOptionView in str(view.view)'"
       class="for-theme" href="${prefix}content/css/buymore.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="python:'Download_' in str(view.view)"

@@ -1,0 +1,476 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+    <tal:headphone switch="context/pType">
+        <metal:macro tal:case="string:headphone" use-macro="context/@@object_macro/macros/product-headphone-option"/>
+        <metal:macro tal:case="string:earplugs" use-macro="context/@@object_macro/macros/product-earplugs-option"/>
+    </tal:headphone>
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+<script tal:condition="python:context.pType == 'earplugs'">
+// 耳塞參數
+var vm = new Vue({
+  el: '#content',
+  data: {
+    message: 'Hello Vue!',
+
+    sNumber: '${context/snPrefix}',
+    productName: '${context/UID}',
+    basePrice: ${context/basePrice},
+    ep_material: '${python:context.ep_material[0].to_object.UID()}',
+    ep_materialPrice: ${python:context.ep_material[0].to_object.price},
+    ep_typeNo: '${python:context.ep_typeNo[0].to_object.UID()}',
+    ep_typeNoPrice: ${python:context.ep_typeNo[0].to_object.price},
+    ep_colorR: '${python:context.ep_colorR[0].to_object.UID()}',
+    ep_colorRPrice: ${python:context.ep_colorR[0].to_object.price},
+    ep_colorL: '${python:context.ep_colorL[0].to_object.UID()}',
+    ep_colorLPrice: ${python:context.ep_colorL[0].to_object.price},
+    ep_colorPrice: ${python:context.ep_colorR[0].to_object.price + context.ep_colorL[0].to_object.price},
+
+    laserTextR: '',
+    laserTextL: '',
+    laserPriceR: 0,
+    laserPriceL: 0,
+
+    extSer: '',
+    earplugsAmount: 1,
+    totalSum: 0
+  },
+
+  methods: {
+    total: function () {
+        vm.totalSum = vm.earplugsAmount * ( vm.basePrice + vm.ep_materialPrice + vm.ep_typeNoPrice + vm.ep_colorRPrice + vm.ep_colorLPrice + vm.laserPriceR + vm.laserPriceL )
+    }
+  }
+
+});
+
+// 改變數量
+$('#earplugs-amount').change(function() {
+    vm.total();
+});
+
+// 改變材質
+$('#ep_material').change(function() {
+    vm.ep_materialPrice = Number($(this).find(":selected").data('price'));
+    vm.ep_material = $(this).find(":selected").val();
+    vm.total();
+});
+
+// 改變型號
+$('#ep_typeNo').change(function() {
+    vm.ep_typeNoPrice = Number($(this).find(":selected").data('price'));
+    vm.ep_typeNo = $(this).find(":selected").val();
+    vm.total();
+});
+
+// 改變 earplugs R 顏色
+$('tr.ep_colorR td img').click(function() {
+    clickItem($(this));
+    vm.ep_colorRPrice = Number($(this).data('price'));
+    vm.ep_colorR = $(this).data("image-uid");
+    $(".ep_colorRImage").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+// 改變 earplugs L 顏色
+$('tr.ep_colorL td img').click(function() {
+    clickItem($(this));
+    vm.ep_colorLPrice = Number($(this).data('price'));
+    vm.ep_colorL = $(this).data("image-uid");
+    $(".ep_colorLImage").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+</script>
+
+
+<script tal:condition="python:context.pType == 'headphone'">
+// 耳機參數
+var vm = new Vue({
+  el: '#content',
+  data: {
+    message: 'Hello Vue!',
+
+    sNumber: '${context/snPrefix}',
+    productName: '${context/UID}',
+    basePrice: ${context/basePrice},
+    lineLength: '${python:context.lineLength[0].to_object.UID()}',
+    linePrice: ${python:context.lineLength[0].to_object.price},
+    lineColor: '${python:context.lineColor[0].to_object.UID()}',
+    lineColorPrice: ${python:context.lineColor[0].to_object.price},
+    shell3D: '${python:context.shell3D[0].to_object.UID()}',
+    shell3DPrice: ${python:context.shell3D[0].to_object.price},
+    logoPrice: 300,
+    logoColor: '${python:context.logoColor[0].to_object.UID()}',
+    logoColorPrice: ${python:context.logoColor[0].to_object.price},
+    surfaceR: '${python:context.surfaceColorR[0].to_object.UID()}',
+    surfaceL: '${python:context.surfaceColorL[0].to_object.UID()}',
+    surfacePrice: ${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price},
+    laserTextR: '',
+    laserTextL: '',
+    laserPriceR: 0,
+    laserPriceL: 0,
+    extSer: '',
+    outBoxText: '',
+
+    // 客製化圖片參數
+    cusImgL: '',
+    cusImgR: '',
+    upDownR: 50,
+    upDownL: 50,
+    leftRightR: 0,
+    leftRightL: 0,
+    zoomR: 100,
+    zoomL: 100,
+    rotateR: 0,
+    rotateL: 0,
+    totalSum: 0
+  },
+  methods: {
+    total: function () {
+        vm.totalSum = vm.basePrice + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoPrice + vm.logoColorPrice + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL;
+    }
+  }
+});
+
+// 改變logo顏色
+$('#logo-color img').click(function() {
+    clickItem($(this));
+    vm.logoColorPrice = Number($(this).data('price'));
+    vm.logoColor = $(this).data("image-uid");
+    $(".logo-color-image").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+
+// 改變耳機線長度
+$('#lineLength').change(function() {
+    vm.linePrice = Number($(this).find(":selected").data('price'));
+    vm.lineLength = $(this).find(":selected").val();
+    vm.total();
+});
+
+// 改變耳機線顏色
+$('#line-color img').click(function() {
+    clickItem($(this));
+    vm.lineColorPrice = Number($(this).data('price'));
+    vm.lineColor = $(this).data("image-uid");
+    $(".lineColorImage").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+// 改變3D列印耳殼
+$('#shell-3d img').click(function() {
+    clickItem($(this));
+    vm.shell3DPrice = Number($(this).data('price'));
+    vm.shell3D = $(this).data("image-uid");
+    $(".shell-3d-image").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+// 改變面板顏色
+$('tr.surfaceColor td img').click(function() {
+    clickItem($(this));
+    vm.surfacePrice = 0;
+    $('tr.surfaceColor td img.selected').each(function(){
+        vm.surfacePrice += Number($(this).data('price'));  // Or this.innerHTML, this.innerText
+    });
+
+    side = $(this).data('side');
+    if(side == 'surface-color-image-l'){
+        vm.surfaceL = $(this).data("image-uid");
+    }else{
+        vm.surfaceR = $(this).data("image-uid");
+    };
+
+    $("." + side).attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+// 上傳檔案
+function readURL(input, imgPosition) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            base64Code = e.target.result;
+            $(imgPosition).attr('src', base64Code).css({
+                'display':'initial',
+                'width': '100%',
+                'height': 'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+                'transform': 'rotate(0deg)'
+            });
+            if(imgPosition == '#previewimgL'){
+                vm.cusImgL = base64Code;
+            }else{
+                vm.cusImgR = base64Code;
+            };
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#cusImgR").change(function(){
+    readURL(this, '#previewimgR');
+    $('.option-right-side').fadeIn(1000);
+//alert(vm.cusImgR);
+});
+$("#cusImgL").change(function(){
+    readURL(this, '#previewimgL');
+    $('.option-left-side').fadeIn(1000);
+//alert(vm.cusImgL);
+});
+
+// Option bar(jRange)
+$( document ).ready(function() {
+    $('.option-bar').jRange({
+        from: 0,
+        to: 100,
+        step: 1,
+        showScale: false,
+        format: '%s',
+        width: 150,
+        showLabels: false,
+        isRange : false
+    });
+
+    $('.slider-container').css({'display':'inherit'})
+});
+
+// Option-bar value changed event
+$(".option-bar").change(function(){
+    elId = $(this).attr('id');
+    vm.$data[elId] = $(this).attr('value');
+    if( elId.endsWith('R') ){
+        $( '#previewimgR' ).css({
+            'top': vm.upDownR + '%',
+            'left': vm.leftRightR + '%',
+            'transform': 'rotate(' + vm.rotateR*3.6 + 'deg)',
+            'width': vm.zoomR + '%'
+        });
+    } else{
+        $( '#previewimgL' ).css({
+            'top': vm.upDownL + '%',
+            'left': vm.leftRightL + '%',
+            'transform': 'rotate(' + vm.rotateL*3.6 + 'deg)',
+            'width': vm.zoomL + '%'
+        });
+    }
+});
+
+// 左邊雷雕
+var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
+    imageElemL = document.getElementById('textImageLeft');
+document.getElementById('laser-text-l').addEventListener('keyup', function (){
+    tCtxL.canvas.width = 250;
+    tCtxL.font = "30px Arial";
+    tCtxL.fillStyle = 'red';
+    tCtxL.textAlign = "center";
+    tCtxL.fillText(this.value, 160, 50);
+    imageElemL.src = tCtxL.canvas.toDataURL();
+//    console.log(imageElemL.src);
+    $("#textImageLeft").css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
+}, false);
+
+// 右邊雷雕
+var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
+    imageElemR = document.getElementById('textImageRight');
+document.getElementById('laser-text-r').addEventListener('keyup', function (){
+    tCtxR.canvas.width = 250;
+    tCtxR.font = "30px Arial";
+    tCtxR.fillStyle = 'red';
+    tCtxR.textAlign = "center";
+    tCtxR.fillText(this.value, 80, 50);
+    imageElemR.src = tCtxR.canvas.toDataURL();
+//    console.log(imageElemR.src);
+    $("#textImageRight").css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
+}, false);
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+// 下載客製化圖片(通用)
+$('#download-custom-image').click(function() {
+    html2canvas($('#product-full-image'), {
+        onrendered: function(canvas) {
+            theCanvas = canvas;
+            canvas.toBlob(function(blob) {
+                saveAs(blob, "output.png");
+            });
+        }
+    });
+});
+
+// 選色 (通用)
+function clickItem(item) {
+    $(item).attr('class', 'selected');
+    $(item).siblings().removeAttr('class');
+}
+
+// 改變產品 (通用)
+$('#product-uid').change(function() {
+    window.location.replace($(this).find(":selected").data('url'))
+});
+
+// 輸入雷雕文字 (通用)
+$('#laser-text-r').change(function() {
+    textR = $(this).val();
+    if(textR){
+        vm.laserPriceR = 100;
+    }else{
+        vm.laserPriceR = 0;
+    }
+    vm.total();
+});
+$('#laser-text-l').change(function() {
+    textL = $(this).val();
+    if(textL){
+        vm.laserPriceL = 100;
+    }else{
+        vm.laserPriceL = 0;
+    }
+    vm.total();
+});
+
+
+
+// Reload Page
+$("#reload-page").click(
+    function(){
+        window.location.replace("${context/absolute_url}/@@product_option_view")
+    }
+)
+
+// Add to cart
+$("#add-to-cart").click(
+    function(){
+        postData = vm.$data;
+        postData['action'] = 'add';
+        postData['pType'] = '${context/pType}';
+        $.post(
+            url="${portal/absolute_url}/@@update_cart",
+            data=postData
+        )
+          .done(function(data){
+              alert( data );
+              // add, delete item
+              cartJsonString = $.cookie("cart")
+              cartJson = jQuery.parseJSON( cartJsonString )
+              itemCount = cartJson.length
+              if(itemCount){
+                  $('.shop-items').text(itemCount)
+                  $('.shop-items').show()
+              }
+          })
+          .fail(function() {
+              alert( "加入購物車失敗，請稍候再試，或請聯絡系統管理員" );
+          });
+    }
+)
+
+//計算總價
+$( document ).ready(function() {
+    vm.total();
+});
+
+</script>
+
+</div>
+</div>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

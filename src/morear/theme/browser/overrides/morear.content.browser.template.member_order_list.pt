@@ -75,7 +75,8 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
                   <li tal:define="itemUID python:orderItem[1];
                                   itemObj python:api.content.find(UID=itemUID)[0]">
                     品名:${itemObj/Title}
-                     <a href="${itemObj/getURL}/@@re_show_option" target="_blank" tal:condition="python:itemObj.pType != 'normal'">(詳細客製內容)</a>
+                     <a href="${itemObj/getURL}/@@re_show_option_view?oid=${order}&para=${python:orderItem[4]}"
+                        target="_blank" tal:condition="python:itemObj.pType != 'normal'">(詳細客製內容)</a>
                     / 數量:${python:orderItem[2]} / 單價:${python:orderItem[3]}
                   </li>
                 </tal:item>
