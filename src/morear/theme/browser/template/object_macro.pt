@@ -443,6 +443,8 @@ if ytURL:
         <img class="surface-color-image-l" src="#" alt="圖層:面板顏色 左" style="display:none"/>
         <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
         <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none"/>
+        <canvas id='textCanvasLeft' style="display:none"></canvas>
+        <img id='textImageLeft' style="display:none">
     </div>
 
     <div id="buy-photo-right"
@@ -453,6 +455,8 @@ if ytURL:
         <img class="surface-color-image-r" src="#" alt="圖層:面板顏色 右" style="display:none"/>
         <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
         <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
+        <canvas id='textCanvasRight' style="display:none"></canvas>
+        <img id='textImageRight' style="display:none">
     </div>
 </div>
 <div id="share-01">
@@ -483,7 +487,7 @@ if ytURL:
   </tr>
   <tr>
     <td>單　　體：</td>
-    <td> ${python:'一單體' if context.driver == 'One Driver' else '二單體'}
+    <td> ${python:context.driver.to_object.title}
     </td>
     <td align="center" class="word-gray-2"></td>
   </tr>
