@@ -21,30 +21,40 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 ?>
 
 
-<div id="all" align="center">
-<div id="in-bg">
-<!-- content -->
 
-<div id="wrapper">
-    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
-    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+<div id="buy-photo">
+<div id="product-full-image" style="float:left; width:100%">
+    <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
+        <img src="${context/absolute_url}/@@images/bgImage_left/large">
+        <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
+        <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
+        <img class="surface-color-image-l" src="#" alt="圖層:面板顏色 左" style="display:none"/>
+        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none"/>
+        <canvas id='textCanvasLeft' style="display:none"></canvas>
+        <img id='textImageLeft' style="display:none">
+    </div>
 
-    <tal:headphone switch="context/pType">
-        <metal:macro tal:case="string:headphone" use-macro="context/@@object_macro/macros/product-headphone-option"/>
-        <metal:macro tal:case="string:earplugs" use-macro="context/@@object_macro/macros/product-earplugs-option"/>
-    </tal:headphone>
-
-
-
-    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+    <div id="buy-photo-right"
+         style="position: relative; overflow: hidden; max-width:100%">
+        <img src="${context/absolute_url}/@@images/bgImage_right/large">
+        <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
+        <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
+        <img class="surface-color-image-r" src="#" alt="圖層:面板顏色 右" style="display:none"/>
+        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
+        <canvas id='textCanvasRight' style="display:none"></canvas>
+        <img id='textImageRight' style="display:none">
+    </div>
+</div>
+<div id="share-01">
+  <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
+  <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
+  <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
+</div>
 </div>
 
-
-
-<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
-
-<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
-
+<div tal:content="view/parameter" style="color:#fff"></div>
 <script tal:condition="python:context.pType == 'earplugs'">
 // 耳塞參數
 var vm = new Vue({
@@ -134,203 +144,83 @@ $('tr.ep_colorL td img').click(function() {
 
 
 <script tal:condition="python:context.pType == 'headphone'">
-// 耳機參數
-var vm = new Vue({
-  el: '#content',
-  data: {
-    message: 'Hello Vue!',
-
-    sNumber: '${context/snPrefix}',
-    productName: '${context/UID}',
-    basePrice: ${context/basePrice},
-    lineLength: '${python:context.lineLength[0].to_object.UID()}',
-    linePrice: ${python:context.lineLength[0].to_object.price},
-    lineColor: '${python:context.lineColor[0].to_object.UID()}',
-    lineColorPrice: ${python:context.lineColor[0].to_object.price},
-    shell3D: '${python:context.shell3D[0].to_object.UID()}',
-    shell3DPrice: ${python:context.shell3D[0].to_object.price},
-    logoPrice: 300,
-    logoColor: '${python:context.logoColor[0].to_object.UID()}',
-    logoColorPrice: ${python:context.logoColor[0].to_object.price},
-    surfaceR: '${python:context.surfaceColorR[0].to_object.UID()}',
-    surfaceL: '${python:context.surfaceColorL[0].to_object.UID()}',
-    surfacePrice: ${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price},
-    laserTextR: '',
-    laserTextL: '',
-    laserPriceR: 0,
-    laserPriceL: 0,
-    extSer: '',
-    outBoxText: '',
-
-    // 客製化圖片參數
-    cusImgL: '',
-    cusImgR: '',
-    upDownR: 50,
-    upDownL: 50,
-    leftRightR: 0,
-    leftRightL: 0,
-    zoomR: 100,
-    zoomL: 100,
-    rotateR: 0,
-    rotateL: 0,
-    totalSum: 0
-  },
-  methods: {
-    total: function () {
-        vm.totalSum = vm.basePrice + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoPrice + vm.logoColorPrice + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL;
-    }
-  }
-});
 
 // 改變logo顏色
-$('#logo-color img').click(function() {
+$(document).ready(function() {
     clickItem($(this));
-    vm.logoColorPrice = Number($(this).data('price'));
-    vm.logoColor = $(this).data("image-uid");
-    $(".logo-color-image").attr('src', $(this).data('image-url')).css({
+    $(".logo-color-image").attr('src', '${python:api.content.find(UID=view.parameter['logoColor'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
 });
 
-
-// 改變耳機線長度
-$('#lineLength').change(function() {
-    vm.linePrice = Number($(this).find(":selected").data('price'));
-    vm.lineLength = $(this).find(":selected").val();
-    vm.total();
-});
 
 // 改變耳機線顏色
-$('#line-color img').click(function() {
-    clickItem($(this));
-    vm.lineColorPrice = Number($(this).data('price'));
-    vm.lineColor = $(this).data("image-uid");
-    $(".lineColorImage").attr('src', $(this).data('image-url')).css({
+$(document).ready(function() {
+    $(".lineColorImage").attr('src', '${python:api.content.find(UID=view.parameter['lineColor'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
 });
 
 // 改變3D列印耳殼
-$('#shell-3d img').click(function() {
-    clickItem($(this));
-    vm.shell3DPrice = Number($(this).data('price'));
-    vm.shell3D = $(this).data("image-uid");
-    $(".shell-3d-image").attr('src', $(this).data('image-url')).css({
+$(document).ready(function() {
+    $(".shell-3d-image").attr('src', '${python:api.content.find(UID=view.parameter['shell3D'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
 });
 
 // 改變面板顏色
-$('tr.surfaceColor td img').click(function() {
-    clickItem($(this));
-    vm.surfacePrice = 0;
-    $('tr.surfaceColor td img.selected').each(function(){
-        vm.surfacePrice += Number($(this).data('price'));  // Or this.innerHTML, this.innerText
-    });
-
-    side = $(this).data('side');
-    if(side == 'surface-color-image-l'){
-        vm.surfaceL = $(this).data("image-uid");
-    }else{
-        vm.surfaceR = $(this).data("image-uid");
-    };
-
-    $("." + side).attr('src', $(this).data('image-url')).css({
+$(document).ready(function() {
+    $(".surface-color-image-l").attr('src', '${python:api.content.find(UID=view.parameter['surfaceL'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
-});
-
-// 上傳檔案
-function readURL(input, imgPosition) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            base64Code = e.target.result;
-            $(imgPosition).attr('src', base64Code).css({
+    $(".surface-color-image-r").attr('src', '${python:api.content.find(UID=view.parameter['surfaceR'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
-                'width': '100%',
-                'height': 'initial',
                 'position': 'absolute',
-                'top': '50%',
+                'top': '0%',
                 'left': '0%',
-                'transform': 'rotate(0deg)'
-            });
-            if(imgPosition == '#previewimgL'){
-                vm.cusImgL = base64Code;
-            }else{
-                vm.cusImgR = base64Code;
-            };
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-$("#cusImgR").change(function(){
-    readURL(this, '#previewimgR');
-    $('.option-right-side').fadeIn(1000);
-//alert(vm.cusImgR);
-});
-$("#cusImgL").change(function(){
-    readURL(this, '#previewimgL');
-    $('.option-left-side').fadeIn(1000);
-//alert(vm.cusImgL);
-});
-
-// Option bar(jRange)
-$( document ).ready(function() {
-    $('.option-bar').jRange({
-        from: 0,
-        to: 100,
-        step: 1,
-        showScale: false,
-        format: '%s',
-        width: 150,
-        showLabels: false,
-        isRange : false
     });
-
-    $('.slider-container').css({'display':'inherit'})
 });
 
-// Option-bar value changed event
-$(".option-bar").change(function(){
-    elId = $(this).attr('id');
-    vm.$data[elId] = $(this).attr('value');
-    if( elId.endsWith('R') ){
+// 客製圖層
+$(document).ready(function() {
+        $( '#previewimgR' ).attr('src', "${python:view.parameter['cusImgR']}")
         $( '#previewimgR' ).css({
-            'top': vm.upDownR + '%',
-            'left': vm.leftRightR + '%',
-            'transform': 'rotate(' + vm.rotateR*3.6 + 'deg)',
-            'width': vm.zoomR + '%'
+            'display':'initial',
+            'position': 'absolute',
+            'top': "${python:'%s%%' % view.parameter['upDownR']}",
+            'left': "${python:'%s%%' % view.parameter['leftRightR']}",
+            'transform': "${python:'rotate(%sdeg)' % (3.6*int(view.parameter['rotateR']))}",
+            'width': ${python:view.parameter['zoomR']} + '%'
         });
-    } else{
+
+        $( '#previewimgL' ).attr('src', "${python:view.parameter['cusImgL']}")
         $( '#previewimgL' ).css({
-            'top': vm.upDownL + '%',
-            'left': vm.leftRightL + '%',
-            'transform': 'rotate(' + vm.rotateL*3.6 + 'deg)',
-            'width': vm.zoomL + '%'
+            'display':'initial',
+            'position': 'absolute',
+            'top': "${python:'%s%%' % view.parameter['upDownL']}",
+            'left': "${python:'%s%%' % view.parameter['leftRightL']}",
+            'transform': "${python:'rotate(%sdeg)' % (3.6*int(view.parameter['rotateL']))}",
+            'width': ${python:view.parameter['zoomL']} + '%'
         });
-    }
 });
 
 // 左邊雷雕
 var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
     imageElemL = document.getElementById('textImageLeft');
+
+
 document.getElementById('laser-text-l').addEventListener('keyup', function (){
     tCtxL.canvas.width = 250;
     tCtxL.font = "30px Arial";
@@ -466,8 +356,6 @@ $( document ).ready(function() {
 
 </script>
 
-</div>
-</div>
 
 </metal:content-core>
 </metal:content-core>
