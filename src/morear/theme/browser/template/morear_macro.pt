@@ -902,7 +902,7 @@ from math import ceil
         ${python:'%s / %s' % ((s/10)+1, (len(items)/10)+1)}
        </td>
        <td align="center" width="15">
-        <a href="${context/absolute_url}?s=${python:s+10}">
+        <a href="${context/absolute_url}?s=${python:s+10}" tal:condition="python:(s+10) < len(items)">
          ＞
         </a>
        </td>
