@@ -59,11 +59,39 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     <tal:key define="key python:order">
         <td align="center" bgcolor="#2E2E2E">${repeat/order/number}</td>
         <td align="center" bgcolor="#2E2E2E">${python:view.items[key][0]['date'].strftime('%Y/%m/%d')}</td>
-        <td align="center" bgcolor="#2E2E2E">${key}</td>
-        <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['itemNames'][:-1]}</td> 
+        <td align="center" bgcolor="#2E2E2E"><a class="orderinfo" href="#${python:'infobox_%s' % order}">${key}</a></td>
+        <td align="center" bgcolor="#2E2E2E"><a class="orderinfo" href="#${python:'infobox_%s' % order}">${python:view.orderInfo[key]['itemNames'][:-1]}</a></td> 
         <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['total']}</td>
         <td align="center" bgcolor="#2E2E2E">待付款</td>
         <td align="center" bgcolor="#2E2E2E"><a href="mailto:me@morear.tw" class="whiteline-link">聯絡客服</a></td>
+
+<div style="display:none">
+    <div id="${python:'infobox_%s' % order}" tal:define="orderInfo python:view.getOrder(order)">
+        <ul>
+          <li>訂單編號: ${order}</li>
+          <li>訂單項目
+              <ul>
+                <tal:item tal:repeat="orderItem orderInfo">
+                  <li tal:define="itemUID python:orderItem[1];
+                                  itemObj python:api.content.find(UID=itemUID)[0]">
+                    品名:${itemObj/Title}
+                     <a href="${itemObj/getURL}/@@re_show_option" target="_blank" tal:condition="python:itemObj.pType != 'normal'">(詳細客製內容)</a>
+                    / 數量:${python:orderItem[2]} / 單價:${python:orderItem[3]}
+                  </li>
+                </tal:item>
+              </ul>
+          </li>
+
+        </ul>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+//        $(".home").colorbox();
+        $(".orderinfo").colorbox({inline:true, width:"50%"});
+    })
+</script>
+
     </tal:key>
   </tr>
 </tbody></table>
@@ -79,19 +107,15 @@ $('#resetbottom').click(function(){
 })
 
 function showcol(){
-// $('.orderquery').change(function(){
      orderNo = $('#orderquery').val()
      if(!orderNo){
          $('.order-list').show('slow')
          return
      }
-     $('.order-list').hide('slow')
-     $('#' + orderNo).show('slow')
-// })
+     $('.order-list').hide(1)
+     $('[id^=' + orderNo + ']').show(1)
 }
 </script>
-
-
 
 </div>
     <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
