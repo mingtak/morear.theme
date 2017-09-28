@@ -130,6 +130,44 @@ $('tr.ep_colorL td img').click(function() {
     vm.total();
 });
 
+// 左邊雷雕
+var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
+    imageElemL = document.getElementById('textImageLeft');
+document.getElementById('laser-text-l').addEventListener('keyup', function (){
+    tCtxL.canvas.width = 250;
+    tCtxL.font = "30px Arial";
+    tCtxL.fillStyle = 'red';
+    tCtxL.textAlign = "center";
+    tCtxL.fillText(this.value, 160, 50);
+    imageElemL.src = tCtxL.canvas.toDataURL();
+//    console.log(imageElemL.src);
+    $("#textImageLeft").css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
+}, false);
+
+// 右邊雷雕
+var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
+    imageElemR = document.getElementById('textImageRight');
+document.getElementById('laser-text-r').addEventListener('keyup', function (){
+    tCtxR.canvas.width = 250;
+    tCtxR.font = "30px Arial";
+    tCtxR.fillStyle = 'red';
+    tCtxR.textAlign = "center";
+    tCtxR.fillText(this.value, 80, 50);
+    imageElemR.src = tCtxR.canvas.toDataURL();
+//    console.log(imageElemR.src);
+    $("#textImageRight").css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
+}, false);
+
 </script>
 
 
@@ -328,6 +366,10 @@ $(".option-bar").change(function(){
     }
 });
 
+
+
+
+
 // 左邊雷雕
 var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
     imageElemL = document.getElementById('textImageLeft');
@@ -365,10 +407,6 @@ document.getElementById('laser-text-r').addEventListener('keyup', function (){
                 'left': '0%',
     });
 }, false);
-
-
-
-
 
 </script>
 

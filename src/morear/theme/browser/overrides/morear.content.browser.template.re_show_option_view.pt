@@ -22,8 +22,8 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 
 
-<div id="buy-photo" style="margin: 0 auto; float:initial">
-<div id="product-full-image" style="float:left; width:100%">
+<div id="buy-photo" style="margin: 0 auto; float:initial" tal:switch="context/pType">
+  <div id="product-full-image" style="float:left; width:100%" tal:case="string:headphone">
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
@@ -46,100 +46,93 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
         <canvas id='textCanvasRight' style="display:none"></canvas>
         <img id='textImageRight' style="display:none">
     </div>
-</div>
+  </div>
+
+  <div id="product-full-image" style="float:left; width:100%" tal:case="string:earplugs">
+    <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
+        <img src="${context/absolute_url}/@@images/ep_bgImage_left/large">
+        <img class="ep_colorLImage" src="#" alt="圖層:耳塞顏色 左" style="display:none"/>
+        <canvas id='textCanvasLeft' style="display:none"></canvas>
+        <img id='textImageLeft' style="display:none">
+    </div>
+
+    <div id="buy-photo-right"
+         style="position: relative; overflow: hidden; max-width:100%">
+        <img src="${context/absolute_url}/@@images/ep_bgImage_right/large">
+        <img class="ep_colorRImage" src="#" alt="圖層:耳塞顏色 右" style="display:none"/>
+        <canvas id='textCanvasRight' style="display:none"></canvas>
+        <img id='textImageRight' style="display:none">
+    </div>
+  </div>
+
 <div id="share-01">
   <a target="_blank" href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
   <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
   <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
 </div>
 </div>
-<!--
-<div tal:content="view/parameter" style="color:#fff"></div>
--->
+
 <script tal:condition="python:context.pType == 'earplugs'">
-// 耳塞參數
-var vm = new Vue({
-  el: '#content',
-  data: {
-    message: 'Hello Vue!',
-
-    sNumber: '${context/snPrefix}',
-    productName: '${context/UID}',
-    basePrice: ${context/basePrice},
-    ep_material: '${python:context.ep_material[0].to_object.UID()}',
-    ep_materialPrice: ${python:context.ep_material[0].to_object.price},
-    ep_typeNo: '${python:context.ep_typeNo[0].to_object.UID()}',
-    ep_typeNoPrice: ${python:context.ep_typeNo[0].to_object.price},
-    ep_colorR: '${python:context.ep_colorR[0].to_object.UID()}',
-    ep_colorRPrice: ${python:context.ep_colorR[0].to_object.price},
-    ep_colorL: '${python:context.ep_colorL[0].to_object.UID()}',
-    ep_colorLPrice: ${python:context.ep_colorL[0].to_object.price},
-    ep_colorPrice: ${python:context.ep_colorR[0].to_object.price + context.ep_colorL[0].to_object.price},
-
-    laserTextR: '',
-    laserTextL: '',
-    laserPriceR: 0,
-    laserPriceL: 0,
-
-    extSer: '',
-    earplugsAmount: 1,
-    totalSum: 0
-  },
-
-  methods: {
-    total: function () {
-        vm.totalSum = vm.earplugsAmount * ( vm.basePrice + vm.ep_materialPrice + vm.ep_typeNoPrice + vm.ep_colorRPrice + vm.ep_colorLPrice + vm.laserPriceR + vm.laserPriceL )
-    }
-  }
-
-});
-
-// 改變數量
-$('#earplugs-amount').change(function() {
-    vm.total();
-});
-
-// 改變材質
-$('#ep_material').change(function() {
-    vm.ep_materialPrice = Number($(this).find(":selected").data('price'));
-    vm.ep_material = $(this).find(":selected").val();
-    vm.total();
-});
-
-// 改變型號
-$('#ep_typeNo').change(function() {
-    vm.ep_typeNoPrice = Number($(this).find(":selected").data('price'));
-    vm.ep_typeNo = $(this).find(":selected").val();
-    vm.total();
-});
 
 // 改變 earplugs R 顏色
-$('tr.ep_colorR td img').click(function() {
-    clickItem($(this));
-    vm.ep_colorRPrice = Number($(this).data('price'));
-    vm.ep_colorR = $(this).data("image-uid");
-    $(".ep_colorRImage").attr('src', $(this).data('image-url')).css({
+$(document).ready(function() {
+    $(".ep_colorRImage").attr('src', '${python:api.content.find(UID=view.parameter['ep_colorR'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
-});
 
 // 改變 earplugs L 顏色
-$('tr.ep_colorL td img').click(function() {
-    clickItem($(this));
-    vm.ep_colorLPrice = Number($(this).data('price'));
-    vm.ep_colorL = $(this).data("image-uid");
-    $(".ep_colorLImage").attr('src', $(this).data('image-url')).css({
+    $(".ep_colorLImage").attr('src', '${python:api.content.find(UID=view.parameter['ep_colorL'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
 });
+
+// 左邊雷雕
+$(document).ready(function() {
+var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
+    imageElemL = document.getElementById('textImageLeft');
+
+    tCtxL.canvas.width = 250;
+    tCtxL.font = "30px Arial";
+    tCtxL.fillStyle = 'red';
+    tCtxL.textAlign = "center";
+    tCtxL.fillText("${python:view.parameter['laserTextL']}", 160, 50);
+    imageElemL.src = tCtxL.canvas.toDataURL();
+//    console.log(imageElemL.src);
+    $("#textImageLeft").css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
+
+var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
+    imageElemR = document.getElementById('textImageRight');
+
+    tCtxR.canvas.width = 250;
+    tCtxR.font = "30px Arial";
+    tCtxR.fillStyle = 'red';
+    tCtxR.textAlign = "center";
+    tCtxR.fillText("${python:view.parameter['laserTextR']}", 80, 50);
+    imageElemR.src = tCtxR.canvas.toDataURL();
+//    console.log(imageElemR.src);
+    $("#textImageRight").css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '0%',
+    });
+
+
+
+});
+
+
 
 </script>
 

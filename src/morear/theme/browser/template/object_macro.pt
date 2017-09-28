@@ -465,7 +465,9 @@ from plone import api
 <div id="share-01">
   <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
   <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
-  <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a></div>
+  <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
+</div>
+
 </div>
 <!-- left end -->
 <!-- right -->
@@ -725,19 +727,25 @@ from plone import api
 <!-- left -->
 <div id="buy-photo">
 
+  <div id="product-full-image" style="float:left; width:100%">
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/ep_bgImage_left/large">
         <img class="ep_colorLImage" src="#" alt="圖層:耳塞顏色 左" style="display:none"/>
+        <canvas id='textCanvasLeft' style="display:none"></canvas>
+        <img id='textImageLeft' style="display:none">
     </div>
 
     <div id="buy-photo-right"
          style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/ep_bgImage_right/large">
         <img class="ep_colorRImage" src="#" alt="圖層:耳塞顏色 右" style="display:none"/>
+        <canvas id='textCanvasRight' style="display:none"></canvas>
+        <img id='textImageRight' style="display:none">
     </div>
+  </div>
 
 <div id="share-01">
-  <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
+  <a target="_blank" href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
   <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
   <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
 </div>
