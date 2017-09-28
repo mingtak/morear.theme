@@ -22,7 +22,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 
 
-<div id="buy-photo">
+<div id="buy-photo" style="margin: 0 auto; float:initial">
 <div id="product-full-image" style="float:left; width:100%">
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
@@ -48,13 +48,14 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     </div>
 </div>
 <div id="share-01">
-  <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
+  <a target="_blank" href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
   <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
   <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
 </div>
 </div>
-
+<!--
 <div tal:content="view/parameter" style="color:#fff"></div>
+-->
 <script tal:condition="python:context.pType == 'earplugs'">
 // 耳塞參數
 var vm = new Vue({
@@ -144,7 +145,6 @@ $('tr.ep_colorL td img').click(function() {
 
 
 <script tal:condition="python:context.pType == 'headphone'">
-
 // 改變logo顏色
 $(document).ready(function() {
     clickItem($(this));
@@ -155,7 +155,6 @@ $(document).ready(function() {
                 'left': '0%',
     });
 });
-
 
 // 改變耳機線顏色
 $(document).ready(function() {
@@ -217,16 +216,15 @@ $(document).ready(function() {
 });
 
 // 左邊雷雕
+$(document).ready(function() {
 var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
     imageElemL = document.getElementById('textImageLeft');
 
-
-document.getElementById('laser-text-l').addEventListener('keyup', function (){
     tCtxL.canvas.width = 250;
     tCtxL.font = "30px Arial";
     tCtxL.fillStyle = 'red';
     tCtxL.textAlign = "center";
-    tCtxL.fillText(this.value, 160, 50);
+    tCtxL.fillText("${python:view.parameter['laserTextL']}", 160, 50);
     imageElemL.src = tCtxL.canvas.toDataURL();
 //    console.log(imageElemL.src);
     $("#textImageLeft").css({
@@ -235,17 +233,18 @@ document.getElementById('laser-text-l').addEventListener('keyup', function (){
                 'top': '50%',
                 'left': '0%',
     });
-}, false);
+});
 
 // 右邊雷雕
+$(document).ready(function() {
 var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
     imageElemR = document.getElementById('textImageRight');
-document.getElementById('laser-text-r').addEventListener('keyup', function (){
+
     tCtxR.canvas.width = 250;
     tCtxR.font = "30px Arial";
     tCtxR.fillStyle = 'red';
     tCtxR.textAlign = "center";
-    tCtxR.fillText(this.value, 80, 50);
+    tCtxR.fillText("${python:view.parameter['laserTextR']}", 80, 50);
     imageElemR.src = tCtxR.canvas.toDataURL();
 //    console.log(imageElemR.src);
     $("#textImageRight").css({
@@ -254,11 +253,8 @@ document.getElementById('laser-text-r').addEventListener('keyup', function (){
                 'top': '50%',
                 'left': '0%',
     });
-}, false);
 
-
-
-
+});
 
 </script>
 
