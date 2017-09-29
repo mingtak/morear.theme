@@ -126,7 +126,7 @@ if ytURL:
         <li tal:condition="python:bool(getattr(context, slide[0], False))">
           <a href="${python:getattr(context, slide[1], 'javascript:void(0)')}">
               <div style="max-height:670px; overflow:hidden">
-                  <img src="${context/absolute_url}/@@images/${python:slide[0]}/bigImage" />
+                  <img src="${context/absolute_url}/@@images/${python:slide[0]}" />
               </div>
           </a>
         </li>
@@ -207,7 +207,7 @@ bigImgList = ['bigImage_1', 'bigImage_2', 'bigImage_3', 'bigImage_4', 'bigImage_
   <!-- InstanceBeginEditable name="ad" -->
     <tal:item repeat="item bigImgList">
         <div style="max-height:958px; overflow:hidden" tal:condition="python:getattr(context, item, False)">
-            <img tal:attributes="src string:${context/absolute_url}/@@images/${item}/bigImage" />
+            <img tal:attributes="src string:${context/absolute_url}/@@images/${item}" />
         </div>
     </tal:item>
 </div>
@@ -270,7 +270,7 @@ if ytURL:
       <div class="lightbox-target" id="image_1" tal:condition="context/image_1">
        <div class="content">
         <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_1/bigImage"/>
+         <img tal:attributes="src string:${context/absolute_url}/@@images/image_1"/>
         </div>
        </div>
        <a class="lightbox-close" href="#notice01">
@@ -279,7 +279,7 @@ if ytURL:
       <div class="lightbox-target" id="image_2" tal:condition="context/image_2">
        <div class="content">
         <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_2/bigImage"/>
+         <img tal:attributes="src string:${context/absolute_url}/@@images/image_2"/>
         </div>
        </div>
        <a class="lightbox-close" href="#notice01">
@@ -288,7 +288,7 @@ if ytURL:
       <div class="lightbox-target" id="image_3" tal:condition="context/image_3">
        <div class="content">
         <div id="pro-s-pic">
-         <img tal:attributes="src string:${context/absolute_url}/@@images/image_3/bigImage"/>
+         <img tal:attributes="src string:${context/absolute_url}/@@images/image_3"/>
         </div>
        </div>
        <a class="lightbox-close" href="#notice01">
