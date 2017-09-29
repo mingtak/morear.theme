@@ -41,27 +41,38 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 
 
 <script>
-			$(document).ready(function(){
-				//Examples of how to assign the Colorbox event to elements
-				$(".group1").colorbox({rel:'group1'});
-				$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
-				$(".callbacks").colorbox({
-					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
-					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
-					onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
-					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
-					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
-				});
+$(document).ready(function(){
+  //Examples of how to assign the Colorbox event to elements
+  $(".group1").colorbox({rel:'group1'});
+  $(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+  $(".callbacks").colorbox({
+    onOpen:function(){ alert('onOpen: colorbox is about to open'); },
+    onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
+    onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
+    onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
+    onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
+  });
 
-				$('.non-retina').colorbox({rel:'group5', transition:'none'})
-				$('.retina').colorbox({rel:'group5', transition:'none', retinaImage:true, retinaUrl:true});
-				
-				//Example of preserving a JavaScript event for inline calls.
-				$("#click").click(function(){ 
-					$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-					return false;
-				});
-			});
+  $('.non-retina').colorbox({rel:'group5', transition:'none'})
+  $('.retina').colorbox({rel:'group5', transition:'none', retinaImage:true, retinaUrl:true});
+  //Example of preserving a JavaScript event for inline calls.
+  $("#click").click(function(){ 
+    $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+    return false;
+  });
+
+  // 下載客製化圖片(通用)
+  $('#download-custom-image').click(function() {
+      html2canvas($('#product-full-image'), {
+          onrendered: function(canvas) {
+              theCanvas = canvas;
+              canvas.toBlob(function(blob) {
+                  saveAs(blob, "output.png");
+              });
+          }
+      });
+  });
+});
 </script>
 
 </div>

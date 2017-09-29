@@ -322,7 +322,14 @@ if ytURL:
       <!-- InstanceBeginEditable name="content" -->
       <!-- top -->
       <div id="product-photo" tal:condition="context/mainImage">
-       <img tal:attributes="src string:${context/absolute_url}/@@images/mainImage/large"/>
+         <div id="product-full-image">
+           <img tal:attributes="src string:${context/absolute_url}/@@images/mainImage/large"/>
+         </div>
+<div id="share-01">
+  <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">Facebook分享</a> ｜
+  <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">Line分享</a> ｜ 
+  <a href="javascript:void(0)" id="download-custom-image">儲存圖檔</a>
+</div>
       </div>
       <div id="product-list-01" tal:condition="context/aboveText">
           <div tal:replace="structure context/aboveText/raw" />
@@ -339,21 +346,6 @@ if ytURL:
                   <img src="${prefix}content/product/images/btn-01.png" id="Image17" />
               </a>
           </p>
-      </div>
-      <div id="share">
-       <div id="share-s">
-        <a href="#">
-         Facebook分享
-        </a>
-        ｜
-        <a href="#">
-         Line分享
-        </a>
-        ｜
-        <a href="#">
-         儲存圖檔
-        </a>
-       </div>
       </div>
       <!-- top end -->
       <!-- down -->
