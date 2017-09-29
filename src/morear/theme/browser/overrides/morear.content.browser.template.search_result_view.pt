@@ -29,9 +29,10 @@ s = int(request.form.get('s', 0))
 
   <div id="content">
    <!-- InstanceBeginEditable name="content" -->
-   <div id="search">
-    <ul>
-     <li tal:repeat="item python:items[s:s+10]">
+   <div id="search" tal:switch="python:list(items)">
+    <h2 tal:case="python:[]" style='color:#fff'>很抱歉，查詢無結果！</h2>
+    <ul tal:case="default">
+     <li tal:repeat="item python:items[s:s+10]" tal:condition="python:items is not None">
        <h4><a href="${item/getURL}">${item/Title}</a></h4>
        <p><a href="${item/getURL}">${item/getURL}</a></p>
        <p><a href="${item/getURL}">${item/Description}</a></p>
@@ -39,7 +40,10 @@ s = int(request.form.get('s', 0))
     </ul>
    </div>
 
-
+<!-- 分頁 begin -->
+<?python
+from math import ceil
+?>
 
    <div id="page">
     <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">
@@ -56,10 +60,10 @@ s = int(request.form.get('s', 0))
         </a>
        </td>
        <td align="center" width="80">
-        ${python:'%s / %s' % (s+1, s+10)}
+        ${python:'%s / %s' % ((s/10)+1, (len(items)/10)+1)}
        </td>
        <td align="center" width="15">
-        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:s+10}">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:s+10}" tal:condition="python:(s+10) < len(items)">
          ＞
         </a>
        </td>
@@ -71,7 +75,7 @@ s = int(request.form.get('s', 0))
        <td>
         <label for="select">
         </label>
-        <select id="select" name="select">
+        <select id="page-select" name="select">
          <option value="-1">
           請選擇
          </option>
@@ -84,6 +88,28 @@ s = int(request.form.get('s', 0))
      </tbody>
     </table>
    </div>
+<script>
+var vm = new Vue({
+  el: '#content',
+
+  data: {
+    pages: -1,
+  },
+});
+
+//jQuery
+$( document ).ready(function() {
+    $( "select" ).change(function() {
+        vm.pages=Number($("select option:selected").attr('value'));
+        if(vm.pages >= 0){
+            window.location = "${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=" + vm.pages*10;
+        };
+    })
+});
+</script>
+
+<!-- 分頁 end -->
+
    <!-- InstanceEndEditable -->
   </div>
 
@@ -93,40 +119,6 @@ s = int(request.form.get('s', 0))
     <metal:macro use-macro="context/@@morear_macro/macros/footer"/>
    </div>
   </div>
-
-<script>
-var vm = new Vue({
-  el: '#content',
-
-  data: {
-    pages: -1,
-  },
-/*
-  methods: {
-    test: function () {
-      alert('hello vue!!');
-    }
-  },
-*/
-});
-
-
-//jQuery
-$( document ).ready(function() {
-
-    $( "select" ).change(function() {
-        vm.pages=Number($("select option:selected").attr('value'));
-        if(vm.pages >= 0){
-            window.location = "${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=" + vm.pages*10;
-        };
-    })
-
-
-});
-
-</script>
-
-
 
 
 </metal:block>
