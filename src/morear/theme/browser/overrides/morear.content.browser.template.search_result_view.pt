@@ -50,27 +50,31 @@ from math import ceil
      <tbody>
       <tr>
        <td align="center" width="50">
-        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}" tal:condition="python:(s-10)>=0">
          第1頁
         </a>
+        <span tal:condition="python:(s-10)<0"> 第1頁 </span>
        </td>
        <td align="center" width="15">
-        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:0 if s<10 else s-10}">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:0 if s<10 else s-10}" tal:condition="python:(s-10)>=0">
          ＜
         </a>
+        <span tal:condition="python:(s-10)<0"> ＜ </span>
        </td>
        <td align="center" width="80">
         ${python:'%s / %s' % ((s/10)+1, (len(items)/10)+1)}
        </td>
        <td align="center" width="15">
-        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:s+10}" tal:condition="python:(s+10) < len(items)">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:s+10}" tal:condition="python:(s+10) < len(items)" tal:condition="python:(s+10)<len(items)">
          ＞
         </a>
+        <span tal:condition="python:(s+10)>=len(items)"> ＞ </span>
        </td>
        <td align="center" width="50">
-        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:len(items)-10}">
+        <a href="${context/absolute_url}/@@search_result_view?keyword=${view/keyword}&s=${python:len(items)-10}" tal:condition="python:(s+10)<len(items)">
          最末頁
         </a>
+        <span tal:condition="python:(s+10)>=len(items)"> 最末頁 </span>
        </td>
        <td>
         <label for="select">

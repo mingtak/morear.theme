@@ -878,38 +878,41 @@ $( "#select3" ).change(function() {
 
 </metal:row>
 
-<metal:row define-macro="page-list">
 
+<metal:row define-macro="page-list">
 <?python
 from math import ceil
 ?>
-
    <div id="page">
     <table align="right" border="0" cellpadding="0" cellspacing="0" width="300">
      <tbody>
       <tr>
        <td align="center" width="50">
-        <a href="${context/absolute_url}">
+        <a href="${context/absolute_url}" tal:condition="python:(s-10)>=0">
          第1頁
         </a>
+        <span tal:condition="python:(s-10)<0"> 第1頁 </span>
        </td>
        <td align="center" width="15">
-        <a href="${context/absolute_url}?s=${python:0 if s<10 else s-10}">
+        <a href="${context/absolute_url}?s=${python:0 if s<10 else s-10}" tal:condition="python:(s-10)>=0">
          ＜
         </a>
+        <span tal:condition="python:(s-10)<0"> ＜ </span>
        </td>
        <td align="center" width="80">
         ${python:'%s / %s' % ((s/10)+1, (len(items)/10)+1)}
        </td>
        <td align="center" width="15">
-        <a href="${context/absolute_url}?s=${python:s+10}" tal:condition="python:(s+10) < len(items)">
+        <a href="${context/absolute_url}?s=${python:s+10}" tal:condition="python:(s+10) < len(items)" tal:condition="python:(s+10)<len(items)">
          ＞
         </a>
+        <span tal:condition="python:(s+10)>=len(items)"> ＞ </span>
        </td>
        <td align="center" width="50">
-        <a href="${context/absolute_url}?s=${python:len(items)-10}">
+        <a href="${context/absolute_url}?s=${python:len(items)-10}" tal:condition="python:(s+10)<len(items)">
          最末頁
         </a>
+        <span tal:condition="python:(s+10)>=len(items)"> 最末頁 </span>
        </td>
        <td>
         <label for="select">
