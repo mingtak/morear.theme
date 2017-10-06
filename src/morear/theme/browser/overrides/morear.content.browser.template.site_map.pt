@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+﻿<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
@@ -35,7 +35,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <div class="map-item"><a href="${portal/absolute_url}/@@shopping_cart">2.購物車</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/3d-fit">3.3D FIT科技</a></div>
 <div class="map-item">
-<a href="javascript:void(0)">4.Morear產品</a>
+4.Morear產品
 <ul>
 <li>
 <a href="${portal/absolute_url}/products/music">音樂耳機</a>
@@ -71,25 +71,26 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 </ul>
 </div>
 <div class="map-item">
-<a href="${portal/absolute_url}">5.購買Morear</a>
+5.購買Morear
 <ul>
 <li><a href="${portal/absolute_url}/products/music/products-2/music-2/@@product_option_view">設計音樂耳機</a></li>
 <li><a href="${portal/absolute_url}/products/protect/earplugs1/protect-1/@@product_option_view">設計客製耳塞</a></li>
 </ul>
 </div>
 <div class="map-item">
-<a href="${portal/absolute_url}">6.支援服務</a>
+6.支援服務
 <ul>
 <li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
 <li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
+<li><a href="${portal/absolute_url}/download">檔案下載</a></li>
 </ul>
 </div>
 <div class="map-item"><a href="${portal/absolute_url}/faq">7.常見問題</a></div>
 <div class="map-item">
-<a href="javascript:void(0)">8.會員中心</a>
+8.會員中心
 <ul>
 <li>
-<a href="${portal/absolute_url}/members/@@member_order_list">交易紀錄</a>
+<a href="${portal/absolute_url}/members/@@member_order_list">消費管理</a>
 <!--<ol>
 <li><a href="${portal/absolute_url}">訂單查詢</a></li>
 </ol>-->
@@ -104,11 +105,11 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 </li>
 </ul>
 </div>
-<div class="map-item"><a href="javascript:void(0)">9.最新活動</a></div>
+<div class="map-item" style="clear:both;"><a href="javascript:void(0)">9.最新活動</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/news">10.最新消息</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/about">11.3D Lab介紹</a></div>
 <div class="map-item">
-<a href="javascript:void(0)">12.音樂饗宴</a>
+12.音樂饗宴
 <ul>
 <li><a href="${portal/absolute_url}/#notice" onclick="MM_showHideLayers('info','','show')">線上音樂聽</a></li>
 <li><a href="${portal/absolute_url}/musicman">音樂達人</a></li>
@@ -119,11 +120,11 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <div class="map-item"><a href="${portal/absolute_url}/about">13.品牌故事</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/about">14.3D製程</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/news">15.新聞資訊</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/article/coworker">16.工作機會</a></div>
+<div class="map-item"><a href="https://goo.gl/7ba1jF" target="_blank">16.工作機會</a></div>
 <div class="map-item"><a href="javascript:void(0)">17.合作夥伴</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/article/terms_of_use">18.使用條款</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/article/terms_of_use">18.服務條款</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/article/privacy">19.隱私政策</a></div>
-<div class="map-item"><a href="mailto:service.morear.com.tw">20.聯絡我們</a></div>
+<div class="map-item"><a href="mailto:me@morear.tw">20.聯絡我們</a></div>
 <!-- InstanceEndEditable -->
 </div>
 
