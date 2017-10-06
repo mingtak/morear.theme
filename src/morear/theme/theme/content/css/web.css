@@ -656,17 +656,20 @@ a:hover {
 	margin:0 1.5% 0 1.5%;
 }
 */
+/*1002*/
 #footer-w2{
-	width:25%;
-	float:right;
-	margin:20px 2% 2% 0;
+	width:30%;
+	clear:both;
+	float:left;
+	margin:20px auto 20px 40%;
 }
 #footer-w2 li{
 	list-style-type:none;
-	width:28%;
+	width:27%;
 	float:left;
-	margin:0 2.5% 0 2.5%;
+	margin:0 3% 0 3%;
 }
+/*1002 end*/
 #footer-w2 li img{
 	width:100%;
 }
