@@ -436,7 +436,7 @@ from plone import api
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
         <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
         <img class="surface-color-image-l" src="#" alt="圖層:面板顏色 左" style="display:none"/>
-        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img class="logo-color-image-l" src="#" alt="圖層:Logo顏色" style="display:none"/>
         <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none"/>
         <canvas id='textCanvasLeft' style="display:none"></canvas>
         <img id='textImageLeft' style="display:none">
@@ -448,7 +448,7 @@ from plone import api
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
         <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
         <img class="surface-color-image-r" src="#" alt="圖層:面板顏色 右" style="display:none"/>
-        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img class="logo-color-image-r" src="#" alt="圖層:Logo顏色" style="display:none"/>
         <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
         <canvas id='textCanvasRight' style="display:none"></canvas>
         <img id='textImageRight' style="display:none">
@@ -588,19 +588,10 @@ from plone import api
         ${string:${{laserPriceL}}}
     </td>
   </tr>
-  <tr>
-    <td>Logo：</td>
-    <td><select name="select4" id="select4" style="width:100%;">
-      <option>morear</option>
-    </select></td>
-    <td align="center" class="word-gray-2">
-        ${string:${{logoPrice}}}
-    </td>
-  </tr>
-  <tr id="logo-color">
-    <td>Logo顏色：</td>
+  <tr id="logo-color-r">
+    <td>Logo(右)：</td>
     <td>
-        <img tal:repeat="item context/logoColor"
+        <img tal:repeat="item context/logoColorR"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
                              data-title item/to_object/title;
@@ -611,9 +602,29 @@ from plone import api
     </td>
 
     <td align="center" class="word-gray-2">
-        ${string:${{logoColorPrice}}}
+        ${string:${{logoColorPriceR}}}
     </td>
   </tr>
+
+  <tr id="logo-color-l">
+    <td>Logo(左)：</td>
+    <td>
+        <img tal:repeat="item context/logoColorL"
+             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
+                             title item/to_object/showName;
+                             data-title item/to_object/title;
+                             data-price item/to_object/price;
+                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
+                             data-image-uid item/to_object/UID;
+                             class python:'selected' if repeat['item'].start else None">
+    </td>
+    <td align="center" class="word-gray-2">
+        ${string:${{logoColorPriceL}}}
+    </td>
+  </tr>
+
+
+
 
   <tr>
 <input type="hidden" class="slider-input" value="23" />
