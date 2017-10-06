@@ -130,43 +130,6 @@ $('tr.ep_colorL td img').click(function() {
     vm.total();
 });
 
-// 左邊雷雕
-var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
-    imageElemL = document.getElementById('textImageLeft');
-document.getElementById('laser-text-l').addEventListener('keyup', function (){
-    tCtxL.canvas.width = 250;
-    tCtxL.font = "30px Arial";
-    tCtxL.fillStyle = 'red';
-    tCtxL.textAlign = "center";
-    tCtxL.fillText(this.value, 160, 50);
-    imageElemL.src = tCtxL.canvas.toDataURL();
-//    console.log(imageElemL.src);
-    $("#textImageLeft").css({
-                'display':'initial',
-                'position': 'absolute',
-                'top': '50%',
-                'left': '0%',
-    });
-}, false);
-
-// 右邊雷雕
-var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
-    imageElemR = document.getElementById('textImageRight');
-document.getElementById('laser-text-r').addEventListener('keyup', function (){
-    tCtxR.canvas.width = 250;
-    tCtxR.font = "30px Arial";
-    tCtxR.fillStyle = 'red';
-    tCtxR.textAlign = "center";
-    tCtxR.fillText(this.value, 80, 50);
-    imageElemR.src = tCtxR.canvas.toDataURL();
-//    console.log(imageElemR.src);
-    $("#textImageRight").css({
-                'display':'initial',
-                'position': 'absolute',
-                'top': '50%',
-                'left': '0%',
-    });
-}, false);
 
 </script>
 
@@ -187,9 +150,10 @@ var vm = new Vue({
     lineColorPrice: ${python:context.lineColor[0].to_object.price},
     shell3D: '${python:context.shell3D[0].to_object.UID()}',
     shell3DPrice: ${python:context.shell3D[0].to_object.price},
-    logoPrice: 300,
-    logoColor: '${python:context.logoColor[0].to_object.UID()}',
-    logoColorPrice: ${python:context.logoColor[0].to_object.price},
+    logoColorL: '${python:context.logoColorL[0].to_object.UID()}',
+    logoColorPriceL: ${python:context.logoColorL[0].to_object.price},
+    logoColorR: '${python:context.logoColorR[0].to_object.UID()}',
+    logoColorPriceR: ${python:context.logoColorR[0].to_object.price},
     surfaceR: '${python:context.surfaceColorR[0].to_object.UID()}',
     surfaceL: '${python:context.surfaceColorL[0].to_object.UID()}',
     surfacePrice: ${python:context.surfaceColorR[0].to_object.price + context.surfaceColorL[0].to_object.price},
@@ -215,17 +179,31 @@ var vm = new Vue({
   },
   methods: {
     total: function () {
-        vm.totalSum = vm.basePrice + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoPrice + vm.logoColorPrice + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL;
+        vm.totalSum = vm.basePrice + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoColorPriceR + vm.logoColorPriceL + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL;
     }
   }
 });
 
-// 改變logo顏色
-$('#logo-color img').click(function() {
+// 改變logo-R
+$('#logo-color-r img').click(function() {
     clickItem($(this));
-    vm.logoColorPrice = Number($(this).data('price'));
-    vm.logoColor = $(this).data("image-uid");
-    $(".logo-color-image").attr('src', $(this).data('image-url')).css({
+    vm.logoColorPriceR = Number($(this).data('price'));
+    vm.logoColorR = $(this).data("image-uid");
+    $(".logo-color-image-r").attr('src', $(this).data('image-url')).css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    vm.total();
+});
+
+// 改變logo-L
+$('#logo-color-l img').click(function() {
+    clickItem($(this));
+    vm.logoColorPriceL = Number($(this).data('price'));
+    vm.logoColorL = $(this).data("image-uid");
+    $(".logo-color-image-l").attr('src', $(this).data('image-url')).css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',
@@ -366,47 +344,6 @@ $(".option-bar").change(function(){
     }
 });
 
-
-
-
-
-// 左邊雷雕
-var tCtxL = document.getElementById('textCanvasLeft').getContext('2d'),
-    imageElemL = document.getElementById('textImageLeft');
-document.getElementById('laser-text-l').addEventListener('keyup', function (){
-    tCtxL.canvas.width = 250;
-    tCtxL.font = "30px Arial";
-    tCtxL.fillStyle = 'red';
-    tCtxL.textAlign = "center";
-    tCtxL.fillText(this.value, 160, 50);
-    imageElemL.src = tCtxL.canvas.toDataURL();
-//    console.log(imageElemL.src);
-    $("#textImageLeft").css({
-                'display':'initial',
-                'position': 'absolute',
-                'top': '50%',
-                'left': '0%',
-    });
-}, false);
-
-// 右邊雷雕
-var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
-    imageElemR = document.getElementById('textImageRight');
-document.getElementById('laser-text-r').addEventListener('keyup', function (){
-    tCtxR.canvas.width = 250;
-    tCtxR.font = "30px Arial";
-    tCtxR.fillStyle = 'red';
-    tCtxR.textAlign = "center";
-    tCtxR.fillText(this.value, 80, 50);
-    imageElemR.src = tCtxR.canvas.toDataURL();
-//    console.log(imageElemR.src);
-    $("#textImageRight").css({
-                'display':'initial',
-                'position': 'absolute',
-                'top': '50%',
-                'left': '0%',
-    });
-}, false);
 
 </script>
 
