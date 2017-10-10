@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+request = portal.REQUEST
+loginResult = request.form.get('r', None)
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="member-list-04" style="margin-top:0;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="90">E-Mail帳號：</th>
+    <td><input name="email" type="email" id="email" style="width:100%;"></td>
+  </tr>
+  <tr>
+    <th valign="top" style="border-bottom:0;">輸入驗證碼：</th>
+    <td>
+      <div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"></div>
+    </td>
+  </tr>
+</tbody></table>
+</div>
+<div id="endbtn-bar">
+    <a href="javascript:void(0)" onmouseout="MM_swapImgRestore()" id="forget-pwd-submit"
+       onmouseover="MM_swapImage('Image14','','${prefix}/content/member/images/btn-07-b.png',1)">
+        <img src="${prefix}/content/member/images/btn-07.png" id="Image14">
+    </a>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+<!-- InstanceEndEditable -->
+
+
+<script>
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+
+
+$('#forget-pwd-submit').click(function(){
+    email = $('#email').val()
+    volidEmail = validateEmail(email)
+    if(!volidEmail){
+        alert('請輸入有效email格式');
+        $('#email').val('');
+        return
+    }
+
+    recaptcha = $("[name='g-recaptcha-response'").val()
+
+    data = {
+        'email': email,
+        'g-recaptcha-response': recaptcha
+    }
+
+    $.post("${context/absolute_url}/members/@@member_forget_pwd", data, function(data, status){
+    }).done(function(returnVal) {
+        if(returnVal == 'true'){
+            alert( "已送出修改密碼通知信件，請到您的信箱收取修改密碼通知." );
+        }else{
+            alert('發送郵件失敗，請重新輸入');
+        }
+        location.reload();
+    }).fail(function() {
+        alert( "連線失敗，您的密碼沒有變更，請稍候再試." );
+        location.reload();
+    })
+
+})
+
+
+
+</script>
+
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+
+</div>
+</div>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

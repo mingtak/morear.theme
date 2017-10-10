@@ -57,7 +57,7 @@ loginResult = request.form.get('r', None)
   </tr>
   <tr>
     <td colspan="2" align="center" style="border-bottom:0;">
-    <a href="member-02.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/member/images/btn-02-b.png',1)"><img src="${prefix}content/member/images/btn-02.png" id="Image16" hspace="15"></a>
+    <a href="${portal/absolute_url}/members/@@member_forget_pwd" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','${prefix}content/member/images/btn-02-b.png',1)"><img src="${prefix}content/member/images/btn-02.png" id="Image16" hspace="15"></a>
     <a href="${portal/absolute_url}/members/@@member_reg_accept_form" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','${prefix}content/member/images/btn-09.png',1)"><img src="${prefix}content/member/images/btn-09-b.png" id="Image20" hspace="15"></a></td>
     </tr>
 </tbody></table>

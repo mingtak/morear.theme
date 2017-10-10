@@ -200,7 +200,10 @@ body.template-default_error_message {
     padding: 5px;
 }
 
-.template-member_modify_pwd #content input, .user-update-form #content input, .user-update-form #content select {
+.template-member_forget_pwd #content input,
+.template-member_modify_pwd #content input,
+.user-update-form #content input,
+.user-update-form #content select {
     color: #FFF;
     background-color: #333;
     border: 1px #666666 solid;
