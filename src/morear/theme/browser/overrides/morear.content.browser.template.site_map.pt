@@ -105,11 +105,10 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 </li>
 </ul>
 </div>
-<div class="map-item" style="clear:both;"><a href="javascript:void(0)">9.最新活動</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/news">10.最新消息</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/about">11.3D Lab介紹</a></div>
+<div class="map-item" style="clear:both;"><a href="${portal/absolute_url}/news">9.最新消息</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/about">10.3D Lab介紹</a></div>
 <div class="map-item">
-12.音樂饗宴
+11.音樂饗宴
 <ul>
 <li><a href="${portal/absolute_url}/#notice" onclick="MM_showHideLayers('info','','show')">線上音樂聽</a></li>
 <li><a href="${portal/absolute_url}/musicman">音樂達人</a></li>
@@ -117,14 +116,14 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <li><a href="${portal/absolute_url}/links">友站連結</a></li>
 </ul>
 </div>
-<div class="map-item"><a href="${portal/absolute_url}/about">13.品牌故事</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/about">14.3D製程</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/news">15.新聞資訊</a></div>
-<div class="map-item"><a href="https://goo.gl/7ba1jF" target="_blank">16.工作機會</a></div>
-<div class="map-item"><a href="javascript:void(0)">17.合作夥伴</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/article/terms_of_use">18.服務條款</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/article/privacy">19.隱私政策</a></div>
-<div class="map-item"><a href="mailto:me@morear.tw">20.聯絡我們</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/about">12.品牌故事</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/about">13.3D製程</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/news">14.新聞資訊</a></div>
+<div class="map-item"><a href="https://goo.gl/7ba1jF" target="_blank">15.工作機會</a></div>
+<div class="map-item"><a href="javascript:void(0)">16.合作夥伴</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/article/terms_of_use">17.服務條款</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/article/privacy">18.隱私政策</a></div>
+<div class="map-item"><a href="mailto:me@morear.tw">19.聯絡我們</a></div>
 <!-- InstanceEndEditable -->
 </div>
 

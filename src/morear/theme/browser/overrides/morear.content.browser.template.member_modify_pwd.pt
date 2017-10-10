@@ -1,0 +1,171 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+request = portal.REQUEST
+loginResult = request.form.get('r', None)
+?>
+
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+
+
+<div id="content">
+<!-- InstanceBeginEditable name="content" -->
+<div id="member-list-04" style="margin-top:0;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <th width="100" valign="top">請輸入新密碼：</th>
+    <td><input name="password" type="password" id="password" style="width:100%;">
+      <br>
+      <span class="word-gray-2">請輸入英數字6碼以上並注意大小寫</span></td>
+  </tr>
+  <tr>
+    <th>密碼再確認：</th>
+    <td><input name="confirmPwd" type="password" id="confirmPwd" style="width:100%;">
+<br>
+    <span id="confirm-pwd-correct" style="color:#fff; display:none">密碼確認正確</span>
+    <span id="confirm-pwd-wrong" style="color:red; display:none">二次輸入不一致，請重新輸入</span>
+
+
+    </td>
+  </tr>
+  <tr>
+    <th valign="top" style="border-bottom:0;">輸入驗證碼：</th>
+    <td>
+      <div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"></div>
+    </td>
+  </tr>
+</tbody></table>
+</div>
+<div id="endbtn-bar">
+<a href="javascript:void(0)" onmouseout="MM_swapImgRestore()"
+   onmouseover="MM_swapImage('Image14','','${prefix}/content/member/images/btn-07-b.png',1)">
+    <img src="${prefix}/content/member/images/btn-07.png" name="Image14" id="modify-pwd-submit">
+</a>
+</div>
+<!-- InstanceEndEditable -->
+</div>
+
+
+<script>
+function checkVal( str ){
+    var regStr = /^[a-zA-Z]+$/;
+    var regExp = /^[\d|a-zA-Z]+$/;
+
+    return [regStr.test(str[0]), regExp.test(str)]
+};
+function comfirmPwd( str1, str2 ){
+    if(str1 == str2){
+        return true
+    }else{
+        return false
+    }
+};
+function checkPwdLen( str ){
+    if(str.length >= 6){
+        return true
+    }else{
+        return false
+    }
+};
+
+$('#password').change(function(){
+    if(! checkPwdLen($(this).val())){
+        alert('密碼長度不足，請輸入至少6位英數字')
+    }
+});
+
+$('#confirmPwd').change(function(){
+    if( comfirmPwd( $('#password').val(), $(this).val() ) ){
+        $('#confirm-pwd-correct').show('slow')
+        $('#confirm-pwd-wrong').hide('slow')
+    }else{
+        $('#confirm-pwd-correct').hide('slow')
+        $('#confirm-pwd-wrong').show('slow')
+        $('#password').val('')
+        $('#confirmPwd').val('')
+    }
+});
+
+$('#modify-pwd-submit').click(function(){
+    password = $('#password').val()
+    confirmPwd = $('#confirmPwd').val()
+    if(password.length < 6 || password != confirmPwd){
+        alert('密碼輸入錯誤，請確認密碼.')
+        return
+    }
+
+    recaptcha = $("[name='g-recaptcha-response'").val()
+    data = {
+        'password': password,
+        'g-recaptcha-response': recaptcha
+    }
+
+    $.post("${context/absolute_url}/@@member_modify_pwd", data, function(data, status){
+    }).done(function() {
+        alert( "密碼修改成功." );
+        location.reload();
+    }).fail(function() {
+        alert( "連線失敗，您的密碼沒有變更，請稍候再試." );
+        location.reload();
+    })
+
+
+
+})
+</script>
+
+
+
+
+    <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+</div>
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+
+
+</div>
+</div>
+
+
+<script tal:condition="loginResult">
+    $(document).ready(function(){
+        if('${loginResult}' == 'f'){
+            alert('登入失敗，請檢查帳號密碼')
+        }
+    });
+</script>
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

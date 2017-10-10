@@ -188,6 +188,13 @@ $('#confirmPwd').change(function(){
 
 $('#registried-id').change(function(){
     regId = $(this).val();
+
+    if(regId.startsWith("gg") || regId.startsWith("fb")){
+        alert('fb, gg 為系統保留字，請另選ID名稱.');
+        $(this).val('');
+        return
+    }
+
     if(regId.length < 5){
         alert('帳號長度需至少5個英文/數字');
         return
