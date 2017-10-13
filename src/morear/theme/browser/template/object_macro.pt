@@ -488,7 +488,7 @@ from plone import api
   <tr class="discount" tal:condition="python:context.discount < 100">
     <td>折扣商品：</td>
     <td>
-        <span tal:condition="python:context.discount < 100" tal:content="python:'產品基礎價格 %s 折' % context.discount"></span>
+        <span tal:condition="python:context.discount < 100" tal:content="python:'產品基礎價格 %s%% off' % (100-context.discount)"></span>
     </td>
     <td align="center" class="word-gray-2"></td>
   </tr>
@@ -812,6 +812,14 @@ from plone import api
     <td align="center" class="word-gray-2">$${context/basePrice}</td>
   </tr>
 
+  <tr class="discount" tal:condition="python:context.discount < 100">
+    <td>折扣商品：</td>
+    <td>
+        <span tal:condition="python:context.discount < 100" tal:content="python:'產品基礎價格 %s%% off' % (100-context.discount)"></span>
+    </td>
+    <td align="center" class="word-gray-2"></td>
+  </tr>
+
   <tr>
     <td>材　質：</td>
     <td>
@@ -891,20 +899,26 @@ ${string:${{ep_colorRPrice}}}
         ${string:${{laserPriceL}}}
     </td>
   </tr>
-<!--   <tr>
-    <td>數　量：</td>
-    <td>
-        <select name="earplugs-amount" id="earplugs-amount" style="width:100%;" v-model:value="earplugsAmount">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+
+  <tr>
+    <td>急　　件：</td>
+    <td tal:switch="python:template.filename.split('.')[-2]">
+        <span tal:condition="not:context/urgentCase">本產品不適用急件處理流程</span>
+        <select name="urgentCase" id="urgentCase" style="width:100%;" tal:case="string:product_option_view" tal:condition="context/urgentCase">
+            <option value="none" data-price="0" selected>一般件處理</option>
+            <option tal:repeat="item context/urgentCase"
+                    tal:attributes="value item/to_object/UID;
+                                    data-price item/to_object/price">${item/to_object/showName}
+            </option>
         </select>
+        <tal:case case="string:re_show_option_view">
+            <p tal:define="lineLength python:api.content.find(UID=view.parameter['lineLength'])[0]"
+               tal:replace="python:lineLength.getObject().showName"></p>
+        </tal:case>
     </td>
-    <td align="center" class="word-gray-2">&nbsp;</td>
+    <td align="center" class="word-gray-2">${string:${{urgentCasePrice}}}</td>
   </tr>
--->
+
 </tbody></table>
 <div id="buy-s-box-2">
 特殊需求：<br>

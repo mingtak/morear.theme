@@ -64,6 +64,9 @@ var vm = new Vue({
     ep_colorL: '${python:context.ep_colorL[0].to_object.UID()}',
     ep_colorLPrice: ${python:context.ep_colorL[0].to_object.price},
     ep_colorPrice: ${python:context.ep_colorR[0].to_object.price + context.ep_colorL[0].to_object.price},
+    urgentCase: 'none',
+    urgentCasePrice: 0,
+    discount: ${python:float(context.discount)/100},
 
     laserTextR: '',
     laserTextL: '',
@@ -77,7 +80,7 @@ var vm = new Vue({
 
   methods: {
     total: function () {
-        vm.totalSum = vm.earplugsAmount * ( vm.basePrice + vm.ep_materialPrice + vm.ep_typeNoPrice + vm.ep_colorRPrice + vm.ep_colorLPrice + vm.laserPriceR + vm.laserPriceL )
+        vm.totalSum = vm.earplugsAmount * ( (vm.basePrice * vm.discount) + vm.ep_materialPrice + vm.ep_typeNoPrice + vm.ep_colorRPrice + vm.ep_colorLPrice + vm.laserPriceR + vm.laserPriceL + vm.urgentCasePrice )
     }
   }
 
@@ -212,13 +215,6 @@ $('#logo-color-l img').click(function() {
                 'top': '0%',
                 'left': '0%',
     });
-    vm.total();
-});
-
-// 改變急件
-$('#urgentCase').change(function() {
-    vm.urgentCasePrice = Number($(this).find(":selected").data('price'));
-    vm.urgentCase = $(this).find(":selected").val();
     vm.total();
 });
 
@@ -358,12 +354,14 @@ $(".option-bar").change(function(){
 
 
 
-
-
-
-
-
 <script>
+// 改變急件(通用)
+$('#urgentCase').change(function() {
+    vm.urgentCasePrice = Number($(this).find(":selected").data('price'));
+    vm.urgentCase = $(this).find(":selected").val();
+    vm.total();
+});
+
 // 下載客製化圖片(通用)
 $('#download-custom-image').click(function() {
     html2canvas($('#product-full-image'), {
