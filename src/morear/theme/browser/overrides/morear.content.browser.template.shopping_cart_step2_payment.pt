@@ -65,20 +65,53 @@ citys=[
 <li><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <th width="70" valign="top">配送方式：</th>
-    <td><p>
-      <input type="checkbox" name="on-store" id="on-store" class="shipping-method">
-      <label for="checkbox2"></label>
-      門市取貨
-      <label for="select"></label>
-      <select name="selected-store" id="selected-store" style="display:none">
-        <tal:store repeat="item view/brain">
-            <option value="${item/UID}">${item/Title}</option>
-        </tal:store>
-      </select>
-    </p>
+    <td>
+
+      <p>
+        <input type="checkbox" name="on-partner" id="on-partner" class="shipping-method">
+        <label for="checkbox2"></label>
+        合作門市取貨
+        <label for="select"></label>
+
+
+<div id="selected-partner" style="display:none">
+        <select name="selected-city" id="selected-city" value="null">
+              <option value="null">請選擇縣市</option>
+              <option v-for="item in partnerCity">{{ item['id'] }}.{{ item['name'] }}</option>
+        </select>
+        <select name="selected-dist" id="selected-dist" value="null">
+              <option value="null">請選擇區域</option>
+              <option v-for="item in partnerDist">{{ item['id'] }}.{{ item['name'] }}</option>
+        </select>
+        <select name="selected-partner-store" id="selected-partner-store" value="null">
+              <option value="null">請選擇門市</option>
+              <option v-for="item in partnerStore">{{ item['id'] }}.{{ item['name'] }}: {{ item['address'] }}</option>
+        </select>
+
+
+</div>
+
+
+      </p>
+
+
+
+      <p>
+        <input type="checkbox" name="on-store" id="on-store" class="shipping-method">
+        <label for="checkbox2"></label>
+        門市取貨
+        <label for="select"></label>
+        <select name="selected-store" id="selected-store" style="display:none">
+          <tal:store repeat="item view/brain">
+              <option value="${item/UID}">${item/Title}</option>
+          </tal:store>
+        </select>
+      </p>
       <p>
         <input type="checkbox" name="on-door" id="on-door" class="shipping-method">
-        宅配到府</p></td>
+        宅配到府
+      </p>
+</td>
   </tr>
 </tbody></table>
 </li>
@@ -255,10 +288,60 @@ citys=[
 
 
 <script>
+var vm = new Vue({
+    el: '#content',
+    data: {
+        message: 'Parent',
+        partnerCity : null,
+        selectedCityId : null,
+        selectedCity : null,
+        partnerDistId : null,
+        partnerDist : null,
+        selectedDist : null,
+        partnerStore : null,
+        selectedPartnerStoreId : null,
+        selectedPartnerStore : null
+    }
+})
+
+$(document).ready(function(){
+    $.get( "${portal/absolute_url}/@@get_partner?city").done(function( data ){
+        vm.partnerCity =  jQuery.parseJSON( data )
+    })
+})
+
+$('#selected-city').change(function(){
+    vm.selectedCityId = $('#selected-city :selected').text().split(".")[0]
+    vm.selectedCity = $('#selected-city :selected').text().split(".")[1]
+    $.get( "${portal/absolute_url}/@@get_partner?cityId=" + vm.selectedCityId).done(function( data ){
+        vm.partnerDist =  jQuery.parseJSON( data )
+        vm.partnerStore = null,
+        $('#selected-dist').val('null')
+    })
+})
+
+$('#selected-dist').change(function(){
+    vm.selectedDistId = $('#selected-dist :selected').text().split(".")[0]
+    vm.selectedDist = $('#selected-dist :selected').text().split(".")[1]
+    $.get( "${portal/absolute_url}/@@get_partner?districtId=" + vm.selectedDistId).done(function( data ){
+        vm.partnerStore =  jQuery.parseJSON( data )
+        $('#selected-partner-store').val('null')
+    })
+})
+
+$('#selected-partner-store').change(function(){
+    if($('#selected-partner-store :selected').val() != 'null'){
+        vm.selectedPartnerStoreId = $('#selected-partner-store :selected').text().split(".")[0]
+        vm.selectedPartnerStore = $('#selected-partner-store :selected').text().split(".")[1]
+    }
+})
+
 $('#to-checkout').click(function(){
     data = {
+        on_partner : $('#on-partner').is(':checked'),
         on_store : $('#on-store').is(':checked'),
         on_door : $('#on-door').is(':checked'),
+        selected_partner_store : vm.selectedPartnerStore,
         selected_store : $('#selected-store option:selected').val(),
         morning : $('#morning').is(':checked'),
         afternoon : $('#afternoon').is(':checked'),
@@ -328,11 +411,24 @@ $('#invoice-same-buyer').on('click', function(){
     }
 });
 
+$('#on-partner').change(function(){
+    if( $("#on-partner").prop("checked") ){
+        $("#selected-partner").fadeIn('slow')
+        $("#selected-store").fadeOut('slow')
+        $('#receiver-info').fadeOut('slow')
+        $("#on-door").attr('checked', false)
+        $("#on-store").attr('checked', false)
+    }else{
+        $("#selected-partner").fadeOut('slow')
+    }
+});
 $('#on-store').change(function(){
     if( $("#on-store").prop("checked") ){
         $("#selected-store").fadeIn('slow')
+        $("#selected-partner").fadeOut('slow')
         $('#receiver-info').fadeOut('slow')
         $("#on-door").attr('checked', false)
+        $("#on-partner").attr('checked', false)
     }else{
         $("#selected-store").fadeOut('slow')
     }
@@ -340,8 +436,10 @@ $('#on-store').change(function(){
 $('#on-door').change(function(){
     if( $("#on-door").prop("checked") ){
         $('#receiver-info').fadeIn('slow')
+        $("#selected-partner").fadeOut('slow')
         $("#selected-store").fadeOut('slow')
         $("#on-store").attr('checked', false)
+        $("#on-partner").attr('checked', false)
     }else{
         $('#receiver-info').fadeOut('slow')
     }

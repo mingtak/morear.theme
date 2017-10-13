@@ -472,7 +472,7 @@ from plone import api
     <td width="60" align="center" class="word-gray-2" style="border-bottom:0"><tal:price condition="python:templateName.startswith('product')">價 格</tal:price></td>
   </tr>
   <tr>
-    <td>產　　品：</td>
+    <td>耳機型號：</td>
     <td tal:switch="python:templateName">
         <select name="select3" id="product-uid" name="product-uid" style="width:100%;" tal:case="string:product_option_view">
             <option tal:repeat="item view/headphoneList"
@@ -500,7 +500,7 @@ from plone import api
     <td align="center" class="word-gray-2"></td>
   </tr>
   <tr>
-    <td>耳機線長度：</td>
+    <td>耳機線材：</td>
     <td tal:switch="python:template.filename.split('.')[-2]">
         <select name="lineLength" id="lineLength" style="width:100%;" tal:case="string:product_option_view">
             <option tal:repeat="item context/lineLength"
@@ -517,24 +517,7 @@ from plone import api
     <td align="center" class="word-gray-2">${string:${{linePrice}}}</td>
   </tr>
   <tr>
-    <td>耳機線顏色：</td>
-    <td id="line-color">
-        <img tal:repeat="item context/lineColor"
-             tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
-                             title item/to_object/showName;
-                             data-price item/to_object/price;
-                             data-image-url string:${item/to_object/absolute_url}/@@images/image;
-                             data-image-uid item/to_object/UID;
-                             class python:'selected' if repeat['item'].start else None">
-    </td>
-
-    <td align="center" class="word-gray-2">
-        ${string:${{lineColorPrice}}}
-    </td>
-  </tr>
-
-  <tr>
-    <td>3D列印耳殼：</td>
+    <td>主體顏色：</td>
     <td id="shell-3d">
         <img tal:repeat="item context/shell3D"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
@@ -551,7 +534,7 @@ from plone import api
   </tr>
 
   <tr class="surfaceColor">
-    <td rowspan="2">面板顏色：</td>
+    <td rowspan="2">面板顏色/樣式：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span><br>
         <img tal:repeat="item context/surfaceColorR"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
@@ -579,10 +562,10 @@ from plone import api
     </td>
   </tr>
   <tr>
-    <td rowspan="2">雷　　雕：</td>
+    <td rowspan="2">刻　　字：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
       <label for="textfield2"></label>
-      <input name="textfield2" type="text" id="laser-text-r" placeholder="輸入字數限xx以內" style="width:85%;" v-model:value="laserTextR">
+      <input name="textfield2" type="text" id="laser-text-r" placeholder="輸入英/數字限6字以內(氣密箱)" style="width:85%;" v-model:value="laserTextR">
     </td>
     <td align="center" class="word-gray-2" style="border-bottom:0;">
         ${string:${{laserPriceR}}}
@@ -591,14 +574,14 @@ from plone import api
   <tr>
     <td><span class="word-gray-2">左邊：</span>
       <span style="border-bottom:0;">
-      <input name="textfield3" type="text" id="laser-text-l" placeholder="輸入字數限xx以內" style="width:85%;" v-model:value="laserTextL">
+      <input name="textfield3" type="text" id="laser-text-l" placeholder="輸入英/數字限6字以內(氣密箱)" style="width:85%;" v-model:value="laserTextL">
     </span></td>
     <td align="center" class="word-gray-2">
         ${string:${{laserPriceL}}}
     </td>
   </tr>
   <tr id="logo-color-r">
-    <td>Logo(右)：</td>
+    <td>Logo樣式(右)：</td>
     <td>
         <img tal:repeat="item context/logoColorR"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
@@ -616,7 +599,7 @@ from plone import api
   </tr>
 
   <tr id="logo-color-l">
-    <td>Logo(左)：</td>
+    <td>Logo樣式(左)：</td>
     <td>
         <img tal:repeat="item context/logoColorL"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
@@ -634,7 +617,7 @@ from plone import api
 
   <tr>
 <input type="hidden" class="slider-input" value="23" />
-    <td rowspan="2">客製圖案：</td>
+    <td rowspan="2">客製面板圖案：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
       <label for="textfield2"></label>
       <input name="cusImgR" type="file" id="cusImgR">
@@ -649,16 +632,6 @@ from plone import api
       <span class="word-s-yellow">只接受jpg及png檔案，提醒您製作天數將會延後3-4週</span></td>
     <td align="center" class="word-gray-2">&nbsp;</td>
   </tr>
-
-  <tr>
-    <td>氣密箱姓名：<br>
-      （外盒）</td>
-    <td><span style="border-bottom:0;">
-      <input name="textfield4" type="text" id="out-box-text" style="width:100%;" v-model:value="outBoxText">
-    </span></td>
-    <td align="center" class="word-gray-2">&nbsp;</td>
-  </tr>
-
   <tr>
     <td>急　　件：</td>
     <td tal:switch="python:template.filename.split('.')[-2]">
