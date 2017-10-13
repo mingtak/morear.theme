@@ -434,7 +434,6 @@ a:hover {
 }
 
 /*0922*/
-
 #member_id,#member_pwd,#laser-text-r,#laser-text-l,#out-box-text{
 	color:#FFF;
 	background-color:#333;
@@ -454,8 +453,19 @@ a:hover {
 	border:1px #666666 solid;
 	padding:5px;
 }
-
 /*0922 end*/
+
+/*1011*/
+#receive-addr{
+	width:30%;
+}
+#orderquery{
+	color:#FFF;
+	background-color:#333;
+	border:1px #666666 solid;
+	padding:5px;
+}
+/*1011 end*/
 
 #share-01 {
         width:100%;

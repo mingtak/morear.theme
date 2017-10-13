@@ -161,6 +161,9 @@ var vm = new Vue({
     laserTextL: '',
     laserPriceR: 0,
     laserPriceL: 0,
+    urgentCase: 'none',
+    urgentCasePrice: 0,
+    discount: ${python:float(context.discount)/100},
     extSer: '',
     outBoxText: '',
 
@@ -179,7 +182,7 @@ var vm = new Vue({
   },
   methods: {
     total: function () {
-        vm.totalSum = vm.basePrice + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoColorPriceR + vm.logoColorPriceL + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL;
+        vm.totalSum = (vm.basePrice * vm.discount) + vm.linePrice + vm.lineColorPrice + vm.shell3DPrice + vm.logoColorPriceR + vm.logoColorPriceL + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL + vm.urgentCasePrice;
     }
   }
 });
@@ -212,6 +215,12 @@ $('#logo-color-l img').click(function() {
     vm.total();
 });
 
+// 改變急件
+$('#urgentCase').change(function() {
+    vm.urgentCasePrice = Number($(this).find(":selected").data('price'));
+    vm.urgentCase = $(this).find(":selected").val();
+    vm.total();
+});
 
 // 改變耳機線長度
 $('#lineLength').change(function() {

@@ -484,6 +484,15 @@ from plone import api
     </td>
     <td align="center" class="word-gray-2"><tal:price condition="python:templateName.startswith('product')">$${context/basePrice}</tal:price></td>
   </tr>
+
+  <tr class="discount" tal:condition="python:context.discount < 100">
+    <td>折扣商品：</td>
+    <td>
+        <span tal:condition="python:context.discount < 100" tal:content="python:'產品基礎價格 %s 折' % context.discount"></span>
+    </td>
+    <td align="center" class="word-gray-2"></td>
+  </tr>
+
   <tr>
     <td>單　　體：</td>
     <td> ${python:context.driver.to_object.title}
@@ -623,9 +632,6 @@ from plone import api
     </td>
   </tr>
 
-
-
-
   <tr>
 <input type="hidden" class="slider-input" value="23" />
     <td rowspan="2">客製圖案：</td>
@@ -643,6 +649,7 @@ from plone import api
       <span class="word-s-yellow">只接受jpg及png檔案，提醒您製作天數將會延後3-4週</span></td>
     <td align="center" class="word-gray-2">&nbsp;</td>
   </tr>
+
   <tr>
     <td>氣密箱姓名：<br>
       （外盒）</td>
@@ -651,6 +658,30 @@ from plone import api
     </span></td>
     <td align="center" class="word-gray-2">&nbsp;</td>
   </tr>
+
+  <tr>
+    <td>急　　件：</td>
+    <td tal:switch="python:template.filename.split('.')[-2]">
+        <span tal:condition="not:context/urgentCase">本產品不適用急件處理流程</span>
+        <select name="urgentCase" id="urgentCase" style="width:100%;" tal:case="string:product_option_view" tal:condition="context/urgentCase">
+            <option value="none" data-price="0" selected>一般件處理</option>
+            <option tal:repeat="item context/urgentCase"
+                    tal:attributes="value item/to_object/UID;
+                                    data-price item/to_object/price">${item/to_object/showName}
+            </option>
+        </select>
+        <tal:case case="string:re_show_option_view">
+            <p tal:define="lineLength python:api.content.find(UID=view.parameter['lineLength'])[0]"
+               tal:replace="python:lineLength.getObject().showName"></p>
+        </tal:case>
+    </td>
+    <td align="center" class="word-gray-2">${string:${{urgentCasePrice}}}</td>
+  </tr>
+
+
+
+
+
 </tbody></table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
