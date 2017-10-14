@@ -145,7 +145,7 @@ d_quote = '"'
 if(${python:'true' if view.is_anonymous else 'false'}){
     var r = confirm("繼續購物步驟前，請先登入或註冊會員.\n請按 '確定' 登入或註冊, 按 '取消' 回上一頁");
     if (r == true) {
-        window.location = '${portal/absolute_url}/@@member_login_menu';
+        window.location = '${portal/absolute_url}/members/@@member_login_menu';
     } else {
         window.history.back()
     }

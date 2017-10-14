@@ -139,25 +139,8 @@ var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
 
 <script tal:condition="python:context.pType == 'headphone'">
 // 改變logo顏色
-$(document).ready(function() {
-    clickItem($(this));
-    $(".logo-color-image").attr('src', '${python:api.content.find(UID=view.parameter['logoColor'])[0].getURL()}/@@images/image').css({
-                'display':'initial',
-                'position': 'absolute',
-                'top': '0%',
-                'left': '0%',
-    });
-});
-
 // 改變耳機線顏色
-$(document).ready(function() {
-    $(".lineColorImage").attr('src', '${python:api.content.find(UID=view.parameter['lineColor'])[0].getURL()}/@@images/image').css({
-                'display':'initial',
-                'position': 'absolute',
-                'top': '0%',
-                'left': '0%',
-    });
-});
+
 
 // 改變3D列印耳殼
 $(document).ready(function() {

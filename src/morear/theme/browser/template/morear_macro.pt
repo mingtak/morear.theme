@@ -689,7 +689,7 @@ current = api.user.get_current()
                     <li><a href="${portal/absolute_url}/about">品牌故事</a></li>
                     <li><a href="${portal/absolute_url}/about">3D製程</a></li>
                     <li><a href="${portal/absolute_url}/location">服務據點</a></li>
-                    <li><a href="${portal/absolute_url}/news">最新消息</a></li>
+                    <li><a href="${portal/absolute_url}/media_report">媒體報導</a></li>
                     <li><a href="https://goo.gl/7ba1jF" target="_blank">工作機會</a></li>
                     <li><a href="mailto:me@morear.tw">聯絡我們</a></li>
                 </ul>

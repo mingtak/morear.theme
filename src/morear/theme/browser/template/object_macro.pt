@@ -629,7 +629,9 @@ from plone import api
       <label for="textfield2"></label>
       <input name="cusImgL" type="file" id="cusImgL">
       <br>
-      <span class="word-s-yellow">只接受jpg及png檔案，提醒您製作天數將會延後3-4週</span></td>
+      <span class="word-s-yellow">只接受jpg及png檔案，提醒您製作天數將會延後3-4週</span><br>
+      <span class="word-s-yellow">本圖案僅供示意參考，後續專人將電話確認是否可製作</span>
+    </td>
     <td align="center" class="word-gray-2">&nbsp;</td>
   </tr>
   <tr>
@@ -773,7 +775,7 @@ from plone import api
   </tr>
   <tr>
 
-    <td>產　　品：</td>
+    <td>機能耳塞：</td>
     <td>
         <select name="select3" id="product-uid" name="product-uid" style="width:100%;">
             <option tal:repeat="item view/earplugs"
@@ -807,7 +809,7 @@ from plone import api
   </tr>
 
   <tr>
-    <td>型　號：</td>
+    <td>濾音器型號：</td>
     <td>
         <select name="ep_typeNo" id="ep_typeNo" style="width:100%;">
             <option tal:repeat="item context/ep_typeNo"
@@ -854,10 +856,10 @@ ${string:${{ep_colorRPrice}}}
   </tr>
 
   <tr>
-    <td rowspan="2">雷　雕：</td>
+    <td rowspan="2">刻  字：</td>
     <td style="border-bottom:0;"><span class="word-gray-2">右邊：</span>
       <label for="textfield2"></label>
-      <input name="textfield2" type="text" id="laser-text-r" placeholder="輸入字數限xx以內" style="width:85%;" v-model:value="laserTextR">
+      <input name="textfield2" type="text" id="laser-text-r" placeholder="輸入英數字限6字以內" style="width:85%;" v-model:value="laserTextR">
     </td>
     <td align="center" class="word-gray-2" style="border-bottom:0;">
         ${string:${{laserPriceR}}}
@@ -866,7 +868,7 @@ ${string:${{ep_colorRPrice}}}
   <tr>
     <td><span class="word-gray-2">左邊：</span>
       <span style="border-bottom:0;">
-      <input name="textfield3" type="text" id="laser-text-l" placeholder="輸入字數限xx以內" style="width:85%;" v-model:value="laserTextL">
+      <input name="textfield3" type="text" id="laser-text-l" placeholder="輸入英數字限6字以內" style="width:85%;" v-model:value="laserTextL">
     </span></td>
     <td align="center" class="word-gray-2">
         ${string:${{laserPriceL}}}
