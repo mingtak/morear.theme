@@ -447,7 +447,7 @@ a:hover {
 	border:1px #666666 solid;
 	padding:5px;
 }
-#ext-ser{
+#ext-ser, #service-person {
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;

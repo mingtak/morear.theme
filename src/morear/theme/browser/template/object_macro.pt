@@ -715,11 +715,17 @@ from plone import api
 
 
     </div>
-
-特殊需求：<br>
+<!-- 特殊需求：<br> -->
 <label for="textarea"></label>
-  <textarea name="textarea" id="ext-ser" rows="10" style="width:100%" placeholder="如無特殊需求可不填寫" v-model:value="extSer"></textarea>
+  <textarea name="textarea" id="ext-ser" rows="10" style="width:100%" placeholder="特殊需求：如無特殊需求可不填寫" v-model:value="extSer"></textarea>
+  <input type="text" name="service-person"
+         id="service-person" rows="10"
+         style="width:100%" placeholder="服務人員：是否有專人服務? 若有請填寫服務人員姓名" v-model:value="service_person"></input>
+
 </div>
+
+
+
 <!-- box end -->
 <div id="btnbar">
   <a id="reload-page" href="javascript:void(0)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','${prefix}content/buymore/images/btn01b.png',1)"><img src="${prefix}content/buymore/images/btn01.png" id="Image31" hspace="15"></a>
@@ -896,9 +902,14 @@ ${string:${{ep_colorRPrice}}}
 
 </tbody></table>
 <div id="buy-s-box-2">
-特殊需求：<br>
+<!-- 特殊需求：<br> -->
 <label for="textarea"></label>
-  <textarea name="textarea" id="ext-ser" rows="10" style="width:100%" placeholder="如無特殊需求可不填寫" v-model:value="extSer"></textarea>
+  <textarea name="textarea" id="ext-ser" rows="10" style="width:100%" placeholder="特殊需求：如無特殊需求可不填寫" v-model:value="extSer"></textarea>
+
+  <input type="text" name="service-person" 
+         id="service-person" rows="10" 
+         style="width:100%" placeholder="是否有專人服務，若有請填寫服務人員姓名" v-model:value="service_person"></input>
+
 </div>
 
     <div style="text-align:right; color:#f4a000;">總計：

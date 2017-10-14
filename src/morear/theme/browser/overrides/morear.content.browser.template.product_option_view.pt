@@ -66,6 +66,7 @@ var vm = new Vue({
     ep_colorPrice: ${python:context.ep_colorR[0].to_object.price + context.ep_colorL[0].to_object.price},
     urgentCase: 'none',
     urgentCasePrice: 0,
+    service_person: '',
     discount: ${python:float(context.discount)/100},
 
     laserTextR: '',
@@ -81,6 +82,7 @@ var vm = new Vue({
   methods: {
     total: function () {
         vm.totalSum = vm.earplugsAmount * ( (vm.basePrice * vm.discount) + vm.ep_materialPrice + vm.ep_typeNoPrice + vm.ep_colorRPrice + vm.ep_colorLPrice + vm.laserPriceR + vm.laserPriceL + vm.urgentCasePrice )
+        vm.totalSum = Math.round(vm.totalSum)
     }
   }
 
@@ -169,6 +171,7 @@ var vm = new Vue({
     discount: ${python:float(context.discount)/100},
     extSer: '',
     outBoxText: '',
+    service_person: '',
 
     // 客製化圖片參數
     cusImgL: '',
@@ -186,6 +189,7 @@ var vm = new Vue({
   methods: {
     total: function () {
         vm.totalSum = (vm.basePrice * vm.discount) + vm.linePrice + vm.shell3DPrice + vm.logoColorPriceR + vm.logoColorPriceL + vm.surfacePrice + vm.laserPriceR + vm.laserPriceL + vm.urgentCasePrice;
+        vm.totalSum = Math.round(vm.totalSum)
     }
   }
 });
@@ -355,6 +359,11 @@ $(".option-bar").change(function(){
 
 
 <script>
+// 改變服務人員(通用)
+$('#service-person').change(function() {
+    vm.service_person = $('#service-person').val();
+});
+
 // 改變急件(通用)
 $('#urgentCase').change(function() {
     vm.urgentCasePrice = Number($(this).find(":selected").data('price'));

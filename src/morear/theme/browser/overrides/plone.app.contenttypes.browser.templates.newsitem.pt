@@ -58,11 +58,11 @@ Your browser does not support the audio element.
       tal:attributes="class python: toc and 'pat-autotoc' or ''" />
 
        <div id="share">
-        <a href="#">
+        <a href="https://www.facebook.com/dialog/share?app_id=215145299016013&picture=${context/absolute_url}/@@images/image&descripton=${context/description}&display=popup&href=${context/absolute_url}&redirect_uri=${context/absolute_url}/@@product_option_view">
          Facebook分享
         </a>
         ｜
-        <a href="#">
+        <a href="https://line.me/R/ti/p/HBC78wHU-6" target="_blank">
          Line分享
         </a>
 
