@@ -35,7 +35,7 @@ loginResult = request.form.get('r', None)
 
 <div id="content">
 <!-- InstanceBeginEditable name="content" -->
-<div id="member-list-01" style="100%; margin:0;">
+<div id="member-list-01" style="width:100%; margin:0;">
 <form action="${portal/absolute_url}/@@member_login" method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
@@ -48,9 +48,9 @@ loginResult = request.form.get('r', None)
   </tr>
   <tr>
     <th valign="top" style="border-bottom:2px #f4a000 solid; padding-bottom:40px;white-space:nowrap">驗證碼：</th>
-
     <td style="border-bottom:2px #f4a000 solid; padding-bottom:40px;">
-<div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"></div>
+<div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"
+     style="max-width:220px; transform: scale(0.7); -webkit-transform:scale(0.7); transform-origin:0 0; -webkit-transform-origin:0 0;"></div>
 <input type="submit" name="submit" id="submit" value="登入">
     </td>
 

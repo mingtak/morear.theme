@@ -43,7 +43,8 @@ loginResult = request.form.get('r', None)
   <tr>
     <th valign="top" style="border-bottom:0;">輸入驗證碼：</th>
     <td>
-      <div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"></div>
+      <div class="g-recaptcha" data-sitekey="6LdUty0UAAAAAK6vEfDiBKeVRQskYebwOyGvO3oI"
+           style="max-width:220px; transform: scale(0.7); -webkit-transform:scale(0.7); transform-origin:0 0; -webkit-transform-origin:0 0;"></div>
     </td>
   </tr>
 </tbody></table>

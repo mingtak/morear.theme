@@ -100,7 +100,7 @@ $(document).ready(function(){
 </li>
 </ul>
 </li>
-<li><a href="javascript:void(0)">購買Morear</a>
+<li><span href="javascript:void(0)">購買Morear</span>
 <ul>
 <?python
 from plone import api
@@ -123,7 +123,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </li>
 </ul>
 </li>
-<li><a href="javascript:void(0)">支援服務</a>
+<li><span href="javascript:void(0)">支援服務</span>
 <ul>
 <li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
 <li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
@@ -163,8 +163,8 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <ul>
 <li><a href="${portal/absolute_url}/3d-fit" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
 <li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</span></li>
-<li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
-<li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
+<li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</span></li>
+<li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</span></li>
 <li><a href="${portal/absolute_url}/faq" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">常見問題</a></li>
 <li tal:condition="is_anonymous"><a href="${portal/absolute_url}/members/@@member_login_menu" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">會員登入</a></li>
 <li tal:condition="not:is_anonymous"><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','show','hide-top5','','hide','hide-all','','show')">會員中心</a></li>
@@ -380,7 +380,7 @@ $( ".to-search-page2" ).click(function() {
 </li>
 </ul>
 </li>
-<li><a href="javascript:void(0)">購買Morear</a>
+<li><span href="javascript:void(0)">購買Morear</span>
 <?python
 from plone import api
 portal = api.portal.get()
@@ -403,7 +403,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 </li>
 </ul>
 </li>
-<li><a href="javascript:void(0)">支援服務</a>
+<li><span href="javascript:void(0)">支援服務</span>
 <ul>
 <li><a href="${portal/absolute_url}/support/201708221111730628">耳型與專業聽力師</a></li>
 <li><a href="${portal/absolute_url}/support/201707061853288045">產品服務及保固</a></li>
@@ -443,8 +443,8 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <ul>
 <li><a href="${portal/absolute_url}/3d-fit" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
 <li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</span></li>
-<li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
-<li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
+<li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</span></li>
+<li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</span></li>
 <li><a href="${portal/absolute_url}/faq" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">常見問題</a></li>
 <li tal:condition="is_anonymous"><a href="${portal/absolute_url}/members/@@member_login_menu" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">會員登入</a></li>
 <li tal:condition="not:is_anonymous"><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','show','hide-top5','','hide','hide-all','','show')">會員中心</a></li>
@@ -824,15 +824,15 @@ $(document).ready(function(){
             <li>
               據點：
                   <select name="city" id="select3" v-model="selected_city">
-                      <option>請選擇縣市</option>
+                      <option>選擇縣市</option>
                       <option tal:repeat="item view/getCitys">${item}</option>
                   </select>
                   <select name="dist" id="select">
                       <option v-for="item in selected_dist">{{item}}</option>
                   </select>
                   <select name="weekend" id="select2">
-                      <option>平日營業門市</option>
-                      <option>假日營業門市</option>
+                      <option>平日營業</option>
+                      <option>假日營業</option>
                   </select>
             </li>
             <li>
@@ -853,8 +853,8 @@ var location_vm = new Vue({
   el: '#noticebox',
   data: {
     message: 'Hello Vue!',
-    selected_city: '請選擇縣市',
-    selected_dist: ['請選擇區域']
+    selected_city: '選擇縣市',
+    selected_dist: ['選擇區域']
   }
 })
 

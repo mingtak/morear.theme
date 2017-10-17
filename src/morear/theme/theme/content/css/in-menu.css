@@ -38,6 +38,11 @@
 	float:left;
 	margin:0 13px 0 13px;
 }
+/*1017*/
+#menu-down li span{
+	font-weight:bold;
+}
+/*1017 end*/
 #menu-down li a{
 	color:#000;
 	font-weight:bolder;

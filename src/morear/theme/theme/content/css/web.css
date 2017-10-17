@@ -45,6 +45,7 @@ a:hover {
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 
 #textfield,#textfield2,#textfield3,#textfield4,#textfield5,#textfield6,#textfield7,#textfield8,#textfield9,#textfield10,#textfield11,#textfield12{
@@ -52,12 +53,14 @@ a:hover {
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 #textarea,#textarea2,#textarea3,#textarea4,#textarea5,#textarea6,#textarea7,#textarea8{
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 /*----------------- Font --------------------*/
 .word-s-yellow {
@@ -439,6 +442,7 @@ a:hover {
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 
 #product-uid,#lineLength,#ep_material,#ep_typeNo {
@@ -446,24 +450,28 @@ a:hover {
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 #ext-ser, #service-person {
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 /*0922 end*/
 
 /*1011*/
 #receive-addr{
 	width:30%;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
-#orderquery{
+#orderquery,#urgentCase{
 	color:#FFF;
 	background-color:#333;
 	border:1px #666666 solid;
 	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 /*1011 end*/
 
@@ -541,6 +549,11 @@ a:hover {
 	opacity: 0.90;
 	z-index:999;
 }
+/*1017*/
+#top_menu li span{
+	color:#f4a000;
+}
+/*1017 end*/
 #top_menu ul.a01 {
 	margin:0;
 	padding:0;
