@@ -161,7 +161,7 @@ if ytURL:
 
 <metal:row define-macro="cover-more-feast-text">
 <!-- music -->
-<div id="index-music" style="background: url(${context/absolute_url}/@@images/moreFeast_bgImg)">
+<div id="index-music">
 <div id="tai-index-music"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}images/tai-music-b.png',1)"><img src="${prefix}images/tai-music.png" id="Image18" /></a></div>
 <a name="notice01" id="notice01"></a>
 <div id="index-music-box">
@@ -467,7 +467,7 @@ from plone import api
 <table width="100%" border="0" cellspacing="0" cellpadding="0"
        tal:define="templateName python:template.filename.split('.')[-2]">
   <tbody><tr>
-    <td width="90" style="border-bottom:0">&nbsp;</td>
+    <td width="105" style="border-bottom:0">&nbsp;</td>
     <td style="border-bottom:0">&nbsp;</td>
     <td width="60" align="center" class="word-gray-2" style="border-bottom:0"><tal:price condition="python:templateName.startswith('product')">價 格</tal:price></td>
   </tr>
@@ -488,7 +488,7 @@ from plone import api
   <tr class="discount" tal:condition="python:context.discount < 100">
     <td>折扣商品：</td>
     <td>
-        <span tal:condition="python:context.discount < 100" tal:content="python:'產品基礎價格 %s%% off' % (100-context.discount)"></span>
+        <span tal:condition="python:context.discount < 100" tal:content="python:'產品定價 %s%% off' % (100-context.discount)"></span>
     </td>
     <td align="center" class="word-gray-2"></td>
   </tr>
@@ -775,7 +775,7 @@ from plone import api
 <div id="buy-list-02">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-    <td width="60" style="border-bottom:0">&nbsp;</td>
+    <td width="85" style="border-bottom:0">&nbsp;</td>
     <td style="border-bottom:0">&nbsp;</td>
     <td width="60" align="center" class="word-gray-2" style="border-bottom:0">價 格</td>
   </tr>
@@ -796,7 +796,7 @@ from plone import api
   <tr class="discount" tal:condition="python:context.discount < 100">
     <td>折扣商品：</td>
     <td>
-        <span tal:condition="python:context.discount < 100" tal:content="python:'產品基礎價格 %s%% off' % (100-context.discount)"></span>
+        <span tal:condition="python:context.discount < 100" tal:content="python:'產品定價 %s%% off' % (100-context.discount)"></span>
     </td>
     <td align="center" class="word-gray-2"></td>
   </tr>

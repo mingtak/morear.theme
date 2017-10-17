@@ -69,7 +69,7 @@ $(document).ready(function(){
 </ul>
 <ul class="a02">
 <li><a href="${portal/absolute_url}/3d-fit">3D FIT科技</a></li>
-<li><a href="javascript:void(0)">Morear產品</a>
+<li><span href="javascript:void(0)">Morear產品</span>
 <ul>
 <li><a href="${portal/absolute_url}/products/music">音樂耳機</a>
 <ol>
@@ -162,7 +162,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="menu-down">
 <ul>
 <li><a href="${portal/absolute_url}/3d-fit" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
-<li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</a></li>
+<li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</span></li>
 <li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
 <li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
 <li><a href="${portal/absolute_url}/faq" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">常見問題</a></li>
@@ -349,7 +349,7 @@ $( ".to-search-page2" ).click(function() {
 </ul>
 <ul class="a02">
 <li><a href="${portal/absolute_url}/3d-fit">3D FIT科技</a></li>
-<li><a href="javascript:void(0)">Morear產品</a>
+<li><span href="javascript:void(0)">Morear產品</span>
 <ul>
 <li><a href="${portal/absolute_url}/products/music">音樂耳機</a>
 <ol>
@@ -442,7 +442,7 @@ first_earplugs = api.content.find(context=portal, Type='Product', pType='earplug
 <div id="menu-down">
 <ul>
 <li><a href="${portal/absolute_url}/3d-fit" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">3D FIT科技</a></li>
-<li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</a></li>
+<li><span href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','show','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">Morear產品</span></li>
 <li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','show','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">購買Morear</a></li>
 <li><a href="javascript:void(0)" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','show','hide-top4','','hide','hide-top5','','hide','hide-all','','show')">支援服務</a></li>
 <li><a href="${portal/absolute_url}/faq" onmouseover="MM_showHideLayers('hide-top1','','hide','hide-top2','','hide','hide-top3','','hide','hide-top4','','hide','hide-top5','','hide','hide-all','','hide')">常見問題</a></li>
@@ -687,7 +687,7 @@ current = api.user.get_current()
                 <p class="word-big-black">About morear</p>
                 <ul>
                     <li><a href="${portal/absolute_url}/about">品牌故事</a></li>
-                    <li><a href="${portal/absolute_url}/about">3D製程</a></li>
+                    <li><a href="${portal/absolute_url}/3d_production">3D製程</a></li>
                     <li><a href="${portal/absolute_url}/location">服務據點</a></li>
                     <li><a href="${portal/absolute_url}/media_report">媒體報導</a></li>
                     <li><a href="https://goo.gl/7ba1jF" target="_blank">工作機會</a></li>
