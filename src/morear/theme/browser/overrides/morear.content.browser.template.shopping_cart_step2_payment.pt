@@ -85,9 +85,9 @@ citys=[
         </select>
         <select name="selected-partner-store" id="selected-partner-store" value="null">
               <option value="null">請選擇門市</option>
-              <option v-for="item in partnerStore">{{ item['id'] }}.{{ item['name'] }}: {{ item['address'] }}</option>
+              <option v-for="item in partnerStore">{{ item['id'] }}.{{ item['company']['name'] }}-{{ item['name'] }}</option>
         </select>
-
+        <p class="partner-address" style="display:none">{{ partnerAddress }}</p>
 
 </div>
 
@@ -300,7 +300,8 @@ var vm = new Vue({
         selectedDist : null,
         partnerStore : null,
         selectedPartnerStoreId : null,
-        selectedPartnerStore : null
+        selectedPartnerStore : null,
+        partnerAddress: null
     }
 })
 
@@ -318,6 +319,9 @@ $('#selected-city').change(function(){
         vm.partnerStore = null,
         $('#selected-dist').val('null')
     })
+    vm.partnerAddress = null                         
+    $('.partner-address').fadeOut('slow')
+
 })
 
 $('#selected-dist').change(function(){
@@ -326,6 +330,8 @@ $('#selected-dist').change(function(){
     $.get( "${portal/absolute_url}/@@get_partner?districtId=" + vm.selectedDistId).done(function( data ){
         vm.partnerStore =  jQuery.parseJSON( data )
         $('#selected-partner-store').val('null')
+        vm.partnerAddress = null
+        $('.partner-address').fadeOut('slow')
     })
 })
 
@@ -333,6 +339,12 @@ $('#selected-partner-store').change(function(){
     if($('#selected-partner-store :selected').val() != 'null'){
         vm.selectedPartnerStoreId = $('#selected-partner-store :selected').text().split(".")[0]
         vm.selectedPartnerStore = $('#selected-partner-store :selected').text().split(".")[1]
+        for(i in vm.partnerStore){
+            if(vm.selectedPartnerStoreId == vm.partnerStore[i]['id']){
+                vm.partnerAddress = vm.partnerStore[i]['address']
+                $('.partner-address').fadeIn('slow')
+            }
+        }
     }
 })
 
