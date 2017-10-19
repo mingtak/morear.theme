@@ -24,6 +24,13 @@ img{ border:0; margin-bottom:-3px;}
 body {
 	background:#000;
 }
+input{
+	color:#FFF;
+	background-color:#333;
+	border:1px #666666 solid;
+	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
+}
 a:visited {
 	font-size: 100%;
 	color:#f4a000;
