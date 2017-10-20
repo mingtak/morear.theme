@@ -24,19 +24,103 @@ orderId = view.request.form.get('id')
 
     <tr><h4>訂單品項</h4>
         <ul tal:repeat="item python:view.getOrderItem(orderId)">
-            <li tal:repeat="value item" tal:switch="python:view.orderItemList[repeat['value'].index]">
+            <tal:li tal:repeat="value item" tal:switch="python:view.orderItemList[repeat['value'].index]">
+                <tal:parameter case="string:parameterNo">
+                    <li tal:condition="python:value!=0">
+                        <b>${python:view.orderItemList[repeat['value'].index]}</b>:
+                        <ul class="parameter" tal:define="paras python:json.loads(view.getParameter(value)[0]);
+                                                          keys python:paras.keys()">
+
+                            <li tal:condition="python:paras.has_key('ep_material')">
+                                ${python:view.paraName['ep_material']}: ${python:api.content.find(UID=paras['ep_material'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('ep_typeNo')">
+                                ${python:view.paraName['ep_typeNo']}: ${python:api.content.find(UID=paras['ep_typeNo'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('ep_colorR')">
+                                ${python:view.paraName['ep_colorR']}: ${python:api.content.find(UID=paras['ep_colorR'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('ep_colorL')">
+                                ${python:view.paraName['ep_colorL']}: ${python:api.content.find(UID=paras['ep_colorL'])[0].Title}
+                            </li>
+<!-- 以下耳機/通用 -->
+                            <li tal:condition="python:paras.has_key('shell3D')">
+                                ${python:view.paraName['shell3D']}: ${python:api.content.find(UID=paras['shell3D'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('lineLength')">
+                                ${python:view.paraName['lineLength']}: ${python:api.content.find(UID=paras['lineLength'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('surfaceL')">
+                                ${python:view.paraName['surfaceL']}: ${python:api.content.find(UID=paras['surfaceL'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('surfaceR')">
+                                ${python:view.paraName['surfaceR']}: ${python:api.content.find(UID=paras['surfaceR'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('laserTextL')">
+                                ${python:view.paraName['laserTextL']}: ${python:paras['laserTextL']}
+                            </li>
+                            <li tal:condition="python:paras.has_key('laserTextR')">
+                                ${python:view.paraName['laserTextR']}: ${python:paras['laserTextR']}
+                            </li>
+                            <li tal:condition="python:paras.has_key('logoColorL')">
+                                ${python:view.paraName['logoColorL']}: ${python:api.content.find(UID=paras['logoColorL'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('logoColorR')">
+                                ${python:view.paraName['logoColorR']}: ${python:api.content.find(UID=paras['logoColorR'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('cusImgL')">
+                                ${python:view.paraName['cusImgL']}: <img src="${python:paras['cusImgL']}">
+                            </li>
+                            <li tal:condition="python:paras.has_key('cusImgR')">
+                                ${python:view.paraName['cusImgR']}: <img src="${python:paras['cusImgR']}">
+                            </li>
+                            <li tal:condition="python:paras.has_key('urgentCase')">
+                                ${python:view.paraName['urgentCase']}: ${python:api.content.find(UID=paras['urgentCase'])[0].Title}
+                            </li>
+                            <li tal:condition="python:paras.has_key('extSer')">
+                                ${python:view.paraName['extSer']}: ${python:paras['extSer']}
+                            </li>
+                            <li tal:condition="python:paras.has_key('service_person')">
+                                ${python:view.paraName['service_person']}: ${python:paras['service_person']}
+                            </li>
+
+
+<!-- {python:view.paraName[key]}: <img src={python:paras[key]}> -->
+
+                            <tal:key tal:repeat="key keys">
+                                <tal:switch switch="key">
+                                    <li tal:case="string:cusImgR">
+                                        ${python:view.paraName[key]}: <img src=${python:paras[key]}>
+                                    </li>
+                                    <li tal:case="string:cusImgL">
+                                        ${python:view.paraName[key]}: <img src=${python:paras[key]}>
+                                    </li>
+                                    <li tal:case="default" tal:on-error="nothing">
+                                        ${key}: ${python:paras[key]}
+                                    </li>
+                                </tal:switch>
+                            </tal:key>
+                        </ul>
+                    </li>
+                </tal:parameter>
                 <tal:uid case="string:p_UID">
-                    <b>${python:view.orderItemList[repeat['value'].index]}</b>: ${python:api.content.find(UID=value)[0].Title}
+                    <li>
+                        <b>${python:view.orderItemList[repeat['value'].index]}</b>: ${python:api.content.find(UID=value)[0].Title}
+                    </li>
                 </tal:uid>
                 <tal:sn case="string:sNumber">
-                    <b>${python:view.orderItemList[repeat['value'].index]}</b>:
-                      <tal:s_n repeat="sn python:json.loads(value)"> ${sn}<span tal:condition="not:repeat/sn/end"> / </span>  </tal:s_n>
+                    <li>
+                        <b>${python:view.orderItemList[repeat['value'].index]}</b>:
+                          <tal:s_n repeat="sn python:json.loads(value)"> ${sn}<span tal:condition="not:repeat/sn/end"> / </span>  </tal:s_n>
+                    </li>
                 </tal:sn>
                 <tal:default case="default">
-                    <b>${python:view.orderItemList[repeat['value'].index]}</b>: ${value}
+                    <li>
+                        <b>${python:view.orderItemList[repeat['value'].index]}</b>: ${value}
+                    </li>
                 </tal:default>
-            </li>
-<hr>
+            </tal:li>
+            <hr>
         </ul>
     </tr>
 
