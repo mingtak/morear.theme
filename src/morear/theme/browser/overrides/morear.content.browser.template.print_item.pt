@@ -16,10 +16,80 @@
 from plone import api
 import json
 portal = api.portal.get()
-orderId = view.request.form.get('id')
+orderId = view.request.form.get('orderId')
+p_UID = view.request.form.get('p_UID')
+sn = view.request.form.get('sn')
+parameter = json.loads(view.parameters[0]['parameter'])
 ?>
 
-${request/form}
+<h4>訂單編號: ${orderId}</h4>
+<h4>產品名稱: ${python:api.content.find(UID=p_UID)[0].Title} / 序號: ${sn}</h4>
+<hr>
+
+<ul tal:define="keys python:parameter.keys()">
+
+    <li tal:condition="python:'ep_material' in keys">
+        <b i18n:translate="">ep_material</b><b> : </b> ${python:api.content.find(UID=parameter['ep_material'])[0].Title}
+    </li>
+    <li tal:condition="python:'ep_typeNo' in keys">
+        <b i18n:translate="">ep_typeNo</b><b> : </b> ${python:api.content.find(UID=parameter['ep_typeNo'])[0].Title}
+    </li>
+    <li tal:condition="python:'ep_colorR' in keys">
+        <b i18n:translate="">ep_colorR</b><b> : </b> ${python:api.content.find(UID=parameter['ep_colorR'])[0].Title}
+    </li>
+    <li tal:condition="python:'ep_colorL' in keys">
+        <b i18n:translate="">ep_colorL</b><b> : </b> ${python:api.content.find(UID=parameter['ep_colorL'])[0].Title}
+    </li>
+<!-- 以下耳機/通用 -->
+    <li tal:condition="python:'shell3D' in keys">
+        <b i18n:translate="">shell3D</b><b> : </b> ${python:api.content.find(UID=parameter['shell3D'])[0].Title}
+    </li>
+    <li tal:condition="python:'lineLength' in keys">
+        <b i18n:translate="">lineLength</b><b> : </b> ${python:api.content.find(UID=parameter['lineLength'])[0].Title}
+    </li>
+    <li tal:condition="python:'surfaceL' in keys">
+        <b i18n:translate="">surfaceL</b><b> : </b> ${python:api.content.find(UID=parameter['surfaceL'])[0].Title}
+    </li>
+    <li tal:condition="python:'surfaceR' in keys">
+        <b i18n:translate="">surfaceR</b><b> : </b> ${python:api.content.find(UID=parameter['surfaceR'])[0].Title}
+    </li>
+    <li tal:condition="python:'laserTextL' in keys">
+        <b i18n:translate="">laserTextL</b><b> : </b> ${python:parameter['laserTextL']}
+    </li>
+    <li tal:condition="python:'laserTextR' in keys">
+        <b i18n:translate="">laserTextR</b><b> : </b> ${python:parameter['laserTextR']}
+    </li>
+    <li tal:condition="python:'logoColorL' in keys">
+        <b i18n:translate="">logoColorL</b><b> : </b> ${python:api.content.find(UID=parameter['logoColorL'])[0].Title}
+    </li>
+    <li tal:condition="python:'logoColorR' in keys">
+        <b i18n:translate="">logoColorR</b><b> : </b> ${python:api.content.find(UID=parameter['logoColorR'])[0].Title}
+    </li>
+    <li tal:condition="python:'cusImgL' in keys">
+        <b i18n:translate="">cusImgL</b><b> : </b> <img src="${python:parameter['cusImgL']}">
+    </li>
+    <li tal:condition="python:'cusImgR' in keys">
+        <b i18n:translate="">cusImgR</b><b> : </b> <img src="${python:parameter['cusImgR']}">
+    </li>
+    <li tal:condition="python:'urgentCase' in keys">
+        <b i18n:translate="">urgentCase</b><b> : </b> ${python:api.content.find(UID=parameter['urgentCase'])[0].Title}
+    </li>
+    <li tal:condition="python:'extSer' in keys">
+        <b i18n:translate="">extSer</b><b> : </b> ${python:parameter['extSer']}
+    </li>
+    <li tal:condition="python:'service_person' in keys">
+        <b i18n:translate="">service_person</b><b> : </b> ${python:parameter['service_person']}
+    </li>
+</ul>
+
+<hr>
+<h4>客戶資料</h4>
+<ul>
+  <li tal:repeat="key python:view.orderInfo[0].keys()">
+    <b i18n:translate="">${key}</b><b>: </b><span>${python:view.orderInfo[0][key]}</span>
+  </li>
+</ul>
+
 
 </metal:content-core>
 </metal:content-core>
