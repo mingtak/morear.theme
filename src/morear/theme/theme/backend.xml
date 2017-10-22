@@ -146,6 +146,7 @@
     <drop css:content="#personaltools-preferences" if="$is_admin = 'False'" />
     <drop css:content="#plone-contentmenu-factories" css:if-content="body.portaltype-plone-site" />
     <drop css:content="#plone-contentmenu-factories" css:if-content="body.portaltype-cover" />
+    <drop css:content="#edit-zone" css:if-content="body.template-print_item" />
 
     <!-- drop other elements -->
     <drop css:content="#portal-breadcrumbs" />
