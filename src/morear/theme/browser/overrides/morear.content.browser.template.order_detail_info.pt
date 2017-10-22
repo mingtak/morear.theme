@@ -22,14 +22,17 @@ orderId = view.request.form.get('id')
 <h3>訂單編號：${orderId}</h3>
 <table>
 
-    <tr><h4>訂單品項</h4>
-        <ul tal:repeat="item python:view.getOrderItem(orderId)">
+    <tr><h4>訂單品項(<a class="open-all-page" href="javascript:void(0)">開啟全部頁面列印</a>)</h4>
+      <tal:p_item tal:repeat="item python:view.getOrderItem(orderId)">
+        <h5 class="item-title"><a href="javascript:void(0)">${python:api.content.find(UID=item[0])[0].Title}</a></h5>
+        <ul class="product-item">
             <tal:li tal:repeat="value item" tal:switch="python:view.orderItemList[repeat['value'].index]">
                 <tal:parameter case="string:parameterNo">
                     <li tal:condition="python:value!=0">
                         <b>${python:view.orderItemList[repeat['value'].index]}</b>:
                         <ul class="parameter" tal:define="paras python:json.loads(view.getParameter(value)[0]);
                                                           keys python:paras.keys()">
+
 
                             <li tal:condition="python:paras.has_key('ep_material')">
                                 ${python:view.paraName['ep_material']}: ${python:api.content.find(UID=paras['ep_material'])[0].Title}
@@ -74,7 +77,7 @@ orderId = view.request.form.get('id')
                             <li tal:condition="python:paras.has_key('cusImgR')">
                                 ${python:view.paraName['cusImgR']}: <img src="${python:paras['cusImgR']}">
                             </li>
-                            <li tal:condition="python:paras.has_key('urgentCase')">
+                            <li tal:condition="python:paras.get('urgentCase', 'none') != 'none'">
                                 ${python:view.paraName['urgentCase']}: ${python:api.content.find(UID=paras['urgentCase'])[0].Title}
                             </li>
                             <li tal:condition="python:paras.has_key('extSer')">
@@ -85,21 +88,6 @@ orderId = view.request.form.get('id')
                             </li>
 
 
-<!-- {python:view.paraName[key]}: <img src={python:paras[key]}> -->
-
-                            <tal:key tal:repeat="key keys">
-                                <tal:switch switch="key">
-                                    <li tal:case="string:cusImgR">
-                                        ${python:view.paraName[key]}: <img src=${python:paras[key]}>
-                                    </li>
-                                    <li tal:case="string:cusImgL">
-                                        ${python:view.paraName[key]}: <img src=${python:paras[key]}>
-                                    </li>
-                                    <li tal:case="default" tal:on-error="nothing">
-                                        ${key}: ${python:paras[key]}
-                                    </li>
-                                </tal:switch>
-                            </tal:key>
                         </ul>
                     </li>
                 </tal:parameter>
@@ -109,10 +97,15 @@ orderId = view.request.form.get('id')
                     </li>
                 </tal:uid>
                 <tal:sn case="string:sNumber">
+                  <tal:empty condition="python:json.loads(value)">
                     <li>
                         <b>${python:view.orderItemList[repeat['value'].index]}</b>:
-                          <tal:s_n repeat="sn python:json.loads(value)"> ${sn}<span tal:condition="not:repeat/sn/end"> / </span>  </tal:s_n>
+                          <tal:s_n repeat="sn python:json.loads(value)">
+                            <span class="s_number" data-s_number="${sn}">${sn}</span>
+                            <span tal:condition="not:repeat/sn/end"> / </span>
+                          </tal:s_n>
                     </li>
+                  </tal:empty>
                 </tal:sn>
                 <tal:default case="default">
                     <li>
@@ -122,11 +115,11 @@ orderId = view.request.form.get('id')
             </tal:li>
             <hr>
         </ul>
+      </tal:p_item>
     </tr>
-
-
-
-    <tr><h4>訂單資訊</h4>
+<hr>
+    <tr>
+        <h4>訂單資訊</h4>
         <ul>
             <li tal:repeat="item python:view.getOrderInfo(orderId)">
                 <b>${python:view.orderInfoList[repeat['item'].index]}</b>: ${item}
@@ -135,7 +128,20 @@ orderId = view.request.form.get('id')
     </tr>
 </table>
 
-
+<script>
+$('.open-all-page').click(function(){
+    $('span.s_number').each(function(){
+        url = '${portal/absolute_url}/@@print_item?orderId=${python:view.request.form.get("id")}&sn=' + $(this).data('s_number')
+        window.open(url)
+    })
+})
+$(document).ready(function(){
+    $('.product-item').hide()
+})
+$('.item-title').click(function(){
+    $(this).next('.product-item').slideToggle('slow')
+})
+</script>
 
 
 
