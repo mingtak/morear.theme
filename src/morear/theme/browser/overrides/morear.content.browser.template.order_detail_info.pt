@@ -101,7 +101,7 @@ orderId = view.request.form.get('id')
                     <li>
                         <b>${python:view.orderItemList[repeat['value'].index]}</b>:
                           <tal:s_n repeat="sn python:json.loads(value)">
-                            <span class="s_number" data-s_number="${sn}">${sn}</span>
+                            <span class="s_number" data-s_number="${sn}" data-p_uid="${python:item['p_UID']}">${sn}</span>
                             <span tal:condition="not:repeat/sn/end"> / </span>
                           </tal:s_n>
                     </li>
@@ -131,8 +131,10 @@ orderId = view.request.form.get('id')
 <script>
 $('.open-all-page').click(function(){
     $('span.s_number').each(function(){
-        url = '${portal/absolute_url}/@@print_item?orderId=${python:view.request.form.get("id")}&sn=' + $(this).data('s_number')
-        window.open(url)
+        url = '${portal/absolute_url}/@@print_item?orderId=${python:view.request.form.get("id")}' +
+              '&sn=' + $(this).data('s_number') +
+              '&p_UID=' + $(this).data('p_uid')
+        window.open(url, $(this).data('s_number'))
     })
 })
 $(document).ready(function(){
