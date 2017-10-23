@@ -71,7 +71,7 @@ parameter = json.loads(view.parameters[0]['parameter'])
     <li tal:condition="python:'cusImgR' in keys">
         <b i18n:translate="">cusImgR</b><b> : </b> <img src="${python:parameter['cusImgR']}">
     </li>
-    <li tal:condition="python:'urgentCase' in keys">
+    <li tal:condition="python:'urgentCase' in keys" tal:condition="python:parameter['urgentCase'] != 'none'" tal:on-error="nothing">
         <b i18n:translate="">urgentCase</b><b> : </b> ${python:api.content.find(UID=parameter['urgentCase'])[0].Title}
     </li>
     <li tal:condition="python:'extSer' in keys">

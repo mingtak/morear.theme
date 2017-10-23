@@ -131,8 +131,6 @@ $('.update-qty').change(function(){
 });
 
 $('.delete-item').click(function(){
-
-
   var r=confirm("您正要刪除一個項目！")
   if (r==true){
     cartJsonString = $.cookie("cart")
@@ -152,19 +150,26 @@ $('.delete-item').click(function(){
             }
         }
     }
-
     $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
+    $(this).parents('tr').css('display', 'none')
+
+
+    isCartEmpty();
     location.reload();
   }
 
 });
 
-// 購物車 empty
-$(document).ready(function(){
-    if(! $('table.cart-contents tr.item').length){
+isCartEmpty = function(){
+    if($.cookie("cart") == '[]'){
         alert('目前購物車是空的, 您將轉往首頁')
         window.location = '${portal/absolute_url}'
     }
+}
+
+// 購物車 empty
+$(document).ready(function(){
+    isCartEmpty()
 })
 
 </script>

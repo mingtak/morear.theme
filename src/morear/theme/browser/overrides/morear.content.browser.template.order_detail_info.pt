@@ -148,7 +148,6 @@ $('#update-contact-custom').click(function(){
 })
 
 
-
 $('.open-all-page').click(function(){
     $('span.s_number').each(function(){
         url = '${portal/absolute_url}/@@print_item?orderId=${python:view.request.form.get("id")}' +
