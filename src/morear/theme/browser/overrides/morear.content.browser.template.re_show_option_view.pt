@@ -29,8 +29,8 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
         <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
         <img class="surface-color-image-l" src="#" alt="圖層:面板顏色 左" style="display:none"/>
-        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
-        <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none"/>
+        <img class="logo-color-image-l" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none" tal:condition="python:view.parameter['cusImgL']"/>
         <canvas id='textCanvasLeft' style="display:none"></canvas>
         <img id='textImageLeft' style="display:none">
     </div>
@@ -41,8 +41,8 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
         <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
         <img class="surface-color-image-r" src="#" alt="圖層:面板顏色 右" style="display:none"/>
-        <img class="logo-color-image" src="#" alt="圖層:Logo顏色" style="display:none"/>
-        <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
+        <img class="logo-color-image-r" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none" tal:condition="python:view.parameter['cusImgR']"/>
         <canvas id='textCanvasRight' style="display:none"></canvas>
         <img id='textImageRight' style="display:none">
     </div>
@@ -145,6 +145,22 @@ var tCtxR = document.getElementById('textCanvasRight').getContext('2d'),
 // 改變3D列印耳殼
 $(document).ready(function() {
     $(".shell-3d-image").attr('src', '${python:api.content.find(UID=view.parameter['shell3D'])[0].getURL()}/@@images/image').css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+});
+
+// Logo顏色/樣式
+$(document).ready(function() {
+    $(".logo-color-image-l").attr('src', '${python:api.content.find(UID=view.parameter['logoColorL'])[0].getURL()}/@@images/image').css({
+                'display':'initial',
+                'position': 'absolute',
+                'top': '0%',
+                'left': '0%',
+    });
+    $(".logo-color-image-r").attr('src', '${python:api.content.find(UID=view.parameter['logoColorR'])[0].getURL()}/@@images/image').css({
                 'display':'initial',
                 'position': 'absolute',
                 'top': '0%',

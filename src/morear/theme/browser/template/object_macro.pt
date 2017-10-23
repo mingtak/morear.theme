@@ -434,9 +434,9 @@ from plone import api
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_left/large">
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
-        <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
-        <img class="surface-color-image-l" src="#" alt="圖層:面板顏色 左" style="display:none"/>
-        <img class="logo-color-image-l" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img class="shell-3d-image" src="${python:context.shell3D[0].to_object.absolute_url()}/@@images/image" alt="圖層:主體顏色" />
+        <img class="surface-color-image-l" src="${python:context.surfaceColorL[0].to_object.absolute_url()}/@@images/image" alt="圖層:面板顏色 左" />
+        <img class="logo-color-image-l" src="${python:context.logoColorL[0].to_object.absolute_url()}/@@images/image" alt="圖層:Logo顏色" />
         <img id="previewimgL" src="#" alt="圖層:客製圖案" style="display:none"/>
         <canvas id='textCanvasLeft' style="display:none"></canvas>
         <img id='textImageLeft' style="display:none">
@@ -446,9 +446,9 @@ from plone import api
          style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/bgImage_right/large">
         <img class="lineColorImage" src="#" alt="圖層:耳機線顏色" style="display:none"/>
-        <img class="shell-3d-image" src="#" alt="圖層:列印3D耳殼" style="display:none"/>
-        <img class="surface-color-image-r" src="#" alt="圖層:面板顏色 右" style="display:none"/>
-        <img class="logo-color-image-r" src="#" alt="圖層:Logo顏色" style="display:none"/>
+        <img class="shell-3d-image" src="${python:context.shell3D[0].to_object.absolute_url()}/@@images/image" alt="圖層:主體顏色" />
+        <img class="surface-color-image-r" src="${python:context.surfaceColorR[0].to_object.absolute_url()}/@@images/image" alt="圖層:面板顏色 右" />
+        <img class="logo-color-image-r" src="${python:context.logoColorR[0].to_object.absolute_url()}/@@images/image" alt="圖層:Logo顏色" />
         <img id="previewimgR" src="#" alt="圖層:客製圖案" style="display:none"/>
         <canvas id='textCanvasRight' style="display:none"></canvas>
         <img id='textImageRight' style="display:none">
@@ -745,7 +745,7 @@ from plone import api
   <div id="product-full-image" style="float:left; width:100%">
     <div id="buy-photo-left" style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/ep_bgImage_left/large">
-        <img class="ep_colorLImage" src="#" alt="圖層:耳塞顏色 左" style="display:none"/>
+        <img class="ep_colorLImage" src="${python:context.ep_colorL[0].to_object.absolute_url()}/@@images/image" alt="圖層:耳塞顏色 左"/>
         <canvas id='textCanvasLeft' style="display:none"></canvas>
         <img id='textImageLeft' style="display:none">
     </div>
@@ -753,7 +753,7 @@ from plone import api
     <div id="buy-photo-right"
          style="position: relative; overflow: hidden; max-width:100%">
         <img src="${context/absolute_url}/@@images/ep_bgImage_right/large">
-        <img class="ep_colorRImage" src="#" alt="圖層:耳塞顏色 右" style="display:none"/>
+        <img class="ep_colorRImage" src="${python:context.ep_colorR[0].to_object.absolute_url()}/@@images/image" alt="圖層:耳塞顏色 右"/>
         <canvas id='textCanvasRight' style="display:none"></canvas>
         <img id='textImageRight' style="display:none">
     </div>

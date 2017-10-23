@@ -220,3 +220,14 @@ body.template-default_error_message {
     border: 1px #666666 solid;
     padding: 5px;
 }
+
+/* *_option_view */
+.shell-3d-image, .surface-color-image-l, .logo-color-image-l,
+.surface-color-image-r, .logo-color-image-r,
+.ep_colorLImage, .ep_colorRImage {
+    display: initial;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
