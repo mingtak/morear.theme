@@ -150,6 +150,11 @@
 
     <!-- drop other elements -->
     <drop css:content="#portal-breadcrumbs" />
+
+    <after css:theme-children="head">
+      <link rel="stylesheet" href="/++theme++moreartheme/content/css/backend.css" type="text/css" />
+    </after>
+
   </rules>
 
 </rules>
