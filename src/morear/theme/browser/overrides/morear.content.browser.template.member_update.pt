@@ -72,6 +72,12 @@ citys=[
     <th>聯絡電話： </th>
     <td><input name="telNo" type="text" id="telNo" style="width:100%;" value="${python:view.userInfo[0]}"></td>
   </tr>
+
+  <tr>
+    <th>電子信箱： </th>
+    <td><input name="email_info" type="text" id="email_info" style="width:100%;" value="${python:view.userEmail}"></td>
+  </tr>
+
   <tr>
     <th valign="top" style="border-bottom:0;">聯絡地址：</th>
     <td style="border-bottom:0;">
