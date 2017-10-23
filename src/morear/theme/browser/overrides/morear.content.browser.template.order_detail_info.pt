@@ -128,7 +128,27 @@ orderId = view.request.form.get('id')
     </tr>
 </table>
 
+<h3 i18n:translate="">contact_custom</h3>
+<textarea type="text" id="contact-custom" name="contact-custom" class="pat-tinymce" astyle="margin-bottom:10px">
+${python:view.getContactCustom()['contact_custom']}
+</textarea>
+<a href="javascript:void(0)" id="update-contact-custom" class="context btn btn-info btn-info">更新</a>
+
 <script>
+$('#update-contact-custom').click(function(){
+    data = {'inlineText': tinymce.get('contact-custom').getContent({format: 'raw'}),
+            'orderId': '${orderId}'}
+    $.post('${portal/absolute_url}/@@update_contact_custom', data)
+      .done(function(){
+          alert('資料已更新')
+      })
+      .fail(function(){
+          alert('更新失敗，請稍候再試，若一直失敗，請聯絡系統管理員。')
+      })
+})
+
+
+
 $('.open-all-page').click(function(){
     $('span.s_number').each(function(){
         url = '${portal/absolute_url}/@@print_item?orderId=${python:view.request.form.get("id")}' +

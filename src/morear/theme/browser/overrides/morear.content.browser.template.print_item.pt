@@ -86,7 +86,7 @@ parameter = json.loads(view.parameters[0]['parameter'])
 <h4>客戶資料</h4>
 <ul>
   <li tal:repeat="key python:view.orderInfo[0].keys()">
-    <b i18n:translate="">${key}</b><b>: </b><span>${python:view.orderInfo[0][key]}</span>
+    <b i18n:translate="">${key}</b><b>: </b><span tal:replace="structure python:view.orderInfo[0][key]" />
   </li>
 </ul>
 
