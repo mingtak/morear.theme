@@ -67,9 +67,10 @@ portal = api.portal.get()
 <script>
 $('.history-log').click(function(){
      data = {'orderId': $(this).attr("id")}
-     $.post('${portal/absolute_url}/@@get_order_state_log',  data)
-         .done(function(logData){
-             alert(logData)
+     $.post('${portal/absolute_url}/@@get_order_state',  data)
+         .done(function(jsonStr){
+             orderState = jQuery.parseJSON( jsonStr )
+             alert(orderState['stateLog'])
          })
          .fail(function(){
              alert('連線失敗，請稍候再試，或請聯絡系統管理員')
