@@ -62,7 +62,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
         <td align="center" bgcolor="#2E2E2E"><a class="orderinfo" href="#${python:'infobox_%s' % order}">${key}</a></td>
         <td align="center" bgcolor="#2E2E2E"><a class="orderinfo" href="#${python:'infobox_%s' % order}">${python:view.orderInfo[key]['itemNames'][:-1]}</a></td> 
         <td align="center" bgcolor="#2E2E2E">${python:view.orderInfo[key]['total']}</td>
-        <td align="center" bgcolor="#2E2E2E">待付款</td>
+        <td align="center" bgcolor="#2E2E2E" id="id${key}" class="orderState" data-orderid="${key}">狀態</td>
         <td align="center" bgcolor="#2E2E2E"><a href="mailto:me@morear.tw" class="whiteline-link">聯絡客服</a></td>
 
 <div style="display:none">
@@ -118,6 +118,21 @@ function showcol(){
      $('.order-list').hide(1)
      $('[id^=' + orderNo + ']').show(1)
 }
+
+$(document).ready(function(){
+    $('.orderState').each(function(){
+        orderId = $(this).data('orderid')
+        data = {'orderId': orderId}
+        $.post('${portal/absolute_url}/@@get_order_state', data)
+            .done(function(jsonStr){
+                orderState = jQuery.parseJSON( jsonStr )
+                $("#id" + orderState['orderId']).text(orderState['state_name'])
+            })
+            .fail(function(){
+                alert('連線失敗，請稍候再試')
+            })
+    })
+})
 </script>
 
 </div>
