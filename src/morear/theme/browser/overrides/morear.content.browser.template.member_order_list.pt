@@ -91,7 +91,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
     $(document).ready(function(){
 //        $(".home").colorbox();
         $(".orderinfo").colorbox({inline:true, width:"50%"});
-//        $(".detail").colorbox({iframe:true, width:"50%", height:"100%"});
+        $(".detail").colorbox({iframe:true, width:"50%", height:"100%"});
     })
 </script>
 

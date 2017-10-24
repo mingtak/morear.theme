@@ -23,9 +23,16 @@ portal = api.portal.get()
         <td>會員帳號</td>
         <td>訂單編號</td>
         <td>內容摘要</td>
+        <td>目前狀態</td>
+        <td>狀態變更</td>
+        <td>刪除訂單</td>
     </tr>
     <tr tal:repeat="order view/results">
-        <tal:order define="orderItems python:view.getOrderItems(order[1])">
+        <tal:order define="orderItems python:view.getOrderItems(order[1]);
+                           state python:view.getOrderState(order['orderId']);
+                           stateId python:state[0]['stateCode'];
+                           statusCode python:view.getStateCode(stateId)"
+                   on-error="nothing">
             <td>${python:order[0]}</td>
             <td>${python:order[1]}
                 <a href="${portal/absolute_url}/@@order_defail_info?id=${python:order[1]}" target="_blank">( 查看細節 )</a>
@@ -37,13 +44,38 @@ portal = api.portal.get()
                     </span>
                 </tal:item>
             </td>
-        </tal:order>
 
+            <td>
+                <span i18n:translate="">${python:statusCode[0]['state_name']}</span>
+                <a class="history-log" id="${python:order['orderId']}" href="javascript:void(0)">歷史記錄</a>
+            </td>
+            <td>
+                <form action="${portal/absolute_url}/@@change_order_state" method="post">
+                    <input type="text" name="orderId" value="${python:order['orderId']}" style="display:none">
+                    <select name="toState" style="float:left;width:50%">
+                        <option tal:repeat="item python:statusCode[0]['can_go'].split(',')" value="${item}">
+                            <span i18n:translate="">${python:view.getStateCode(item)[0]['state_name']}</span>
+                        </option>
+                    <select>
+                    <input type="submit" name="submit">
+                </form>
+            </td>
+        </tal:order>
     </tr>
 </table>
 
-
-
+<script>
+$('.history-log').click(function(){
+     data = {'orderId': $(this).attr("id")}
+     $.post('${portal/absolute_url}/@@get_order_state_log',  data)
+         .done(function(logData){
+             alert(logData)
+         })
+         .fail(function(){
+             alert('連線失敗，請稍候再試，或請聯絡系統管理員')
+         })
+})
+</script>
 
 
 </metal:content-core>

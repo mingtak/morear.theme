@@ -1,1 +1,54 @@
 /* backend css */
+
+body{
+	background-color:#f6f1e8;
+	letter-spacing:1px;
+}
+
+
+a:visited {
+	font-size: 100%;
+	color:#f48400;
+	text-decoration:none;
+}
+a:link {
+	font-size: 100%;
+	color:#f48400;
+	text-decoration:none;
+}
+a:hover {
+	font-size: 100%;
+	color:#F60;
+	text-decoration:none;
+}
+
+
+#content th {
+	padding:8px;
+}
+#content td {
+	padding:8px;
+}
+
+
+#content-core h4{
+	color:#f4a000;
+}
+#content-core h5{
+	padding:5px;
+	border-radius:5px;
+	background:#FFF;
+}
+#content-core ul {
+    margin:0;
+	padding:0 0 0 20px;
+}
+#content-core li {
+	padding:8px 0;
+	border-bottom:1px #CCC dotted;
+	list-style:square;
+}
+#content-core li b {
+	color:#999;
+	font-weight:normal;
+}

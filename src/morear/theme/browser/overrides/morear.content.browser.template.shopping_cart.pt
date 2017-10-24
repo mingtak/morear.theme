@@ -161,7 +161,7 @@ $('.delete-item').click(function(){
 });
 
 isCartEmpty = function(){
-    if($.cookie("cart") == '[]'){
+    if((typeof $.cookie('cart') === 'undefined') || ($.cookie("cart") == '[]')){
         alert('目前購物車是空的, 您將轉往首頁')
         window.location = '${portal/absolute_url}'
     }
