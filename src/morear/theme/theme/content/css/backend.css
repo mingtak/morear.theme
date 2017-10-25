@@ -47,8 +47,21 @@ a:hover {
 	padding:8px 0;
 	border-bottom:1px #CCC dotted;
 	list-style:square;
+	color:#00597f;
 }
 #content-core li b {
 	color:#999;
 	font-weight:normal;
+}
+
+#content-core li ul {
+	padding:0 0 0 30px;
+}
+#content-core li ul li {
+	color:#000;
+	border-bottom:none;
+	list-style:decimal-leading-zero;
+}
+#content-core li ul li img {
+	width:70%;
 }

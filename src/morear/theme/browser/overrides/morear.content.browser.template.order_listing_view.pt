@@ -60,21 +60,49 @@ portal = api.portal.get()
                     <input type="submit" name="submit">
                 </form>
             </td>
+            <td>
+                <a tal:condition="python:statusCode[0]['id'] == 1"
+                   id="delete-${python:order['orderId']}" class="destructive delete-order"
+                   href="javascript:void(0)"
+                   data-orderid="${python:order['orderId']}" style="color:white">刪除訂單</a>
+            </td>
+
         </tal:order>
     </tr>
 </table>
 
 <script>
 $('.history-log').click(function(){
-     data = {'orderId': $(this).attr("id")}
-     $.post('${portal/absolute_url}/@@get_order_state',  data)
-         .done(function(jsonStr){
-             orderState = jQuery.parseJSON( jsonStr )
-             alert(orderState['stateLog'])
-         })
-         .fail(function(){
-             alert('連線失敗，請稍候再試，或請聯絡系統管理員')
-         })
+    data = {'orderId': $(this).attr("id")}
+    $.post('${portal/absolute_url}/@@get_order_state',  data)
+        .done(function(jsonStr){
+            orderState = jQuery.parseJSON( jsonStr )
+            alert(orderState['stateLog'])
+        })
+        .fail(function(){
+            alert('連線失敗，請稍候再試，或請聯絡系統管理員')
+        })
+})
+
+$('.delete-order').click(function(){
+    orderId = $(this).data('orderid')
+    data = {'orderId': orderId}
+
+    var r = confirm("您將要進行刪除訂單, 訂單編號：" + orderId);
+    if (r == true) {
+       var s = confirm("警告，刪除訂單為不可逆的動作，一旦刪除將無法回復，請確認您要刪除\n訂單編號：" + orderId);
+           if (s == true){
+
+             $.post('${portal/absolute_url}/@@delete_order',  data)
+                 .done(function(){
+                     alert('已刪除該筆訂單')
+                     location.reload();
+                 })
+                 .fail(function(){
+                     alert('刪除失敗，請稍候再試，或請聯絡系統管理員')
+                 })
+           }
+    }
 })
 </script>
 
