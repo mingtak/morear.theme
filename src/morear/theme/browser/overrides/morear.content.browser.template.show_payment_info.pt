@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vue.org/v-on"
+    xmlns:v-bind="http://www.vue.org/v-bind"
+    xmlns:v-model="http://www.vue.org/v-model"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="morear.content">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+paymentInfo = view.result
+?>
+
+<h4 tal:condition="not:paymentInfo">無資料可顯示，若您覺得是個錯誤，請與客服人員聯絡</h4>
+<div style="width:400px">
+  <ul tal:condition="paymentInfo">
+    <li>訂單編號：${paymentInfo/orderId}</li>
+    <li>匯款銀行：${python:view.paymentType[paymentInfo['PaymentType']]}</li>
+    <li>銀行代碼：${paymentInfo/BankCode}</li>
+    <li>匯款帳號：${paymentInfo/vAccount}</li>
+    <li>匯款金額：${paymentInfo/TradeAmt}元</li>
+    <li>繳費期限：${paymentInfo/ExpireDate} 23:59:59</li>
+  </ul>
+</div>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

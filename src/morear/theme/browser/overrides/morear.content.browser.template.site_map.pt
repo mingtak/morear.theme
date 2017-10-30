@@ -117,7 +117,7 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 </ul>
 </div>
 <div class="map-item"><a href="${portal/absolute_url}/about">12.品牌故事</a></div>
-<div class="map-item"><a href="${portal/absolute_url}/about">13.3D製程</a></div>
+<div class="map-item"><a href="${portal/absolute_url}/3d_production">13.3D製程</a></div>
 <div class="map-item"><a href="${portal/absolute_url}/news">14.新聞資訊</a></div>
 <div class="map-item"><a href="https://goo.gl/7ba1jF" target="_blank">15.工作機會</a></div>
 <div class="map-item"><a href="javascript:void(0)">16.合作夥伴</a></div>

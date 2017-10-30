@@ -18,6 +18,17 @@ portal = api.portal.get()
 ?>
 
 <h3>訂單管理</h3>
+<form action="${portal/absolute_url}/@@order_listing_view" method="POST">
+<input type="text" name="by_condition" value="1" style="display:none">
+<input type="text" name="sort_on_userid" placeholder="使用者帳號搜尋">
+<input type="text" name="sort_on_orderid" placeholder="訂單編號搜尋">
+日期搜尋 起始日期：<input type="date" name="sort_on_date_min" placeholder="日期搜尋/請輸入起始日期">
+結束日期：<input type="date" name="sort_on_date_max" placeholder="日期搜尋/請輸入結束日期">
+<input type="submit" name="submit" value="查詢">
+</form>
+
+
+
 <table>
     <tr>
         <td>會員帳號</td>
