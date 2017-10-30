@@ -29,6 +29,13 @@ a:hover {
 #content td {
 	padding:8px;
 }
+#content input{
+	background:#f4ead7;
+	padding:5px;
+	border:1px #FFF solid;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
+	margin:15px auto;
+}
 
 
 #content-core h4{
