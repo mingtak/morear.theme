@@ -67,15 +67,17 @@ u'7dd3fd825dc34169a5ca5bea66a1eb26': {u'price': 600, u'total': 600, u'qty': 1}}
                min="1"
                value="${python:item[item.keys()[0]].get('qty')}" />
     </td>
-    <td align="center">${python:item[item.keys()[0]].get('price')}</td>
-    <td align="center">${python:item[item.keys()[0]].get('total')}</td>
+    <td align="center" class="unitprice">${python:item[item.keys()[0]].get('price')}</td>
+    <td align="center" class="subtotal">${python:item[item.keys()[0]].get('total')}</td>
     <td align="center"><a href="javascript:void(0)"><i class="fa fa-trash delete-item" aria-hidden="true"></i></a></td>
   </tr>
 </tal:cart>
 </tbody>
 </table>
 
-<div style="text-align:right; color:#f4a000; font-size:16px; font-weight:bolder; margin-top:15px;">總計：$${view/totalPrice}</div>
+<div style="text-align:right; color:#f4a000; font-size:16px; font-weight:bolder; margin-top:15px;">總計：
+    <span id="amount-total">$${view/totalPrice}</span>
+</div>
 </div>
 <div id="endbtn-bar">
   <a href="${portal/absolute_url}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}content/shoppingcart/images/btn-01b.png',1)"><img src="${prefix}content/shoppingcart/images/btn-01.png" id="Image18" hspace="15"></a>
@@ -127,7 +129,13 @@ $('.update-qty').change(function(){
     }  
 
     $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
-    location.reload();
+    trItem = $(this).parents('tr.item')[0]
+    unitprice = $(trItem).children('.unitprice').text()
+
+    $(trItem).children('.subtotal').text(Number(qty)*Number(unitprice))
+
+    amountTotal(cartJson)
+//    location.reload();
 });
 
 $('.delete-item').click(function(){
@@ -150,15 +158,29 @@ $('.delete-item').click(function(){
             }
         }
     }
-    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
-    $(this).parents('tr').css('display', 'none')
 
+    $.cookie('cart', JSON.stringify(cartJson), { expires : 0.2, path: '/' })
+
+    $(this).parents('tr').remove()
 
     isCartEmpty();
-    location.reload();
-  }
 
+// Amount Total
+    amountTotal(cartJson);
+
+  }
 });
+
+amountTotal = function(cartJson){
+    amount = 0
+    for(i in cartJson){
+        $.each(cartJson[i], function(key,value){
+            amount += Number(cartJson[i][key]['total'])
+        })
+    }
+
+    $('#amount-total').text(amount)
+}
 
 isCartEmpty = function(){
     if((typeof $.cookie('cart') === 'undefined') || ($.cookie("cart") == '[]')){
