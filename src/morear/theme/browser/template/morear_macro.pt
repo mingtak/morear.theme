@@ -695,7 +695,7 @@ current = api.user.get_current()
                 </ul>
             </div>
             <div id="footer-w1">
-                <p class="word-big-black">more Links</p>
+                <p class="word-big-black">More Links</p>
                 <ul>
                     <li><a href="#">合作夥伴</a></li>
                     <li><a href="${portal/absolute_url}/members/@@member_order_list">訂單查詢</a></li>
