@@ -72,3 +72,21 @@ a:hover {
 #content-core li ul li img {
 	width:70%;
 }
+
+#main{
+	background:#FFF;
+	width:350px;
+	text-align:center;
+	padding:20px;
+	margin:0 auto;
+	border-radius:7px;
+	box-shadow: 0 0 0.5em 0 rgba(0,0,0,0.5);
+}
+#main input{
+	background:#000;
+	color:#FFF;
+	padding:5px;
+	border:1px #FFF solid;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
+	margin:15px auto;
+}

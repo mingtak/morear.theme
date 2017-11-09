@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
+?>
+
+<div id="all" align="center">
+<div id="in-bg">
+<!-- content -->
+
+<metal:macro use-macro="context/@@object_macro/macros/big-image"/>
+<div id="wrapper">
+    <metal:macro use-macro="context/@@morear_macro/macros/inner_header"/>
+    <metal:macro use-macro="context/@@morear_macro/macros/title-tag"/>
+
+  <div id="content">
+
+      <form action="${portal/absolute_url}/partner/@@partner_listing" id="search-partner">
+          <select name="city" id="cityies">
+              <option value=''>選擇縣市</option>
+              <option tal:repeat="item view/cities" value="${item/id}">${item/name}</option>
+          </select>
+          <select name="company" id="partner-name">
+              <option value=''>合作夥伴</option>
+              <option tal:repeat="item view/companies" value="${item/id}">${item/name}</option>
+          </select>
+          <input type="submit" name="submit"/>
+      </form>
+
+
+<!-- Parter listing -->
+
+<div tal:define="brain view/result" class="location-list">
+<!-- 單筆 -->
+<tal:store condition="python:len(brain) == 1">
+  <tal:item define="item python:brain[0]">
+
+<div id="map" style="max-width:560px; overflow:hidden">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14463.044385071287!2d${item/lng}!3d${item/lat}!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1510223784694" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+</div>
+<div id="store-info-img"><img src="http://210.68.106.227${item/imagePath}" /></div>
+<div id="store-info">
+  <h4>${item/name}</h4>
+  <p><span class="word-yellow">聯絡電話：</span>${item/phone}</p>
+  <p><span class="word-yellow">地址：</span>${item/address}</p>
+
+</div>
+
+
+  </tal:item>
+</tal:store>
+
+
+<!-- 多筆 -->
+<tal:stores condition="python:len(brain) > 1">
+  <tal:item repeat="item brain">
+
+    <div class="item">
+        <div class="image">
+            <a href="javascript:void(0)">
+                <img src="http://210.68.106.227${item/imagePath}">
+            </a>
+        </div>
+
+        <div class="detail">
+            <h4><a href="?id=${item/id}">門市：${item/name}</a></h4>
+            <p>聯絡電話：${item/phone}</p>
+            <p>地址：${item/address}</p>
+        </div>
+
+    </div>
+    <p tal:condition="repeat/item/odd"><hr tal:condition="not:repeat/item/end"></p>
+
+  </tal:item>
+</tal:stores>
+</div>
+
+
+
+<!-- Parter listing end -->
+
+
+
+
+
+  </div>
+  <metal:macro use-macro="context/@@morear_macro/macros/back-top"/>
+
+</div>
+
+
+<metal:macro use-macro="context/@@morear_macro/macros/hide-all"/>
+<metal:macro use-macro="context/@@morear_macro/macros/footer"/>
+</div>
+</div>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

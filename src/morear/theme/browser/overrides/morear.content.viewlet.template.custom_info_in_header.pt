@@ -9,12 +9,10 @@ prefix = '%s/++theme++moreartheme/' % portal.absolute_url()
 <link tal:condition="python:context.getParentNode().id == 'about'"
       class="for-theme" href="${prefix}content/css/about.css" rel="stylesheet" type="text/css" />
 
-
-
 <link class="for-theme" href="${prefix}content/css/web.css" rel="stylesheet" type="text/css" />
 <link class="for-theme" href="${prefix}content/css/in-menu.css" rel="stylesheet" type="text/css" />
 
-<link tal:condition="python:'Location' in str(view.view)"
+<link tal:condition="python:'Location' in str(view.view) or 'PartnerListing' in str(view.view)"
       class="for-theme" href="${prefix}content/css/location.css" rel="stylesheet" type="text/css" />
 
 <link tal:condition="False"
