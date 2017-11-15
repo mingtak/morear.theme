@@ -99,7 +99,9 @@ tabs.reverse()
                 </a>
             </td>
             <td style="padding:5px 10px">
-                <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item', 'Location']"
+                <a tal:condition="python:item.Type() in
+                                         ['Product', 'Faq', 'Page', 'Page with Image',
+                                          'News Item', 'Location', 'ParaText', 'ParaImage']"
                    v-on:click="delObj" href="javascript:void(0)"
                    id="delete-${item/UID}"
                    class="${python:api.content.get_state(obj=item)}">

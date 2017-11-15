@@ -90,3 +90,19 @@ a:hover {
 	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 	margin:15px auto;
 }
+
+body.template-prefs_install_products_form #content-core ul.configlets li {
+    list-style-type:none;
+}
+
+body.template-prefs_install_products_form #content-core ul.configlets li form{
+    margin: 0;
+}
+
+body.template-prefs_install_products_form #content-core ul.configlets li form input.context {
+    background-color:green
+}
+
+body.template-prefs_install_products_form #content-core ul.configlets li form input.destructive {
+    background-color:red
+}

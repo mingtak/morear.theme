@@ -476,7 +476,7 @@ a:hover {
 #orderquery,#urgentCase{
 	color:#FFF;
 	background-color:#333;
-	border:1px #666666 solid;
+	border:2px #666666 solid;
 	padding:5px;
 	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
@@ -496,6 +496,21 @@ a:hover {
 }
 #share-01 a:hover {
 	color:#000;
+}
+
+
+#search-partner{
+	text-align:center;
+	border-bottom:2px #666 solid;
+	padding-bottom:20px;
+	margin-bottom:30px;
+}
+#search-partner select{
+	color:#FFF;
+	background-color:#333;
+	border:1px #666666 solid;
+	padding:5px;
+	font-family: "Hiragino Kaku Gothic Pro", "微軟正黑體", "Microsoft Jhenghei", Helvetica, Arial, sans-serif;
 }
 
 

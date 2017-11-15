@@ -13,7 +13,7 @@
 .template-login_success a:hover {color:#555;}
 
 .location-list .item {width:48%; padding: 10px; float:left}
-.location-list hr {width:94%; border: 1px dashed #888}
+.location-list hr {width:100%; border-bottom:1px dashed #333; margin:25px 0; padding-top:25px; border-top:0; border-left:0; border-right:0;}
 .location-list .item .image { float:left; margin:0 20px; overflow:hidden; width:35%; }
 
 .location-list .item .image img { width:100%; } 
