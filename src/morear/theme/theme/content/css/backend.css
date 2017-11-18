@@ -106,3 +106,39 @@ body.template-prefs_install_products_form #content-core ul.configlets li form in
 body.template-prefs_install_products_form #content-core ul.configlets li form input.destructive {
     background-color:red
 }
+
+.contenttype-paraimage:after {
+    font-family: Fontello;
+    content: '\E821';
+}
+
+.contenttype-paratext:after {
+    font-family: Fontello;
+    content: '\E802';
+}
+
+.contenttype-docwithbigimage:after {
+    font-family: Fontello;
+    content: '\E818';
+}
+
+.contenttype-location:after {
+    font-family: Fontello;
+    content: '\E83d';
+}
+
+.contenttype-product:after {
+    font-family: Fontello;
+    content: '\E830';
+}
+
+.contenttype-cover:after {
+    font-family: Fontello;
+    content: '\E81b';
+}
+
+.contenttype-faq:after {
+    font-family: Fontello;
+    content: '\E83b';
+}
+
