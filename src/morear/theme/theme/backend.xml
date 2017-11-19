@@ -144,10 +144,13 @@
     <drop css:content="#contentview-history" if="$is_admin = 'False'" />
     <drop css:content="#contentview-local_roles" if="$is_admin = 'False'" />
     <drop css:content="#personaltools-preferences" if="$is_admin = 'False'" />
+    <drop css:content="#personaltools-orderListingView" if="$is_admin = 'False'" />
+
 <!--    <drop css:content="#plone-contentmenu-factories" css:if-content="body.portaltype-plone-site" />
     <drop css:content="#plone-contentmenu-factories" css:if-content="body.portaltype-cover" />
 -->
     <drop css:content="#plone-contentmenu-factories" if-path="/folder_contents"/>
+    <drop css:content="#plone-contentmenu-factories" css:if-content="body.template-edit"/>
     <drop css:content="#edit-zone" css:if-content="body.template-print_item" />
     <drop css:content="#contentview-folderContents" />
     <drop css:content="#contentview-view" />
@@ -157,9 +160,8 @@
     <drop css:content="#contentview-edit" />
     <drop css:content="#plone-contentmenu-workflow" />
     <drop css:content="#plone-contentmenu-actions" />
-    <drop css:content="#contentview-local_roles" if-path="/folder_contents"/>
-
-
+    <drop css:content="#contentview-local_roles" />
+    <drop css:content="body.template-usergroup-userprefs .autotoc-nav a" />
     <!-- drop other elements -->
     <drop css:content="#portal-breadcrumbs" />
 

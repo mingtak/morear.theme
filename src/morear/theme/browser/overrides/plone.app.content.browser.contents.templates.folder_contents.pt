@@ -50,7 +50,6 @@ tabs.reverse()
 </tal:path>
 </h4>
 
-<a href="${portal/absolute_url}/@@order_listing_view" style="float:right">訂單管理</a>
 <table id="custom-folder-contents" talcondition="python:api.user.get_current().id != 'admin'">
     <thead>
         <tr>
@@ -63,7 +62,7 @@ tabs.reverse()
     </thead>
     <tbody tal:define="items python:list(childNodes)[0:100]">
         <tal:tr tal:repeat="item items">
-          <tr tal:condition="python:item.Type() not in ['Image', 'File'] or context.id == 'download'">
+          <tr tal:condition="python:not getattr(item, 'exclude_from_nav', False) and (item.Type() not in ['Image', 'File'] or context.id == 'download')">
             <td style="padding:5px 10px">
                  [ <tal:type replace="item/Type"/> ]
                  <tal:switch switch="item/Type">
@@ -115,11 +114,11 @@ tabs.reverse()
 </table>
 
 
-
+<!--
     <div class="pat-structure"
          tal:condition="python:'Manager' in api.user.get_roles()"
          tal:attributes="data-pat-structure view/options" />
-
+-->
 
 <style>
 a.published { color:blue }

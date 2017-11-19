@@ -138,7 +138,7 @@ ${python:view.getContactCustom()['contact_custom']}
 $('#update-contact-custom').click(function(){
     data = {'inlineText': tinymce.get('contact-custom').getContent({format: 'raw'}),
             'orderId': '${orderId}'}
-    $.post('${portal/absolute_url}/@@update_contact_custom', data)
+    $.post('${portal/absolute_url}/products/@@update_contact_custom', data)
       .done(function(){
           alert('資料已更新')
       })
@@ -150,7 +150,7 @@ $('#update-contact-custom').click(function(){
 
 $('.open-all-page').click(function(){
     $('span.s_number').each(function(){
-        url = '${portal/absolute_url}/@@print_item?orderId=${python:view.request.form.get("id")}' +
+        url = '${portal/absolute_url}/products/@@print_item?orderId=${python:view.request.form.get("id")}' +
               '&sn=' + $(this).data('s_number') +
               '&p_UID=' + $(this).data('p_uid')
         window.open(url, $(this).data('s_number'))

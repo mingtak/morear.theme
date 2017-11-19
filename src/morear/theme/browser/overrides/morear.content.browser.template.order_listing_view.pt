@@ -18,7 +18,7 @@ portal = api.portal.get()
 ?>
 
 <h3>訂單管理</h3>
-<form action="${portal/absolute_url}/@@order_listing_view" method="POST">
+<form action="${portal/absolute_url}/products/@@order_listing_view" method="POST">
 <input type="text" name="by_condition" value="1" style="display:none">
 <input type="text" name="sort_on_userid" placeholder="使用者帳號搜尋">
 <input type="text" name="sort_on_orderid" placeholder="訂單編號搜尋">
@@ -46,7 +46,7 @@ portal = api.portal.get()
                    on-error="nothing">
             <td>${python:order[0]}</td>
             <td>${python:order[1]}
-                <a href="${portal/absolute_url}/@@order_defail_info?id=${python:order[1]}" target="_blank">( 查看細節 )</a>
+                <a href="${portal/absolute_url}/products/@@order_defail_info?id=${python:order[1]}" target="_blank">( 查看細節 )</a>
             </td>
             <td>
                 <tal:item repeat="item orderItems">
@@ -61,7 +61,7 @@ portal = api.portal.get()
                 <a class="history-log" id="${python:order['orderId']}" href="javascript:void(0)">歷史記錄</a>
             </td>
             <td>
-                <form action="${portal/absolute_url}/@@change_order_state" method="post">
+                <form action="${portal/absolute_url}/products/@@change_order_state" method="post">
                     <input type="text" name="orderId" value="${python:order['orderId']}" style="display:none">
                     <select name="toState" style="float:left;width:50%">
                         <option tal:repeat="item python:statusCode[0]['can_go'].split(',')" value="${item}">
@@ -85,7 +85,7 @@ portal = api.portal.get()
 <script>
 $('.history-log').click(function(){
     data = {'orderId': $(this).attr("id")}
-    $.post('${portal/absolute_url}/@@get_order_state',  data)
+    $.post('${portal/absolute_url}/products/@@get_order_state',  data)
         .done(function(jsonStr){
             orderState = jQuery.parseJSON( jsonStr )
             alert(orderState['stateLog'])
@@ -104,7 +104,7 @@ $('.delete-order').click(function(){
        var s = confirm("警告，刪除訂單為不可逆的動作，一旦刪除將無法回復，請確認您要刪除\n訂單編號：" + orderId);
            if (s == true){
 
-             $.post('${portal/absolute_url}/@@delete_order',  data)
+             $.post('${portal/absolute_url}/products/@@delete_order',  data)
                  .done(function(){
                      alert('已刪除該筆訂單')
                      location.reload();

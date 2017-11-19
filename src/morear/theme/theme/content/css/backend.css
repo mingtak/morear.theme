@@ -142,3 +142,6 @@ body.template-prefs_install_products_form #content-core ul.configlets li form in
     content: '\E83b';
 }
 
+.template-edit #content-core input { margin:initial }
+.template-edit #content-core * { color: #555 }
+.template-edit #content-core .autotoc-nav .active { background-color: #aaa}
