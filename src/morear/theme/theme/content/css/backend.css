@@ -145,3 +145,5 @@ body.template-prefs_install_products_form #content-core ul.configlets li form in
 .template-edit #content-core input { margin:initial }
 .template-edit #content-core * { color: #555 }
 .template-edit #content-core .autotoc-nav .active { background-color: #aaa}
+.template-edit .select2-search-choice div { padding: 3px 20px }
+.template-order_listing_view #content-core input { margin: 0 3px }

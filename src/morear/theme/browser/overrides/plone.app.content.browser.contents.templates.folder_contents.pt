@@ -84,7 +84,7 @@ tabs.reverse()
                        tal:condition="python:hasattr(item, 'featured') and api.user.get_permissions().get('Review portal content')">
                      權重: <input value="${item/headWeight}"
                                   type="number" class="headweight" name="headweight"
-                                  id="h-${item/UID}" style="width:50%">
+                                  id="h-${item/UID}" style="width:50%; margin:initial">
                  </span>
 
             </td>
@@ -114,11 +114,11 @@ tabs.reverse()
 </table>
 
 
-<!--
-    <div class="pat-structure"
+
+    <div class="pat-structure" style="margin-top:30px"
          tal:condition="python:'Manager' in api.user.get_roles()"
          tal:attributes="data-pat-structure view/options" />
--->
+
 
 <style>
 a.published { color:blue }

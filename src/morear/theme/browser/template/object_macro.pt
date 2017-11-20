@@ -495,7 +495,7 @@ from plone import api
 
   <tr>
     <td>單　　體：</td>
-    <td> ${python:context.driver.to_object.title}
+    <td> ${python:context.driver.to_object.showName}
     </td>
     <td align="center" class="word-gray-2"></td>
   </tr>
@@ -586,7 +586,7 @@ from plone import api
         <img tal:repeat="item context/logoColorR"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
-                             data-title item/to_object/title;
+                             data-title item/to_object/showName;
                              data-price item/to_object/price;
                              data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              data-image-uid item/to_object/UID;
@@ -604,7 +604,7 @@ from plone import api
         <img tal:repeat="item context/logoColorL"
              tal:attributes="src string:${item/to_object/absolute_url}/@@images/image_s;
                              title item/to_object/showName;
-                             data-title item/to_object/title;
+                             data-title item/to_object/showName;
                              data-price item/to_object/price;
                              data-image-url string:${item/to_object/absolute_url}/@@images/image;
                              data-image-uid item/to_object/UID;

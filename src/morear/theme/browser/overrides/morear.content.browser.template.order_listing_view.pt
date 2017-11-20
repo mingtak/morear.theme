@@ -63,7 +63,7 @@ portal = api.portal.get()
             <td>
                 <form action="${portal/absolute_url}/products/@@change_order_state" method="post">
                     <input type="text" name="orderId" value="${python:order['orderId']}" style="display:none">
-                    <select name="toState" style="float:left;width:50%">
+                    <select name="toState" style="float:left;width:65%">
                         <option tal:repeat="item python:statusCode[0]['can_go'].split(',')" value="${item}">
                             <span i18n:translate="">${python:view.getStateCode(item)[0]['state_name']}</span>
                         </option>

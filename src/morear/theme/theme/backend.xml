@@ -162,8 +162,13 @@
     <drop css:content="#plone-contentmenu-actions" />
     <drop css:content="#contentview-local_roles" />
     <drop css:content="body.template-usergroup-userprefs .autotoc-nav a" />
+    <drop css:content="body.template-edit #formfield-form-widgets-ICategorization-language"/>
     <!-- drop other elements -->
     <drop css:content="#portal-breadcrumbs" />
+
+
+    <!-- Drop Folder Contents -->
+    <drop css:content="body.template-folder_contents .pat-structure" if="$is_admin = 'False'"/> 
 
     <after css:theme-children="head">
       <link rel="stylesheet" href="/++theme++moreartheme/content/css/backend.css" type="text/css" />
