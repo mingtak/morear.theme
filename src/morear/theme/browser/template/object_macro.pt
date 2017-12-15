@@ -161,7 +161,7 @@ if ytURL:
 
 <metal:row define-macro="cover-more-feast-text">
 <!-- music -->
-<div id="index-music">
+<div id="index-music" style="background:url(${context/absolute_url}/@@images/moreFeast_bgImg)">
 <div id="tai-index-music"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','${prefix}images/tai-music-b.png',1)"><img src="${prefix}images/tai-music.png" id="Image18" /></a></div>
 <a name="notice01" id="notice01"></a>
 <div id="index-music-box">
@@ -184,7 +184,7 @@ if ytURL:
 
 
 <metal:row define-macro="cover-about">
-<div id="index-about">
+<div id="index-about" style="background:url(${context/absolute_url}/@@images/aboutMorearImage)">
 <p><p tal:replace="structure context/aboutMorear"></p>
     <a href="${portal/absolute_url}/about" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','${prefix}images/btn-more-b.png',1)">
         <img src="${prefix}images/btn-more.png" id="Image24" hspace="15" align="center" />
