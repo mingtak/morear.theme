@@ -168,7 +168,8 @@
 
 
     <!-- Drop Folder Contents -->
-    <drop css:content="body.template-folder_contents .pat-structure" if="$is_admin = 'False'"/> 
+    <drop css:content="body.template-folder_contents .pat-structure"/> 
+<!--    <drop css:content="body.template-folder_contents .pat-structure" if="$is_admin = 'False'"/> -->
 
     <after css:theme-children="head">
       <link rel="stylesheet" href="/++theme++moreartheme/content/css/backend.css" type="text/css" />
